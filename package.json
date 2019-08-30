@@ -1,0 +1,64 @@
+{
+  "name": "radio-player",
+  "version": "0.1.0",
+  "description": "Web app Radio Player. The web app that gives the ability to listen Internet radio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "bundle": "jspm bundle js/**/* - [js/**/*] dependency-bundle.js",
+    "css:min": "gulp", 
+    "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
+    "transpile:all": "babel ./src --out-dir ./js --source-maps",
+    "build:dev:dll": "webpack --colors --progress --config webpack.dev.dll.js",
+    "build:dev:dll-jsx": "webpack --colors --progress --config webpack.dev.dll-jsx.js",
+    "build:dll": "webpack --colors --progress --config webpack.dll.js",
+    "build:dll-jsx": "webpack --colors --progress --config webpack.dll-jsx.js"
+  },
+  "keywords": [
+     "radio-player"
+   ],
+  "author": "Yevhenii Molodyi",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-processing-plugin": "^0.1.2",
+    "jspm": "^0.16.54",
+    "webpack": "^3.12.0"
+  },
+  "jspm": {
+    "dependencies": {
+      "howler": "npm:howler@^2.1.2",
+      "react": "npm:react@^16.9.0",
+      "react-dom": "npm:react-dom@^16.9.0",
+      "react-redux": "npm:react-redux@^7.1.1",
+      "redux": "npm:redux@^4.0.4"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "dependencies": {
+    "howler": "^2.1.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  }
+}

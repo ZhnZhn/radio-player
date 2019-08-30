@@ -1,0 +1,13 @@
+{
+ "version": 3,
+ "sources": [
+  "../src/index.js"
+ ],
+ "file": "../src/index.js",
+ "names": [
+  "store",
+  "document",
+  "getElementById"
+ ],
+ "mappings": ";;AAAA;;;;AACA;;AAEA;;AAEA;;;;AACA;;;;;;AAEA,sBAEI;AAAC,sBAAD;AAAA,IAAU,OAAOA,eAAjB;AACE,gCAAC,aAAD;AADF,CAFJ,EAMEC,SAASC,cAAT,CAAwB,KAAxB,CANF"
+}

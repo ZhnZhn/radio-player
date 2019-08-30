@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/app/reducer.js"
+ ],
+ "file": "../../../src/flux/app/reducer.js",
+ "names": [
+  "reducer",
+  "state",
+  "action",
+  "type"
+ ],
+ "mappings": ";;;;;AAAA;;;AAGA,IAAMA,UAAU,SAAVA,OAAU,GAA2B;AAAA,MAAlBC,KAAkB,uEAAZ,EAAY;AAAA,MAARC,MAAQ;;AACzC,UAAOA,OAAOC,IAAd;AACE;AACE,aAAOF,KAAP;AAFJ;AAID,CALD;;kBAOeD,O"
+}

@@ -1,0 +1,11 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/categories.js"
+ ],
+ "file": "../../src/sound/categories.js",
+ "names": [
+  "CATEGORIES"
+ ],
+ "mappings": ";;;;;AAAA,IAAMA,aAAa,CACjB,UADiB,EAEjB,WAFiB,EAGjB,SAHiB,EAIjB,cAJiB,EAKjB,MALiB,EAMjB,QANiB,EAOjB,OAPiB,EAQjB,KARiB,EASjB,MATiB,EAUjB,OAViB,EAWjB,OAXiB,CAAnB;;kBAceA,U"
+}

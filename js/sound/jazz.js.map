@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/jazz.js"
+ ],
+ "file": "../../src/sound/jazz.js",
+ "names": [
+  "jazz",
+  "title",
+  "src",
+  "siteUrl"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,OAAO,CACX,EAAEC,OAAO,cAAT,EAAyBC,KAAK,4CAA9B,EADW,EAEX,EAAED,OAAO,sBAAT,EAAiCC,KAAK,4CAAtC,EAAoFC,SAAS,kCAA7F,EAFW,CAAb;;kBAKeH,I"
+}

@@ -1,0 +1,13 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/piano.js"
+ ],
+ "file": "../../src/sound/piano.js",
+ "names": [
+  "piano",
+  "title",
+  "src"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,QAAQ,CACZ,EAAEC,OAAO,oCAAT,EAA+CC,KAAK,sCAApD,EADY,CAAd;;kBAIeF,K"
+}

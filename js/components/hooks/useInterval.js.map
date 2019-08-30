@@ -1,0 +1,20 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/hooks/useInterval.js"
+ ],
+ "file": "../../../src/components/hooks/useInterval.js",
+ "names": [
+  "useInterval",
+  "fn",
+  "check",
+  "delay",
+  "ID",
+  "stopInInterval",
+  "clearInterval",
+  "current",
+  "runInInterval",
+  "setInterval"
+ ],
+ "mappings": ";;;;;;AAAA;;AAEA,SAASA,WAAT,CAAqBC,EAArB,EAAyBC,KAAzB,EAA2C;AAAA,MAAXC,KAAW,uEAAL,GAAK;;AACzC,MAAMC,KAAK,oBAAX;AAAA,MACEC,iBAAiB,SAAjBA,cAAiB;AAAA,WAAMC,cAAcF,GAAGG,OAAjB,CAAN;AAAA,GADnB;AAAA,MAEEC,gBAAgB,SAAhBA,aAAgB,GAAM;AACtBJ,OAAGG,OAAH,GAAaE,YAAYR,EAAZ,EAAgBE,KAAhB,CAAb;AACD,GAJD;AAKA,SAAO,CAAEK,aAAF,EAAiBH,cAAjB,CAAP;AACD;;kBAEcL,W"
+}

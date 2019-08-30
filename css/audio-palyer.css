@@ -1,0 +1,14 @@
+
+.audio-player {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 420px;
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: -20px;
+  background-color: grey;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.6);  
+}

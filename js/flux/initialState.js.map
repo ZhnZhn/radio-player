@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/initialState.js"
+ ],
+ "file": "../../src/flux/initialState.js",
+ "names": [
+  "initialState",
+  "app",
+  "categories",
+  "stations"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK,EADc;AAEnBC,cAAY,EAFO;AAGnBC,YAAU;AAHS,CAArB;;kBAMeH,Y"
+}

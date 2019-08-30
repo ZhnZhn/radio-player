@@ -1,0 +1,16 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/app/actions.js"
+ ],
+ "file": "../../../src/flux/app/actions.js",
+ "names": [
+  "ACTION",
+  "ADD_CATEGORY",
+  "addCategory",
+  "category",
+  "type",
+  "SAVE_BOARD"
+ ],
+ "mappings": ";;;;;AACO,IAAMA,0BAAS;AACpBC,gBAAc;AADM,CAAf;;AAIA,IAAMC,oCAAc,SAAdA,WAAc,CAACC,QAAD;AAAA,SAAe;AACxCC,UAAMJ,OAAOK,UAD2B;AAExCF;AAFwC,GAAf;AAAA,CAApB"
+}

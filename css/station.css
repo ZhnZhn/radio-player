@@ -1,0 +1,24 @@
+
+.item-station {
+  position: relative;
+  width: 380px;
+  padding-left: 16px;
+  margin-bottom: 4px;
+  line-height: 2.3;
+  text-align: left;
+  font-weight: 600;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.item-station:hover,
+.item-station:focus {
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.item-station__access {
+  position: absolute;
+  right: 12px;
+  color: #ffba49;
+}

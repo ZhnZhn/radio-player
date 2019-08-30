@@ -1,0 +1,18 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/categories/reducer.js"
+ ],
+ "file": "../../../src/flux/categories/reducer.js",
+ "names": [
+  "reducer",
+  "state",
+  "action",
+  "type",
+  "SA",
+  "ADD_CATEGORY",
+  "category",
+  "REMOVE_CATEGORY"
+ ],
+ "mappings": ";;;;;;;;;;AAAA;;;;AAEA,IAAMA,UAAU,SAAVA,OAAU,GAA2B;AAAA,MAAlBC,KAAkB,uEAAZ,EAAY;AAAA,MAARC,MAAQ;;AACzC,UAAOA,OAAOC,IAAd;AACE,SAAKC,gBAAGC,YAAR;AAAsB;AAAA,YACZC,QADY,GACCJ,MADD,CACZI,QADY;;AAEpBL,cAAMK,QAAN,IAAkB,IAAlB;AACA,0CAAYL,KAAZ;AACD;AACD,SAAKG,gBAAGG,eAAR;AAAyB;AAAA,YACfD,SADe,GACFJ,MADE,CACfI,QADe;;AAEvBL,cAAMK,SAAN,IAAkB,KAAlB;AACA,0CAAYL,KAAZ;AACD;AACD;AAAS,aAAOA,KAAP;AAXX;AAaD,CAdD;;kBAgBeD,O"
+}

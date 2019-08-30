@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/classic.js"
+ ],
+ "file": "../../src/sound/classic.js",
+ "names": [
+  "classical",
+  "title",
+  "src",
+  "siteUrl"
+ ],
+ "mappings": ";;;;;;AACA,IAAMA,YAAY,CAChB,EAAEC,OAAO,iCAAT,EAA4CC,KAAK,sKAAjD,EADgB,EAEhB,EAAED,OAAO,uBAAT,EAAkCC,KAAK,uCAAvC,EAFgB,EAGhB,EAAED,OAAO,mCAAT,EAA8CC,KAAK,+CAAnD,EAHgB,EAIhB,EAAED,OAAO,iCAAT,EAA4CC,KAAK,sCAAjD,EAJgB,EAKhB,EAAED,OAAO,yBAAT,EAAoCC,KAAK,oDAAzC,EALgB,EAMhB,EAAED,OAAO,8BAAT,EAAyCC,KAAK,4CAA9C,EAA4FC,SAAS,qCAArG,EANgB,EAOhB,EAAEF,OAAO,qBAAT,EAAgCC,KAAK,iEAArC,EAAwG,WAAW,uBAAnH,EAPgB,CAAlB;;kBAUeF,S"
+}

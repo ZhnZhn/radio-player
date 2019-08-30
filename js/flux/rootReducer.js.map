@@ -1,0 +1,14 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/rootReducer.js"
+ ],
+ "file": "../../src/flux/rootReducer.js",
+ "names": [
+  "rootReducer",
+  "app",
+  "stations",
+  "categories"
+ ],
+ "mappings": ";;;;;;AAAA;;AAEA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,cAAc,4BAAgB;AAClCC,wBADkC;AAElCC,6BAFkC;AAGlCC;AAHkC,CAAhB,CAApB;;kBAMeH,W"
+}

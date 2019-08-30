@@ -1,0 +1,35 @@
+
+.bt-triple {
+  display: inline-block;
+  padding: 0;
+}
+.bt-triple > button {
+  display: inline-block;
+  color: silver;
+  border: 2px solid #1b2836;
+  font-weight: 600;
+  cursor: pointer;
+}
+.bt-triple > button:hover {
+  background-color: rgba(0,0,0, 0.2);
+}
+
+.bt-triple__one {
+  padding: 7px 6px 4px 8px;  
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  border-right-width: 1px;
+}
+
+.bt-triple__two {
+  padding: 7px 6px 4px 6px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.bt-triple__three {
+  padding: 7px 8px 4px 6px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-left-width: 1px;
+}

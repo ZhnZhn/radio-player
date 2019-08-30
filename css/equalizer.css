@@ -1,0 +1,15 @@
+
+.equalizer {
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+  background: url("/css/ani_equalizer_green.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotateZ(90deg);
+}
+.equalizer--not-playing {
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+}

@@ -1,0 +1,41 @@
+.noscript__root {
+  background-color: #4d4d4d;
+  border: 2px solid #232f3b;
+  width: 570px;
+  height: 120px;
+  padding: 10px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px; }
+
+.noscript__header {
+  background-color: #232f3b;
+  height: 28px;
+  padding-top: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; }
+
+.noscript__caption {
+  color: #80c040;
+  font-size: 16px;
+  font-weight: bold; }
+
+.noscript__msg {
+  color: black;
+  background-color: #ffc100;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold; }
+
+.noscript__link {
+  color: black;
+  border-bottom: 1px solid #1b75bb;
+  text-decoration: none; }

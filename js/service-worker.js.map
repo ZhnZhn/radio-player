@@ -1,0 +1,15 @@
+{
+ "version": 3,
+ "sources": [
+  "../src/service-worker.js"
+ ],
+ "file": "../src/service-worker.js",
+ "names": [
+  "console",
+  "log",
+  "self",
+  "addEventListener",
+  "event"
+ ],
+ "mappings": ";;AAAAA,QAAQC,GAAR,CAAY,wBAAZ;AACAC,KAAKC,gBAAL,CAAsB,OAAtB,EAA+B,iBAAS;AACtCH,UAAQC,GAAR,CAAY,eAAZ;AACAD,UAAQC,GAAR,CAAYG,KAAZ;AACD,CAHD"
+}
