@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import HAS from '../has'
+
 import sound from '../../sound/sound'
 import Radio from './Radio'
 import Title from './Title'
@@ -19,18 +21,28 @@ const S = {
   }
 };
 
+const _setMediaMetadata = (artist) => {
+  if (HAS.MEDIA_SESSION) {
+    /*eslint-disable no-undef*/
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: DF_TITLE,
+      artist
+    });
+    /*eslint-enable no-undef*/
+  }
+};
 
 const AudioPlayer = ({ station }) => {
   const [msgErr, setErrMsg] = useState('')
-  const [title, setTitle] = useState(DF_TITLE)
-  const [isUnloaded, setUnloaded] = useState(true)
-  const [isPlaying, setPlaying] = useState(false)
-  const [volume, setVolume] = useState(sound.INIT_VOLUME);
+  , [title, setTitle] = useState(DF_TITLE)
+  , [isUnloaded, setUnloaded] = useState(true)
+  , [isPlaying, setPlaying] = useState(false)
+  , [volume, setVolume] = useState(sound.INIT_VOLUME);
 
   const _setVolume = (volume) => {
     sound.setVolume(volume)
     setVolume(volume)
-  }
+  };
   const _increaseVolume = () => setVolume(
     sound.increaseVolume(0.01)
   );
@@ -42,25 +54,29 @@ const AudioPlayer = ({ station }) => {
     if (!msgErr && sound.play()) {
       setPlaying(true)
       setUnloaded(false)
+      _setMediaMetadata(title)
     } else {
       setTitle(MSG_NO_STATION)
+      _setMediaMetadata()
     }
-  }
+  };
   const stop = () => {
     sound.stop()
     setPlaying(false)
-  }
-  
+  };
+
   const _unload = () => {
     sound.unload()
     setUnloaded(true)
-  }
+    _setMediaMetadata()
+  };
 
   const _onError = (msg) => {
     setErrMsg(msg)
     setUnloaded(true)
     setPlaying(false)
-  }
+    _setMediaMetadata()
+  };
 
   useEffect(()=>{
     if (station && station.src

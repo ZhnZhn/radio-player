@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _has = require('../has');
+
+var _has2 = _interopRequireDefault(_has);
+
 var _sound = require('../../sound/sound');
 
 var _sound2 = _interopRequireDefault(_sound);
@@ -44,30 +48,37 @@ var S = {
   }
 };
 
+var _setMediaMetadata = function _setMediaMetadata(artist) {
+  if (_has2.default.MEDIA_SESSION) {
+    /*eslint-disable no-undef*/
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: DF_TITLE,
+      artist: artist
+    });
+    /*eslint-enable no-undef*/
+  }
+};
+
 var AudioPlayer = function AudioPlayer(_ref) {
   var station = _ref.station;
 
   var _useState = (0, _react.useState)(''),
       _useState2 = (0, _slicedToArray3.default)(_useState, 2),
       msgErr = _useState2[0],
-      setErrMsg = _useState2[1];
-
-  var _useState3 = (0, _react.useState)(DF_TITLE),
+      setErrMsg = _useState2[1],
+      _useState3 = (0, _react.useState)(DF_TITLE),
       _useState4 = (0, _slicedToArray3.default)(_useState3, 2),
       title = _useState4[0],
-      setTitle = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(true),
+      setTitle = _useState4[1],
+      _useState5 = (0, _react.useState)(true),
       _useState6 = (0, _slicedToArray3.default)(_useState5, 2),
       isUnloaded = _useState6[0],
-      setUnloaded = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(false),
+      setUnloaded = _useState6[1],
+      _useState7 = (0, _react.useState)(false),
       _useState8 = (0, _slicedToArray3.default)(_useState7, 2),
       isPlaying = _useState8[0],
-      setPlaying = _useState8[1];
-
-  var _useState9 = (0, _react.useState)(_sound2.default.INIT_VOLUME),
+      setPlaying = _useState8[1],
+      _useState9 = (0, _react.useState)(_sound2.default.INIT_VOLUME),
       _useState10 = (0, _slicedToArray3.default)(_useState9, 2),
       volume = _useState10[0],
       setVolume = _useState10[1];
@@ -87,8 +98,10 @@ var AudioPlayer = function AudioPlayer(_ref) {
     if (!msgErr && _sound2.default.play()) {
       setPlaying(true);
       setUnloaded(false);
+      _setMediaMetadata(title);
     } else {
       setTitle(MSG_NO_STATION);
+      _setMediaMetadata();
     }
   };
   var stop = function stop() {
@@ -99,12 +112,14 @@ var AudioPlayer = function AudioPlayer(_ref) {
   var _unload = function _unload() {
     _sound2.default.unload();
     setUnloaded(true);
+    _setMediaMetadata();
   };
 
   var _onError = function _onError(msg) {
     setErrMsg(msg);
     setUnloaded(true);
     setPlaying(false);
+    _setMediaMetadata();
   };
 
   (0, _react.useEffect)(function () {

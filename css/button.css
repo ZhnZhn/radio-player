@@ -26,18 +26,15 @@
   outline: 0;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 6px 0 rgba(0,0,0,0.3), 0 4px 15px 0 rgba(0,0,0,0.2);
-  /*fill: #ffba49;
-  stroke: #ffba49;*/
   fill: #00bcd4;
   stroke: #00bcd4;
-
 }
 
 .svg-close {
   display: inline-block;
   width: 24px;
   height: 24px;
-  padding: 2px;  
+  padding: 2px;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   -ms-transition: -ms-transform 0.3s ease-out;

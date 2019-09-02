@@ -29,9 +29,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var S = {
   APP: {
     width: 380,
+    maxWidth: 'calc(100vw - 32px)',
     marginTop: 84,
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    marginBottom: 12
   }
 };
 

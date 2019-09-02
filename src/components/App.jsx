@@ -9,9 +9,11 @@ import AudioPlayer from './radio/AudioPlayer'
 const S = {
   APP: {
     width: 380,
+    maxWidth: 'calc(100vw - 32px)',
     marginTop: 84,
     marginLeft: 'auto',
     marginRight: 'auto',
+    marginBottom: 12
   }
 };
 

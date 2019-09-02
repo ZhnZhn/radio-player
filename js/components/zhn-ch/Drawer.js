@@ -28,6 +28,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _has = require('../has');
+
+var _has2 = _interopRequireDefault(_has);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import withTheme from '../hoc/withTheme'
@@ -44,8 +48,8 @@ var CL = {
 var S = {
   BT_DRAWER: {
     position: 'absolute',
-    top: 4,
-    right: 16
+    top: 8,
+    right: 18
   },
   DRAWER_OFF: {
     //transform: 'translateX(-264px)',
@@ -83,7 +87,11 @@ var Drawer = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call.apply(_ref, [this].concat(args))), _this), _this.state = { isOpen: false }, _this._setBodyOverflowY = function () {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call.apply(_ref, [this].concat(args))), _this), _this.state = { isOpen: false }, _this._hTransitionEnd = function () {
+      if (!_this.state.isOpen) {
+        _this._wrapperNode.style.display = 'none';
+      }
+    }, _this._setBodyOverflowY = function () {
       var isOpen = _this.state.isOpen;
 
       if (isOpen) {
@@ -92,15 +100,36 @@ var Drawer = function (_Component) {
         document.body.style.overflowY = 'auto';
       }
     }, _this._hToggle = function () {
+      if (!_this.state.isOpen) {
+        _this._wrapperNode.style.display = 'block';
+      }
       _this.setState(function (prevState) {
         return {
           isOpen: !prevState.isOpen
         };
       }, _this._setBodyOverflowY);
+    }, _this._refAside = function (node) {
+      return _this._asideNode = node;
+    }, _this._refWrapper = function (node) {
+      return _this._wrapperNode = node;
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
   (0, _createClass3.default)(Drawer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (_has2.default.TRANSITION) {
+        this._asideNode.addEventListener('transitionend', this._hTransitionEnd);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (_has2.default.TRANSITION) {
+        this._asideNode.removeEventListener('transitionend', this._hTransitionEnd);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -110,7 +139,7 @@ var Drawer = function (_Component) {
           _drawerStyle = isOpen ? S.DRAWER_ON : S.DRAWER_OFF,
           _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
           _onClickWrapper = isOpen ? this._hToggle : undefined;
-      //, TS = theme.createStyle(styleConfig);    
+      //, TS = theme.createStyle(styleConfig);
 
 
       return [_react2.default.createElement(
@@ -146,14 +175,19 @@ var Drawer = function (_Component) {
       }), _react2.default.createElement(
         'aside',
         {
+          ref: this._refAside,
           key: 'aside',
           className: CL.DRAWER
           //style={{ ..._drawerStyle, ...TS.COMP }}
           , style: _drawerStyle
         },
-        _react2.default.cloneElement(children, {
-          onCloseDrawer: this._hToggle
-        })
+        _react2.default.createElement(
+          'div',
+          { ref: this._refWrapper },
+          _react2.default.cloneElement(children, {
+            onCloseDrawer: this._hToggle
+          })
+        )
       )];
     }
   }]);

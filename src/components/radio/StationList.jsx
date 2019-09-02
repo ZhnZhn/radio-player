@@ -1,19 +1,24 @@
 import React from 'react'
 
+import HAS from '../has'
+
 const CL = {
+  LIST: 'item-list',
   ITEM: 'item-station',
   ACCESS_KEY: 'item-station__access'
 };
 
-
+const _calcAccessKey = index => index < 6 && index !== 0
+  ? index
+  : void 0;
 
 const StationList = ({ radioStations, onClick }) => (
-  <div>
+  <div className={CL.LIST}>
     {
       radioStations.map((station, index) => {
-        const accessKey = index < 6 && index !== 0
-          ? index
-          : undefined;
+        const accessKey = HAS.TOUCH
+          ? void 0
+          : _calcAccessKey(index);
         return (
           <button
             className={CL.ITEM}

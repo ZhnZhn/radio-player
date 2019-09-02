@@ -19,6 +19,7 @@ const S = {
   SLIDER: {
     display: 'inline-block',
     width: 200,
+    maxWidth: 'calc(100vw - 210px)',
     marginRight: 16
   },
 
@@ -38,6 +39,11 @@ const S = {
   }
 }
 
+const C = {
+  NEAR_MAX: 0.8,
+  NEAR_MIN: 0.2
+};
+
 const _isNumber = n => typeof n === 'number'
  && Number.isFinite(n);
 
@@ -45,16 +51,28 @@ const _toVolume = v => _isNumber(v)
  ? Math.round(v*100)
  : '';
 
+const _crBtHandlers = ( run, stop ) => ({
+  onMouseDown: run,
+  onMouseUp: stop,
+  onTouchStart: run,
+  onTouchEnd: stop
+});
+
 const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
-  const [ runIncrease, stopIncrease ] = useInterval(onIncrease, 100)
-  const [ runDecrease, stopDecrease ] = useInterval(onDecrease, 100)
+  const _isNearMax = v  => v > C.NEAR_MAX;
+  const _isNearMin = v => v < C.NEAR_MIN;
+  const [ runIncrease, stopIncrease ] = useInterval(onIncrease, _isNearMax, volume)
+  const [ runDecrease, stopDecrease ] = useInterval(onDecrease, _isNearMin, volume)
   , _runDecrease = () => {
     if (volume !== 0) { runDecrease() }
   }
   , _runIncrease = () => {
     if (volume !== 100) { runIncrease() }
   }
-  useEffect(()=> {
+  , _minusHandlers = _crBtHandlers(_runDecrease, stopDecrease)
+  , _plusHandlers = _crBtHandlers(_runIncrease, stopIncrease);
+
+  useEffect(() => {
       if (volume === 0) { stopDecrease() }
       if (volume === 100) { stopIncrease() }
   })
@@ -71,15 +89,13 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
       />
       <BtMinus
         accessKey="-"
-        onMouseDown={_runDecrease}
-        onMouseUp={stopDecrease}
+        {..._minusHandlers}
         onClick={onDecrease}
       />
       <div style={S.GAP} />
       <BtPlus
         accessKey="+"
-        onMouseDown={_runIncrease}
-        onMouseUp={stopIncrease}
+        {..._plusHandlers}
         onClick={onIncrease}
       />
       <HeaderDrawer

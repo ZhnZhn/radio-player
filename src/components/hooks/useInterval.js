@@ -1,10 +1,23 @@
 import { useRef } from 'react'
 
-function useInterval(fn, check, delay=100) {
-  const ID = useRef()
-  , stopInInterval = () => clearInterval(ID.current)
+const D = {
+  L1: 150,
+  L2: 500
+};
+
+function useInterval(fn, check, volume) {
+  const ID = useRef(), refVolume = useRef();
+  refVolume.current = volume
+  const stopInInterval = () => clearInterval(ID.current)
   , runInInterval = () => {
-    ID.current = setInterval(fn, delay)
+    ID.current = setInterval( () => {
+       if ( check(refVolume.current) ) {
+         stopInInterval()
+         ID.current = setInterval(fn, D.L2)
+       } else {
+        fn()
+       }
+    }, D.L1)
   }
   return [ runInInterval, stopInInterval ];
 }

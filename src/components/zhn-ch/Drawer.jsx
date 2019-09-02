@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import HAS from '../has'
 //import withTheme from '../hoc/withTheme'
 //import styleConfig from '../style/Comp.Style'
 
@@ -14,8 +15,8 @@ const CL = {
 const S = {
   BT_DRAWER: {
     position: 'absolute',
-    top: 4,
-    right: 16
+    top: 8,
+    right: 18
   },
   DRAWER_OFF: {
     //transform: 'translateX(-264px)',
@@ -42,6 +43,23 @@ const S = {
 class Drawer extends Component {
   state = { isOpen: false }
 
+  componentDidMount(){
+    if (HAS.TRANSITION) {
+      this._asideNode.addEventListener('transitionend', this._hTransitionEnd)
+    }
+  }
+  componentWillUnmount(){
+    if (HAS.TRANSITION) {
+      this._asideNode.removeEventListener('transitionend', this._hTransitionEnd)
+    }
+  }
+
+  _hTransitionEnd = () => {
+    if (!this.state.isOpen) {
+      this._wrapperNode.style.display = 'none'
+    }
+  }
+
   _setBodyOverflowY = () => {
     const { isOpen } = this.state;
     if (isOpen) {
@@ -52,10 +70,16 @@ class Drawer extends Component {
   }
 
   _hToggle = () => {
+    if (!this.state.isOpen) {
+      this._wrapperNode.style.display = 'block'
+    }
     this.setState(prevState => ({
       isOpen: !prevState.isOpen
     }), this._setBodyOverflowY)
   }
+
+  _refAside = node => this._asideNode = node
+  _refWrapper = node => this._wrapperNode = node
 
   render(){
     const {
@@ -73,7 +97,7 @@ class Drawer extends Component {
     , _onClickWrapper = isOpen
          ? this._hToggle
          : undefined;
-    //, TS = theme.createStyle(styleConfig);    
+    //, TS = theme.createStyle(styleConfig);
     return [
         <button
           key="bt-drawer"
@@ -102,16 +126,19 @@ class Drawer extends Component {
           onClick={_onClickWrapper}
         />,
         <aside
+          ref={this._refAside}
           key="aside"
           className={CL.DRAWER}
           //style={{ ..._drawerStyle, ...TS.COMP }}
           style={_drawerStyle}
          >
-          {
-            React.cloneElement(children, {
-              onCloseDrawer: this._hToggle
-            })
-           }
+           <div ref={this._refWrapper}>
+            {
+              React.cloneElement(children, {
+                onCloseDrawer: this._hToggle
+              })
+             }
+           </div>
         </aside>
       ];
   }

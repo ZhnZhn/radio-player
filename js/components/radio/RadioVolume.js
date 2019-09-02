@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
@@ -49,6 +53,7 @@ var S = {
   SLIDER: {
     display: 'inline-block',
     width: 200,
+    maxWidth: 'calc(100vw - 210px)',
     marginRight: 16
   },
 
@@ -68,6 +73,11 @@ var S = {
   }
 };
 
+var C = {
+  NEAR_MAX: 0.8,
+  NEAR_MIN: 0.2
+};
+
 var _isNumber = function _isNumber(n) {
   return typeof n === 'number' && Number.isFinite(n);
 };
@@ -76,18 +86,34 @@ var _toVolume = function _toVolume(v) {
   return _isNumber(v) ? Math.round(v * 100) : '';
 };
 
+var _crBtHandlers = function _crBtHandlers(run, stop) {
+  return {
+    onMouseDown: run,
+    onMouseUp: stop,
+    onTouchStart: run,
+    onTouchEnd: stop
+  };
+};
+
 var RadioVolume = function RadioVolume(_ref) {
   var volume = _ref.volume,
       setVolume = _ref.setVolume,
       onIncrease = _ref.onIncrease,
       onDecrease = _ref.onDecrease;
 
-  var _useInterval = (0, _useInterval6.default)(onIncrease, 100),
+  var _isNearMax = function _isNearMax(v) {
+    return v > C.NEAR_MAX;
+  };
+  var _isNearMin = function _isNearMin(v) {
+    return v < C.NEAR_MIN;
+  };
+
+  var _useInterval = (0, _useInterval6.default)(onIncrease, _isNearMax, volume),
       _useInterval2 = (0, _slicedToArray3.default)(_useInterval, 2),
       runIncrease = _useInterval2[0],
       stopIncrease = _useInterval2[1];
 
-  var _useInterval3 = (0, _useInterval6.default)(onDecrease, 100),
+  var _useInterval3 = (0, _useInterval6.default)(onDecrease, _isNearMin, volume),
       _useInterval4 = (0, _slicedToArray3.default)(_useInterval3, 2),
       runDecrease = _useInterval4[0],
       stopDecrease = _useInterval4[1],
@@ -100,7 +126,9 @@ var RadioVolume = function RadioVolume(_ref) {
     if (volume !== 100) {
       runIncrease();
     }
-  };
+  },
+      _minusHandlers = _crBtHandlers(_runDecrease, stopDecrease),
+      _plusHandlers = _crBtHandlers(_runIncrease, stopIncrease);
 
   (0, _react.useEffect)(function () {
     if (volume === 0) {
@@ -124,19 +152,17 @@ var RadioVolume = function RadioVolume(_ref) {
       initValue: volume,
       onChange: setVolume
     }),
-    _react2.default.createElement(_BtMinus2.default, {
-      accessKey: '-',
-      onMouseDown: _runDecrease,
-      onMouseUp: stopDecrease,
+    _react2.default.createElement(_BtMinus2.default, (0, _extends3.default)({
+      accessKey: '-'
+    }, _minusHandlers, {
       onClick: onDecrease
-    }),
+    })),
     _react2.default.createElement('div', { style: S.GAP }),
-    _react2.default.createElement(_BtPlus2.default, {
-      accessKey: '+',
-      onMouseDown: _runIncrease,
-      onMouseUp: stopIncrease,
+    _react2.default.createElement(_BtPlus2.default, (0, _extends3.default)({
+      accessKey: '+'
+    }, _plusHandlers, {
       onClick: onIncrease
-    }),
+    })),
     _react2.default.createElement(_HeaderDrawer2.default, {
       categories: _categories2.default
     })
