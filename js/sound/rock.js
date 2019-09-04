@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var rock = [{ title: 'USA: Classic Rock Florida', src: 'http://us4.internet-radio.com:8258/;stream', siteUrl: 'http://www.classicrockflorida.com' }];
+var rock = [{ title: 'USA: Florida Classic Rock', src: 'http://us4.internet-radio.com:8258/;stream', siteUrl: 'http://www.classicrockflorida.com' }];
 
 exports.default = rock;
 //# sourceMappingURL=rock.js.map

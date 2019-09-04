@@ -96,7 +96,8 @@ var sound = {
     }
   },
   setVolume: function setVolume(volume) {
-    return _howler.Howler.volume(_roundTo2(volume));
+    _howler.Howler.volume(_roundTo2(volume));
+    return volume;
   },
   increaseVolume: function increaseVolume() {
     var delta = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.05;

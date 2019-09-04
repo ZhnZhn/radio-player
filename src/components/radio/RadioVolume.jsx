@@ -76,7 +76,7 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
       if (volume === 0) { stopDecrease() }
       if (volume === 100) { stopIncrease() }
   })
-
+  
   return (
     <div id="volume" style={S.ROW} >
       <div style={S.VOLUME}>
@@ -105,4 +105,4 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
   );
 }
 
-export default RadioVolume
+export default React.memo(RadioVolume)

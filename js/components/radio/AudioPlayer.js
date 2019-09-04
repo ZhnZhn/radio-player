@@ -32,7 +32,13 @@ var _Equalizer = require('./Equalizer');
 
 var _Equalizer2 = _interopRequireDefault(_Equalizer);
 
+var _playerReducer = require('./playerReducer');
+
+var _playerReducer2 = _interopRequireDefault(_playerReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var A = _playerReducer2.default.A;
 
 var DF_TITLE = 'Radio Player v0.1.0';
 var MSG_NO_STATION = 'At first, please, choose a radio station.';
@@ -48,7 +54,9 @@ var S = {
   }
 };
 
-var _setMediaMetadata = function _setMediaMetadata(artist) {
+var _setMediaMetadata = function _setMediaMetadata() {
+  var artist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
   if (_has2.default.MEDIA_SESSION) {
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -59,74 +67,74 @@ var _setMediaMetadata = function _setMediaMetadata(artist) {
   }
 };
 
+var initialState = {
+  msgErr: '',
+  title: DF_TITLE,
+  isUnloaded: true,
+  isPlaying: false,
+  volume: _sound2.default.INIT_VOLUME
+};
+
 var AudioPlayer = function AudioPlayer(_ref) {
   var station = _ref.station;
 
-  var _useState = (0, _react.useState)(''),
-      _useState2 = (0, _slicedToArray3.default)(_useState, 2),
-      msgErr = _useState2[0],
-      setErrMsg = _useState2[1],
-      _useState3 = (0, _react.useState)(DF_TITLE),
-      _useState4 = (0, _slicedToArray3.default)(_useState3, 2),
-      title = _useState4[0],
-      setTitle = _useState4[1],
-      _useState5 = (0, _react.useState)(true),
-      _useState6 = (0, _slicedToArray3.default)(_useState5, 2),
-      isUnloaded = _useState6[0],
-      setUnloaded = _useState6[1],
-      _useState7 = (0, _react.useState)(false),
-      _useState8 = (0, _slicedToArray3.default)(_useState7, 2),
-      isPlaying = _useState8[0],
-      setPlaying = _useState8[1],
-      _useState9 = (0, _react.useState)(_sound2.default.INIT_VOLUME),
-      _useState10 = (0, _slicedToArray3.default)(_useState9, 2),
-      volume = _useState10[0],
-      setVolume = _useState10[1];
+  var _useReducer = (0, _react.useReducer)(_playerReducer2.default, initialState),
+      _useReducer2 = (0, _slicedToArray3.default)(_useReducer, 2),
+      state = _useReducer2[0],
+      dispatch = _useReducer2[1],
+      isUnloaded = state.isUnloaded,
+      isPlaying = state.isPlaying,
+      volume = state.volume,
+      title = state.title,
+      msgErr = state.msgErr;
 
-  var _setVolume = function _setVolume(volume) {
-    _sound2.default.setVolume(volume);
-    setVolume(volume);
-  };
-  var _increaseVolume = function _increaseVolume() {
-    return setVolume(_sound2.default.increaseVolume(0.01));
-  };
-  var _decreaseVolume = function _decreaseVolume() {
-    return setVolume(_sound2.default.decreaseVolume(0.01));
-  };
+  var _setVolume = (0, _react.useCallback)(function (newVolume) {
+    return dispatch({
+      type: A.SET_VOLUME,
+      volume: _sound2.default.setVolume(newVolume)
+    });
+  }, []);
+  var _increaseVolume = (0, _react.useCallback)(function () {
+    return dispatch({
+      type: A.SET_VOLUME,
+      volume: _sound2.default.increaseVolume(0.01)
+    });
+  }, []);
+  var _decreaseVolume = (0, _react.useCallback)(function () {
+    return dispatch({
+      type: A.SET_VOLUME,
+      volume: _sound2.default.decreaseVolume(0.01)
+    });
+  }, []);
 
   var play = function play() {
     if (!msgErr && _sound2.default.play()) {
-      setPlaying(true);
-      setUnloaded(false);
-      _setMediaMetadata(title);
+      dispatch({ type: A.SET_PLAYING });
+      _setMediaMetadata(station && station.title || DF_TITLE);
     } else {
-      setTitle(MSG_NO_STATION);
+      dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION });
       _setMediaMetadata();
     }
   };
   var stop = function stop() {
     _sound2.default.stop();
-    setPlaying(false);
+    dispatch({ type: A.PAUSE });
   };
 
   var _unload = function _unload() {
     _sound2.default.unload();
-    setUnloaded(true);
+    dispatch({ type: A.UNLOAD });
     _setMediaMetadata();
   };
 
   var _onError = function _onError(msg) {
-    setErrMsg(msg);
-    setUnloaded(true);
-    setPlaying(false);
+    dispatch({ type: A.SET_ERROR, msgErr: msg });
     _setMediaMetadata();
   };
 
   (0, _react.useEffect)(function () {
     if (station && station.src && _sound2.default.init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
-      setUnloaded(false);
-      setPlaying(false);
-      setErrMsg('');
+      dispatch({ type: A.SET_LOADING });
     }
     return function () {
       _sound2.default.unload();

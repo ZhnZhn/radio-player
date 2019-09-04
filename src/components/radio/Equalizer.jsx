@@ -5,25 +5,6 @@ const CL = {
   EQUALIZER_NOT_PLAYING: 'equalizer--not-playing'
 };
 
-/*
-const S = {
-  EQUALIZER_PLAYING: {
-    width: 24,
-    height: 24,
-    marginLeft: 16,
-    background: 'url(./css/ani_equalizer_green.gif)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    transform: 'rotateZ(90deg)'
-  },
-  EQUALIZER_NOT_PLAYING: {
-    width: 24,
-    height: 24,
-    marginLeft: 16
-  }
-};
-*/
-
 const Equalizer = ({
   isPlaying,
   isUnloaded,
@@ -36,7 +17,5 @@ const Equalizer = ({
          data-loader="circle"
          onClick={unload}
        />
-
-
 
 export default Equalizer

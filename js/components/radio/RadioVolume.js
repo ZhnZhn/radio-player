@@ -169,5 +169,5 @@ var RadioVolume = function RadioVolume(_ref) {
   );
 };
 
-exports.default = RadioVolume;
+exports.default = _react2.default.memo(RadioVolume);
 //# sourceMappingURL=RadioVolume.js.map

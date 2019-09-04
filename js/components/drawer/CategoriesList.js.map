@@ -1,0 +1,24 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/drawer/CategoriesList.js"
+ ],
+ "file": "../../../src/components/drawer/CategoriesList.js",
+ "names": [
+  "CategoriesList",
+  "categories",
+  "isCategories",
+  "addCategory",
+  "removeCategory",
+  "S",
+  "UL",
+  "map",
+  "_is",
+  "category",
+  "CL_BT",
+  "mapStateToProps",
+  "state",
+  "mapDispatchToProps"
+ ],
+ "mappings": ";;;;;;AAAA;;;;AAEA;;AACA;;AAKA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,iBAAiB,SAAjBA,cAAiB;AAAA,MACrBC,UADqB,QACrBA,UADqB;AAAA,MAErBC,YAFqB,QAErBA,YAFqB;AAAA,MAGrBC,WAHqB,QAGrBA,WAHqB;AAAA,MAIrBC,cAJqB,QAIrBA,cAJqB;AAAA,SAMrB;AAAA;AAAA,MAAI,OAAOC,gBAAEC,EAAb;AAEIL,eAAWM,GAAX,CAAe,oBAAY;AACzB,UAAMC,MAAMN,aAAaO,QAAb,CAAZ;AACA,aACE;AAAA;AAAA,UAAI,KAAKA,QAAT;AACE;AAAC,8BAAD;AAAA;AACE,uBAAWJ,gBAAEK,KADf;AAEE,qBAASD,QAFX;AAGE,qBAASD,MACL;AAAA,qBAAMJ,eAAeK,QAAf,CAAN;AAAA,aADK,GAEL;AAAA,qBAAMN,YAAYM,QAAZ,CAAN;AAAA;AALN;AAQID,iBAAO,8BAAC,oBAAD;AARX;AADF,OADF;AAcD,KAhBD;AAFJ,GANqB;AAAA,CAAvB;;AA6BA,IAAMG,kBAAkB,SAAlBA,eAAkB;AAAA,SAAU;AAChCT,kBAAcU,MAAMX;AADY,GAAV;AAAA,CAAxB;;AAIA,IAAMY,qBAAqB;AACzBV,mCADyB;AAEzBC;AAFyB,CAA3B;;kBAKe,yBACbO,eADa,EAEbE,kBAFa,EAGbb,cAHa,C"
+}

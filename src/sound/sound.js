@@ -84,7 +84,8 @@ const sound = {
     }
   },
   setVolume: (volume) => {
-    return Howler.volume(_roundTo2(volume));
+    Howler.volume(_roundTo2(volume));
+    return volume;
   },
   increaseVolume: (delta=0.05) => {
     sound.checkInitVolume()
@@ -101,7 +102,7 @@ const sound = {
       Howler.volume(volume)
     }
     return Howler.volume();
-  }  
+  }
 }
 
 export default sound

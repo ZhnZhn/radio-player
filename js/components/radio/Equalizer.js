@@ -15,25 +15,6 @@ var CL = {
   EQUALIZER_NOT_PLAYING: 'equalizer--not-playing'
 };
 
-/*
-const S = {
-  EQUALIZER_PLAYING: {
-    width: 24,
-    height: 24,
-    marginLeft: 16,
-    background: 'url(./css/ani_equalizer_green.gif)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    transform: 'rotateZ(90deg)'
-  },
-  EQUALIZER_NOT_PLAYING: {
-    width: 24,
-    height: 24,
-    marginLeft: 16
-  }
-};
-*/
-
 var Equalizer = function Equalizer(_ref) {
   var isPlaying = _ref.isPlaying,
       isUnloaded = _ref.isUnloaded,

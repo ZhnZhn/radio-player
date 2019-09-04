@@ -15,8 +15,8 @@ $bgNotification, $cNotification
   display: inline-block;
   padding-left: 8px;
   padding-right: 4px;
-  padding-top: 16px;
-  padding-bottom: 8px;
+  padding-top: 12px;
+  padding-bottom: 8px;    
   font-size: 16px;
   font-weight: bold; }
 
@@ -48,7 +48,7 @@ $bgNotification, $cNotification
   -webkit-tap-highlight-color: transparent; }
 .drawer-bt:hover,
 .drawer-bt:focus {
-  background-color: rgba(0, 0, 0, 0.2);  
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .drawer-span {

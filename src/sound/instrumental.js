@@ -6,6 +6,4 @@ const instrumental = [
   { title: 'USA: Instrumental Hits Radio', src: 'http://149.56.195.94:8453/stream', siteUrl: 'http://instrumentalhitsradio.com' }
 ];
 
-
-// http://listen.181fm.com/181-chilled_128k.mp3'
 export default instrumental

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useReducer, useEffect, useCallback } from 'react'
 
 import HAS from '../has'
 
@@ -6,6 +6,10 @@ import sound from '../../sound/sound'
 import Radio from './Radio'
 import Title from './Title'
 import Equalizer from './Equalizer'
+
+import reducer from './playerReducer'
+
+const A = reducer.A;
 
 const DF_TITLE = 'Radio Player v0.1.0'
 const MSG_NO_STATION = 'At first, please, choose a radio station.'
@@ -21,7 +25,7 @@ const S = {
   }
 };
 
-const _setMediaMetadata = (artist) => {
+const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -32,49 +36,56 @@ const _setMediaMetadata = (artist) => {
   }
 };
 
-const AudioPlayer = ({ station }) => {
-  const [msgErr, setErrMsg] = useState('')
-  , [title, setTitle] = useState(DF_TITLE)
-  , [isUnloaded, setUnloaded] = useState(true)
-  , [isPlaying, setPlaying] = useState(false)
-  , [volume, setVolume] = useState(sound.INIT_VOLUME);
+const initialState = {
+  msgErr: '',
+  title: DF_TITLE,
+  isUnloaded: true,
+  isPlaying: false,
+  volume: sound.INIT_VOLUME
+};
 
-  const _setVolume = (volume) => {
-    sound.setVolume(volume)
-    setVolume(volume)
-  };
-  const _increaseVolume = () => setVolume(
-    sound.increaseVolume(0.01)
-  );
-  const _decreaseVolume = () => setVolume(
-    sound.decreaseVolume(0.01)
-  );
+const AudioPlayer = ({ station }) => {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  , { isUnloaded, isPlaying,
+      volume,
+      title, msgErr
+    } = state;
+
+  const _setVolume = useCallback(newVolume => dispatch({
+    type: A.SET_VOLUME,
+    volume: sound.setVolume(newVolume)
+  }), []);
+  const _increaseVolume = useCallback(() => dispatch({
+    type: A.SET_VOLUME,
+    volume: sound.increaseVolume(0.01)
+  }), []);
+  const _decreaseVolume = useCallback(() => dispatch({
+    type: A.SET_VOLUME,
+    volume: sound.decreaseVolume(0.01)
+  }), []);
 
   const play = () => {
     if (!msgErr && sound.play()) {
-      setPlaying(true)
-      setUnloaded(false)
-      _setMediaMetadata(title)
+      dispatch({ type: A.SET_PLAYING })
+      _setMediaMetadata(station && station.title || DF_TITLE)
     } else {
-      setTitle(MSG_NO_STATION)
+      dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION })
       _setMediaMetadata()
     }
   };
   const stop = () => {
     sound.stop()
-    setPlaying(false)
+    dispatch({ type: A.PAUSE })
   };
 
   const _unload = () => {
     sound.unload()
-    setUnloaded(true)
+    dispatch({ type: A.UNLOAD })
     _setMediaMetadata()
   };
 
   const _onError = (msg) => {
-    setErrMsg(msg)
-    setUnloaded(true)
-    setPlaying(false)
+    dispatch({ type: A.SET_ERROR, msgErr: msg })
     _setMediaMetadata()
   };
 
@@ -84,9 +95,7 @@ const AudioPlayer = ({ station }) => {
           _onError.bind(null, 'Load Error'),
           _onError.bind(null, 'Play Error'),
       )) {
-      setUnloaded(false)
-      setPlaying(false)
-      setErrMsg('')
+        dispatch({ type: A.SET_LOADING })
     }
     return () => { sound.unload() };
   }, [station])
