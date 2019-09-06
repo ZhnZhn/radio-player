@@ -25,6 +25,7 @@ const S = {
   }
 };
 
+/*
 const _setPlaybackState = (state) => {
   if (HAS.MEDIA_SESSION) {
     navigator.mediaSession.playbackState = state
@@ -33,20 +34,36 @@ const _setPlaybackState = (state) => {
 const _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing')
 const _setPlaybackPaused = _setPlaybackState.bind(null, 'paused')
 const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
+*/
 
 const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {
+    /*
     if (!artist || artist === DF_TITLE) {
       _setPlaybackNone()
     } else {
       _setPlaybackPlaying()
     }
+    */
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
     });
     /*eslint-enable no-undef*/
+  }
+};
+
+const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
+  const _mediaSession = navigator.mediaSession;
+  _mediaSession.setActionHandler('play', onPlay)
+  _mediaSession.setActionHandler('pause', onPause)
+  if (onPlay) {
+    _mediaSession.playbackState ='paused'
+  } else if (onPause) {
+    _mediaSession.playbackState = 'playing'
+  } else {
+    _mediaSession.playbackState = 'none'
   }
 };
 
@@ -82,20 +99,24 @@ const AudioPlayer = ({ station }) => {
     if (!msgErr && sound.play()) {
       dispatch({ type: A.SET_PLAYING })
       _setMediaMetadata(station && station.title || DF_TITLE)
+      _setMediaSessionHandlers(null, pause)
     } else {
       dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION })
       _setMediaMetadata()
+      _setMediaSessionHandlers()
     }
   };
   const pause = () => {
-    _setPlaybackPaused()
     sound.stop()
+    _setMediaSessionHandlers(play)
+    //_setPlaybackPaused()
     dispatch({ type: A.PAUSE })
   };
 
   const _unload = () => {
     sound.unload()
     dispatch({ type: A.UNLOAD })
+    _setMediaSessionHandlers()
     _setMediaMetadata()
   };
 
@@ -104,6 +125,7 @@ const AudioPlayer = ({ station }) => {
     _setMediaMetadata()
   };
 
+  /*
   useEffect( () => {
     if (HAS.MEDIA_SESSION) {
       const _mediaSession = navigator.mediaSession;
@@ -111,6 +133,7 @@ const AudioPlayer = ({ station }) => {
       _mediaSession.setActionHandler('pause', pause)
     }
   }, [])
+  */
 
   useEffect(()=>{
     if (station && station.src

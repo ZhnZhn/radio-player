@@ -54,30 +54,50 @@ var S = {
   }
 };
 
-var _setPlaybackState = function _setPlaybackState(state) {
-  if (_has2.default.MEDIA_SESSION) {
-    navigator.mediaSession.playbackState = state;
+/*
+const _setPlaybackState = (state) => {
+  if (HAS.MEDIA_SESSION) {
+    navigator.mediaSession.playbackState = state
   }
-};
-var _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing');
-var _setPlaybackPaused = _setPlaybackState.bind(null, 'paused');
-var _setPlaybackNone = _setPlaybackState.bind(null, 'none');
+}
+const _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing')
+const _setPlaybackPaused = _setPlaybackState.bind(null, 'paused')
+const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
+*/
 
 var _setMediaMetadata = function _setMediaMetadata() {
   var artist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
   if (_has2.default.MEDIA_SESSION) {
+    /*
     if (!artist || artist === DF_TITLE) {
-      _setPlaybackNone();
+      _setPlaybackNone()
     } else {
-      _setPlaybackPlaying();
+      _setPlaybackPlaying()
     }
+    */
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist: artist
     });
     /*eslint-enable no-undef*/
+  }
+};
+
+var _setMediaSessionHandlers = function _setMediaSessionHandlers() {
+  var onPlay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var onPause = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+  var _mediaSession = navigator.mediaSession;
+  _mediaSession.setActionHandler('play', onPlay);
+  _mediaSession.setActionHandler('pause', onPause);
+  if (onPlay) {
+    _mediaSession.playbackState = 'paused';
+  } else if (onPause) {
+    _mediaSession.playbackState = 'playing';
+  } else {
+    _mediaSession.playbackState = 'none';
   }
 };
 
@@ -125,20 +145,24 @@ var AudioPlayer = function AudioPlayer(_ref) {
     if (!msgErr && _sound2.default.play()) {
       dispatch({ type: A.SET_PLAYING });
       _setMediaMetadata(station && station.title || DF_TITLE);
+      _setMediaSessionHandlers(null, pause);
     } else {
       dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION });
       _setMediaMetadata();
+      _setMediaSessionHandlers();
     }
   };
   var pause = function pause() {
-    _setPlaybackPaused();
     _sound2.default.stop();
+    _setMediaSessionHandlers(play);
+    //_setPlaybackPaused()
     dispatch({ type: A.PAUSE });
   };
 
   var _unload = function _unload() {
     _sound2.default.unload();
     dispatch({ type: A.UNLOAD });
+    _setMediaSessionHandlers();
     _setMediaMetadata();
   };
 
@@ -147,13 +171,15 @@ var AudioPlayer = function AudioPlayer(_ref) {
     _setMediaMetadata();
   };
 
-  (0, _react.useEffect)(function () {
-    if (_has2.default.MEDIA_SESSION) {
-      var _mediaSession = navigator.mediaSession;
-      _mediaSession.setActionHandler('play', play);
-      _mediaSession.setActionHandler('pause', pause);
+  /*
+  useEffect( () => {
+    if (HAS.MEDIA_SESSION) {
+      const _mediaSession = navigator.mediaSession;
+      _mediaSession.setActionHandler('play', play)
+      _mediaSession.setActionHandler('pause', pause)
     }
-  }, []);
+  }, [])
+  */
 
   (0, _react.useEffect)(function () {
     if (station && station.src && _sound2.default.init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
