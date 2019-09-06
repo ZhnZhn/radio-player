@@ -4,6 +4,7 @@ const A = {
   SET_PLAYING: 'SET_PLAYING',
   PAUSE: 'PAUSE',
   UNLOAD: 'UNLOAD',
+  STOP: 'STOP',
   SET_VOLUME: 'SET_VOLUME',
   SET_TITLE: 'SET_TITLE',
   SET_ERROR: 'SET_ERROR'
@@ -19,6 +20,8 @@ const reducer = (state, action) => {
       return { ...state, isPlaying: false };
     case A.UNLOAD:
       return { ...state, isUnloaded: true };
+    case A.STOP:
+      return { ...state, isPlaying: false, isUnloaded: true };
     case A.SET_VOLUME:
       return { ...state, volume: action.volume };
     case A.SET_TITLE:

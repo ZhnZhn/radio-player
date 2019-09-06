@@ -15,6 +15,7 @@ var A = {
   SET_PLAYING: 'SET_PLAYING',
   PAUSE: 'PAUSE',
   UNLOAD: 'UNLOAD',
+  STOP: 'STOP',
   SET_VOLUME: 'SET_VOLUME',
   SET_TITLE: 'SET_TITLE',
   SET_ERROR: 'SET_ERROR'
@@ -30,6 +31,8 @@ var reducer = function reducer(state, action) {
       return (0, _extends3.default)({}, state, { isPlaying: false });
     case A.UNLOAD:
       return (0, _extends3.default)({}, state, { isUnloaded: true });
+    case A.STOP:
+      return (0, _extends3.default)({}, state, { isPlaying: false, isUnloaded: true });
     case A.SET_VOLUME:
       return (0, _extends3.default)({}, state, { volume: action.volume });
     case A.SET_TITLE:

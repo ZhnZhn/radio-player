@@ -54,6 +54,7 @@ const _setMediaMetadata = (artist='') => {
   }
 };
 
+/*
 const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
   const _mediaSession = navigator.mediaSession;
   _mediaSession.setActionHandler('play', onPlay)
@@ -66,6 +67,7 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
     _mediaSession.playbackState = 'none'
   }
 };
+*/
 
 const initialState = {
   msgErr: '',
@@ -99,16 +101,16 @@ const AudioPlayer = ({ station }) => {
     if (!msgErr && sound.play()) {
       dispatch({ type: A.SET_PLAYING })
       _setMediaMetadata(station && station.title || DF_TITLE)
-      _setMediaSessionHandlers(null, pause)
+      //_setMediaSessionHandlers(null, pause)
     } else {
       dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION })
       _setMediaMetadata()
-      _setMediaSessionHandlers()
+      //_setMediaSessionHandlers()
     }
   };
   const pause = () => {
     sound.stop()
-    _setMediaSessionHandlers(play)
+    //_setMediaSessionHandlers(play)
     //_setPlaybackPaused()
     dispatch({ type: A.PAUSE })
   };
@@ -116,14 +118,26 @@ const AudioPlayer = ({ station }) => {
   const _unload = () => {
     sound.unload()
     dispatch({ type: A.UNLOAD })
-    _setMediaSessionHandlers()
+    //_setMediaSessionHandlers()
     _setMediaMetadata()
   };
+
+  const stop = useCallback(() => {
+    sound.stop()
+    sound.unload()
+    dispatch({ type: A.STOP })
+  }, [])
 
   const _onError = (msg) => {
     dispatch({ type: A.SET_ERROR, msgErr: msg })
     _setMediaMetadata()
   };
+
+  useEffect( () => {
+    if (HAS.MEDIA_SESSION) {
+      navigator.mediaSession.setActionHandler('stop', stop)
+    }
+  }, [])
 
   /*
   useEffect( () => {

@@ -85,21 +85,20 @@ var _setMediaMetadata = function _setMediaMetadata() {
   }
 };
 
-var _setMediaSessionHandlers = function _setMediaSessionHandlers() {
-  var onPlay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  var onPause = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-  var _mediaSession = navigator.mediaSession;
-  _mediaSession.setActionHandler('play', onPlay);
-  _mediaSession.setActionHandler('pause', onPause);
+/*
+const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
+  const _mediaSession = navigator.mediaSession;
+  _mediaSession.setActionHandler('play', onPlay)
+  _mediaSession.setActionHandler('pause', onPause)
   if (onPlay) {
-    _mediaSession.playbackState = 'paused';
+    _mediaSession.playbackState ='paused'
   } else if (onPause) {
-    _mediaSession.playbackState = 'playing';
+    _mediaSession.playbackState = 'playing'
   } else {
-    _mediaSession.playbackState = 'none';
+    _mediaSession.playbackState = 'none'
   }
 };
+*/
 
 var initialState = {
   msgErr: '',
@@ -145,16 +144,16 @@ var AudioPlayer = function AudioPlayer(_ref) {
     if (!msgErr && _sound2.default.play()) {
       dispatch({ type: A.SET_PLAYING });
       _setMediaMetadata(station && station.title || DF_TITLE);
-      _setMediaSessionHandlers(null, pause);
+      //_setMediaSessionHandlers(null, pause)
     } else {
       dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION });
       _setMediaMetadata();
-      _setMediaSessionHandlers();
+      //_setMediaSessionHandlers()
     }
   };
   var pause = function pause() {
     _sound2.default.stop();
-    _setMediaSessionHandlers(play);
+    //_setMediaSessionHandlers(play)
     //_setPlaybackPaused()
     dispatch({ type: A.PAUSE });
   };
@@ -162,14 +161,26 @@ var AudioPlayer = function AudioPlayer(_ref) {
   var _unload = function _unload() {
     _sound2.default.unload();
     dispatch({ type: A.UNLOAD });
-    _setMediaSessionHandlers();
+    //_setMediaSessionHandlers()
     _setMediaMetadata();
   };
+
+  var stop = (0, _react.useCallback)(function () {
+    _sound2.default.stop();
+    _sound2.default.unload();
+    dispatch({ type: A.STOP });
+  }, []);
 
   var _onError = function _onError(msg) {
     dispatch({ type: A.SET_ERROR, msgErr: msg });
     _setMediaMetadata();
   };
+
+  (0, _react.useEffect)(function () {
+    if (_has2.default.MEDIA_SESSION) {
+      navigator.mediaSession.setActionHandler('stop', stop);
+    }
+  }, []);
 
   /*
   useEffect( () => {
