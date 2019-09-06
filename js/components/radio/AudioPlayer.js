@@ -178,7 +178,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
 
   (0, _react.useEffect)(function () {
     if (_has2.default.MEDIA_SESSION) {
-      navigator.mediaSession.setActionHandler('stop', stop);
+      navigator.mediaSession.setActionHandler('pause', stop);
     }
   }, []);
 

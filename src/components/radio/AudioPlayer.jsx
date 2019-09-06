@@ -135,7 +135,7 @@ const AudioPlayer = ({ station }) => {
 
   useEffect( () => {
     if (HAS.MEDIA_SESSION) {
-      navigator.mediaSession.setActionHandler('stop', stop)
+      navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])
 
