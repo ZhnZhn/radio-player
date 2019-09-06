@@ -116,7 +116,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
       _setMediaMetadata();
     }
   };
-  var stop = function stop() {
+  var pause = function pause() {
     _sound2.default.stop();
     dispatch({ type: A.PAUSE });
   };
@@ -131,6 +131,14 @@ var AudioPlayer = function AudioPlayer(_ref) {
     dispatch({ type: A.SET_ERROR, msgErr: msg });
     _setMediaMetadata();
   };
+
+  (0, _react.useEffect)(function () {
+    if (_has2.default.MEDIA_SESSION) {
+      var _mediaSession = navigator.mediaSession;
+      _mediaSession.setActionHandler('play', play);
+      _mediaSession.setActionHandler('pause', pause);
+    }
+  }, []);
 
   (0, _react.useEffect)(function () {
     if (station && station.src && _sound2.default.init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
@@ -156,7 +164,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
       _react2.default.createElement(_Radio2.default.Command, {
         isPlaying: isPlaying,
         onPlay: play,
-        onStop: stop
+        onPause: pause
       }),
       _react2.default.createElement(_Title2.default, {
         station: station,

@@ -31,7 +31,7 @@ const _setMediaMetadata = (artist='') => {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
-    });
+    });    
     /*eslint-enable no-undef*/
   }
 };
@@ -73,7 +73,7 @@ const AudioPlayer = ({ station }) => {
       _setMediaMetadata()
     }
   };
-  const stop = () => {
+  const pause = () => {
     sound.stop()
     dispatch({ type: A.PAUSE })
   };
@@ -88,6 +88,14 @@ const AudioPlayer = ({ station }) => {
     dispatch({ type: A.SET_ERROR, msgErr: msg })
     _setMediaMetadata()
   };
+
+  useEffect( () => {
+    if (HAS.MEDIA_SESSION) {
+      const _mediaSession = navigator.mediaSession;
+      _mediaSession.setActionHandler('play', play)
+      _mediaSession.setActionHandler('pause', pause)
+    }
+  }, [])
 
   useEffect(()=>{
     if (station && station.src
@@ -113,7 +121,7 @@ const AudioPlayer = ({ station }) => {
         <Radio.Command
           isPlaying={isPlaying}
           onPlay={play}
-          onStop={stop}
+          onPause={pause}
         />
         <Title
           station={station}

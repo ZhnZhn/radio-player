@@ -2,12 +2,12 @@ import React from 'react'
 
 import BtPlay from '../zhn/BtPlay'
 
-const RadioCommand = ({ isPlaying, onPlay, onStop }) => (
+const RadioCommand = ({ isPlaying, onPlay, onPause }) => (
   <div>
     <BtPlay
       isPlaying={isPlaying}
       onPlay={onPlay}
-      onStop={onStop}
+      onStop={onPause}
     />
   </div>
 )

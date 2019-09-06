@@ -17,14 +17,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var RadioCommand = function RadioCommand(_ref) {
   var isPlaying = _ref.isPlaying,
       onPlay = _ref.onPlay,
-      onStop = _ref.onStop;
+      onPause = _ref.onPause;
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(_BtPlay2.default, {
       isPlaying: isPlaying,
       onPlay: onPlay,
-      onStop: onStop
+      onStop: onPause
     })
   );
 };
