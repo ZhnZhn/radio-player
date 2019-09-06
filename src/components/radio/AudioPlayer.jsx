@@ -36,17 +36,17 @@ const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
 
 const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {
+    if (!artist || artist === DF_TITLE) {
+      _setPlaybackNone()
+    } else {
+      _setPlaybackPlaying()
+    }
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
     });
     /*eslint-enable no-undef*/
-    if (!artist || artist === DF_TITLE) {
-      _setPlaybackNone()
-    } else {
-      _setPlaybackPlaying()
-    }
   }
 };
 
@@ -88,8 +88,8 @@ const AudioPlayer = ({ station }) => {
     }
   };
   const pause = () => {
-    sound.stop()
     _setPlaybackPaused()
+    sound.stop()
     dispatch({ type: A.PAUSE })
   };
 

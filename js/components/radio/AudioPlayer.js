@@ -67,17 +67,17 @@ var _setMediaMetadata = function _setMediaMetadata() {
   var artist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
   if (_has2.default.MEDIA_SESSION) {
+    if (!artist || artist === DF_TITLE) {
+      _setPlaybackNone();
+    } else {
+      _setPlaybackPlaying();
+    }
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist: artist
     });
     /*eslint-enable no-undef*/
-    if (!artist || artist === DF_TITLE) {
-      _setPlaybackNone();
-    } else {
-      _setPlaybackPlaying();
-    }
   }
 };
 
@@ -131,8 +131,8 @@ var AudioPlayer = function AudioPlayer(_ref) {
     }
   };
   var pause = function pause() {
-    _sound2.default.stop();
     _setPlaybackPaused();
+    _sound2.default.stop();
     dispatch({ type: A.PAUSE });
   };
 
