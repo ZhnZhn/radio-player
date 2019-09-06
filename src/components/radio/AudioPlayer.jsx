@@ -25,14 +25,28 @@ const S = {
   }
 };
 
+const _setPlaybackState = (state) => {
+  if (HAS.MEDIA_SESSION) {
+    navigator.mediaSession.playbackState = state
+  }
+}
+const _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing')
+const _setPlaybackPaused = _setPlaybackState.bind(null, 'paused')
+const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
+
 const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
-    });    
+    });
     /*eslint-enable no-undef*/
+    if (!artist || artist === DF_TITLE) {
+      _setPlaybackNone()
+    } else {
+      _setPlaybackPlaying()
+    }
   }
 };
 
@@ -75,6 +89,7 @@ const AudioPlayer = ({ station }) => {
   };
   const pause = () => {
     sound.stop()
+    _setPlaybackPaused()
     dispatch({ type: A.PAUSE })
   };
 

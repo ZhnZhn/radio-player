@@ -54,6 +54,15 @@ var S = {
   }
 };
 
+var _setPlaybackState = function _setPlaybackState(state) {
+  if (_has2.default.MEDIA_SESSION) {
+    navigator.mediaSession.playbackState = state;
+  }
+};
+var _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing');
+var _setPlaybackPaused = _setPlaybackState.bind(null, 'paused');
+var _setPlaybackNone = _setPlaybackState.bind(null, 'none');
+
 var _setMediaMetadata = function _setMediaMetadata() {
   var artist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
@@ -64,6 +73,11 @@ var _setMediaMetadata = function _setMediaMetadata() {
       artist: artist
     });
     /*eslint-enable no-undef*/
+    if (!artist || artist === DF_TITLE) {
+      _setPlaybackNone();
+    } else {
+      _setPlaybackPlaying();
+    }
   }
 };
 
@@ -118,6 +132,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
   };
   var pause = function pause() {
     _sound2.default.stop();
+    _setPlaybackPaused();
     dispatch({ type: A.PAUSE });
   };
 
