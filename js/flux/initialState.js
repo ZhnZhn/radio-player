@@ -1,11 +1,13 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
 var initialState = {
-  app: {},
+  app: {
+    uiTheme: 'grey'
+  },
   categories: {},
   stations: []
 };

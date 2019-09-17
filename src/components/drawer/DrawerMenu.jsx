@@ -1,12 +1,15 @@
 import React from 'react'
 
+import { connect } from 'react-redux'
+import { setUiTheme } from '../../flux/app/actions'
+
 import SvgClose from '../zhn/SvgClose'
 import BtTriple from '../zhn/BtTriple'
 import CategoriesList from './CategoriesList'
-import setBodyStyle from './setBodyStyle'
 import S from './style'
 
 const DrawerMenu = ({
+  setUiTheme,
   onCloseDrawer,
   categories
 }) => (
@@ -17,7 +20,7 @@ const DrawerMenu = ({
         oneC="GREY"
         twoC="LIGHT"
         threeC="SAND"
-        onClick={setBodyStyle}
+        onClick={setUiTheme}
       />
       <SvgClose
         style={S.BT_CLOSE}
@@ -28,4 +31,11 @@ const DrawerMenu = ({
   </div>
 );
 
-export default DrawerMenu
+const mapDispatchToProps = {
+  setUiTheme
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(DrawerMenu)

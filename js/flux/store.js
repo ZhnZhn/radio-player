@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
 var _redux = require('redux');
 
 var _rootReducer = require('./rootReducer');
@@ -14,14 +18,16 @@ var _initialState2 = require('./initialState');
 
 var _initialState3 = _interopRequireDefault(_initialState2);
 
+var _middlewares2 = require('./zh-middleware/middlewares');
+
+var _middlewares3 = _interopRequireDefault(_middlewares2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import middlewares from './zh-middleware/middlewares'
+var _middlewares = [].concat((0, _toConsumableArray3.default)(_middlewares3.default));
 
 //import CONF from './appConf'
-var _middlewares = [
-  //...middlewares
-];
+
 
 var _composeEnhancer = _redux.compose;
 /*eslint-disable no-undef, no-console*/
@@ -66,7 +72,7 @@ var _getInitialState = function _getInitialState() {
   return _initialState || _initialState3.default;
 };
 
-var store = (0, _redux.createStore)(_rootReducer2.default, _getInitialState(), _composeEnhancer(_redux.applyMiddleware.apply(undefined, _middlewares)));
+var store = (0, _redux.createStore)(_rootReducer2.default, _getInitialState(), _composeEnhancer(_redux.applyMiddleware.apply(undefined, (0, _toConsumableArray3.default)(_middlewares))));
 
 exports.default = store;
 //# sourceMappingURL=store.js.map

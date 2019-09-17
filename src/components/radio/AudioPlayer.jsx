@@ -1,5 +1,9 @@
 import React, { useReducer, useEffect, useCallback } from 'react'
 
+import { connect } from 'react-redux';
+import { sApp } from '../../flux/selectors'
+
+import uiThemeImpl from '../ui-theme/uiTheme'
 import HAS from '../has'
 
 import sound from '../../sound/sound'
@@ -69,6 +73,14 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 };
 */
 
+/*
+const _hm = {
+  'grey': 'grey',
+  'light': '#e8e8e8',
+  'sand': '#f7e8c3'
+};
+*/
+
 const initialState = {
   msgErr: '',
   title: DF_TITLE,
@@ -77,7 +89,7 @@ const initialState = {
   volume: sound.INIT_VOLUME
 };
 
-const AudioPlayer = ({ station }) => {
+const AudioPlayer = ({ uiTheme, station }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   , { isUnloaded, isPlaying,
       volume,
@@ -160,9 +172,10 @@ const AudioPlayer = ({ station }) => {
     return () => { sound.unload() };
   }, [station])
 
+  const _style = uiThemeImpl.toBg(uiTheme);
 
   return (
-    <div className={CL.PLAYER}>
+    <div className={CL.PLAYER} style={_style}>
       <Radio.Volume
         volume={volume}
         setVolume={_setVolume}
@@ -190,5 +203,12 @@ const AudioPlayer = ({ station }) => {
   );
 }
 
+const mapStateToProps = state => ({
+  uiTheme: sApp.uiTheme(state)
+});
 
-export default AudioPlayer
+
+export default connect(
+  mapStateToProps,
+  null
+)(AudioPlayer)

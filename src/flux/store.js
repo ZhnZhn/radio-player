@@ -3,10 +3,10 @@ import { createStore, applyMiddleware, compose } from 'redux'
 //import CONF from './appConf'
 import rootReducer from './rootReducer'
 import initialState from './initialState'
-//import middlewares from './zh-middleware/middlewares'
+import middlewares from './zh-middleware/middlewares'
 
 const _middlewares = [
-  //...middlewares
+  ...middlewares
 ];
 
 let _composeEnhancer = compose;

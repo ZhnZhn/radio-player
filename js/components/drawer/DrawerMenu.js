@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = require('react-redux');
+
+var _actions = require('../../flux/app/actions');
+
 var _SvgClose = require('../zhn/SvgClose');
 
 var _SvgClose2 = _interopRequireDefault(_SvgClose);
@@ -20,10 +24,6 @@ var _CategoriesList = require('./CategoriesList');
 
 var _CategoriesList2 = _interopRequireDefault(_CategoriesList);
 
-var _setBodyStyle = require('./setBodyStyle');
-
-var _setBodyStyle2 = _interopRequireDefault(_setBodyStyle);
-
 var _style = require('./style');
 
 var _style2 = _interopRequireDefault(_style);
@@ -31,7 +31,8 @@ var _style2 = _interopRequireDefault(_style);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DrawerMenu = function DrawerMenu(_ref) {
-  var onCloseDrawer = _ref.onCloseDrawer,
+  var setUiTheme = _ref.setUiTheme,
+      onCloseDrawer = _ref.onCloseDrawer,
       categories = _ref.categories;
   return _react2.default.createElement(
     'div',
@@ -44,7 +45,7 @@ var DrawerMenu = function DrawerMenu(_ref) {
         oneC: 'GREY',
         twoC: 'LIGHT',
         threeC: 'SAND',
-        onClick: _setBodyStyle2.default
+        onClick: setUiTheme
       }),
       _react2.default.createElement(_SvgClose2.default, {
         style: _style2.default.BT_CLOSE,
@@ -55,5 +56,9 @@ var DrawerMenu = function DrawerMenu(_ref) {
   );
 };
 
-exports.default = DrawerMenu;
+var mapDispatchToProps = {
+  setUiTheme: _actions.setUiTheme
+};
+
+exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(DrawerMenu);
 //# sourceMappingURL=DrawerMenu.js.map

@@ -1,14 +1,8 @@
 import React from 'react'
 
-const S = {
-  TITLE: {
-    color: '#64e346',
-    marginLeft: 8,
-    fontWeight: 600
-  },
-  MSG_ERR: {
-    color: '#673ab7'
-  }
+const CL = {
+  TITLE: 'audio__title',
+  ERR: 'audio__title audio__title--err'
 };
 
 const Title = ({ station, msgErr, title }) => {
@@ -16,14 +10,12 @@ const Title = ({ station, msgErr, title }) => {
   , _msgErrOrTitle = msgErr
        ? `${msgErr} ${_title}`
        : _title || title
-  , _style = !msgErr
-      ? S.TITLE
-      : { ...S.TITLE, ...S.MSG_ERR };
+  , _cl = msgErr ? CL.ERR : CL.TITLE;
   return (
-    <div style={_style}>
+    <div className={_cl}>
       {_msgErrOrTitle}
     </div>
-  )
+  );
 }
 
 export default Title

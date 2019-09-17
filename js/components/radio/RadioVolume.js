@@ -44,9 +44,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var S = {
   ROW: {
-    //display: 'flex',
-    //alignItems: 'center',
-    //overflow: 'hidden',
     height: 35,
     transition: 'height 0.3s ease-out'
   },

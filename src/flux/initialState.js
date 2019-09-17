@@ -1,6 +1,8 @@
 
 const initialState = {
-  app: {},
+  app: {
+    uiTheme: 'grey'
+  },
   categories: {},
   stations: []
 };

@@ -13,3 +13,14 @@
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.6);
 }
+
+.audio__title {
+  color: #64e346;
+  width: 305px;
+  max-width: calc(100vw - 110px);
+  margin-left: 8px;
+  font-weight: 600;
+}
+.audio__tiitle--err {
+  color: #673ab7;
+}

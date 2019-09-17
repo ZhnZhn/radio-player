@@ -10,11 +10,8 @@ import HeaderDrawer from '../drawer/HeaderDrawer'
 
 const S = {
   ROW: {
-    //display: 'flex',
-    //alignItems: 'center',
-    //overflow: 'hidden',
     height: 35,
-    transition: 'height 0.3s ease-out',
+    transition: 'height 0.3s ease-out'
   },
   SLIDER: {
     display: 'inline-block',
@@ -76,7 +73,7 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
       if (volume === 0) { stopDecrease() }
       if (volume === 100) { stopIncrease() }
   })
-  
+
   return (
     <div id="volume" style={S.ROW} >
       <div style={S.VOLUME}>

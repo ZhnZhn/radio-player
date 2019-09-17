@@ -27,3 +27,10 @@
   right: 12px;
   color: #ffba49;
 }
+
+@media screen and (max-width: 420px) {
+  .item-station {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}

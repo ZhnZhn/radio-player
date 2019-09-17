@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import { sApp } from '../../flux/selectors'
+
+import uiThemeImpl from '../ui-theme/uiTheme'
 import HAS from '../has'
-//import withTheme from '../hoc/withTheme'
-//import styleConfig from '../style/Comp.Style'
 
 const CL = {
   DRAWER_BT: 'drawer-bt',
@@ -83,21 +85,21 @@ class Drawer extends Component {
 
   render(){
     const {
+       uiTheme,
        btStyle,
-       //theme,
        children
      } = this.props
     , { isOpen } = this.state
-    , _drawerStyle = isOpen
-         ? S.DRAWER_ON
-         : S.DRAWER_OFF
+    , _asideStyle = {
+        ...(isOpen ? S.DRAWER_ON : S.DRAWER_OFF),
+        ...uiThemeImpl.toBg(uiTheme)
+      }
     , _drawerModalStyle = isOpen
          ? S.MODAL_ON
          : S.MODAL_OFF
     , _onClickWrapper = isOpen
          ? this._hToggle
-         : undefined;
-    //, TS = theme.createStyle(styleConfig);
+         : void 0;
     return [
         <button
           key="bt-drawer"
@@ -129,8 +131,7 @@ class Drawer extends Component {
           ref={this._refAside}
           key="aside"
           className={CL.DRAWER}
-          //style={{ ..._drawerStyle, ...TS.COMP }}
-          style={_drawerStyle}
+          style={_asideStyle}
          >
            <div ref={this._refWrapper}>
             {
@@ -144,5 +145,10 @@ class Drawer extends Component {
   }
 }
 
-export default Drawer
-//export default withTheme(Drawer)
+const mapStateToProps = state => ({
+  uiTheme: sApp.uiTheme(state)
+})
+
+export default connect(
+  mapStateToProps, null
+)(Drawer)

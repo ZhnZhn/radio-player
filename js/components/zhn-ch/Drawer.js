@@ -28,14 +28,19 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = require('react-redux');
+
+var _selectors = require('../../flux/selectors');
+
+var _uiTheme = require('../ui-theme/uiTheme');
+
+var _uiTheme2 = _interopRequireDefault(_uiTheme);
+
 var _has = require('../has');
 
 var _has2 = _interopRequireDefault(_has);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//import withTheme from '../hoc/withTheme'
-//import styleConfig from '../style/Comp.Style'
 
 var CL = {
   DRAWER_BT: 'drawer-bt',
@@ -133,14 +138,13 @@ var Drawer = function (_Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          uiTheme = _props.uiTheme,
           btStyle = _props.btStyle,
           children = _props.children,
           isOpen = this.state.isOpen,
-          _drawerStyle = isOpen ? S.DRAWER_ON : S.DRAWER_OFF,
+          _asideStyle = (0, _extends3.default)({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, _uiTheme2.default.toBg(uiTheme)),
           _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
-          _onClickWrapper = isOpen ? this._hToggle : undefined;
-      //, TS = theme.createStyle(styleConfig);
-
+          _onClickWrapper = isOpen ? this._hToggle : void 0;
 
       return [_react2.default.createElement(
         'button',
@@ -177,9 +181,8 @@ var Drawer = function (_Component) {
         {
           ref: this._refAside,
           key: 'aside',
-          className: CL.DRAWER
-          //style={{ ..._drawerStyle, ...TS.COMP }}
-          , style: _drawerStyle
+          className: CL.DRAWER,
+          style: _asideStyle
         },
         _react2.default.createElement(
           'div',
@@ -194,6 +197,11 @@ var Drawer = function (_Component) {
   return Drawer;
 }(_react.Component);
 
-exports.default = Drawer;
-//export default withTheme(Drawer)
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    uiTheme: _selectors.sApp.uiTheme(state)
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Drawer);
 //# sourceMappingURL=Drawer.js.map

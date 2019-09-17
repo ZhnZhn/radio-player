@@ -1,0 +1,15 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/selectors.js"
+ ],
+ "file": "../../src/flux/selectors.js",
+ "names": [
+  "sApp",
+  "app",
+  "state",
+  "uiTheme",
+  "selectors"
+ ],
+ "mappings": ";;;;;AACO,IAAMA,sBAAO;AAClBC,OAAK;AAAA,WAASC,MAAMD,GAAN,IAAa,EAAtB;AAAA,GADa;AAElBE,WAAS;AAAA,WAASH,KAAKC,GAAL,CAASC,KAAT,EAAgBC,OAAzB;AAAA;AAFS,CAAb;;AAKP,IAAMC,YAAY;AAChBJ;AADgB,CAAlB;;kBAIeI,S"
+}
