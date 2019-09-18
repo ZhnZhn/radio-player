@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { addCategory, moveToTop } from '../flux/stations/actions'
 
+import DiContext from './DiContext'
+
 import Radio from './radio/Radio'
 import AudioPlayer from './radio/AudioPlayer'
 
@@ -30,15 +32,17 @@ const App = ({ stations, addCategory, moveToTop }) => {
   }, [])
 
   return (
-     <div style={S.APP}>
-       <AudioPlayer
-         station={station}
-       />
-       <Radio.List
-          radioStations={stations}
-          onClick={_onStation}
-        />
-      </div>
+     <DiContext.Provider value={DiContext.value}>
+        <div style={S.APP}>
+         <AudioPlayer
+           station={station}
+         />
+         <Radio.List
+            radioStations={stations}
+            onClick={_onStation}
+          />
+        </div>
+     </DiContext.Provider>
    );
 }
 

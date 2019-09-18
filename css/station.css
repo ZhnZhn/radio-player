@@ -4,10 +4,54 @@
   max-width: calc(100vw - 32px);
 }
 
-.item-station {
+.item-descr__bt-more {
+  display: inline-block;
+  position: absolute;
+  right: 6px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  color: black;
+  /*transform-origin: 0 18px;*/
+  transition: transform 400ms ease-out;
+}
+
+.station-descr {
+  width: 100%;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
+}
+
+.station-descr__bt {
   position: relative;
   width: 100%;
   padding-left: 12px;
+  padding-right: 32px;
+  line-height: 2.5;
+  text-align: left;
+  border-bottom: 1px solid darkgrey;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.station-descr__info {
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 32px;
+  padding-bottom: 4px;
+  line-height: 1.9;
+  text-align: left;
+  font-weight: 600;
+}
+
+
+.item-station {
+  /*overflow: hidden;*/
+  position: relative;
+  width: 100%;
+  padding-left: 12px;
+  padding-right: 32px;
   margin-bottom: 4px;
   line-height: 2.5;
   text-align: left;
@@ -16,6 +60,8 @@
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
+.station-descr__bt:hover,
+.station-descr__bt:focus,
 .item-station:hover,
 .item-station:focus {
   outline: 0;
@@ -32,5 +78,8 @@
   .item-station {
     padding-top: 2px;
     padding-bottom: 2px;
+  }
+  .item-descr__bt-more {
+    top: 2px;
   }
 }

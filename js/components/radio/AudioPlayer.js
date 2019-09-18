@@ -14,15 +14,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _selectors = require('../../flux/selectors');
-
-var _uiTheme = require('../ui-theme/uiTheme');
-
-var _uiTheme2 = _interopRequireDefault(_uiTheme);
-
 var _has = require('../has');
 
 var _has2 = _interopRequireDefault(_has);
+
+var _DiContext = require('../DiContext');
+
+var _DiContext2 = _interopRequireDefault(_DiContext);
 
 var _sound = require('../../sound/sound');
 
@@ -108,14 +106,6 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 };
 */
 
-/*
-const _hm = {
-  'grey': 'grey',
-  'light': '#e8e8e8',
-  'sand': '#f7e8c3'
-};
-*/
-
 var initialState = {
   msgErr: '',
   title: DF_TITLE,
@@ -125,10 +115,14 @@ var initialState = {
 };
 
 var AudioPlayer = function AudioPlayer(_ref) {
-  var uiTheme = _ref.uiTheme,
-      station = _ref.station;
+  var station = _ref.station;
 
-  var _useReducer = (0, _react.useReducer)(_playerReducer2.default, initialState),
+  var _useContext = (0, _react.useContext)(_DiContext2.default),
+      uiThemeImpl = _useContext.uiThemeImpl,
+      sApp = _useContext.sApp;
+
+  var uiTheme = (0, _reactRedux.useSelector)(sApp.uiTheme),
+      _useReducer = (0, _react.useReducer)(_playerReducer2.default, initialState),
       _useReducer2 = (0, _slicedToArray3.default)(_useReducer, 2),
       state = _useReducer2[0],
       dispatch = _useReducer2[1],
@@ -137,6 +131,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
       volume = state.volume,
       title = state.title,
       msgErr = state.msgErr;
+
 
   var _setVolume = (0, _react.useCallback)(function (newVolume) {
     return dispatch({
@@ -218,7 +213,7 @@ var AudioPlayer = function AudioPlayer(_ref) {
     };
   }, [station]);
 
-  var _style = _uiTheme2.default.toBg(uiTheme);
+  var _style = uiThemeImpl.toBg(uiTheme);
 
   return _react2.default.createElement(
     'div',
@@ -251,11 +246,5 @@ var AudioPlayer = function AudioPlayer(_ref) {
   );
 };
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    uiTheme: _selectors.sApp.uiTheme(state)
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(AudioPlayer);
+exports.default = AudioPlayer;
 //# sourceMappingURL=AudioPlayer.js.map

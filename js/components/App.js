@@ -16,6 +16,10 @@ var _reactRedux = require('react-redux');
 
 var _actions = require('../flux/stations/actions');
 
+var _DiContext = require('./DiContext');
+
+var _DiContext2 = _interopRequireDefault(_DiContext);
+
 var _Radio = require('./radio/Radio');
 
 var _Radio2 = _interopRequireDefault(_Radio);
@@ -57,15 +61,19 @@ var App = function App(_ref) {
   }, []);
 
   return _react2.default.createElement(
-    'div',
-    { style: S.APP },
-    _react2.default.createElement(_AudioPlayer2.default, {
-      station: station
-    }),
-    _react2.default.createElement(_Radio2.default.List, {
-      radioStations: stations,
-      onClick: _onStation
-    })
+    _DiContext2.default.Provider,
+    { value: _DiContext2.default.value },
+    _react2.default.createElement(
+      'div',
+      { style: S.APP },
+      _react2.default.createElement(_AudioPlayer2.default, {
+        station: station
+      }),
+      _react2.default.createElement(_Radio2.default.List, {
+        radioStations: stations,
+        onClick: _onStation
+      })
+    )
   );
 };
 

@@ -12,12 +12,18 @@ var _has = require('../has');
 
 var _has2 = _interopRequireDefault(_has);
 
+var _StationDescr = require('./StationDescr');
+
+var _StationDescr2 = _interopRequireDefault(_StationDescr);
+
+var _StationItem = require('./StationItem');
+
+var _StationItem2 = _interopRequireDefault(_StationItem);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CL = {
-  LIST: 'item-list',
-  ITEM: 'item-station',
-  ACCESS_KEY: 'item-station__access'
+  LIST: 'item-list'
 };
 
 var _calcAccessKey = function _calcAccessKey(index) {
@@ -31,27 +37,15 @@ var StationList = function StationList(_ref) {
     'div',
     { className: CL.LIST },
     radioStations.map(function (station, index) {
-      var accessKey = _has2.default.TOUCH ? void 0 : _calcAccessKey(index);
-      return _react2.default.createElement(
-        'button',
-        {
-          className: CL.ITEM,
-          key: station.title,
-          accessKey: accessKey,
-          onClick: onClick.bind(null, station, index)
-        },
-        _react2.default.createElement(
-          'span',
-          null,
-          station.title
-        ),
-        Boolean(accessKey) && _react2.default.createElement(
-          'span',
-          {
-            className: CL.ACCESS_KEY },
-          accessKey
-        )
-      );
+      return index === 0 ? _react2.default.createElement(_StationDescr2.default, {
+        key: station.title,
+        station: station
+      }) : _react2.default.createElement(_StationItem2.default, {
+        key: station.title,
+        station: station,
+        accessKey: _has2.default.TOUCH ? void 0 : _calcAccessKey(index),
+        onClick: onClick.bind(null, station, index)
+      });
     })
   );
 };
