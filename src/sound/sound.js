@@ -59,11 +59,43 @@ const sound = {
       Howler.volume(volume)
 
       /*
-      _sound._sounds[0]._node.addEventListener('loadedmetadata', (event)=>{
-        console.log(event)
-        console.log('event')
+      console.log(_sound)
+      fetch(src).then(res => {
+        const _headers = res.headers
+        for(let h of _headers.entries()) {
+          console.log(h)
+        }
+        console.log(_headers.get('icy-br'))
+        console.log(_headers.get('ICY-BR'))
+        console.log(_headers.get('Icy-Br'))
       })
       */
+
+      /*
+      _sound._sounds[0]._node.addEventListener('loadedmetadata', (event)=>{
+        console.log(event.mozSampleRate)
+        console.log(event)
+
+        const _audio = _sound._sounds[0]._node
+        if (_audio.getMetaData) {
+          console.log(_audio.getMetaData())
+        } else {
+          console.log('getMetaData not supported')
+        }
+        if (_audio.mozGetMetaData) {
+          console.log(_audio.mozGetMetaData())
+        } else {
+          console.log('mozGetMetaData not supported')
+        }
+
+        console.log('loadedmetadata event')
+      })
+      _sound._sounds[0]._node.addEventListener('ratechange', event => {
+        console.log(event)
+        console.log('ratechange event')
+      })
+      */
+
      return true;
    } catch(err) {
      _sound = null;

@@ -31,15 +31,16 @@ const _isStrNotEmpty = str => str
 const _toFirstUpperCase = str => str[0].toUpperCase()
   + str.substring(1);
 
-const Category = ({ category }) => {
+const Category = ({ category, br }) => {
   if (!_isStrNotEmpty(category)) return null;
+  const _kbps = br ? ` (${br} Kbps)` : '';
   return (
     <div>
       <span style={S.TITLE}>
         Category:
       </span>&nbsp;
       <span style={S.CATEGORY}>
-       {_toFirstUpperCase(category)}
+       {_toFirstUpperCase(category)}{_kbps}
       </span>
     </div>
   );
@@ -65,7 +66,7 @@ const StationDescr = ({ station={} }) => {
   , _arrowStyle = isMore
        ? S.ARROW_OPEN
        : void 0
-  , { siteUrl, category } = station;
+  , { siteUrl, category, br } = station;
   return (
     <div className={CL.DESCR}>
       <button
@@ -77,7 +78,7 @@ const StationDescr = ({ station={} }) => {
       </button>
       <ShowHide className={CL.INFO} isShow={isMore}>
         <div>
-          <Category category={category} />
+          <Category category={category} br={br} />
           <SiteUrl siteUrl={siteUrl} />
         </div>
       </ShowHide>

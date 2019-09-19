@@ -8,7 +8,8 @@
   "rock",
   "title",
   "src",
-  "siteUrl"
+  "siteUrl",
+  "br"
  ],
- "mappings": ";;;;;;AACA,IAAMA,OAAO,CACX,EAAEC,OAAO,2BAAT,EAAsCC,KAAK,4CAA3C,EAAyFC,SAAS,mCAAlG,EADW,CAAb;;kBAIeH,I"
+ "mappings": ";;;;;;AACA,IAAMA,OAAO,CACX;AACEC,SAAO,2BADT;AAEEC,OAAK,4CAFP;AAGEC,WAAS,mCAHX;AAIEC,MAAI;AAJN,CADW,CAAb;;kBASeJ,I"
 }

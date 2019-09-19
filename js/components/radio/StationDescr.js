@@ -49,9 +49,11 @@ var _toFirstUpperCase = function _toFirstUpperCase(str) {
 };
 
 var Category = function Category(_ref) {
-  var category = _ref.category;
+  var category = _ref.category,
+      br = _ref.br;
 
   if (!_isStrNotEmpty(category)) return null;
+  var _kbps = br ? ' (' + br + ' Kbps)' : '';
   return _react2.default.createElement(
     'div',
     null,
@@ -64,7 +66,8 @@ var Category = function Category(_ref) {
     _react2.default.createElement(
       'span',
       { style: S.CATEGORY },
-      _toFirstUpperCase(category)
+      _toFirstUpperCase(category),
+      _kbps
     )
   );
 };
@@ -99,7 +102,8 @@ var StationDescr = function StationDescr(_ref3) {
   },
       _arrowStyle = isMore ? S.ARROW_OPEN : void 0,
       siteUrl = station.siteUrl,
-      category = station.category;
+      category = station.category,
+      br = station.br;
 
   return _react2.default.createElement(
     'div',
@@ -127,7 +131,7 @@ var StationDescr = function StationDescr(_ref3) {
       _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Category, { category: category }),
+        _react2.default.createElement(Category, { category: category, br: br }),
         _react2.default.createElement(SiteUrl, { siteUrl: siteUrl })
       )
     )
