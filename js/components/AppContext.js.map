@@ -1,0 +1,16 @@
+{
+ "version": 3,
+ "sources": [
+  "../../src/components/AppContext.js"
+ ],
+ "file": "../../src/components/AppContext.js",
+ "names": [
+  "AppContext",
+  "React",
+  "createContext",
+  "value",
+  "selectors",
+  "uiThemeImpl"
+ ],
+ "mappings": ";;;;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;;;AAEA,IAAMA,aAAaC,gBAAMC,aAAN,EAAnB;;AAEAF,WAAWG,KAAX,8BACKC,mBADL;AAEEC;AAFF;;kBAKeL,U"
+}

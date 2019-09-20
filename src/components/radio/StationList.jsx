@@ -9,22 +9,18 @@ const CL = {
   LIST: 'item-list',
 };
 
-const _calcAccessKey = index => index < 6 && index !== 0
-  ? index
+const _calcAccessKey = index => index < 5
+  ? index + 1
   : void 0;
 
-const StationList = ({ radioStations, onClick }) => (
+const StationList = ({ currentStation, radioStations, onClick }) => (
   <div className={CL.LIST}>
+      <StationDescr
+        station={currentStation}
+      />
     {
       radioStations.map((station, index) => {
-        return index === 0
-          ? (
-            <StationDescr
-              key={station.title}
-              station={station}
-            />
-          )
-          : (
+        return (
             <StationItem
               key={station.title}
               station={station}

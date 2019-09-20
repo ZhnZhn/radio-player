@@ -1,57 +1,49 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { connect } from 'react-redux'
-import { addCategory, moveToTop } from '../flux/stations/actions'
+import { addCategory, setCurrentStation } from '../flux/stations/actions'
 
-import DiContext from './DiContext'
+
+import AppContext from './AppContext'
 
 import Radio from './radio/Radio'
 import AudioPlayer from './radio/AudioPlayer'
 
-const S = {
-  APP: {
-    width: 380,
-    maxWidth: 'calc(100vw - 32px)',
-    marginTop: 84,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 12
-  }
-};
+const CL = "app-radio-player";
 
-const App = ({ stations, addCategory, moveToTop }) => {
+const { sApp } = AppContext.value;
 
-  const [station, setStation] = useState('')
-  , _onStation = (station, index) => {
-    moveToTop(station, index)
-    setStation(station)
-  };
+const App = ({
+  currentStation, stations,
+  addCategory, setCurrentStation
+}) => {
   useEffect(() => {
     addCategory('classical')
     addCategory('piano')
   }, [])
-
   return (
-     <DiContext.Provider value={DiContext.value}>
-        <div style={S.APP}>
+     <AppContext.Provider value={AppContext.value}>
+        <div className={CL}>
          <AudioPlayer
-           station={station}
+           station={currentStation}
          />
          <Radio.List
+            currentStation={currentStation}
             radioStations={stations}
-            onClick={_onStation}
+            onClick={setCurrentStation}
           />
         </div>
-     </DiContext.Provider>
+     </AppContext.Provider>
    );
 }
 
 const mapStateToProps = state => ({
-  stations: state.stations
+  currentStation: sApp.currentStation(state),
+  stations: sApp.stations(state)
 })
 const mapDispatchToProps = {
   addCategory,
-  moveToTop
+  setCurrentStation
 };
 
 export default connect(

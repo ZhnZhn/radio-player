@@ -27,20 +27,21 @@ var CL = {
 };
 
 var _calcAccessKey = function _calcAccessKey(index) {
-  return index < 6 && index !== 0 ? index : void 0;
+  return index < 5 ? index + 1 : void 0;
 };
 
 var StationList = function StationList(_ref) {
-  var radioStations = _ref.radioStations,
+  var currentStation = _ref.currentStation,
+      radioStations = _ref.radioStations,
       onClick = _ref.onClick;
   return _react2.default.createElement(
     'div',
     { className: CL.LIST },
+    _react2.default.createElement(_StationDescr2.default, {
+      station: currentStation
+    }),
     radioStations.map(function (station, index) {
-      return index === 0 ? _react2.default.createElement(_StationDescr2.default, {
-        key: station.title,
-        station: station
-      }) : _react2.default.createElement(_StationItem2.default, {
+      return _react2.default.createElement(_StationItem2.default, {
         key: station.title,
         station: station,
         accessKey: _has2.default.TOUCH ? void 0 : _calcAccessKey(index),

@@ -3,7 +3,7 @@ import React, { useReducer, useEffect, useCallback, useContext } from 'react'
 import { useSelector } from 'react-redux';
 
 import HAS from '../has'
-import DiContext from '../DiContext'
+import AppContext from '../AppContext'
 
 import sound from '../../sound/sound'
 import Radio from './Radio'
@@ -81,7 +81,7 @@ const initialState = {
 };
 
 const AudioPlayer = ({ station }) => {
-  const { uiThemeImpl, sApp } = useContext(DiContext)
+  const { uiThemeImpl, sApp } = useContext(AppContext)
   const uiTheme = useSelector(sApp.uiTheme)
   , [state, dispatch] = useReducer(reducer, initialState)
   , { isUnloaded, isPlaying,

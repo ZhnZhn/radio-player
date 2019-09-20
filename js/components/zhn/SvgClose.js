@@ -15,7 +15,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var CL = "svg-close";
 
 var S = {
-  //"#ED5813"
   COLOR: '#f44336',
   SVG: {
     padding: 3
@@ -23,14 +22,16 @@ var S = {
 };
 
 var SvgClose = function SvgClose(_ref) {
-  var style = _ref.style,
+  var _ref$className = _ref.className,
+      className = _ref$className === undefined ? CL : _ref$className,
+      style = _ref.style,
       _ref$tabIndex = _ref.tabIndex,
       tabIndex = _ref$tabIndex === undefined ? -1 : _ref$tabIndex,
       onClick = _ref.onClick;
   return _react2.default.createElement(
     'button',
     {
-      className: CL,
+      className: className,
       style: style,
       tabIndex: tabIndex,
       onClick: onClick

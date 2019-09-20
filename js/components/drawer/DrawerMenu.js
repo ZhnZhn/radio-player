@@ -48,7 +48,7 @@ var DrawerMenu = function DrawerMenu(_ref) {
         onClick: setUiTheme
       }),
       _react2.default.createElement(_SvgClose2.default, {
-        style: _style2.default.BT_CLOSE,
+        className: _style2.default.CL_BT_CLOSE,
         onClick: onCloseDrawer
       })
     ),

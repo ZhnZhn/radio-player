@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
-
-var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -16,9 +12,9 @@ var _reactRedux = require('react-redux');
 
 var _actions = require('../flux/stations/actions');
 
-var _DiContext = require('./DiContext');
+var _AppContext = require('./AppContext');
 
-var _DiContext2 = _interopRequireDefault(_DiContext);
+var _AppContext2 = _interopRequireDefault(_AppContext);
 
 var _Radio = require('./radio/Radio');
 
@@ -30,48 +26,34 @@ var _AudioPlayer2 = _interopRequireDefault(_AudioPlayer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var S = {
-  APP: {
-    width: 380,
-    maxWidth: 'calc(100vw - 32px)',
-    marginTop: 84,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 12
-  }
-};
+var CL = "app-radio-player";
+
+var sApp = _AppContext2.default.value.sApp;
+
 
 var App = function App(_ref) {
-  var stations = _ref.stations,
+  var currentStation = _ref.currentStation,
+      stations = _ref.stations,
       addCategory = _ref.addCategory,
-      moveToTop = _ref.moveToTop;
-
-  var _useState = (0, _react.useState)(''),
-      _useState2 = (0, _slicedToArray3.default)(_useState, 2),
-      station = _useState2[0],
-      setStation = _useState2[1],
-      _onStation = function _onStation(station, index) {
-    moveToTop(station, index);
-    setStation(station);
-  };
+      setCurrentStation = _ref.setCurrentStation;
 
   (0, _react.useEffect)(function () {
     addCategory('classical');
     addCategory('piano');
   }, []);
-
   return _react2.default.createElement(
-    _DiContext2.default.Provider,
-    { value: _DiContext2.default.value },
+    _AppContext2.default.Provider,
+    { value: _AppContext2.default.value },
     _react2.default.createElement(
       'div',
-      { style: S.APP },
+      { className: CL },
       _react2.default.createElement(_AudioPlayer2.default, {
-        station: station
+        station: currentStation
       }),
       _react2.default.createElement(_Radio2.default.List, {
+        currentStation: currentStation,
         radioStations: stations,
-        onClick: _onStation
+        onClick: setCurrentStation
       })
     )
   );
@@ -79,12 +61,13 @@ var App = function App(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    stations: state.stations
+    currentStation: sApp.currentStation(state),
+    stations: sApp.stations(state)
   };
 };
 var mapDispatchToProps = {
   addCategory: _actions.addCategory,
-  moveToTop: _actions.moveToTop
+  setCurrentStation: _actions.setCurrentStation
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);

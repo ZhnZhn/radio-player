@@ -6,7 +6,8 @@
  "file": "../../../src/flux/zh-middleware/middlewares.js",
  "names": [
   "middlewares",
-  "appUiTheme"
+  "appUiTheme",
+  "appCurrentStation"
  ],
- "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,cAAc,CAClBC,oBADkB,CAApB;;kBAIeD,W"
+ "mappings": ";;;;;;AAAA;;;;AACA;;;;;;AAEA,IAAMA,cAAc,CAClBC,oBADkB,EAElBC,2BAFkB,CAApB;;kBAKeF,W"
 }

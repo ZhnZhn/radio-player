@@ -1,7 +1,9 @@
+import appCurrentStation from './appCurrentStation'
 import appUiTheme from './appUiTheme'
 
 const middlewares = [
-  appUiTheme
+  appUiTheme,
+  appCurrentStation
 ];
 
 export default middlewares

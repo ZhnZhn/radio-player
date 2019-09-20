@@ -22,11 +22,11 @@ var _uiTheme2 = _interopRequireDefault(_uiTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DiContext = _react2.default.createContext();
+var AppContext = _react2.default.createContext();
 
-DiContext.value = (0, _extends3.default)({}, _selectors2.default, {
+AppContext.value = (0, _extends3.default)({}, _selectors2.default, {
   uiThemeImpl: _uiTheme2.default
 });
 
-exports.default = DiContext;
-//# sourceMappingURL=DiContext.js.map
+exports.default = AppContext;
+//# sourceMappingURL=AppContext.js.map

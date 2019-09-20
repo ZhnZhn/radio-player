@@ -88,10 +88,13 @@ var SiteUrl = function SiteUrl(_ref2) {
 };
 
 var StationDescr = function StationDescr(_ref3) {
-  var _ref3$station = _ref3.station,
-      station = _ref3$station === undefined ? {} : _ref3$station;
+  var station = _ref3.station;
 
-  var _useState = (0, _react.useState)(false),
+  if (!station) {
+    return null;
+  }
+
+  var _useState = (0, _react.useState)(true),
       _useState2 = (0, _slicedToArray3.default)(_useState, 2),
       isMore = _useState2[0],
       setMore = _useState2[1],

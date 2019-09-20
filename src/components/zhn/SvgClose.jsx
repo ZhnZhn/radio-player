@@ -3,17 +3,16 @@ import React from 'react';
 
 const CL = "svg-close";
 
-const S = {
-  //"#ED5813"
+const S = {  
   COLOR: '#f44336',
   SVG: {
     padding: 3,
   }
 };
 
-const SvgClose = ({ style, tabIndex=-1, onClick }) => (
+const SvgClose = ({ className=CL, style, tabIndex=-1, onClick }) => (
    <button
-      className={CL}
+      className={className}
       style={style}
       tabIndex={tabIndex}
       onClick={onClick}

@@ -1,6 +1,7 @@
 
 const initialState = {
   app: {
+    currentStation: void 0,
     uiTheme: 'grey'
   },
   categories: {},

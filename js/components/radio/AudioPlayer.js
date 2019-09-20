@@ -18,9 +18,9 @@ var _has = require('../has');
 
 var _has2 = _interopRequireDefault(_has);
 
-var _DiContext = require('../DiContext');
+var _AppContext = require('../AppContext');
 
-var _DiContext2 = _interopRequireDefault(_DiContext);
+var _AppContext2 = _interopRequireDefault(_AppContext);
 
 var _sound = require('../../sound/sound');
 
@@ -117,7 +117,7 @@ var initialState = {
 var AudioPlayer = function AudioPlayer(_ref) {
   var station = _ref.station;
 
-  var _useContext = (0, _react.useContext)(_DiContext2.default),
+  var _useContext = (0, _react.useContext)(_AppContext2.default),
       uiThemeImpl = _useContext.uiThemeImpl,
       sApp = _useContext.sApp;
 

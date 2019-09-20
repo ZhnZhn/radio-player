@@ -1,5 +1,6 @@
 import initialState from '../initialState'
 import { ACTION } from './actions'
+import { ACTION as SA } from '../stations/actions'
 
 
 const reducer = function(state=initialState.app, action) {
@@ -9,6 +10,13 @@ const reducer = function(state=initialState.app, action) {
       return state.uiTheme !== uiTheme ? {
          ...state, uiTheme
       } : state;
+    }
+    case SA.SET_CURRENT_STATION: {
+      const { station } = action;      
+      return {
+        ...state,
+        currentStation: station
+      };
     }
     default:
       return state;

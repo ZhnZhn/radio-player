@@ -7,9 +7,10 @@
  "names": [
   "initialState",
   "app",
+  "currentStation",
   "uiTheme",
   "categories",
   "stations"
  ],
- "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK;AACHC,aAAS;AADN,GADc;AAInBC,cAAY,EAJO;AAKnBC,YAAU;AALS,CAArB;;kBAQeJ,Y"
+ "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK;AACHC,oBAAgB,KAAK,CADlB;AAEHC,aAAS;AAFN,GADc;AAKnBC,cAAY,EALO;AAMnBC,YAAU;AANS,CAArB;;kBASeL,Y"
 }

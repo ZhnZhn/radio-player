@@ -60,8 +60,10 @@ const SiteUrl = ({ siteUrl }) => {
 }
 
 
-const StationDescr = ({ station={} }) => {
-  const [isMore, setMore] = useState(false)
+const StationDescr = ({ station }) => {
+  if (!station) { return null; }
+
+  const [isMore, setMore] = useState(true)
   , _onClick = () => setMore(isMore => !isMore)
   , _arrowStyle = isMore
        ? S.ARROW_OPEN

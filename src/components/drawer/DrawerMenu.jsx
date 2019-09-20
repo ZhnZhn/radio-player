@@ -23,7 +23,7 @@ const DrawerMenu = ({
         onClick={setUiTheme}
       />
       <SvgClose
-        style={S.BT_CLOSE}
+        className={S.CL_BT_CLOSE}  
         onClick={onCloseDrawer}
       />
     </div>

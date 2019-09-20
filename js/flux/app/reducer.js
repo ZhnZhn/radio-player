@@ -14,6 +14,8 @@ var _initialState2 = _interopRequireDefault(_initialState);
 
 var _actions = require('./actions');
 
+var _actions2 = require('../stations/actions');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var reducer = function reducer() {
@@ -27,6 +29,14 @@ var reducer = function reducer() {
 
         return state.uiTheme !== uiTheme ? (0, _extends3.default)({}, state, { uiTheme: uiTheme
         }) : state;
+      }
+    case _actions2.ACTION.SET_CURRENT_STATION:
+      {
+        var station = action.station;
+
+        return (0, _extends3.default)({}, state, {
+          currentStation: station
+        });
       }
     default:
       return state;

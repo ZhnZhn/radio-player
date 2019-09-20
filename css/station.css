@@ -75,9 +75,12 @@
 }
 
 @media screen and (max-width: 420px) {
+  .item-list {
+    margin-left: -10px;
+  }
   .item-station {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
   .item-descr__bt-more {
     top: 2px;
