@@ -30,6 +30,10 @@ var reducer = function reducer() {
         return state.uiTheme !== uiTheme ? (0, _extends3.default)({}, state, { uiTheme: uiTheme
         }) : state;
       }
+    case _actions.ACTION.TOGGLE_DRAWER:
+      return (0, _extends3.default)({}, state, {
+        isDrawer: !state.isDrawer
+      });
     case _actions2.ACTION.SET_CURRENT_STATION:
       {
         var station = action.station;

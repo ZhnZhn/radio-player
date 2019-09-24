@@ -32,6 +32,8 @@ var _reactRedux = require('react-redux');
 
 var _selectors = require('../../flux/selectors');
 
+var _actions = require('../../flux/app/actions');
+
 var _uiTheme = require('../ui-theme/uiTheme');
 
 var _uiTheme2 = _interopRequireDefault(_uiTheme);
@@ -92,27 +94,22 @@ var Drawer = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call.apply(_ref, [this].concat(args))), _this), _this.state = { isOpen: false }, _this._hTransitionEnd = function () {
-      if (!_this.state.isOpen) {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call.apply(_ref, [this].concat(args))), _this), _this._hTransitionEnd = function () {
+      if (!_this.props.isOpen) {
         _this._wrapperNode.style.display = 'none';
       }
     }, _this._setBodyOverflowY = function () {
-      var isOpen = _this.state.isOpen;
+      var isOpen = _this.props.isOpen;
 
       if (isOpen) {
         document.body.style.overflowY = 'hidden';
       } else {
         document.body.style.overflowY = 'auto';
       }
-    }, _this._hToggle = function () {
-      if (!_this.state.isOpen) {
+    }, _this._setWrapperStyleToBlock = function () {
+      if (_this.props.isOpen && _this._wrapperNode) {
         _this._wrapperNode.style.display = 'block';
       }
-      _this.setState(function (prevState) {
-        return {
-          isOpen: !prevState.isOpen
-        };
-      }, _this._setBodyOverflowY);
     }, _this._refAside = function (node) {
       return _this._asideNode = node;
     }, _this._refWrapper = function (node) {
@@ -135,17 +132,24 @@ var Drawer = function (_Component) {
       }
     }
   }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this._setBodyOverflowY();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          isOpen = _props.isOpen,
           uiTheme = _props.uiTheme,
           btStyle = _props.btStyle,
+          toggleDrawer = _props.toggleDrawer,
           children = _props.children,
-          isOpen = this.state.isOpen,
           _asideStyle = (0, _extends3.default)({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, _uiTheme2.default.toBg(uiTheme)),
           _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
-          _onClickWrapper = isOpen ? this._hToggle : void 0;
+          _onClickWrapper = isOpen ? toggleDrawer : void 0;
 
+      this._setWrapperStyleToBlock();
       return [_react2.default.createElement(
         'button',
         {
@@ -153,7 +157,7 @@ var Drawer = function (_Component) {
           className: CL.DRAWER_BT,
           style: (0, _extends3.default)({}, S.BT_DRAWER, btStyle),
           'aria-label': 'Open Drawer',
-          onClick: this._hToggle
+          onClick: toggleDrawer
         },
         _react2.default.createElement(
           'span',
@@ -187,9 +191,7 @@ var Drawer = function (_Component) {
         _react2.default.createElement(
           'div',
           { ref: this._refWrapper },
-          _react2.default.cloneElement(children, {
-            onCloseDrawer: this._hToggle
-          })
+          children
         )
       )];
     }
@@ -199,9 +201,14 @@ var Drawer = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    isOpen: _selectors.sApp.isDrawer(state),
     uiTheme: _selectors.sApp.uiTheme(state)
   };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Drawer);
+var mapDispatchToProps = {
+  toggleDrawer: _actions.toggleDrawer
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Drawer);
 //# sourceMappingURL=Drawer.js.map

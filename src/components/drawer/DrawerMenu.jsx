@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext, useCallback } from 'react'
 
-import { connect } from 'react-redux'
-import { setUiTheme } from '../../flux/app/actions'
+import { useDispatch } from 'react-redux'
+
+import AppContext from '../AppContext'
+import useSwipeGesture from '../hooks/useSwipeGesture'
 
 import SvgClose from '../zhn/SvgClose'
 import BtTriple from '../zhn/BtTriple'
@@ -9,33 +11,31 @@ import CategoriesList from './CategoriesList'
 import S from './style'
 
 const DrawerMenu = ({
-  setUiTheme,
-  onCloseDrawer,
   categories
-}) => (
-  <div className={S.CL_ROOT}>
-    <div className={S.CL_HEADER}>
-      <BtTriple
-        style={S.BT_TRIPLE}
-        oneC="GREY"
-        twoC="LIGHT"
-        threeC="SAND"
-        onClick={setUiTheme}
-      />
-      <SvgClose
-        className={S.CL_BT_CLOSE}  
-        onClick={onCloseDrawer}
-      />
+}) => {
+  const { setUiTheme, toggleDrawer } = useContext(AppContext)
+  , dispatch = useDispatch()
+  , _setUiTheme = useCallback((uiThemeIndex) => dispatch(setUiTheme(uiThemeIndex)), [])
+  , _onCloseDrawer = useCallback(() => dispatch(toggleDrawer()), [])
+  , _handlers = useSwipeGesture({ onSwipeGesture: _onCloseDrawer, dir: 'R' });
+  return (
+    <div className={S.CL_ROOT} {..._handlers}>
+      <div className={S.CL_HEADER}>
+        <BtTriple
+          style={S.BT_TRIPLE}
+          oneC="GREY"
+          twoC="LIGHT"
+          threeC="SAND"
+          onClick={_setUiTheme}
+        />
+        <SvgClose
+          className={S.CL_BT_CLOSE}
+          onClick={_onCloseDrawer}
+        />
+      </div>
+      <CategoriesList categories={categories} />
     </div>
-    <CategoriesList categories={categories} />
-  </div>
-);
+  );
+}
 
-const mapDispatchToProps = {
-  setUiTheme
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(DrawerMenu)
+export default DrawerMenu

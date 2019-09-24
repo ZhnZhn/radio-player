@@ -7,10 +7,11 @@
  "names": [
   "initialState",
   "app",
+  "isDrawer",
   "currentStation",
   "uiTheme",
   "categories",
   "stations"
  ],
- "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK;AACHC,oBAAgB,KAAK,CADlB;AAEHC,aAAS;AAFN,GADc;AAKnBC,cAAY,EALO;AAMnBC,YAAU;AANS,CAArB;;kBASeL,Y"
+ "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK;AACHC,cAAU,KADP;AAEHC,oBAAgB,KAAK,CAFlB;AAGHC,aAAS;AAHN,GADc;AAMnBC,cAAY,EANO;AAOnBC,YAAU;AAPS,CAArB;;kBAUeN,Y"
 }

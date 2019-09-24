@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { sApp } from '../../flux/selectors'
+import { toggleDrawer } from '../../flux/app/actions'
 
 import uiThemeImpl from '../ui-theme/uiTheme'
 import HAS from '../has'
@@ -43,7 +44,6 @@ const S = {
 }
 
 class Drawer extends Component {
-  state = { isOpen: false }
 
   componentDidMount(){
     if (HAS.TRANSITION) {
@@ -57,13 +57,13 @@ class Drawer extends Component {
   }
 
   _hTransitionEnd = () => {
-    if (!this.state.isOpen) {
+    if (!this.props.isOpen) {
       this._wrapperNode.style.display = 'none'
     }
   }
 
   _setBodyOverflowY = () => {
-    const { isOpen } = this.state;
+    const { isOpen } = this.props;
     if (isOpen) {
       document.body.style.overflowY = 'hidden'
     } else {
@@ -71,13 +71,14 @@ class Drawer extends Component {
     }
   }
 
-  _hToggle = () => {
-    if (!this.state.isOpen) {
+  _setWrapperStyleToBlock = () => {
+    if (this.props.isOpen && this._wrapperNode) {
       this._wrapperNode.style.display = 'block'
     }
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen
-    }), this._setBodyOverflowY)
+  }
+
+  componentDidUpdate(){
+    this._setBodyOverflowY()
   }
 
   _refAside = node => this._asideNode = node
@@ -85,11 +86,12 @@ class Drawer extends Component {
 
   render(){
     const {
+       isOpen,
        uiTheme,
        btStyle,
+       toggleDrawer,
        children
      } = this.props
-    , { isOpen } = this.state
     , _asideStyle = {
         ...(isOpen ? S.DRAWER_ON : S.DRAWER_OFF),
         ...uiThemeImpl.toBg(uiTheme)
@@ -98,15 +100,16 @@ class Drawer extends Component {
          ? S.MODAL_ON
          : S.MODAL_OFF
     , _onClickWrapper = isOpen
-         ? this._hToggle
+         ? toggleDrawer
          : void 0;
+    this._setWrapperStyleToBlock()
     return [
         <button
           key="bt-drawer"
           className={CL.DRAWER_BT}
           style={{ ...S.BT_DRAWER, ...btStyle }}
           aria-label="Open Drawer"
-          onClick={this._hToggle}
+          onClick={toggleDrawer}
         >
           <span className={CL.DRAWER_SPAN}>
             <svg
@@ -134,11 +137,7 @@ class Drawer extends Component {
           style={_asideStyle}
          >
            <div ref={this._refWrapper}>
-            {
-              React.cloneElement(children, {
-                onCloseDrawer: this._hToggle
-              })
-             }
+             {children}
            </div>
         </aside>
       ];
@@ -146,9 +145,15 @@ class Drawer extends Component {
 }
 
 const mapStateToProps = state => ({
+  isOpen: sApp.isDrawer(state),
   uiTheme: sApp.uiTheme(state)
-})
+});
+
+const mapDispatchToProps = {
+  toggleDrawer
+};
 
 export default connect(
-  mapStateToProps, null
+  mapStateToProps,
+  mapDispatchToProps
 )(Drawer)

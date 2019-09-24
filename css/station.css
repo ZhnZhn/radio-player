@@ -78,11 +78,13 @@
   .item-list {
     margin-left: -10px;
   }
-  .item-station {
+  .item-station,
+  .station-descr__bt {
     padding-top: 3px;
     padding-bottom: 3px;
   }
+  .station-descr__bt
   .item-descr__bt-more {
-    top: 2px;
+    top: 3px;
   }
 }

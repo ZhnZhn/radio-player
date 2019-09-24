@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var initialState = {
   app: {
+    isDrawer: false,
     currentStation: void 0,
     uiTheme: 'grey'
   },

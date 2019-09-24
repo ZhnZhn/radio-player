@@ -7,6 +7,9 @@ var sApp = exports.sApp = {
   app: function app(state) {
     return state.app || {};
   },
+  isDrawer: function isDrawer(state) {
+    return sApp.app(state).isDrawer;
+  },
   currentStation: function currentStation(state) {
     return sApp.app(state).currentStation;
   },

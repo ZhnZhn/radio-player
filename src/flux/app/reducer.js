@@ -11,8 +11,13 @@ const reducer = function(state=initialState.app, action) {
          ...state, uiTheme
       } : state;
     }
+    case ACTION.TOGGLE_DRAWER:
+      return {
+        ...state,
+        isDrawer: !state.isDrawer
+      };
     case SA.SET_CURRENT_STATION: {
-      const { station } = action;      
+      const { station } = action;
       return {
         ...state,
         currentStation: station

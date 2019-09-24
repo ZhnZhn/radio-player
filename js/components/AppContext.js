@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _actions = require('../flux/app/actions');
+
+var _actions2 = _interopRequireDefault(_actions);
+
 var _selectors = require('../flux/selectors');
 
 var _selectors2 = _interopRequireDefault(_selectors);
@@ -24,7 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var AppContext = _react2.default.createContext();
 
-AppContext.value = (0, _extends3.default)({}, _selectors2.default, {
+AppContext.value = (0, _extends3.default)({}, _actions2.default, _selectors2.default, {
   uiThemeImpl: _uiTheme2.default
 });
 
