@@ -27,26 +27,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            "cacheDirectory": true,
-            "plugins" : [
-                          "transform-decorators-legacy",
-                         [ "transform-react-remove-prop-types", {
-                             "mode": "wrap",
-                             "ignoreFilenames":["node_modules"]
-                         }],
-                         [ "transform-runtime", {
-                             "helpers": true,
-                             "polyfill": false,
-                             "regenerator": true,
-                             "moduleName": "babel-runtime"
-                         }]
-            ],
+            cacheDirectory: true,
             presets: [
-                      //'env',
-                      ['es2015', {modules: false}],
-                      'react',
-                      'stage-2'
-            ]
+                ['@babel/preset-env', { loose: true }],
+                '@babel/preset-react'
+             ],
+             plugins: [
+                ['@babel/plugin-transform-runtime'],
+                ['@babel/plugin-proposal-class-properties', { loose: true }]
+             ]                         
           }
         },
         include: [

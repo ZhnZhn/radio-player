@@ -9,13 +9,7 @@ module.exports = {
      lib: [
             "react", "react-dom",            
             "redux", "react-redux",
-            "howler",
-            "babel-runtime/helpers/classCallCheck",
-            "babel-runtime/helpers/createClass",
-            "babel-runtime/helpers/possibleConstructorReturn",
-            "babel-runtime/helpers/inherits",
-            "babel-runtime/helpers/toConsumableArray",
-            "babel-runtime/helpers/slicedToArray"   
+            "howler"            
           ]
   },
   output: {
