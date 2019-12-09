@@ -15,7 +15,7 @@ background-color: #463239;
 */
 
 body {
-  font-family: "Roboto", "Arial", "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, Lato, "Noto Sans", sans-serif;
   font-weight: 300;
   background-color: gray;
   /*background-color: #463239;*/

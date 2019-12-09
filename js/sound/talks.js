@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var talks = [{
   title: 'Santa Monica, California: KCRW 89.9 FM',
   src: 'https://kcrw.streamguys1.com/kcrw_192k_mp3_on_air?listenerid=1a13cb86cbe44b773c014c34bb7bfe43&awparams=companionAds%3Atrue',
@@ -20,6 +18,6 @@ var talks = [{
   siteUrl: 'http://www.bbc.co.uk/radiowales',
   br: 128
 }];
-
-exports.default = talks;
+var _default = talks;
+exports["default"] = _default;
 //# sourceMappingURL=talks.js.map

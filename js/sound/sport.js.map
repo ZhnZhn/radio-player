@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/sport.js"
- ],
- "file": "../../src/sound/sport.js",
- "names": [
-  "sport",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;;;AACA,IAAMA,QAAQ,CACZ;AACEC,SAAO,0BADT;AAEEC,OAAK,qDAFP;AAGEC,WAAS,gCAHX;AAIEC,MAAI;AAJN,CADY,EAMV;AACAH,SAAO,eADP;AAEAC,OAAK,uEAFL;AAGAC,WAAS,sBAHT;AAIAC,MAAI;AAJJ,CANU,CAAd;;kBAceJ,K"
-}
+{"version":3,"sources":["../../src/sound/sport.js"],"names":["sport","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,KAAK,GAAG,CACZ;AACEC,EAAAA,KAAK,EAAE,0BADT;AAEEC,EAAAA,GAAG,EAAE,qDAFP;AAGEC,EAAAA,OAAO,EAAE,gCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADY,EAMV;AACAH,EAAAA,KAAK,EAAE,eADP;AAEAC,EAAAA,GAAG,EAAE,uEAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANU,CAAd;eAceJ,K","sourcesContent":["\r\nconst sport = [\r\n  {\r\n    title: 'USA: Bristol: ESPN Radio',\r\n    src: 'http://edge.espn.cdn.abacast.net/espn-networkmp3-48',\r\n    siteUrl: 'http://www.espn.com/espnradio/',\r\n    br: 48\r\n  },{\r\n    title: 'UK: talkSPORT',\r\n    src: 'http://radio.talksport.com/stream?awparams=platform:ts-tunein;lang:en',\r\n    siteUrl: 'http://talksport.com',\r\n    br: 64\r\n  }\r\n]\r\n\r\nexport default sport\r\n"],"file":"sport.js"}

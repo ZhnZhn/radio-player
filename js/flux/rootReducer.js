@@ -1,30 +1,23 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _redux = require('redux');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _reducer = require('./app/reducer');
+var _redux = require("redux");
 
-var _reducer2 = _interopRequireDefault(_reducer);
+var _reducer = _interopRequireDefault(require("./app/reducer"));
 
-var _reducer3 = require('./stations/reducer');
+var _reducer2 = _interopRequireDefault(require("./stations/reducer"));
 
-var _reducer4 = _interopRequireDefault(_reducer3);
-
-var _reducer5 = require('./categories/reducer');
-
-var _reducer6 = _interopRequireDefault(_reducer5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reducer3 = _interopRequireDefault(require("./categories/reducer"));
 
 var rootReducer = (0, _redux.combineReducers)({
-  app: _reducer2.default,
-  stations: _reducer4.default,
-  categories: _reducer6.default
+  app: _reducer["default"],
+  stations: _reducer2["default"],
+  categories: _reducer3["default"]
 });
-
-exports.default = rootReducer;
+var _default = rootReducer;
+exports["default"] = _default;
 //# sourceMappingURL=rootReducer.js.map

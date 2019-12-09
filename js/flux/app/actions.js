@@ -1,47 +1,51 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var ACTION = exports.ACTION = {
+exports.__esModule = true;
+exports["default"] = exports.toggleDrawer = exports.setUiTheme = exports.addCategory = exports.ACTION = void 0;
+var ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
   SET_UI_THEME: 'SET_UI_THEME',
   OPEN_DRAWER: 'OPEN_DRAWER',
   CLOSE_DRAWER: 'CLOSE_DRAWER',
   TOGGLE_DRAWER: 'TOGGLE_DRAWER'
 };
+exports.ACTION = ACTION;
 
-var addCategory = exports.addCategory = function addCategory(category) {
+var addCategory = function addCategory(category) {
   return {
     type: ACTION.SAVE_BOARD,
     category: category
   };
 };
 
+exports.addCategory = addCategory;
 var _hmUiTheme = {
   '1': 'grey',
   '2': 'light',
   '3': 'sand'
 };
 
-var setUiTheme = exports.setUiTheme = function setUiTheme(uiThemeIndex) {
+var setUiTheme = function setUiTheme(uiThemeIndex) {
   return {
     type: ACTION.SET_UI_THEME,
     uiTheme: _hmUiTheme[uiThemeIndex]
   };
 };
 
-var toggleDrawer = exports.toggleDrawer = function toggleDrawer() {
+exports.setUiTheme = setUiTheme;
+
+var toggleDrawer = function toggleDrawer() {
   return {
     type: ACTION.TOGGLE_DRAWER
   };
 };
 
+exports.toggleDrawer = toggleDrawer;
 var actions = {
   addCategory: addCategory,
   setUiTheme: setUiTheme,
   toggleDrawer: toggleDrawer
 };
-
-exports.default = actions;
+var _default = actions;
+exports["default"] = _default;
 //# sourceMappingURL=actions.js.map

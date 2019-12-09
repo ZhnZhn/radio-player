@@ -1,14 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/radio/Radio.js"
- ],
- "file": "../../../src/components/radio/Radio.js",
- "names": [
-  "Radio",
-  "Command",
-  "Volume",
-  "List"
- ],
- "mappings": ";;;;;;AAAA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,QAAQ;AACZC,iCADY;AAEZC,+BAFY;AAGZC;AAHY,CAAd;;kBAMeH,K"
-}
+{"version":3,"sources":["../../../src/components/radio/Radio.jsx"],"names":["Radio","Command","Volume","List"],"mappings":";;;;;;;AAAA;;AACA;;AACA;;AAEA,IAAMA,KAAK,GAAG;AACZC,EAAAA,OAAO,EAAPA,wBADY;AAEZC,EAAAA,MAAM,EAANA,uBAFY;AAGZC,EAAAA,IAAI,EAAJA;AAHY,CAAd;eAMeH,K","sourcesContent":["import Command from './RadioCommand'\r\nimport Volume from './RadioVolume'\r\nimport List from './StationList'\r\n\r\nconst Radio = {\r\n  Command,\r\n  Volume,\r\n  List\r\n}\r\n\r\nexport default Radio\r\n"],"file":"Radio.js"}

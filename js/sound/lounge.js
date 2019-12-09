@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var lounge = [{
   title: 'France: ABC Lounge Jazz',
   src: 'http://centauri.shoutca.st:8686/stream/1/',
@@ -15,6 +13,6 @@ var lounge = [{
   siteUrl: 'https://www.milanolounge.net',
   br: 128
 }];
-
-exports.default = lounge;
+var _default = lounge;
+exports["default"] = _default;
 //# sourceMappingURL=lounge.js.map

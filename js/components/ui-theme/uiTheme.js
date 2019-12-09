@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var _hm = {
   'grey': 'grey',
   //'light': '#e8e8e8',
@@ -11,7 +9,6 @@ var _hm = {
   //'sand': '#f7e8c3'
   'sand': '#fdf1d5'
 };
-
 var uiThemeImpl = {
   toBg: function toBg(uiTheme) {
     return {
@@ -19,6 +16,6 @@ var uiThemeImpl = {
     };
   }
 };
-
-exports.default = uiThemeImpl;
+var _default = uiThemeImpl;
+exports["default"] = _default;
 //# sourceMappingURL=uiTheme.js.map

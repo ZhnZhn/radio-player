@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var chillout = [{
   title: 'Spain: Costa Del Mar - Chillout',
   src: 'http://stream.cdm-chillout.com:8020/stream-mp3-Chill',
@@ -20,6 +18,6 @@ var chillout = [{
   siteUrl: 'http://www.181.fm/',
   br: 128
 }];
-
-exports.default = chillout;
+var _default = chillout;
+exports["default"] = _default;
 //# sourceMappingURL=chillout.js.map

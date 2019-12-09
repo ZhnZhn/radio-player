@@ -1,12 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/zhn/BtMinus.js"
- ],
- "file": "../../../src/components/zhn/BtMinus.js",
- "names": [
-  "BtMinus",
-  "props"
- ],
- "mappings": ";;;;;;AAAA;;;;AAEA;;;;;;AAEA,IAAMA,UAAU,SAAVA,OAAU,CAACC,KAAD;AAAA,SACd;AAAC,0BAAD;AAAYA,SAAZ;AACE,4CAAM,GAAE,WAAR,EAAoB,aAAY,GAAhC;AADF,GADc;AAAA,CAAhB;;kBAMeD,O"
-}
+{"version":3,"sources":["../../../src/components/zhn/BtMinus.jsx"],"names":["BtMinus","props"],"mappings":";;;;;;;AAAA;;AAEA;;AAEA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAACC,KAAD;AAAA,SACd,gCAAC,wBAAD,EAAYA,KAAZ,EACE;AAAM,IAAA,CAAC,EAAC,WAAR;AAAoB,IAAA,WAAW,EAAC;AAAhC,IADF,CADc;AAAA,CAAhB;;eAMeD,O","sourcesContent":["import React from 'react'\r\n\r\nimport Button from './CircleButton'\r\n\r\nconst BtMinus = (props) => (\r\n  <Button {...props}>\r\n    <path d=\"M8 16 H24\" strokeWidth=\"3\" />\r\n  </Button>\r\n);\r\n\r\nexport default BtMinus\r\n"],"file":"BtMinus.js"}

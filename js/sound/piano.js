@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var piano = [{
   title: 'USA: Eugene: Whisperings Solo Piano',
   src: 'http://pianosolo.streamguys.net/live',
@@ -15,6 +13,6 @@ var piano = [{
   siteUrl: 'https://www.mattjohnsonmusic.com',
   br: 80
 }];
-
-exports.default = piano;
+var _default = piano;
+exports["default"] = _default;
 //# sourceMappingURL=piano.js.map

@@ -1,20 +1,15 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _appCurrentStation = require('./appCurrentStation');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _appCurrentStation2 = _interopRequireDefault(_appCurrentStation);
+var _appCurrentStation = _interopRequireDefault(require("./appCurrentStation"));
 
-var _appUiTheme = require('./appUiTheme');
+var _appUiTheme = _interopRequireDefault(require("./appUiTheme"));
 
-var _appUiTheme2 = _interopRequireDefault(_appUiTheme);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var middlewares = [_appUiTheme2.default, _appCurrentStation2.default];
-
-exports.default = middlewares;
+var middlewares = [_appUiTheme["default"], _appCurrentStation["default"]];
+var _default = middlewares;
+exports["default"] = _default;
 //# sourceMappingURL=middlewares.js.map

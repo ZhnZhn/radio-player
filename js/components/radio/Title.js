@@ -1,14 +1,11 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var CL = {
   TITLE: 'audio__title',
@@ -21,14 +18,14 @@ var Title = function Title(_ref) {
       title = _ref.title;
 
   var _title = station && station.title || '',
-      _msgErrOrTitle = msgErr ? msgErr + ' ' + _title : _title || title,
+      _msgErrOrTitle = msgErr ? msgErr + " " + _title : _title || title,
       _cl = msgErr ? CL.ERR : CL.TITLE;
-  return _react2.default.createElement(
-    'div',
-    { className: _cl },
-    _msgErrOrTitle
-  );
+
+  return _react["default"].createElement("div", {
+    className: _cl
+  }, _msgErrOrTitle);
 };
 
-exports.default = Title;
+var _default = Title;
+exports["default"] = _default;
 //# sourceMappingURL=Title.js.map

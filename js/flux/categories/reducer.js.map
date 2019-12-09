@@ -1,18 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/flux/categories/reducer.js"
- ],
- "file": "../../../src/flux/categories/reducer.js",
- "names": [
-  "reducer",
-  "state",
-  "action",
-  "type",
-  "SA",
-  "ADD_CATEGORY",
-  "category",
-  "REMOVE_CATEGORY"
- ],
- "mappings": ";;;;;;;;;;AAAA;;;;AAEA,IAAMA,UAAU,SAAVA,OAAU,GAA2B;AAAA,MAAlBC,KAAkB,uEAAZ,EAAY;AAAA,MAARC,MAAQ;;AACzC,UAAOA,OAAOC,IAAd;AACE,SAAKC,gBAAGC,YAAR;AAAsB;AAAA,YACZC,QADY,GACCJ,MADD,CACZI,QADY;;AAEpBL,cAAMK,QAAN,IAAkB,IAAlB;AACA,0CAAYL,KAAZ;AACD;AACD,SAAKG,gBAAGG,eAAR;AAAyB;AAAA,YACfD,SADe,GACFJ,MADE,CACfI,QADe;;AAEvBL,cAAMK,SAAN,IAAkB,KAAlB;AACA,0CAAYL,KAAZ;AACD;AACD;AAAS,aAAOA,KAAP;AAXX;AAaD,CAdD;;kBAgBeD,O"
-}
+{"version":3,"sources":["../../../src/flux/categories/reducer.js"],"names":["reducer","state","action","type","SA","ADD_CATEGORY","category","REMOVE_CATEGORY"],"mappings":";;;;;;;;;AAAA;;AAEA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAASC,KAAT,EAAmBC,MAAnB,EAA2B;AAAA,MAAlBD,KAAkB;AAAlBA,IAAAA,KAAkB,GAAZ,EAAY;AAAA;;AACzC,UAAOC,MAAM,CAACC,IAAd;AACE,SAAKC,gBAAGC,YAAR;AAAsB;AAAA,YACZC,QADY,GACCJ,MADD,CACZI,QADY;AAEpBL,QAAAA,KAAK,CAACK,QAAD,CAAL,GAAkB,IAAlB;AACA,6CAAYL,KAAZ;AACD;;AACD,SAAKG,gBAAGG,eAAR;AAAyB;AAAA,YACfD,SADe,GACFJ,MADE,CACfI,QADe;AAEvBL,QAAAA,KAAK,CAACK,SAAD,CAAL,GAAkB,KAAlB;AACA,6CAAYL,KAAZ;AACD;;AACD;AAAS,aAAOA,KAAP;AAXX;AAaD,CAdD;;eAgBeD,O","sourcesContent":["import { ACTION as SA } from '../stations/actions'\r\n\r\nconst reducer = function(state={}, action) {\r\n  switch(action.type){\r\n    case SA.ADD_CATEGORY: {\r\n      const { category } = action\r\n      state[category] = true\r\n      return { ...state};\r\n    }\r\n    case SA.REMOVE_CATEGORY: {\r\n      const { category } = action\r\n      state[category] = false;\r\n      return { ...state};\r\n    }\r\n    default: return state;\r\n  }\r\n}\r\n\r\nexport default reducer\r\n"],"file":"reducer.js"}

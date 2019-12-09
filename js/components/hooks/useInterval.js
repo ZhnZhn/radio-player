@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react = require('react');
+var _react = require("react");
 
 var D = {
   L1: 150,
@@ -15,6 +14,7 @@ function useInterval(fn, check, volume) {
   var ID = (0, _react.useRef)(),
       refVolume = (0, _react.useRef)();
   refVolume.current = volume;
+
   var stopInInterval = function stopInInterval() {
     return clearInterval(ID.current);
   },
@@ -28,8 +28,10 @@ function useInterval(fn, check, volume) {
       }
     }, D.L1);
   };
+
   return [runInInterval, stopInInterval];
 }
 
-exports.default = useInterval;
+var _default = useInterval;
+exports["default"] = _default;
 //# sourceMappingURL=useInterval.js.map

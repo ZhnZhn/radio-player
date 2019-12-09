@@ -1,74 +1,50 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classical = require('./classical');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _classical2 = _interopRequireDefault(_classical);
+var _classical = _interopRequireDefault(require("./classical"));
 
-var _country = require('./country');
+var _country = _interopRequireDefault(require("./country"));
 
-var _country2 = _interopRequireDefault(_country);
+var _talks = _interopRequireDefault(require("./talks"));
 
-var _talks = require('./talks');
+var _sport = _interopRequireDefault(require("./sport"));
 
-var _talks2 = _interopRequireDefault(_talks);
+var _jazz = _interopRequireDefault(require("./jazz"));
 
-var _sport = require('./sport');
+var _chillout = _interopRequireDefault(require("./chillout"));
 
-var _sport2 = _interopRequireDefault(_sport);
+var _lounge = _interopRequireDefault(require("./lounge"));
 
-var _jazz = require('./jazz');
+var _rock = _interopRequireDefault(require("./rock"));
 
-var _jazz2 = _interopRequireDefault(_jazz);
+var _pop = _interopRequireDefault(require("./pop"));
 
-var _chillout = require('./chillout');
+var _piano = _interopRequireDefault(require("./piano"));
 
-var _chillout2 = _interopRequireDefault(_chillout);
-
-var _lounge = require('./lounge');
-
-var _lounge2 = _interopRequireDefault(_lounge);
-
-var _rock = require('./rock');
-
-var _rock2 = _interopRequireDefault(_rock);
-
-var _pop = require('./pop');
-
-var _pop2 = _interopRequireDefault(_pop);
-
-var _piano = require('./piano');
-
-var _piano2 = _interopRequireDefault(_piano);
-
-var _instrumental = require('./instrumental');
-
-var _instrumental2 = _interopRequireDefault(_instrumental);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _instrumental = _interopRequireDefault(require("./instrumental"));
 
 var _hm = {
-  classical: _classical2.default,
-  country: _country2.default,
-  talks: _talks2.default,
-  sport: _sport2.default,
-  jazz: _jazz2.default,
-  chillout: _chillout2.default,
-  lounge: _lounge2.default,
-  rock: _rock2.default,
-  pop: _pop2.default,
-  piano: _piano2.default,
-  instrumental: _instrumental2.default
+  classical: _classical["default"],
+  country: _country["default"],
+  talks: _talks["default"],
+  sport: _sport["default"],
+  jazz: _jazz["default"],
+  chillout: _chillout["default"],
+  lounge: _lounge["default"],
+  rock: _rock["default"],
+  pop: _pop["default"],
+  piano: _piano["default"],
+  instrumental: _instrumental["default"]
 };
-
 var router = {
   getCategory: function getCategory(category) {
     return _hm[category] || [];
   }
 };
-
-exports.default = router;
+var _default = router;
+exports["default"] = _default;
 //# sourceMappingURL=router.js.map

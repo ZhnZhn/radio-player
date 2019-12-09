@@ -1,14 +1,11 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var CL = {
   ITEM: 'item-station',
@@ -19,26 +16,15 @@ var StationItem = function StationItem(_ref) {
   var station = _ref.station,
       accessKey = _ref.accessKey,
       onClick = _ref.onClick;
-  return _react2.default.createElement(
-    'button',
-    {
-      className: CL.ITEM,
-      accessKey: accessKey,
-      onClick: onClick
-    },
-    _react2.default.createElement(
-      'span',
-      null,
-      station.title
-    ),
-    Boolean(accessKey) && _react2.default.createElement(
-      'span',
-      {
-        className: CL.ACCESS_KEY },
-      accessKey
-    )
-  );
+  return _react["default"].createElement("button", {
+    className: CL.ITEM,
+    accessKey: accessKey,
+    onClick: onClick
+  }, _react["default"].createElement("span", null, station.title), Boolean(accessKey) && _react["default"].createElement("span", {
+    className: CL.ACCESS_KEY
+  }, accessKey));
 };
 
-exports.default = StationItem;
+var _default = StationItem;
+exports["default"] = _default;
 //# sourceMappingURL=StationItem.js.map

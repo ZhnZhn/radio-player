@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var sport = [{
   title: 'USA: Bristol: ESPN Radio',
   src: 'http://edge.espn.cdn.abacast.net/espn-networkmp3-48',
@@ -15,6 +13,6 @@ var sport = [{
   siteUrl: 'http://talksport.com',
   br: 64
 }];
-
-exports.default = sport;
+var _default = sport;
+exports["default"] = _default;
 //# sourceMappingURL=sport.js.map

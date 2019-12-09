@@ -1,17 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/flux/initialState.js"
- ],
- "file": "../../src/flux/initialState.js",
- "names": [
-  "initialState",
-  "app",
-  "isDrawer",
-  "currentStation",
-  "uiTheme",
-  "categories",
-  "stations"
- ],
- "mappings": ";;;;;;AACA,IAAMA,eAAe;AACnBC,OAAK;AACHC,cAAU,KADP;AAEHC,oBAAgB,KAAK,CAFlB;AAGHC,aAAS;AAHN,GADc;AAMnBC,cAAY,EANO;AAOnBC,YAAU;AAPS,CAArB;;kBAUeN,Y"
-}
+{"version":3,"sources":["../../src/flux/initialState.js"],"names":["initialState","app","isDrawer","currentStation","uiTheme","categories","stations"],"mappings":";;;;AACA,IAAMA,YAAY,GAAG;AACnBC,EAAAA,GAAG,EAAE;AACHC,IAAAA,QAAQ,EAAE,KADP;AAEHC,IAAAA,cAAc,EAAE,KAAK,CAFlB;AAGHC,IAAAA,OAAO,EAAE;AAHN,GADc;AAMnBC,EAAAA,UAAU,EAAE,EANO;AAOnBC,EAAAA,QAAQ,EAAE;AAPS,CAArB;eAUeN,Y","sourcesContent":["\r\nconst initialState = {\r\n  app: {\r\n    isDrawer: false,\r\n    currentStation: void 0,\r\n    uiTheme: 'grey'\r\n  },\r\n  categories: {},\r\n  stations: []\r\n};\r\n\r\nexport default initialState\r\n"],"file":"initialState.js"}

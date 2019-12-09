@@ -1,18 +1,13 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var S = {
   display: 'inline-block',
@@ -23,29 +18,26 @@ var S = {
 var SvgChecked = function SvgChecked(_ref) {
   var style = _ref.style,
       color = _ref.color;
-  return _react2.default.createElement(
-    'span',
-    { style: (0, _extends3.default)({}, S, style) },
-    _react2.default.createElement(
-      'svg',
-      {
-        viewBox: '0 0 16 16', width: '100%', height: '100%',
-        preserveAspectRatio: 'none', xmlns: 'http://www.w3.org/2000/svg'
-      },
-      _react2.default.createElement('path', {
-        d: 'M 2,5 L 8,14 14,1',
-        stroke: color,
-        fill: 'transparent',
-        strokeWidth: '3',
-        strokeLinecap: 'round'
-      })
-    )
-  );
+  return _react["default"].createElement("span", {
+    style: (0, _extends2["default"])({}, S, {}, style)
+  }, _react["default"].createElement("svg", {
+    viewBox: "0 0 16 16",
+    width: "100%",
+    height: "100%",
+    preserveAspectRatio: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, _react["default"].createElement("path", {
+    d: "M 2,5 L 8,14 14,1",
+    stroke: color,
+    fill: "transparent",
+    strokeWidth: "3",
+    strokeLinecap: "round"
+  })));
 };
 
 SvgChecked.defaultProps = {
   color: '#64e346'
 };
-
-exports.default = SvgChecked;
+var _default = SvgChecked;
+exports["default"] = _default;
 //# sourceMappingURL=SvgChecked.js.map

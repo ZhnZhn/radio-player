@@ -1,60 +1,43 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _reactRedux = require('react-redux');
+var _reactRedux = require("react-redux");
 
-var _actions = require('../../flux/stations/actions');
+var _actions = require("../../flux/stations/actions");
 
-var _SvgChecked = require('../zhn/SvgChecked');
+var _SvgChecked = _interopRequireDefault(require("../zhn/SvgChecked"));
 
-var _SvgChecked2 = _interopRequireDefault(_SvgChecked);
+var _FlatButton = _interopRequireDefault(require("../zhn-m/FlatButton"));
 
-var _FlatButton = require('../zhn-m/FlatButton');
-
-var _FlatButton2 = _interopRequireDefault(_FlatButton);
-
-var _style = require('./style');
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _style = _interopRequireDefault(require("./style"));
 
 var CategoriesList = function CategoriesList(_ref) {
   var categories = _ref.categories,
       isCategories = _ref.isCategories,
       addCategory = _ref.addCategory,
       removeCategory = _ref.removeCategory;
-  return _react2.default.createElement(
-    'ul',
-    { style: _style2.default.UL },
-    categories.map(function (category) {
-      var _is = isCategories[category];
-      return _react2.default.createElement(
-        'li',
-        { key: category },
-        _react2.default.createElement(
-          _FlatButton2.default,
-          {
-            className: _style2.default.CL_BT,
-            caption: category,
-            onClick: _is ? function () {
-              return removeCategory(category);
-            } : function () {
-              return addCategory(category);
-            }
-          },
-          _is && _react2.default.createElement(_SvgChecked2.default, null)
-        )
-      );
-    })
-  );
+  return _react["default"].createElement("ul", {
+    style: _style["default"].UL
+  }, categories.map(function (category) {
+    var _is = isCategories[category];
+    return _react["default"].createElement("li", {
+      key: category
+    }, _react["default"].createElement(_FlatButton["default"], {
+      className: _style["default"].CL_BT,
+      caption: category,
+      onClick: _is ? function () {
+        return removeCategory(category);
+      } : function () {
+        return addCategory(category);
+      }
+    }, _is && _react["default"].createElement(_SvgChecked["default"], null)));
+  }));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -68,5 +51,7 @@ var mapDispatchToProps = {
   removeCategory: _actions.removeCategory
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CategoriesList);
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CategoriesList);
+
+exports["default"] = _default;
 //# sourceMappingURL=CategoriesList.js.map

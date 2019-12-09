@@ -1,48 +1,27 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends3 = _interopRequireDefault(_extends2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _react = _interopRequireWildcard(require("react"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _reactRedux = require("react-redux");
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _selectors = require("../../flux/selectors");
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _actions = require("../../flux/app/actions");
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _uiTheme = _interopRequireDefault(require("../ui-theme/uiTheme"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = require('react-redux');
-
-var _selectors = require('../../flux/selectors');
-
-var _actions = require('../../flux/app/actions');
-
-var _uiTheme = require('../ui-theme/uiTheme');
-
-var _uiTheme2 = _interopRequireDefault(_uiTheme);
-
-var _has = require('../has');
-
-var _has2 = _interopRequireDefault(_has);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _has = _interopRequireDefault(require("../has"));
 
 var CL = {
   DRAWER_BT: 'drawer-bt',
@@ -51,7 +30,6 @@ var CL = {
   DRAWER: 'drawer',
   DRAWER_MODAL: 'drawer-modal'
 };
-
 var S = {
   BT_DRAWER: {
     position: 'absolute',
@@ -80,25 +58,27 @@ var S = {
   }
 };
 
-var Drawer = function (_Component) {
-  (0, _inherits3.default)(Drawer, _Component);
+var Drawer =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inheritsLoose2["default"])(Drawer, _Component);
 
   function Drawer() {
-    var _ref;
+    var _this;
 
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck3.default)(this, Drawer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call.apply(_ref, [this].concat(args))), _this), _this._hTransitionEnd = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this._hTransitionEnd = function () {
       if (!_this.props.isOpen) {
         _this._wrapperNode.style.display = 'none';
       }
-    }, _this._setBodyOverflowY = function () {
+    };
+
+    _this._setBodyOverflowY = function () {
       var isOpen = _this.props.isOpen;
 
       if (isOpen) {
@@ -106,96 +86,90 @@ var Drawer = function (_Component) {
       } else {
         document.body.style.overflowY = 'auto';
       }
-    }, _this._setWrapperStyleToBlock = function () {
+    };
+
+    _this._setWrapperStyleToBlock = function () {
       if (_this.props.isOpen && _this._wrapperNode) {
         _this._wrapperNode.style.display = 'block';
       }
-    }, _this._refAside = function (node) {
+    };
+
+    _this._refAside = function (node) {
       return _this._asideNode = node;
-    }, _this._refWrapper = function (node) {
+    };
+
+    _this._refWrapper = function (node) {
       return _this._wrapperNode = node;
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    };
+
+    return _this;
   }
 
-  (0, _createClass3.default)(Drawer, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (_has2.default.TRANSITION) {
-        this._asideNode.addEventListener('transitionend', this._hTransitionEnd);
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      if (_has2.default.TRANSITION) {
-        this._asideNode.removeEventListener('transitionend', this._hTransitionEnd);
-      }
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      this._setBodyOverflowY();
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          isOpen = _props.isOpen,
-          uiTheme = _props.uiTheme,
-          btStyle = _props.btStyle,
-          toggleDrawer = _props.toggleDrawer,
-          children = _props.children,
-          _asideStyle = (0, _extends3.default)({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, _uiTheme2.default.toBg(uiTheme)),
-          _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
-          _onClickWrapper = isOpen ? toggleDrawer : void 0;
+  var _proto = Drawer.prototype;
 
-      this._setWrapperStyleToBlock();
-      return [_react2.default.createElement(
-        'button',
-        {
-          key: 'bt-drawer',
-          className: CL.DRAWER_BT,
-          style: (0, _extends3.default)({}, S.BT_DRAWER, btStyle),
-          'aria-label': 'Open Drawer',
-          onClick: toggleDrawer
-        },
-        _react2.default.createElement(
-          'span',
-          { className: CL.DRAWER_SPAN },
-          _react2.default.createElement(
-            'svg',
-            {
-              className: CL.DRAWER_SVG,
-              focusable: 'false',
-              viewBox: '0 0 24 24',
-              'aria-hidden': 'true'
-            },
-            _react2.default.createElement('path', { fill: 'none', d: 'M0 0h24v24H0z' }),
-            _react2.default.createElement('path', { d: 'M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z' })
-          )
-        )
-      ), _react2.default.createElement('div', {
-        key: 'wrapper',
-        'aria-hidden': !isOpen,
-        className: CL.DRAWER_MODAL,
-        style: _drawerModalStyle,
-        onClick: _onClickWrapper
-      }), _react2.default.createElement(
-        'aside',
-        {
-          ref: this._refAside,
-          key: 'aside',
-          className: CL.DRAWER,
-          style: _asideStyle
-        },
-        _react2.default.createElement(
-          'div',
-          { ref: this._refWrapper },
-          children
-        )
-      )];
+  _proto.componentDidMount = function componentDidMount() {
+    if (_has["default"].TRANSITION) {
+      this._asideNode.addEventListener('transitionend', this._hTransitionEnd);
     }
-  }]);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    if (_has["default"].TRANSITION) {
+      this._asideNode.removeEventListener('transitionend', this._hTransitionEnd);
+    }
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate() {
+    this._setBodyOverflowY();
+  };
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        isOpen = _this$props.isOpen,
+        uiTheme = _this$props.uiTheme,
+        btStyle = _this$props.btStyle,
+        toggleDrawer = _this$props.toggleDrawer,
+        children = _this$props.children,
+        _asideStyle = (0, _extends2["default"])({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, {}, _uiTheme["default"].toBg(uiTheme)),
+        _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
+        _onClickWrapper = isOpen ? toggleDrawer : void 0;
+
+    this._setWrapperStyleToBlock();
+
+    return [_react["default"].createElement("button", {
+      key: "bt-drawer",
+      className: CL.DRAWER_BT,
+      style: (0, _extends2["default"])({}, S.BT_DRAWER, {}, btStyle),
+      "aria-label": "Open Drawer",
+      onClick: toggleDrawer
+    }, _react["default"].createElement("span", {
+      className: CL.DRAWER_SPAN
+    }, _react["default"].createElement("svg", {
+      className: CL.DRAWER_SVG,
+      focusable: "false",
+      viewBox: "0 0 24 24",
+      "aria-hidden": "true"
+    }, _react["default"].createElement("path", {
+      fill: "none",
+      d: "M0 0h24v24H0z"
+    }), _react["default"].createElement("path", {
+      d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+    })))), _react["default"].createElement("div", {
+      key: "wrapper",
+      "aria-hidden": !isOpen,
+      className: CL.DRAWER_MODAL,
+      style: _drawerModalStyle,
+      onClick: _onClickWrapper
+    }), _react["default"].createElement("aside", {
+      ref: this._refAside,
+      key: "aside",
+      className: CL.DRAWER,
+      style: _asideStyle
+    }, _react["default"].createElement("div", {
+      ref: this._refWrapper
+    }, children))];
+  };
+
   return Drawer;
 }(_react.Component);
 
@@ -210,5 +184,7 @@ var mapDispatchToProps = {
   toggleDrawer: _actions.toggleDrawer
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Drawer);
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Drawer);
+
+exports["default"] = _default;
 //# sourceMappingURL=Drawer.js.map

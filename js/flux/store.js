@@ -1,43 +1,31 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+var _redux = require("redux");
 
-var _redux = require('redux');
+var _rootReducer = _interopRequireDefault(require("./rootReducer"));
 
-var _rootReducer = require('./rootReducer');
+var _initialState2 = _interopRequireDefault(require("./initialState"));
 
-var _rootReducer2 = _interopRequireDefault(_rootReducer);
+var _middlewares2 = _interopRequireDefault(require("./zh-middleware/middlewares"));
 
-var _initialState2 = require('./initialState');
-
-var _initialState3 = _interopRequireDefault(_initialState2);
-
-var _middlewares2 = require('./zh-middleware/middlewares');
-
-var _middlewares3 = _interopRequireDefault(_middlewares2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _middlewares = [].concat((0, _toConsumableArray3.default)(_middlewares3.default));
-
-//import CONF from './appConf'
-
+var _middlewares = [].concat(_middlewares2["default"]);
 
 var _composeEnhancer = _redux.compose;
 /*eslint-disable no-undef, no-console*/
+
 if (process.env.NODE_ENV === 'development') {
   _composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose;
 
   var logger = function logger(store) {
     return function (next) {
       return function (action) {
-        var result = void 0;
+        var result;
+
         try {
           console.group('dispatching', action);
           console.log('before', store.getState());
@@ -52,12 +40,14 @@ if (process.env.NODE_ENV === 'development') {
       };
     };
   };
+
   _middlewares.push(logger);
 }
 /*eslint-enable no-undef, no-console*/
 
+
 var _getInitialState = function _getInitialState() {
-  var _initialState = void 0;
+  var _initialState;
   /*
   try {
     const _str = window.localStorage
@@ -69,10 +59,12 @@ var _getInitialState = function _getInitialState() {
      console.log(e.msg)
   }
   */
-  return _initialState || _initialState3.default;
+
+
+  return _initialState || _initialState2["default"];
 };
 
-var store = (0, _redux.createStore)(_rootReducer2.default, _getInitialState(), _composeEnhancer(_redux.applyMiddleware.apply(undefined, (0, _toConsumableArray3.default)(_middlewares))));
-
-exports.default = store;
+var store = (0, _redux.createStore)(_rootReducer["default"], _getInitialState(), _composeEnhancer(_redux.applyMiddleware.apply(void 0, _middlewares)));
+var _default = store;
+exports["default"] = _default;
 //# sourceMappingURL=store.js.map

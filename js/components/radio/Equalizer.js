@@ -1,14 +1,11 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireDefault(require("react"));
 
 var CL = {
   EQUALIZER: 'equalizer',
@@ -19,11 +16,17 @@ var Equalizer = function Equalizer(_ref) {
   var isPlaying = _ref.isPlaying,
       isUnloaded = _ref.isUnloaded,
       unload = _ref.unload;
-  return isPlaying ? _react2.default.createElement('div', { className: CL.EQUALIZER }) : isUnloaded ? _react2.default.createElement('div', { className: CL.EQUALIZER_NOT_PLAYING }) : _react2.default.createElement('button', { className: CL.EQUALIZER_NOT_PLAYING,
-    'data-loader': 'circle',
+  return isPlaying ? _react["default"].createElement("div", {
+    className: CL.EQUALIZER
+  }) : isUnloaded ? _react["default"].createElement("div", {
+    className: CL.EQUALIZER_NOT_PLAYING
+  }) : _react["default"].createElement("button", {
+    className: CL.EQUALIZER_NOT_PLAYING,
+    "data-loader": "circle",
     onClick: unload
   });
 };
 
-exports.default = Equalizer;
+var _default = Equalizer;
+exports["default"] = _default;
 //# sourceMappingURL=Equalizer.js.map

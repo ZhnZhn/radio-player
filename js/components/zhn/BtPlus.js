@@ -1,27 +1,24 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _CircleButton = require('./CircleButton');
-
-var _CircleButton2 = _interopRequireDefault(_CircleButton);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _CircleButton = _interopRequireDefault(require("./CircleButton"));
 
 var BtMinus = function BtMinus(props) {
-  return _react2.default.createElement(
-    _CircleButton2.default,
-    props,
-    _react2.default.createElement('path', { d: 'M8 16 H24', strokeWidth: '3' }),
-    _react2.default.createElement('path', { d: 'M16 8 V24', strokeWidth: '3' })
-  );
+  return _react["default"].createElement(_CircleButton["default"], props, _react["default"].createElement("path", {
+    d: "M8 16 H24",
+    strokeWidth: "3"
+  }), _react["default"].createElement("path", {
+    d: "M16 8 V24",
+    strokeWidth: "3"
+  }));
 };
 
-exports.default = BtMinus;
+var _default = BtMinus;
+exports["default"] = _default;
 //# sourceMappingURL=BtPlus.js.map

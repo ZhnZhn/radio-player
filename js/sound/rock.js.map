@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/rock.js"
- ],
- "file": "../../src/sound/rock.js",
- "names": [
-  "rock",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;;;AACA,IAAMA,OAAO,CACX;AACEC,SAAO,2BADT;AAEEC,OAAK,4CAFP;AAGEC,WAAS,mCAHX;AAIEC,MAAI;AAJN,CADW,CAAb;;kBASeJ,I"
-}
+{"version":3,"sources":["../../src/sound/rock.js"],"names":["rock","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,IAAI,GAAG,CACX;AACEC,EAAAA,KAAK,EAAE,2BADT;AAEEC,EAAAA,GAAG,EAAE,4CAFP;AAGEC,EAAAA,OAAO,EAAE,mCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADW,CAAb;eASeJ,I","sourcesContent":["\r\nconst rock = [\r\n  {\r\n    title: 'USA: Florida Classic Rock',\r\n    src: 'http://us4.internet-radio.com:8258/;stream',\r\n    siteUrl: 'http://www.classicrockflorida.com',\r\n    br: 160 \r\n  }\r\n]\r\n\r\nexport default rock\r\n"],"file":"rock.js"}

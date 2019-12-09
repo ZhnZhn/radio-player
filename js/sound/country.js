@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var country = [{
   title: 'USA: Country Hits',
   src: 'http://19763.live.streamtheworld.com/977_COUNTRY.mp3',
@@ -20,6 +18,6 @@ var country = [{
   siteUrl: 'http://011fm.com',
   br: 192
 }];
-
-exports.default = country;
+var _default = country;
+exports["default"] = _default;
 //# sourceMappingURL=country.js.map

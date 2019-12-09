@@ -1,9 +1,7 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var classical = [{
   title: "Canada: Winnipeg Classic 107FM",
   src: "http://daemondef.ic.llnwd.net/stream/daemondef_ddmp3_74",
@@ -23,9 +21,9 @@ var classical = [{
   title: 'Netherland: NPO Radio 4',
   src: 'http://icecast.omroep.nl/radio4-bb-mp3',
   siteUrl: 'http://www.radio4.nl',
-  br: 192
-  //imd: 1,
+  br: 192 //imd: 1,
   //listUrl: 'https://www.nporadio4.nl/gedraaid'
+
 }, {
   title: 'Swiss: Basel Radio Classic',
   src: 'http://streaming.swisstxt.ch/m/rsc_de/mp3_128',
@@ -44,7 +42,8 @@ var classical = [{
   src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p',
   br: 128
 }, {
-  title: 'UK: Davide of MIMIC Classical', src: 'http://uk3.internet-radio.com:8060/;stream',
+  title: 'UK: Davide of MIMIC Classical',
+  src: 'http://uk3.internet-radio.com:8060/;stream',
   siteUrl: 'http://meetinginmusic.blogspot.com',
   br: 320
 }, {
@@ -53,6 +52,6 @@ var classical = [{
   siteUrl: 'https://www.wqxr.org/',
   br: 128
 }];
-
-exports.default = classical;
+var _default = classical;
+exports["default"] = _default;
 //# sourceMappingURL=classical.js.map

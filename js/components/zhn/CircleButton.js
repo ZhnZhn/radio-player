@@ -1,22 +1,15 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = require('react');
+var _react = _interopRequireDefault(require("react"));
 
-var _react2 = _interopRequireDefault(_react);
-
-var _has = require('../has');
-
-var _has2 = _interopRequireDefault(_has);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _has = _interopRequireDefault(require("../has"));
 
 var CL = 'bt-circle';
 
@@ -29,26 +22,26 @@ var CircleButton = function CircleButton(_ref) {
       onClick = _ref.onClick,
       children = _ref.children;
 
-  var _handlers = _has2.default.TOUCH && onTouchStart ? { onTouchStart: onTouchStart, onTouchEnd: onTouchEnd } : { onMouseDown: onMouseDown, onMouseUp: onMouseUp };
-  return _react2.default.createElement(
-    'button',
-    (0, _extends3.default)({
-      className: CL,
-      accessKey: accessKey
-    }, _handlers, {
-      onClick: onClick
-    }),
-    _react2.default.createElement(
-      'svg',
-      { viewBox: '0 0 34 34', width: '100%', height: '100%' },
-      _react2.default.createElement(
-        'g',
-        null,
-        children
-      )
-    )
-  );
+  var _handlers = _has["default"].TOUCH && onTouchStart ? {
+    onTouchStart: onTouchStart,
+    onTouchEnd: onTouchEnd
+  } : {
+    onMouseDown: onMouseDown,
+    onMouseUp: onMouseUp
+  };
+
+  return _react["default"].createElement("button", (0, _extends2["default"])({
+    className: CL,
+    accessKey: accessKey
+  }, _handlers, {
+    onClick: onClick
+  }), _react["default"].createElement("svg", {
+    viewBox: "0 0 34 34",
+    width: "100%",
+    height: "100%"
+  }, _react["default"].createElement("g", null, children)));
 };
 
-exports.default = CircleButton;
+var _default = CircleButton;
+exports["default"] = _default;
 //# sourceMappingURL=CircleButton.js.map

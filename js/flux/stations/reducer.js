@@ -1,22 +1,16 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
-var _actions = require('./actions');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _actions = require("./actions");
 
 var fByTitle = function fByTitle(title) {
   return function (item) {
     return item.title !== title;
   };
 };
+
 var fByCategory = function fByCategory(category) {
   return function (item) {
     return item.category !== category;
@@ -25,6 +19,7 @@ var fByCategory = function fByCategory(category) {
 
 var _findByCategory = function _findByCategory(arr, category) {
   var _max = arr.length;
+
   for (var i = 0; i < _max; i++) {
     if (arr[i].category === category) {
       return arr[i];
@@ -32,9 +27,10 @@ var _findByCategory = function _findByCategory(arr, category) {
   }
 };
 
-var reducer = function reducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments[1];
+var reducer = function reducer(state, action) {
+  if (state === void 0) {
+    state = {};
+  }
 
   switch (action.type) {
     case _actions.ACTION.ADD_CATEGORY:
@@ -48,14 +44,15 @@ var reducer = function reducer() {
             _station = _findByCategory(state, category),
             _categories = _station ? _stationsWithoutCurrent.filter(fByTitle(_station.title)) : _stationsWithoutCurrent;
 
-        return [].concat((0, _toConsumableArray3.default)(_categories), (0, _toConsumableArray3.default)(state));
+        return [].concat(_categories, state);
       }
+
     case _actions.ACTION.REMOVE_CATEGORY:
       {
         var _category = action.category;
-
         return state.filter(fByCategory(_category));
       }
+
     case _actions.ACTION.SET_CURRENT_STATION:
       {
         var station = action.station,
@@ -67,12 +64,15 @@ var reducer = function reducer() {
         if (_currentStation) {
           _stations.unshift(_currentStation);
         }
+
         return _stations;
       }
+
     default:
       return state;
   }
 };
 
-exports.default = reducer;
+var _default = reducer;
+exports["default"] = _default;
 //# sourceMappingURL=reducer.js.map

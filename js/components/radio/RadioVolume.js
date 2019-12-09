@@ -1,46 +1,27 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends3 = _interopRequireDefault(_extends2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _useInterval3 = _interopRequireDefault(require("../hooks/useInterval"));
 
-var _react2 = _interopRequireDefault(_react);
+var _categories = _interopRequireDefault(require("../../sound/categories"));
 
-var _useInterval5 = require('../hooks/useInterval');
+var _InputSlider = _interopRequireDefault(require("../zhn/InputSlider"));
 
-var _useInterval6 = _interopRequireDefault(_useInterval5);
+var _BtMinus = _interopRequireDefault(require("../zhn/BtMinus"));
 
-var _categories = require('../../sound/categories');
+var _BtPlus = _interopRequireDefault(require("../zhn/BtPlus"));
 
-var _categories2 = _interopRequireDefault(_categories);
-
-var _InputSlider = require('../zhn/InputSlider');
-
-var _InputSlider2 = _interopRequireDefault(_InputSlider);
-
-var _BtMinus = require('../zhn/BtMinus');
-
-var _BtMinus2 = _interopRequireDefault(_BtMinus);
-
-var _BtPlus = require('../zhn/BtPlus');
-
-var _BtPlus2 = _interopRequireDefault(_BtPlus);
-
-var _HeaderDrawer = require('../drawer/HeaderDrawer');
-
-var _HeaderDrawer2 = _interopRequireDefault(_HeaderDrawer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _HeaderDrawer = _interopRequireDefault(require("../drawer/HeaderDrawer"));
 
 var S = {
   ROW: {
@@ -53,7 +34,6 @@ var S = {
     maxWidth: 'calc(100vw - 210px)',
     marginRight: 16
   },
-
   VOLUME: {
     position: 'relative',
     top: -10,
@@ -69,7 +49,6 @@ var S = {
     width: 12
   }
 };
-
 var C = {
   NEAR_MAX: 0.8,
   NEAR_MIN: 0.2
@@ -101,19 +80,18 @@ var RadioVolume = function RadioVolume(_ref) {
   var _isNearMax = function _isNearMax(v) {
     return v > C.NEAR_MAX;
   };
+
   var _isNearMin = function _isNearMin(v) {
     return v < C.NEAR_MIN;
   };
 
-  var _useInterval = (0, _useInterval6.default)(onIncrease, _isNearMax, volume),
-      _useInterval2 = (0, _slicedToArray3.default)(_useInterval, 2),
-      runIncrease = _useInterval2[0],
-      stopIncrease = _useInterval2[1];
+  var _useInterval = (0, _useInterval3["default"])(onIncrease, _isNearMax, volume),
+      runIncrease = _useInterval[0],
+      stopIncrease = _useInterval[1];
 
-  var _useInterval3 = (0, _useInterval6.default)(onDecrease, _isNearMin, volume),
-      _useInterval4 = (0, _slicedToArray3.default)(_useInterval3, 2),
-      runDecrease = _useInterval4[0],
-      stopDecrease = _useInterval4[1],
+  var _useInterval2 = (0, _useInterval3["default"])(onDecrease, _isNearMin, volume),
+      runDecrease = _useInterval2[0],
+      stopDecrease = _useInterval2[1],
       _runDecrease = function _runDecrease() {
     if (volume !== 0) {
       runDecrease();
@@ -131,40 +109,36 @@ var RadioVolume = function RadioVolume(_ref) {
     if (volume === 0) {
       stopDecrease();
     }
+
     if (volume === 100) {
       stopIncrease();
     }
   });
-
-  return _react2.default.createElement(
-    'div',
-    { id: 'volume', style: S.ROW },
-    _react2.default.createElement(
-      'div',
-      { style: S.VOLUME },
-      _toVolume(volume)
-    ),
-    _react2.default.createElement(_InputSlider2.default, {
-      style: S.SLIDER,
-      initValue: volume,
-      onChange: setVolume
-    }),
-    _react2.default.createElement(_BtMinus2.default, (0, _extends3.default)({
-      accessKey: '-'
-    }, _minusHandlers, {
-      onClick: onDecrease
-    })),
-    _react2.default.createElement('div', { style: S.GAP }),
-    _react2.default.createElement(_BtPlus2.default, (0, _extends3.default)({
-      accessKey: '+'
-    }, _plusHandlers, {
-      onClick: onIncrease
-    })),
-    _react2.default.createElement(_HeaderDrawer2.default, {
-      categories: _categories2.default
-    })
-  );
+  return _react["default"].createElement("div", {
+    id: "volume",
+    style: S.ROW
+  }, _react["default"].createElement("div", {
+    style: S.VOLUME
+  }, _toVolume(volume)), _react["default"].createElement(_InputSlider["default"], {
+    style: S.SLIDER,
+    initValue: volume,
+    onChange: setVolume
+  }), _react["default"].createElement(_BtMinus["default"], (0, _extends2["default"])({
+    accessKey: "-"
+  }, _minusHandlers, {
+    onClick: onDecrease
+  })), _react["default"].createElement("div", {
+    style: S.GAP
+  }), _react["default"].createElement(_BtPlus["default"], (0, _extends2["default"])({
+    accessKey: "+"
+  }, _plusHandlers, {
+    onClick: onIncrease
+  })), _react["default"].createElement(_HeaderDrawer["default"], {
+    categories: _categories["default"]
+  }));
 };
 
-exports.default = _react2.default.memo(RadioVolume);
+var _default = _react["default"].memo(RadioVolume);
+
+exports["default"] = _default;
 //# sourceMappingURL=RadioVolume.js.map

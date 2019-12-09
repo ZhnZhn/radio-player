@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _actions = require('../app/actions');
+var _actions = require("../app/actions");
 
 var _hm = {
   'grey': 'grey',
@@ -18,13 +17,14 @@ var appUiTheme = function appUiTheme(_) {
       if (action.type === _actions.ACTION.SET_UI_THEME) {
         var uiTheme = action.uiTheme,
             _bgColor = _hm[uiTheme];
-
         document.body.style.backgroundColor = _bgColor;
       }
+
       return next(action);
     };
   };
 };
 
-exports.default = appUiTheme;
+var _default = appUiTheme;
+exports["default"] = _default;
 //# sourceMappingURL=appUiTheme.js.map

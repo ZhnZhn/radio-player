@@ -1,65 +1,42 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react = require('react');
+var _react = _interopRequireWildcard(require("react"));
 
-var _react2 = _interopRequireDefault(_react);
+var _reactRedux = require("react-redux");
 
-var _reactRedux = require('react-redux');
+var _has = _interopRequireDefault(require("../has"));
 
-var _has = require('../has');
+var _AppContext = _interopRequireDefault(require("../AppContext"));
 
-var _has2 = _interopRequireDefault(_has);
+var _sound = _interopRequireDefault(require("../../sound/sound"));
 
-var _AppContext = require('../AppContext');
+var _Radio = _interopRequireDefault(require("./Radio"));
 
-var _AppContext2 = _interopRequireDefault(_AppContext);
+var _Title = _interopRequireDefault(require("./Title"));
 
-var _sound = require('../../sound/sound');
+var _Equalizer = _interopRequireDefault(require("./Equalizer"));
 
-var _sound2 = _interopRequireDefault(_sound);
+var _playerReducer = _interopRequireDefault(require("./playerReducer"));
 
-var _Radio = require('./Radio');
-
-var _Radio2 = _interopRequireDefault(_Radio);
-
-var _Title = require('./Title');
-
-var _Title2 = _interopRequireDefault(_Title);
-
-var _Equalizer = require('./Equalizer');
-
-var _Equalizer2 = _interopRequireDefault(_Equalizer);
-
-var _playerReducer = require('./playerReducer');
-
-var _playerReducer2 = _interopRequireDefault(_playerReducer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var A = _playerReducer2.default.A;
-
+var A = _playerReducer["default"].A;
 var DF_TITLE = 'Radio Player v0.1.0';
 var MSG_NO_STATION = 'At first, please, choose a radio station.';
-
 var CL = {
   PLAYER: 'audio-player'
 };
-
 var S = {
   TITLE_CONT: {
     display: 'flex',
     alignItems: 'center'
   }
 };
-
 /*
 const _setPlaybackState = (state) => {
   if (HAS.MEDIA_SESSION) {
@@ -71,10 +48,12 @@ const _setPlaybackPaused = _setPlaybackState.bind(null, 'paused')
 const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
 */
 
-var _setMediaMetadata = function _setMediaMetadata() {
-  var artist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+var _setMediaMetadata = function _setMediaMetadata(artist) {
+  if (artist === void 0) {
+    artist = '';
+  }
 
-  if (_has2.default.MEDIA_SESSION) {
+  if (_has["default"].MEDIA_SESSION) {
     /*
     if (!artist || artist === DF_TITLE) {
       _setPlaybackNone()
@@ -82,6 +61,7 @@ var _setMediaMetadata = function _setMediaMetadata() {
       _setPlaybackPlaying()
     }
     */
+
     /*eslint-disable no-undef*/
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
@@ -90,7 +70,6 @@ var _setMediaMetadata = function _setMediaMetadata() {
     /*eslint-enable no-undef*/
   }
 };
-
 /*
 const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
   const _mediaSession = navigator.mediaSession;
@@ -106,94 +85,116 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 };
 */
 
+
 var initialState = {
   msgErr: '',
   title: DF_TITLE,
   isUnloaded: true,
   isPlaying: false,
-  volume: _sound2.default.INIT_VOLUME
+  volume: _sound["default"].INIT_VOLUME
 };
 
 var AudioPlayer = function AudioPlayer(_ref) {
   var station = _ref.station;
 
-  var _useContext = (0, _react.useContext)(_AppContext2.default),
+  var _useContext = (0, _react.useContext)(_AppContext["default"]),
       uiThemeImpl = _useContext.uiThemeImpl,
       sApp = _useContext.sApp;
 
   var uiTheme = (0, _reactRedux.useSelector)(sApp.uiTheme),
-      _useReducer = (0, _react.useReducer)(_playerReducer2.default, initialState),
-      _useReducer2 = (0, _slicedToArray3.default)(_useReducer, 2),
-      state = _useReducer2[0],
-      dispatch = _useReducer2[1],
+      _useReducer = (0, _react.useReducer)(_playerReducer["default"], initialState),
+      state = _useReducer[0],
+      dispatch = _useReducer[1],
       isUnloaded = state.isUnloaded,
       isPlaying = state.isPlaying,
       volume = state.volume,
       title = state.title,
       msgErr = state.msgErr;
 
-
   var _setVolume = (0, _react.useCallback)(function (newVolume) {
     return dispatch({
       type: A.SET_VOLUME,
-      volume: _sound2.default.setVolume(newVolume)
+      volume: _sound["default"].setVolume(newVolume)
     });
   }, []);
+
   var _increaseVolume = (0, _react.useCallback)(function () {
     return dispatch({
       type: A.SET_VOLUME,
-      volume: _sound2.default.increaseVolume(0.01)
+      volume: _sound["default"].increaseVolume(0.01)
     });
   }, []);
+
   var _decreaseVolume = (0, _react.useCallback)(function () {
     return dispatch({
       type: A.SET_VOLUME,
-      volume: _sound2.default.decreaseVolume(0.01)
+      volume: _sound["default"].decreaseVolume(0.01)
     });
   }, []);
 
   var play = function play() {
-    if (!msgErr && _sound2.default.play()) {
-      dispatch({ type: A.SET_PLAYING });
-      _setMediaMetadata(station && station.title || DF_TITLE);
-      //_setMediaSessionHandlers(null, pause)
+    if (!msgErr && _sound["default"].play()) {
+      dispatch({
+        type: A.SET_PLAYING
+      });
+
+      _setMediaMetadata(station && station.title || DF_TITLE); //_setMediaSessionHandlers(null, pause)
+
     } else {
-      dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION });
-      _setMediaMetadata();
-      //_setMediaSessionHandlers()
+      dispatch({
+        type: A.SET_TITLE,
+        title: MSG_NO_STATION
+      });
+
+      _setMediaMetadata(); //_setMediaSessionHandlers()
+
     }
   };
+
   var pause = function pause() {
-    _sound2.default.stop();
-    //_setMediaSessionHandlers(play)
+    _sound["default"].stop(); //_setMediaSessionHandlers(play)
     //_setPlaybackPaused()
-    dispatch({ type: A.PAUSE });
+
+
+    dispatch({
+      type: A.PAUSE
+    });
   };
 
   var _unload = function _unload() {
-    _sound2.default.unload();
-    dispatch({ type: A.UNLOAD });
-    //_setMediaSessionHandlers()
+    _sound["default"].unload();
+
+    dispatch({
+      type: A.UNLOAD
+    }); //_setMediaSessionHandlers()
+
     _setMediaMetadata();
   };
 
   var stop = (0, _react.useCallback)(function () {
-    _sound2.default.stop();
-    _sound2.default.unload();
-    dispatch({ type: A.STOP });
+    _sound["default"].stop();
+
+    _sound["default"].unload();
+
+    dispatch({
+      type: A.STOP
+    });
   }, []);
 
   var _onError = function _onError(msg) {
-    dispatch({ type: A.SET_ERROR, msgErr: msg });
+    dispatch({
+      type: A.SET_ERROR,
+      msgErr: msg
+    });
+
     _setMediaMetadata();
   };
 
   (0, _react.useEffect)(function () {
-    if (_has2.default.MEDIA_SESSION) {
+    if (_has["default"].MEDIA_SESSION) {
       navigator.mediaSession.setActionHandler('pause', stop);
     }
   }, []);
-
   /*
   useEffect( () => {
     if (HAS.MEDIA_SESSION) {
@@ -205,46 +206,44 @@ var AudioPlayer = function AudioPlayer(_ref) {
   */
 
   (0, _react.useEffect)(function () {
-    if (station && station.src && _sound2.default.init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
-      dispatch({ type: A.SET_LOADING });
+    if (station && station.src && _sound["default"].init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
+      dispatch({
+        type: A.SET_LOADING
+      });
     }
+
     return function () {
-      _sound2.default.unload();
+      _sound["default"].unload();
     };
   }, [station]);
 
   var _style = uiThemeImpl.toBg(uiTheme);
 
-  return _react2.default.createElement(
-    'div',
-    { className: CL.PLAYER, style: _style },
-    _react2.default.createElement(_Radio2.default.Volume, {
-      volume: volume,
-      setVolume: _setVolume,
-      onIncrease: _increaseVolume,
-      onDecrease: _decreaseVolume
-    }),
-    _react2.default.createElement(
-      'div',
-      { style: S.TITLE_CONT },
-      _react2.default.createElement(_Radio2.default.Command, {
-        isPlaying: isPlaying,
-        onPlay: play,
-        onPause: pause
-      }),
-      _react2.default.createElement(_Title2.default, {
-        station: station,
-        msgErr: msgErr,
-        title: title
-      }),
-      _react2.default.createElement(_Equalizer2.default, {
-        isPlaying: isPlaying,
-        isUnloaded: isUnloaded,
-        unload: _unload
-      })
-    )
-  );
+  return _react["default"].createElement("div", {
+    className: CL.PLAYER,
+    style: _style
+  }, _react["default"].createElement(_Radio["default"].Volume, {
+    volume: volume,
+    setVolume: _setVolume,
+    onIncrease: _increaseVolume,
+    onDecrease: _decreaseVolume
+  }), _react["default"].createElement("div", {
+    style: S.TITLE_CONT
+  }, _react["default"].createElement(_Radio["default"].Command, {
+    isPlaying: isPlaying,
+    onPlay: play,
+    onPause: pause
+  }), _react["default"].createElement(_Title["default"], {
+    station: station,
+    msgErr: msgErr,
+    title: title
+  }), _react["default"].createElement(_Equalizer["default"], {
+    isPlaying: isPlaying,
+    isUnloaded: isUnloaded,
+    unload: _unload
+  })));
 };
 
-exports.default = AudioPlayer;
+var _default = AudioPlayer;
+exports["default"] = _default;
 //# sourceMappingURL=AudioPlayer.js.map

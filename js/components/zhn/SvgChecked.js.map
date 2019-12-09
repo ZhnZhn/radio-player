@@ -1,18 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/zhn/SvgChecked.js"
- ],
- "file": "../../../src/components/zhn/SvgChecked.js",
- "names": [
-  "S",
-  "display",
-  "width",
-  "height",
-  "SvgChecked",
-  "style",
-  "color",
-  "defaultProps"
- ],
- "mappings": ";;;;;;;;;;AAAA;;;;;;AAEA,IAAMA,IAAI;AACRC,WAAS,cADD;AAERC,SAAO,EAFC;AAGRC,UAAQ;AAHA,CAAV;;AAMA,IAAMC,aAAa,SAAbA,UAAa;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,MAAUC,KAAV,QAAUA,KAAV;AAAA,SACjB;AAAA;AAAA,MAAM,kCAAYN,CAAZ,EAAkBK,KAAlB,CAAN;AACE;AAAA;AAAA;AACE,iBAAQ,WADV,EACsB,OAAM,MAD5B,EACmC,QAAO,MAD1C;AAEE,6BAAoB,MAFtB,EAE6B,OAAM;AAFnC;AAIE;AACE,WAAE,mBADJ;AAEE,gBAAQC,KAFV;AAGE,cAAK,aAHP;AAIE,qBAAY,GAJd;AAKE,uBAAc;AALhB;AAJF;AADF,GADiB;AAAA,CAAnB;;AAiBAF,WAAWG,YAAX,GAA0B;AACxBD,SAAO;AADiB,CAA1B;;kBAIeF,U"
-}
+{"version":3,"sources":["../../../src/components/zhn/SvgChecked.jsx"],"names":["S","display","width","height","SvgChecked","style","color","defaultProps"],"mappings":";;;;;;;;;AAAA;;AAEA,IAAMA,CAAC,GAAG;AACRC,EAAAA,OAAO,EAAE,cADD;AAERC,EAAAA,KAAK,EAAE,EAFC;AAGRC,EAAAA,MAAM,EAAE;AAHA,CAAV;;AAMA,IAAMC,UAAU,GAAG,SAAbA,UAAa;AAAA,MAAGC,KAAH,QAAGA,KAAH;AAAA,MAAUC,KAAV,QAAUA,KAAV;AAAA,SACjB;AAAM,IAAA,KAAK,gCAAON,CAAP,MAAaK,KAAb;AAAX,KACE;AACE,IAAA,OAAO,EAAC,WADV;AACsB,IAAA,KAAK,EAAC,MAD5B;AACmC,IAAA,MAAM,EAAC,MAD1C;AAEE,IAAA,mBAAmB,EAAC,MAFtB;AAE6B,IAAA,KAAK,EAAC;AAFnC,KAIE;AACE,IAAA,CAAC,EAAC,mBADJ;AAEE,IAAA,MAAM,EAAEC,KAFV;AAGE,IAAA,IAAI,EAAC,aAHP;AAIE,IAAA,WAAW,EAAC,GAJd;AAKE,IAAA,aAAa,EAAC;AALhB,IAJF,CADF,CADiB;AAAA,CAAnB;;AAiBAF,UAAU,CAACG,YAAX,GAA0B;AACxBD,EAAAA,KAAK,EAAE;AADiB,CAA1B;eAIeF,U","sourcesContent":["import React from 'react'\r\n\r\nconst S = {\r\n  display: 'inline-block',\r\n  width: 16,\r\n  height: 16\r\n};\r\n\r\nconst SvgChecked = ({ style, color }) => (\r\n  <span style={{ ...S, ...style }}>\r\n    <svg\r\n      viewBox=\"0 0 16 16\" width=\"100%\" height=\"100%\"\r\n      preserveAspectRatio=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\r\n    >\r\n      <path\r\n        d=\"M 2,5 L 8,14 14,1\"\r\n        stroke={color}\r\n        fill=\"transparent\"\r\n        strokeWidth=\"3\"\r\n        strokeLinecap=\"round\"\r\n      />\r\n    </svg>\r\n  </span>\r\n);\r\n\r\nSvgChecked.defaultProps = {\r\n  color: '#64e346'\r\n}\r\n\r\nexport default SvgChecked\r\n"],"file":"SvgChecked.js"}

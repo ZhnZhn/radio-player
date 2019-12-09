@@ -1,62 +1,47 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _react2 = _interopRequireDefault(_react);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _reactRedux = require('react-redux');
+var _react = _interopRequireWildcard(require("react"));
 
-var _actions = require('../flux/stations/actions');
+var _reactRedux = require("react-redux");
 
-var _AppContext = require('./AppContext');
+var _actions = require("../flux/stations/actions");
 
-var _AppContext2 = _interopRequireDefault(_AppContext);
+var _AppContext = _interopRequireDefault(require("./AppContext"));
 
-var _Radio = require('./radio/Radio');
+var _Radio = _interopRequireDefault(require("./radio/Radio"));
 
-var _Radio2 = _interopRequireDefault(_Radio);
-
-var _AudioPlayer = require('./radio/AudioPlayer');
-
-var _AudioPlayer2 = _interopRequireDefault(_AudioPlayer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _AudioPlayer = _interopRequireDefault(require("./radio/AudioPlayer"));
 
 var CL = "app-radio-player";
-
-var sApp = _AppContext2.default.value.sApp;
-
+var sApp = _AppContext["default"].value.sApp;
 
 var App = function App(_ref) {
   var currentStation = _ref.currentStation,
       stations = _ref.stations,
       addCategory = _ref.addCategory,
       setCurrentStation = _ref.setCurrentStation;
-
   (0, _react.useEffect)(function () {
     addCategory('classical');
     addCategory('piano');
   }, []);
-  return _react2.default.createElement(
-    _AppContext2.default.Provider,
-    { value: _AppContext2.default.value },
-    _react2.default.createElement(
-      'div',
-      { className: CL },
-      _react2.default.createElement(_AudioPlayer2.default, {
-        station: currentStation
-      }),
-      _react2.default.createElement(_Radio2.default.List, {
-        currentStation: currentStation,
-        radioStations: stations,
-        onClick: setCurrentStation
-      })
-    )
-  );
+  return _react["default"].createElement(_AppContext["default"].Provider, {
+    value: _AppContext["default"].value
+  }, _react["default"].createElement("div", {
+    className: CL
+  }, _react["default"].createElement(_AudioPlayer["default"], {
+    station: currentStation
+  }), _react["default"].createElement(_Radio["default"].List, {
+    currentStation: currentStation,
+    radioStations: stations,
+    onClick: setCurrentStation
+  })));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -65,10 +50,13 @@ var mapStateToProps = function mapStateToProps(state) {
     stations: sApp.stations(state)
   };
 };
+
 var mapDispatchToProps = {
   addCategory: _actions.addCategory,
   setCurrentStation: _actions.setCurrentStation
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+
+exports["default"] = _default;
 //# sourceMappingURL=App.js.map

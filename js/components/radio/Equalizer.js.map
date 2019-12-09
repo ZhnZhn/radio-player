@@ -1,17 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/radio/Equalizer.js"
- ],
- "file": "../../../src/components/radio/Equalizer.js",
- "names": [
-  "CL",
-  "EQUALIZER",
-  "EQUALIZER_NOT_PLAYING",
-  "Equalizer",
-  "isPlaying",
-  "isUnloaded",
-  "unload"
- ],
- "mappings": ";;;;;;AAAA;;;;;;AAEA,IAAMA,KAAK;AACTC,aAAW,WADF;AAETC,yBAAuB;AAFd,CAAX;;AAKA,IAAMC,YAAY,SAAZA,SAAY;AAAA,MAChBC,SADgB,QAChBA,SADgB;AAAA,MAEhBC,UAFgB,QAEhBA,UAFgB;AAAA,MAGhBC,MAHgB,QAGhBA,MAHgB;AAAA,SAIZF,YACF,uCAAK,WAAWJ,GAAGC,SAAnB,GADE,GAEFI,aACG,uCAAK,WAAWL,GAAGE,qBAAnB,GADH,GAEG,0CAAQ,WAAWF,GAAGE,qBAAtB;AACE,mBAAY,QADd;AAEE,aAASI;AAFX,IARW;AAAA,CAAlB;;kBAaeH,S"
-}
+{"version":3,"sources":["../../../src/components/radio/Equalizer.jsx"],"names":["CL","EQUALIZER","EQUALIZER_NOT_PLAYING","Equalizer","isPlaying","isUnloaded","unload"],"mappings":";;;;;;;AAAA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,SAAS,EAAE,WADF;AAETC,EAAAA,qBAAqB,EAAE;AAFd,CAAX;;AAKA,IAAMC,SAAS,GAAG,SAAZA,SAAY;AAAA,MAChBC,SADgB,QAChBA,SADgB;AAAA,MAEhBC,UAFgB,QAEhBA,UAFgB;AAAA,MAGhBC,MAHgB,QAGhBA,MAHgB;AAAA,SAIZF,SAAS,GACX;AAAK,IAAA,SAAS,EAAEJ,EAAE,CAACC;AAAnB,IADW,GAEXI,UAAU,GACP;AAAK,IAAA,SAAS,EAAEL,EAAE,CAACE;AAAnB,IADO,GAEP;AAAQ,IAAA,SAAS,EAAEF,EAAE,CAACE,qBAAtB;AACE,mBAAY,QADd;AAEE,IAAA,OAAO,EAAEI;AAFX,IARW;AAAA,CAAlB;;eAaeH,S","sourcesContent":["import React from 'react'\r\n\r\nconst CL = {\r\n  EQUALIZER: 'equalizer',\r\n  EQUALIZER_NOT_PLAYING: 'equalizer--not-playing'\r\n};\r\n\r\nconst Equalizer = ({\r\n  isPlaying,\r\n  isUnloaded,\r\n  unload\r\n}) => isPlaying\r\n  ? <div className={CL.EQUALIZER} />\r\n  : isUnloaded\r\n     ? <div className={CL.EQUALIZER_NOT_PLAYING} />\r\n     : <button className={CL.EQUALIZER_NOT_PLAYING}\r\n         data-loader=\"circle\"\r\n         onClick={unload}\r\n       />\r\n\r\nexport default Equalizer\r\n"],"file":"Equalizer.js"}

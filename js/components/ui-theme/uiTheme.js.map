@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/ui-theme/uiTheme.js"
- ],
- "file": "../../../src/components/ui-theme/uiTheme.js",
- "names": [
-  "_hm",
-  "uiThemeImpl",
-  "toBg",
-  "uiTheme",
-  "backgroundColor"
- ],
- "mappings": ";;;;;;AACA,IAAMA,MAAM;AACV,UAAQ,MADE;AAEV;AACA,WAAS,SAHC;AAIV;AACA,UAAQ;AALE,CAAZ;;AAQA,IAAMC,cAAc;AAClBC,QAAM,cAACC,OAAD;AAAA,WAAc;AAClBC,uBAAiBJ,IAAIG,OAAJ;AADC,KAAd;AAAA;AADY,CAApB;;kBAMeF,W"
-}
+{"version":3,"sources":["../../../src/components/ui-theme/uiTheme.js"],"names":["_hm","uiThemeImpl","toBg","uiTheme","backgroundColor"],"mappings":";;;;AACA,IAAMA,GAAG,GAAG;AACV,UAAQ,MADE;AAEV;AACA,WAAS,SAHC;AAIV;AACA,UAAQ;AALE,CAAZ;AAQA,IAAMC,WAAW,GAAG;AAClBC,EAAAA,IAAI,EAAE,cAACC,OAAD;AAAA,WAAc;AAClBC,MAAAA,eAAe,EAAEJ,GAAG,CAACG,OAAD;AADF,KAAd;AAAA;AADY,CAApB;eAMeF,W","sourcesContent":["\r\nconst _hm = {\r\n  'grey': 'grey',\r\n  //'light': '#e8e8e8',\r\n  'light': '#f9f9f9',\r\n  //'sand': '#f7e8c3'\r\n  'sand': '#fdf1d5'  \r\n};\r\n\r\nconst uiThemeImpl = {\r\n  toBg: (uiTheme) => ({\r\n    backgroundColor: _hm[uiTheme]\r\n  })\r\n};\r\n\r\nexport default uiThemeImpl\r\n"],"file":"uiTheme.js"}

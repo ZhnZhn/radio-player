@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var pop = [{
   title: 'UK: BBC Radio 1',
   src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_q',
@@ -30,6 +28,6 @@ var pop = [{
   siteUrl: 'http://kexp.org/',
   br: 128
 }];
-
-exports.default = pop;
+var _default = pop;
+exports["default"] = _default;
 //# sourceMappingURL=pop.js.map

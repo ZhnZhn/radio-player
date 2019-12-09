@@ -1,17 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/components/AppContext.js"
- ],
- "file": "../../src/components/AppContext.js",
- "names": [
-  "AppContext",
-  "React",
-  "createContext",
-  "value",
-  "actions",
-  "selectors",
-  "uiThemeImpl"
- ],
- "mappings": ";;;;;;;;;;AAAA;;;;AAEA;;;;AACA;;;;AACA;;;;;;AAEA,IAAMA,aAAaC,gBAAMC,aAAN,EAAnB;;AAEAF,WAAWG,KAAX,8BACKC,iBADL,EAEKC,mBAFL;AAGEC;AAHF;;kBAMeN,U"
-}
+{"version":3,"sources":["../../src/components/AppContext.js"],"names":["AppContext","React","createContext","value","actions","selectors","uiThemeImpl"],"mappings":";;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA,IAAMA,UAAU,GAAGC,kBAAMC,aAAN,EAAnB;;AAEAF,UAAU,CAACG,KAAX,iCACKC,mBADL,MAEKC,qBAFL;AAGEC,EAAAA,WAAW,EAAXA;AAHF;eAMeN,U","sourcesContent":["import React from 'react'\r\n\r\nimport actions from '../flux/app/actions'\r\nimport selectors from '../flux/selectors'\r\nimport uiThemeImpl from './ui-theme/uiTheme'\r\n\r\nconst AppContext = React.createContext();\r\n\r\nAppContext.value = {\r\n  ...actions,\r\n  ...selectors,\r\n  uiThemeImpl\r\n}\r\n\r\nexport default AppContext\r\n"],"file":"AppContext.js"}

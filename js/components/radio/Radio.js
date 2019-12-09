@@ -1,28 +1,21 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _RadioCommand = require('./RadioCommand');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _RadioCommand2 = _interopRequireDefault(_RadioCommand);
+var _RadioCommand = _interopRequireDefault(require("./RadioCommand"));
 
-var _RadioVolume = require('./RadioVolume');
+var _RadioVolume = _interopRequireDefault(require("./RadioVolume"));
 
-var _RadioVolume2 = _interopRequireDefault(_RadioVolume);
-
-var _StationList = require('./StationList');
-
-var _StationList2 = _interopRequireDefault(_StationList);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _StationList = _interopRequireDefault(require("./StationList"));
 
 var Radio = {
-  Command: _RadioCommand2.default,
-  Volume: _RadioVolume2.default,
-  List: _StationList2.default
+  Command: _RadioCommand["default"],
+  Volume: _RadioVolume["default"],
+  List: _StationList["default"]
 };
-
-exports.default = Radio;
+var _default = Radio;
+exports["default"] = _default;
 //# sourceMappingURL=Radio.js.map

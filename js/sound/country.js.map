@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/country.js"
- ],
- "file": "../../src/sound/country.js",
- "names": [
-  "country",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;;;AACA,IAAMA,UAAU,CACd;AACEC,SAAO,mBADT;AAEEC,OAAK,sDAFP;AAGEC,WAAS,sBAHX;AAIEC,MAAI;AAJN,CADc,EAMZ;AACAH,SAAO,uBADP;AAEAC,OAAK,+DAFL;AAGAC,WAAS,iCAHT;AAIAC,MAAI;AAJJ,CANY,EAWZ;AACAH,SAAO,+BADP;AAEAC,OAAK,uCAFL;AAGAC,WAAS,kBAHT;AAIAC,MAAI;AAJJ,CAXY,CAAhB;;kBAmBeJ,O"
-}
+{"version":3,"sources":["../../src/sound/country.js"],"names":["country","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,OAAO,GAAG,CACd;AACEC,EAAAA,KAAK,EAAE,mBADT;AAEEC,EAAAA,GAAG,EAAE,sDAFP;AAGEC,EAAAA,OAAO,EAAE,sBAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADc,EAMZ;AACAH,EAAAA,KAAK,EAAE,uBADP;AAEAC,EAAAA,GAAG,EAAE,+DAFL;AAGAC,EAAAA,OAAO,EAAE,iCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANY,EAWZ;AACAH,EAAAA,KAAK,EAAE,+BADP;AAEAC,EAAAA,GAAG,EAAE,uCAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXY,CAAhB;eAmBeJ,O","sourcesContent":["\r\nconst country = [\r\n  {\r\n    title: 'USA: Country Hits',\r\n    src: 'http://19763.live.streamtheworld.com/977_COUNTRY.mp3',\r\n    siteUrl: 'http://hitsradio.com',\r\n    br: 128\r\n  },{\r\n    title: 'USA: NYC Country Live',\r\n    src: 'http://streaming.radiostreamlive.com/radiocountrylive_devices',\r\n    siteUrl: 'http://www.radiocountrylive.com',\r\n    br: 128\r\n  },{\r\n    title: \"USA: 011.FM - Today's Country\",\r\n    src: 'http://listen.011fm.com:8016/stream09',\r\n    siteUrl: 'http://011fm.com',\r\n    br: 192\r\n  }\r\n]\r\n\r\nexport default country\r\n"],"file":"country.js"}

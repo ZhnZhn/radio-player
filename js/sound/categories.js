@@ -1,9 +1,8 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+exports["default"] = void 0;
 var CATEGORIES = ['chillout', 'classical', 'country', 'instrumental', 'jazz', 'lounge', 'piano', 'pop', 'rock', 'sport', 'talks'];
-
-exports.default = CATEGORIES;
+var _default = CATEGORIES;
+exports["default"] = _default;
 //# sourceMappingURL=categories.js.map

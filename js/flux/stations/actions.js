@@ -1,27 +1,25 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.setCurrentStation = exports.removeCategory = exports.addCategory = exports.ACTION = undefined;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _router = require('../../sound/router');
+exports.__esModule = true;
+exports.setCurrentStation = exports.removeCategory = exports.addCategory = exports.ACTION = void 0;
 
-var _router2 = _interopRequireDefault(_router);
+var _router = _interopRequireDefault(require("../../sound/router"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ACTION = exports.ACTION = {
+var ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
   REMOVE_CATEGORY: 'REMOVE_CATEGORY',
   SET_CURRENT_STATION: 'SET_CURRENT_STATION'
 };
+exports.ACTION = ACTION;
 
-var addCategory = exports.addCategory = function addCategory(category) {
-  var categories = _router2.default.getCategory(category).map(function (station) {
+var addCategory = function addCategory(category) {
+  var categories = _router["default"].getCategory(category).map(function (station) {
     station.category = category;
     return station;
   });
+
   return {
     type: ACTION.ADD_CATEGORY,
     categories: categories,
@@ -29,17 +27,23 @@ var addCategory = exports.addCategory = function addCategory(category) {
   };
 };
 
-var removeCategory = exports.removeCategory = function removeCategory(category) {
+exports.addCategory = addCategory;
+
+var removeCategory = function removeCategory(category) {
   return {
     type: ACTION.REMOVE_CATEGORY,
     category: category
   };
 };
 
-var setCurrentStation = exports.setCurrentStation = function setCurrentStation(station) {
+exports.removeCategory = removeCategory;
+
+var setCurrentStation = function setCurrentStation(station) {
   return {
     type: ACTION.SET_CURRENT_STATION,
     station: station
   };
 };
+
+exports.setCurrentStation = setCurrentStation;
 //# sourceMappingURL=actions.js.map

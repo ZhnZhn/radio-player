@@ -1,14 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/radio/RadioCommand.js"
- ],
- "file": "../../../src/components/radio/RadioCommand.js",
- "names": [
-  "RadioCommand",
-  "isPlaying",
-  "onPlay",
-  "onPause"
- ],
- "mappings": ";;;;;;AAAA;;;;AAEA;;;;;;AAEA,IAAMA,eAAe,SAAfA,YAAe;AAAA,MAAGC,SAAH,QAAGA,SAAH;AAAA,MAAcC,MAAd,QAAcA,MAAd;AAAA,MAAsBC,OAAtB,QAAsBA,OAAtB;AAAA,SACnB;AAAA;AAAA;AACE,kCAAC,gBAAD;AACE,iBAAWF,SADb;AAEE,cAAQC,MAFV;AAGE,cAAQC;AAHV;AADF,GADmB;AAAA,CAArB;;kBAUeH,Y"
-}
+{"version":3,"sources":["../../../src/components/radio/RadioCommand.jsx"],"names":["RadioCommand","isPlaying","onPlay","onPause"],"mappings":";;;;;;;AAAA;;AAEA;;AAEA,IAAMA,YAAY,GAAG,SAAfA,YAAe;AAAA,MAAGC,SAAH,QAAGA,SAAH;AAAA,MAAcC,MAAd,QAAcA,MAAd;AAAA,MAAsBC,OAAtB,QAAsBA,OAAtB;AAAA,SACnB,6CACE,gCAAC,kBAAD;AACE,IAAA,SAAS,EAAEF,SADb;AAEE,IAAA,MAAM,EAAEC,MAFV;AAGE,IAAA,MAAM,EAAEC;AAHV,IADF,CADmB;AAAA,CAArB;;eAUeH,Y","sourcesContent":["import React from 'react'\r\n\r\nimport BtPlay from '../zhn/BtPlay'\r\n\r\nconst RadioCommand = ({ isPlaying, onPlay, onPause }) => (\r\n  <div>\r\n    <BtPlay\r\n      isPlaying={isPlaying}\r\n      onPlay={onPlay}\r\n      onStop={onPause}\r\n    />\r\n  </div>\r\n)\r\n\r\nexport default RadioCommand\r\n"],"file":"RadioCommand.js"}

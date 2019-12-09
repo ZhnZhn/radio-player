@@ -1,9 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
+exports.__esModule = true;
+exports["default"] = void 0;
 var instrumental = [{
   title: 'Instrumental Radio',
   src: 'http://178.32.62.163:8599/;stream/1',
@@ -25,6 +23,6 @@ var instrumental = [{
   siteUrl: 'http://musiclake.com',
   br: 64
 }];
-
-exports.default = instrumental;
+var _default = instrumental;
+exports["default"] = _default;
 //# sourceMappingURL=instrumental.js.map

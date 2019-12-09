@@ -1,49 +1,34 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _extends3 = _interopRequireDefault(_extends2);
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react = require('react');
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require('react-redux');
+var _reactRedux = require("react-redux");
 
-var _AppContext = require('../AppContext');
+var _AppContext = _interopRequireDefault(require("../AppContext"));
 
-var _AppContext2 = _interopRequireDefault(_AppContext);
+var _useSwipeGesture = _interopRequireDefault(require("../hooks/useSwipeGesture"));
 
-var _useSwipeGesture = require('../hooks/useSwipeGesture');
+var _SvgClose = _interopRequireDefault(require("../zhn/SvgClose"));
 
-var _useSwipeGesture2 = _interopRequireDefault(_useSwipeGesture);
+var _BtTriple = _interopRequireDefault(require("../zhn/BtTriple"));
 
-var _SvgClose = require('../zhn/SvgClose');
+var _CategoriesList = _interopRequireDefault(require("./CategoriesList"));
 
-var _SvgClose2 = _interopRequireDefault(_SvgClose);
-
-var _BtTriple = require('../zhn/BtTriple');
-
-var _BtTriple2 = _interopRequireDefault(_BtTriple);
-
-var _CategoriesList = require('./CategoriesList');
-
-var _CategoriesList2 = _interopRequireDefault(_CategoriesList);
-
-var _style = require('./style');
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _style = _interopRequireDefault(require("./style"));
 
 var DrawerMenu = function DrawerMenu(_ref) {
   var categories = _ref.categories;
 
-  var _useContext = (0, _react.useContext)(_AppContext2.default),
+  var _useContext = (0, _react.useContext)(_AppContext["default"]),
       setUiTheme = _useContext.setUiTheme,
       toggleDrawer = _useContext.toggleDrawer,
       dispatch = (0, _reactRedux.useDispatch)(),
@@ -53,29 +38,29 @@ var DrawerMenu = function DrawerMenu(_ref) {
       _onCloseDrawer = (0, _react.useCallback)(function () {
     return dispatch(toggleDrawer());
   }, []),
-      _handlers = (0, _useSwipeGesture2.default)({ onSwipeGesture: _onCloseDrawer, dir: 'R' });
+      _handlers = (0, _useSwipeGesture["default"])({
+    onSwipeGesture: _onCloseDrawer,
+    dir: 'R'
+  });
 
-  return _react2.default.createElement(
-    'div',
-    (0, _extends3.default)({ className: _style2.default.CL_ROOT }, _handlers),
-    _react2.default.createElement(
-      'div',
-      { className: _style2.default.CL_HEADER },
-      _react2.default.createElement(_BtTriple2.default, {
-        style: _style2.default.BT_TRIPLE,
-        oneC: 'GREY',
-        twoC: 'LIGHT',
-        threeC: 'SAND',
-        onClick: _setUiTheme
-      }),
-      _react2.default.createElement(_SvgClose2.default, {
-        className: _style2.default.CL_BT_CLOSE,
-        onClick: _onCloseDrawer
-      })
-    ),
-    _react2.default.createElement(_CategoriesList2.default, { categories: categories })
-  );
+  return _react["default"].createElement("div", (0, _extends2["default"])({
+    className: _style["default"].CL_ROOT
+  }, _handlers), _react["default"].createElement("div", {
+    className: _style["default"].CL_HEADER
+  }, _react["default"].createElement(_BtTriple["default"], {
+    style: _style["default"].BT_TRIPLE,
+    oneC: "GREY",
+    twoC: "LIGHT",
+    threeC: "SAND",
+    onClick: _setUiTheme
+  }), _react["default"].createElement(_SvgClose["default"], {
+    className: _style["default"].CL_BT_CLOSE,
+    onClick: _onCloseDrawer
+  })), _react["default"].createElement(_CategoriesList["default"], {
+    categories: categories
+  }));
 };
 
-exports.default = DrawerMenu;
+var _default = DrawerMenu;
+exports["default"] = _default;
 //# sourceMappingURL=DrawerMenu.js.map

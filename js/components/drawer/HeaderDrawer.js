@@ -1,30 +1,20 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _react = require('react');
+exports.__esModule = true;
+exports["default"] = void 0;
 
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
-var _Drawer = require('../zhn-ch/Drawer');
+var _Drawer = _interopRequireDefault(require("../zhn-ch/Drawer"));
 
-var _Drawer2 = _interopRequireDefault(_Drawer);
-
-var _DrawerMenu = require('./DrawerMenu');
-
-var _DrawerMenu2 = _interopRequireDefault(_DrawerMenu);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _DrawerMenu = _interopRequireDefault(require("./DrawerMenu"));
 
 var HeaderDrawer = function HeaderDrawer(props) {
-  return _react2.default.createElement(
-    _Drawer2.default,
-    null,
-    _react2.default.createElement(_DrawerMenu2.default, props)
-  );
+  return _react["default"].createElement(_Drawer["default"], null, _react["default"].createElement(_DrawerMenu["default"], props));
 };
 
-exports.default = HeaderDrawer;
+var _default = HeaderDrawer;
+exports["default"] = _default;
 //# sourceMappingURL=HeaderDrawer.js.map
