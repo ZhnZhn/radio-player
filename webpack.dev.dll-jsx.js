@@ -1,14 +1,15 @@
 'use strict'
 
 const path = require('path')
-    //, fs = require('fs')
     , webpack = require('webpack')
+    , babelConfig = require('./babel.config')
     , HtmlWebpackPlugin = require('html-webpack-plugin')
-    , HtmlWebpackProcessingPlugin = require('html-webpack-processing-plugin')
+    , HtmlProcessingWebpackPlugin = require('./plugin/html-processing-webpack-plugin')
     , postProcessing = require('./plugins/post-processing');
 
 
 module.exports = {
+  mode: "development",
   cache: true,
   entry: {
     app: path.resolve('src', 'index.jsx')
@@ -28,14 +29,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: [
-                ['@babel/preset-env', { loose: true }],
-                '@babel/preset-react'
-             ],
-             plugins: [
-                ['@babel/plugin-transform-runtime'],
-                ['@babel/plugin-proposal-class-properties', { loose: true }]
-             ]                         
+            ...babelConfig
           }
         },
         include: [
@@ -49,43 +43,17 @@ module.exports = {
     modules: ['local_modules','node_modules'],
     extensions: ['.js', '.jsx']
   },
-  plugins : [
-    new webpack.DefinePlugin({
-       'process.env' : {
-          'NODE_ENV': JSON.stringify('development')
-       }
-    }),
+  plugins : [    
     new webpack.DllReferencePlugin({
       context: '.',
       manifest: require('./dll/lib-manifest.json')
-    }),
-    /*
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['lib', 'manifest']
-    }),
-    */
-
-    new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    /*
-    new webpack.optimize.UglifyJsPlugin({
-        compress: {
-           warnings: false
-        },
-        output: {
-           comments: false
-        }
-    }),
-    */
+    }),                
     new HtmlWebpackPlugin({
         filename: path.resolve('index.html'),
         template: path.resolve('template', 'index.ejs'),
         inject: false,
         postProcessing: postProcessing
     }),
-    new HtmlWebpackProcessingPlugin()
+    new HtmlProcessingWebpackPlugin()
   ]
 }
