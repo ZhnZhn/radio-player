@@ -7,6 +7,7 @@
   display: inline-block;
   color: silver;
   border: 2px solid #1b2836;
+  font-family: Roboto, Arial, Lato, sans-serif;
   font-weight: 600;
   cursor: pointer;
 }
