@@ -1,4 +1,6 @@
+import { ACTION as AP } from '../app/actions'
 import { ACTION } from './actions'
+
 
 const fByTitle = title =>
   item => item.title !== title;
@@ -14,7 +16,7 @@ const _findByCategory = (arr, category) => {
   }
 };
 
-const reducer = function(state={}, action){
+const reducer = function(state=[], action){
   switch(action.type){
     case ACTION.ADD_CATEGORY: {
       const { categories, category, currentStation } = action
@@ -39,6 +41,9 @@ const reducer = function(state={}, action){
         _stations.unshift(currentStation)
       }
       return _stations;
+    }
+    case AP.SET_SRC_FILTER: {
+      return [];
     }
     default:
       return state;

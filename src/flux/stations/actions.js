@@ -1,4 +1,4 @@
-import router from '../../sound/router'
+import utils from '../../sound/utils'
 
 export const ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
@@ -6,12 +6,16 @@ export const ACTION = {
   SET_CURRENT_STATION: 'SET_CURRENT_STATION'
 };
 
-export const addCategory = (category) => {
-  const categories = router.getCategory(category)
+const { crFilterBy, getCategory } = utils;
+
+export const addCategory = (category, filter) => {
+  const _filterBy = crFilterBy(filter)
+  , categories = getCategory(category)
     .map(station => {
       station.category = category
       return station;
     })
+    .filter(_filterBy);
   return {
     type: ACTION.ADD_CATEGORY,
     categories,

@@ -1,1 +1,15 @@
-{"version":3,"sources":["../../src/flux/rootReducer.js"],"names":["rootReducer","app","stations","categories"],"mappings":";;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA,IAAMA,WAAW,GAAG,4BAAgB;AAClCC,EAAAA,GAAG,EAAHA,mBADkC;AAElCC,EAAAA,QAAQ,EAARA,oBAFkC;AAGlCC,EAAAA,UAAU,EAAVA;AAHkC,CAAhB,CAApB;eAMeH,W","sourcesContent":["import { combineReducers } from 'redux'\r\n\r\nimport app from './app/reducer'\r\nimport stations from './stations/reducer'\r\nimport categories from './categories/reducer'\r\n\r\nconst rootReducer = combineReducers({\r\n  app,\r\n  stations,\r\n  categories\r\n});\r\n\r\nexport default rootReducer\r\n"],"file":"rootReducer.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/rootReducer.js"
+ ],
+ "file": "../../src/flux/rootReducer.js",
+ "names": [
+  "rootReducer",
+  "app",
+  "stations",
+  "categories",
+  "topics"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,WAAW,GAAG,4BAAgB;AAClCC,EAAAA,GAAG,EAAHA,mBADkC;AAElCC,EAAAA,QAAQ,EAARA,oBAFkC;AAGlCC,EAAAA,UAAU,EAAVA,oBAHkC;AAIlCC,EAAAA,MAAM,EAANA;AAJkC,CAAhB,CAApB;eAOeJ,W"
+}

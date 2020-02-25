@@ -10,13 +10,16 @@ import BtTriple from '../zhn/BtTriple'
 import CategoriesList from './CategoriesList'
 import S from './style'
 
-const DrawerMenu = ({
-  categories
-}) => {
-  const { setUiTheme, toggleDrawer } = useContext(AppContext)
+const DrawerMenu = () => {
+  const {
+    setUiTheme,
+    toggleDrawer,
+    setSrcFilter
+  } = useContext(AppContext)
   , dispatch = useDispatch()
   , _setUiTheme = useCallback((uiThemeIndex) => dispatch(setUiTheme(uiThemeIndex)), [])
   , _onCloseDrawer = useCallback(() => dispatch(toggleDrawer()), [])
+  , _setFilter = useCallback((srcFilterIndex) => dispatch(setSrcFilter(srcFilterIndex)), [])
   , _handlers = useSwipeGesture({ onSwipeGesture: _onCloseDrawer, dir: 'R' });
   return (
     <div className={S.CL_ROOT} {..._handlers}>
@@ -33,7 +36,16 @@ const DrawerMenu = ({
           onClick={_onCloseDrawer}
         />
       </div>
-      <CategoriesList categories={categories} />
+      <CategoriesList />
+      <div className={S.CL_HEADER}>
+        <BtTriple
+          style={S.BT_TRIPLE}
+          oneC="ALL"
+          twoC="HTTPS"
+          threeC="HTTP"
+          onClick={_setFilter}
+        />
+      </div>
     </div>
   );
 }

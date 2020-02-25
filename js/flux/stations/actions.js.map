@@ -1,1 +1,27 @@
-{"version":3,"sources":["../../../src/flux/stations/actions.js"],"names":["ACTION","ADD_CATEGORY","REMOVE_CATEGORY","SET_CURRENT_STATION","addCategory","category","categories","router","getCategory","map","station","type","removeCategory","setCurrentStation"],"mappings":";;;;;;;AAAA;;AAEO,IAAMA,MAAM,GAAG;AACpBC,EAAAA,YAAY,EAAE,cADM;AAEpBC,EAAAA,eAAe,EAAE,iBAFG;AAGpBC,EAAAA,mBAAmB,EAAE;AAHD,CAAf;;;AAMA,IAAMC,WAAW,GAAG,SAAdA,WAAc,CAACC,QAAD,EAAc;AACvC,MAAMC,UAAU,GAAGC,mBAAOC,WAAP,CAAmBH,QAAnB,EAChBI,GADgB,CACZ,UAAAC,OAAO,EAAI;AACdA,IAAAA,OAAO,CAACL,QAAR,GAAmBA,QAAnB;AACA,WAAOK,OAAP;AACD,GAJgB,CAAnB;;AAKA,SAAO;AACLC,IAAAA,IAAI,EAAEX,MAAM,CAACC,YADR;AAELK,IAAAA,UAAU,EAAVA,UAFK;AAGLD,IAAAA,QAAQ,EAARA;AAHK,GAAP;AAKD,CAXM;;;;AAaA,IAAMO,cAAc,GAAG,SAAjBA,cAAiB,CAACP,QAAD;AAAA,SAAe;AAC3CM,IAAAA,IAAI,EAAEX,MAAM,CAACE,eAD8B;AAE3CG,IAAAA,QAAQ,EAARA;AAF2C,GAAf;AAAA,CAAvB;;;;AAKA,IAAMQ,iBAAiB,GAAG,SAApBA,iBAAoB,CAACH,OAAD;AAAA,SAAc;AAC7CC,IAAAA,IAAI,EAAEX,MAAM,CAACG,mBADgC;AAE7CO,IAAAA,OAAO,EAAPA;AAF6C,GAAd;AAAA,CAA1B","sourcesContent":["import router from '../../sound/router'\r\n\r\nexport const ACTION = {\r\n  ADD_CATEGORY: 'ADD_CATEGORY',\r\n  REMOVE_CATEGORY: 'REMOVE_CATEGORY',\r\n  SET_CURRENT_STATION: 'SET_CURRENT_STATION'\r\n};\r\n\r\nexport const addCategory = (category) => {\r\n  const categories = router.getCategory(category)\r\n    .map(station => {\r\n      station.category = category\r\n      return station;\r\n    })\r\n  return {\r\n    type: ACTION.ADD_CATEGORY,\r\n    categories,\r\n    category\r\n  };\r\n};\r\n\r\nexport const removeCategory = (category) => ({\r\n  type: ACTION.REMOVE_CATEGORY,\r\n  category\r\n})\r\n\r\nexport const setCurrentStation = (station) => ({\r\n  type: ACTION.SET_CURRENT_STATION,\r\n  station\r\n})\r\n"],"file":"actions.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/stations/actions.js"
+ ],
+ "file": "../../../src/flux/stations/actions.js",
+ "names": [
+  "ACTION",
+  "ADD_CATEGORY",
+  "REMOVE_CATEGORY",
+  "SET_CURRENT_STATION",
+  "crFilterBy",
+  "utils",
+  "getCategory",
+  "addCategory",
+  "category",
+  "filter",
+  "_filterBy",
+  "categories",
+  "map",
+  "station",
+  "type",
+  "removeCategory",
+  "setCurrentStation"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEO,IAAMA,MAAM,GAAG;AACpBC,EAAAA,YAAY,EAAE,cADM;AAEpBC,EAAAA,eAAe,EAAE,iBAFG;AAGpBC,EAAAA,mBAAmB,EAAE;AAHD,CAAf;;IAMCC,U,GAA4BC,iB,CAA5BD,U;IAAYE,W,GAAgBD,iB,CAAhBC,W;;AAEb,IAAMC,WAAW,GAAG,SAAdA,WAAc,CAACC,QAAD,EAAWC,MAAX,EAAsB;AAC/C,MAAMC,SAAS,GAAGN,UAAU,CAACK,MAAD,CAA5B;AAAA,MACEE,UAAU,GAAGL,WAAW,CAACE,QAAD,CAAX,CACZI,GADY,CACR,UAAAC,OAAO,EAAI;AACdA,IAAAA,OAAO,CAACL,QAAR,GAAmBA,QAAnB;AACA,WAAOK,OAAP;AACD,GAJY,EAKZJ,MALY,CAKLC,SALK,CADf;;AAOA,SAAO;AACLI,IAAAA,IAAI,EAAEd,MAAM,CAACC,YADR;AAELU,IAAAA,UAAU,EAAVA,UAFK;AAGLH,IAAAA,QAAQ,EAARA;AAHK,GAAP;AAKD,CAbM;;;;AAeA,IAAMO,cAAc,GAAG,SAAjBA,cAAiB,CAACP,QAAD;AAAA,SAAe;AAC3CM,IAAAA,IAAI,EAAEd,MAAM,CAACE,eAD8B;AAE3CM,IAAAA,QAAQ,EAARA;AAF2C,GAAf;AAAA,CAAvB;;;;AAKA,IAAMQ,iBAAiB,GAAG,SAApBA,iBAAoB,CAACH,OAAD;AAAA,SAAc;AAC7CC,IAAAA,IAAI,EAAEd,MAAM,CAACG,mBADgC;AAE7CU,IAAAA,OAAO,EAAPA;AAF6C,GAAd;AAAA,CAA1B"
+}

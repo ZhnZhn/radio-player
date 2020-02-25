@@ -1,1 +1,29 @@
-{"version":3,"sources":["../../../src/components/drawer/DrawerMenu.jsx"],"names":["DrawerMenu","categories","AppContext","setUiTheme","toggleDrawer","dispatch","_setUiTheme","uiThemeIndex","_onCloseDrawer","_handlers","onSwipeGesture","dir","S","CL_ROOT","CL_HEADER","BT_TRIPLE","CL_BT_CLOSE"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,UAAU,GAAG,SAAbA,UAAa,OAEb;AAAA,MADJC,UACI,QADJA,UACI;;AAAA,oBACiC,uBAAWC,sBAAX,CADjC;AAAA,MACIC,UADJ,eACIA,UADJ;AAAA,MACgBC,YADhB,eACgBA,YADhB;AAAA,MAEFC,QAFE,GAES,8BAFT;AAAA,MAGFC,WAHE,GAGY,wBAAY,UAACC,YAAD;AAAA,WAAkBF,QAAQ,CAACF,UAAU,CAACI,YAAD,CAAX,CAA1B;AAAA,GAAZ,EAAkE,EAAlE,CAHZ;AAAA,MAIFC,cAJE,GAIe,wBAAY;AAAA,WAAMH,QAAQ,CAACD,YAAY,EAAb,CAAd;AAAA,GAAZ,EAA4C,EAA5C,CAJf;AAAA,MAKFK,SALE,GAKU,iCAAgB;AAAEC,IAAAA,cAAc,EAAEF,cAAlB;AAAkCG,IAAAA,GAAG,EAAE;AAAvC,GAAhB,CALV;;AAMJ,SACE;AAAK,IAAA,SAAS,EAAEC,kBAAEC;AAAlB,KAA+BJ,SAA/B,GACE;AAAK,IAAA,SAAS,EAAEG,kBAAEE;AAAlB,KACE,gCAAC,oBAAD;AACE,IAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,IAAA,IAAI,EAAC,MAFP;AAGE,IAAA,IAAI,EAAC,OAHP;AAIE,IAAA,MAAM,EAAC,MAJT;AAKE,IAAA,OAAO,EAAET;AALX,IADF,EAQE,gCAAC,oBAAD;AACE,IAAA,SAAS,EAAEM,kBAAEI,WADf;AAEE,IAAA,OAAO,EAAER;AAFX,IARF,CADF,EAcE,gCAAC,0BAAD;AAAgB,IAAA,UAAU,EAAEP;AAA5B,IAdF,CADF;AAkBD,CA1BD;;eA4BeD,U","sourcesContent":["import React, { useContext, useCallback } from 'react'\r\n\r\nimport { useDispatch } from 'react-redux'\r\n\r\nimport AppContext from '../AppContext'\r\nimport useSwipeGesture from '../hooks/useSwipeGesture'\r\n\r\nimport SvgClose from '../zhn/SvgClose'\r\nimport BtTriple from '../zhn/BtTriple'\r\nimport CategoriesList from './CategoriesList'\r\nimport S from './style'\r\n\r\nconst DrawerMenu = ({\r\n  categories\r\n}) => {\r\n  const { setUiTheme, toggleDrawer } = useContext(AppContext)\r\n  , dispatch = useDispatch()\r\n  , _setUiTheme = useCallback((uiThemeIndex) => dispatch(setUiTheme(uiThemeIndex)), [])\r\n  , _onCloseDrawer = useCallback(() => dispatch(toggleDrawer()), [])\r\n  , _handlers = useSwipeGesture({ onSwipeGesture: _onCloseDrawer, dir: 'R' });\r\n  return (\r\n    <div className={S.CL_ROOT} {..._handlers}>\r\n      <div className={S.CL_HEADER}>\r\n        <BtTriple\r\n          style={S.BT_TRIPLE}\r\n          oneC=\"GREY\"\r\n          twoC=\"LIGHT\"\r\n          threeC=\"SAND\"\r\n          onClick={_setUiTheme}\r\n        />\r\n        <SvgClose\r\n          className={S.CL_BT_CLOSE}\r\n          onClick={_onCloseDrawer}\r\n        />\r\n      </div>\r\n      <CategoriesList categories={categories} />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default DrawerMenu\r\n"],"file":"DrawerMenu.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/drawer/DrawerMenu.js"
+ ],
+ "file": "../../../src/components/drawer/DrawerMenu.js",
+ "names": [
+  "DrawerMenu",
+  "AppContext",
+  "setUiTheme",
+  "toggleDrawer",
+  "setSrcFilter",
+  "dispatch",
+  "_setUiTheme",
+  "uiThemeIndex",
+  "_onCloseDrawer",
+  "_setFilter",
+  "srcFilterIndex",
+  "_handlers",
+  "onSwipeGesture",
+  "dir",
+  "S",
+  "CL_ROOT",
+  "CL_HEADER",
+  "BT_TRIPLE",
+  "CL_BT_CLOSE"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,UAAU,GAAG,SAAbA,UAAa,GAAM;AAAA,oBAKnB,uBAAWC,sBAAX,CALmB;AAAA,MAErBC,UAFqB,eAErBA,UAFqB;AAAA,MAGrBC,YAHqB,eAGrBA,YAHqB;AAAA,MAIrBC,YAJqB,eAIrBA,YAJqB;AAAA,MAMrBC,QANqB,GAMV,8BANU;AAAA,MAOrBC,WAPqB,GAOP,wBAAY,UAACC,YAAD;AAAA,WAAkBF,QAAQ,CAACH,UAAU,CAACK,YAAD,CAAX,CAA1B;AAAA,GAAZ,EAAkE,EAAlE,CAPO;AAAA,MAQrBC,cARqB,GAQJ,wBAAY;AAAA,WAAMH,QAAQ,CAACF,YAAY,EAAb,CAAd;AAAA,GAAZ,EAA4C,EAA5C,CARI;AAAA,MASrBM,UATqB,GASR,wBAAY,UAACC,cAAD;AAAA,WAAoBL,QAAQ,CAACD,YAAY,CAACM,cAAD,CAAb,CAA5B;AAAA,GAAZ,EAAwE,EAAxE,CATQ;AAAA,MAUrBC,SAVqB,GAUT,iCAAgB;AAAEC,IAAAA,cAAc,EAAEJ,cAAlB;AAAkCK,IAAAA,GAAG,EAAE;AAAvC,GAAhB,CAVS;;AAWvB,SACE;AAAK,IAAA,SAAS,EAAEC,kBAAEC;AAAlB,KAA+BJ,SAA/B,GACE;AAAK,IAAA,SAAS,EAAEG,kBAAEE;AAAlB,KACE,gCAAC,oBAAD;AACE,IAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,IAAA,IAAI,EAAC,MAFP;AAGE,IAAA,IAAI,EAAC,OAHP;AAIE,IAAA,MAAM,EAAC,MAJT;AAKE,IAAA,OAAO,EAAEX;AALX,IADF,EAQE,gCAAC,oBAAD;AACE,IAAA,SAAS,EAAEQ,kBAAEI,WADf;AAEE,IAAA,OAAO,EAAEV;AAFX,IARF,CADF,EAcE,gCAAC,0BAAD,OAdF,EAeE;AAAK,IAAA,SAAS,EAAEM,kBAAEE;AAAlB,KACE,gCAAC,oBAAD;AACE,IAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,IAAA,IAAI,EAAC,KAFP;AAGE,IAAA,IAAI,EAAC,OAHP;AAIE,IAAA,MAAM,EAAC,MAJT;AAKE,IAAA,OAAO,EAAER;AALX,IADF,CAfF,CADF;AA2BD,CAtCD;;eAwCeT,U"
+}

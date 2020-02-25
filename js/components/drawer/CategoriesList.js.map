@@ -1,1 +1,27 @@
-{"version":3,"sources":["../../../src/components/drawer/CategoriesList.jsx"],"names":["CategoriesList","categories","isCategories","addCategory","removeCategory","S","UL","map","category","_is","CL_BT","mapStateToProps","state","mapDispatchToProps"],"mappings":";;;;;;;AAAA;;AAEA;;AACA;;AAKA;;AACA;;AACA;;AAEA,IAAMA,cAAc,GAAG,SAAjBA,cAAiB;AAAA,MACrBC,UADqB,QACrBA,UADqB;AAAA,MAErBC,YAFqB,QAErBA,YAFqB;AAAA,MAGrBC,WAHqB,QAGrBA,WAHqB;AAAA,MAIrBC,cAJqB,QAIrBA,cAJqB;AAAA,SAMrB;AAAI,IAAA,KAAK,EAAEC,kBAAEC;AAAb,KAEIL,UAAU,CAACM,GAAX,CAAe,UAAAC,QAAQ,EAAI;AACzB,QAAMC,GAAG,GAAGP,YAAY,CAACM,QAAD,CAAxB;AACA,WACE;AAAI,MAAA,GAAG,EAAEA;AAAT,OACE,gCAAC,sBAAD;AACE,MAAA,SAAS,EAAEH,kBAAEK,KADf;AAEE,MAAA,OAAO,EAAEF,QAFX;AAGE,MAAA,OAAO,EAAEC,GAAG,GACR;AAAA,eAAML,cAAc,CAACI,QAAD,CAApB;AAAA,OADQ,GAER;AAAA,eAAML,WAAW,CAACK,QAAD,CAAjB;AAAA;AALN,OAQIC,GAAG,IAAI,gCAAC,sBAAD,OARX,CADF,CADF;AAcD,GAhBD,CAFJ,CANqB;AAAA,CAAvB;;AA6BA,IAAME,eAAe,GAAG,SAAlBA,eAAkB,CAAAC,KAAK;AAAA,SAAK;AAChCV,IAAAA,YAAY,EAAEU,KAAK,CAACX;AADY,GAAL;AAAA,CAA7B;;AAIA,IAAMY,kBAAkB,GAAG;AACzBV,EAAAA,WAAW,EAAXA,oBADyB;AAEzBC,EAAAA,cAAc,EAAdA;AAFyB,CAA3B;;eAKe,yBACbO,eADa,EAEbE,kBAFa,EAGbb,cAHa,C","sourcesContent":["import React from 'react'\r\n\r\nimport { connect } from 'react-redux'\r\nimport {\r\n  addCategory,\r\n  removeCategory\r\n} from '../../flux/stations/actions'\r\n\r\nimport SvgChecked from '../zhn/SvgChecked'\r\nimport FlatButton  from '../zhn-m/FlatButton'\r\nimport S from './style'\r\n\r\nconst CategoriesList = ({\r\n  categories,\r\n  isCategories,\r\n  addCategory,\r\n  removeCategory\r\n}) => (\r\n  <ul style={S.UL}>\r\n    {\r\n      categories.map(category => {\r\n        const _is = isCategories[category];\r\n        return (\r\n          <li key={category}>\r\n            <FlatButton\r\n              className={S.CL_BT}\r\n              caption={category}\r\n              onClick={_is\r\n                ? () => removeCategory(category)\r\n                : () => addCategory(category)\r\n              }\r\n            >\r\n              { _is && <SvgChecked /> }\r\n            </FlatButton>\r\n          </li>\r\n        )\r\n      })\r\n    }\r\n  </ul>\r\n);\r\n\r\nconst mapStateToProps = state => ({\r\n  isCategories: state.categories\r\n})\r\n\r\nconst mapDispatchToProps = {\r\n  addCategory,\r\n  removeCategory\r\n};\r\n\r\nexport default connect(\r\n  mapStateToProps,\r\n  mapDispatchToProps\r\n)(CategoriesList)\r\n"],"file":"CategoriesList.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/drawer/CategoriesList.js"
+ ],
+ "file": "../../../src/components/drawer/CategoriesList.js",
+ "names": [
+  "CategoriesList",
+  "filter",
+  "topics",
+  "isCategories",
+  "addCategory",
+  "removeCategory",
+  "S",
+  "UL",
+  "map",
+  "category",
+  "_is",
+  "CL_BT",
+  "mapStateToProps",
+  "state",
+  "app",
+  "categories",
+  "mapDispatchToProps"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AACA;;AAKA;;AACA;;AACA;;AAEA,IAAMA,cAAc,GAAG,SAAjBA,cAAiB;AAAA,MACrBC,MADqB,QACrBA,MADqB;AAAA,MAErBC,MAFqB,QAErBA,MAFqB;AAAA,MAGrBC,YAHqB,QAGrBA,YAHqB;AAAA,MAIrBC,WAJqB,QAIrBA,WAJqB;AAAA,MAKrBC,cALqB,QAKrBA,cALqB;AAAA,SAOrB;AAAI,IAAA,KAAK,EAAEC,kBAAEC;AAAb,KAEIL,MAAM,CAACM,GAAP,CAAW,UAAAC,QAAQ,EAAI;AACrB,QAAMC,GAAG,GAAGP,YAAY,CAACM,QAAD,CAAxB;AACA,WACE;AAAI,MAAA,GAAG,EAAEA;AAAT,OACE,gCAAC,sBAAD;AACE,MAAA,SAAS,EAAEH,kBAAEK,KADf;AAEE,MAAA,OAAO,EAAEF,QAFX;AAGE,MAAA,OAAO,EAAEC,GAAG,GACR;AAAA,eAAML,cAAc,CAACI,QAAD,CAApB;AAAA,OADQ,GAER;AAAA,eAAML,WAAW,CAACK,QAAD,EAAWR,MAAX,CAAjB;AAAA;AALN,OAQIS,GAAG,IAAI,gCAAC,sBAAD,OARX,CADF,CADF;AAcD,GAhBD,CAFJ,CAPqB;AAAA,CAAvB;;AA8BA,IAAME,eAAe,GAAG,SAAlBA,eAAkB,CAAAC,KAAK;AAAA,SAAK;AAChCZ,IAAAA,MAAM,EAAEY,KAAK,CAACC,GAAN,CAAUb,MADc;AAEhCC,IAAAA,MAAM,EAAEW,KAAK,CAACX,MAFkB;AAGhCC,IAAAA,YAAY,EAAEU,KAAK,CAACE;AAHY,GAAL;AAAA,CAA7B;;AAMA,IAAMC,kBAAkB,GAAG;AACzBZ,EAAAA,WAAW,EAAXA,oBADyB;AAEzBC,EAAAA,cAAc,EAAdA;AAFyB,CAA3B;;eAKe,yBACbO,eADa,EAEbI,kBAFa,EAGbhB,cAHa,C"
+}

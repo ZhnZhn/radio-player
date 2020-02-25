@@ -9,6 +9,8 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _actions = require("../stations/actions");
 
+var _actions2 = require("../app/actions");
+
 var reducer = function reducer(state, action) {
   if (state === void 0) {
     state = {};
@@ -27,6 +29,11 @@ var reducer = function reducer(state, action) {
         var _category = action.category;
         state[_category] = false;
         return (0, _extends2["default"])({}, state);
+      }
+
+    case _actions2.ACTION.SET_SRC_FILTER:
+      {
+        return {};
       }
 
     default:

@@ -1,9 +1,11 @@
 import React from 'react'
 
-const _isHttp = (src='') => src.split('://')[0] === 'http';
+import utils from '../../sound/utils'
+
+const { isHttp } = utils;
 
 const StationProtocol = ({ src }) => {
-  const _protocol = _isHttp(src)
+  const _protocol = isHttp(src)
     ? '(http)'
     : '';
   return (

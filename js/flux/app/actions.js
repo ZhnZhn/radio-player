@@ -5,6 +5,7 @@ exports["default"] = exports.toggleDrawer = exports.setUiTheme = exports.addCate
 var ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
   SET_UI_THEME: 'SET_UI_THEME',
+  SET_SRC_FILTER: 'SET_SRC_FILTER',
   OPEN_DRAWER: 'OPEN_DRAWER',
   CLOSE_DRAWER: 'CLOSE_DRAWER',
   TOGGLE_DRAWER: 'TOGGLE_DRAWER'
@@ -41,9 +42,23 @@ var toggleDrawer = function toggleDrawer() {
 };
 
 exports.toggleDrawer = toggleDrawer;
+var _hmSrcFilter = {
+  '1': 'none',
+  '2': 'https',
+  '3': 'http'
+};
+
+var setSrcFilter = function setSrcFilter(filterIndex) {
+  return {
+    type: ACTION.SET_SRC_FILTER,
+    filter: _hmSrcFilter[filterIndex]
+  };
+};
+
 var actions = {
-  addCategory: addCategory,
+  //addCategory,
   setUiTheme: setUiTheme,
+  setSrcFilter: setSrcFilter,
   toggleDrawer: toggleDrawer
 };
 var _default = actions;

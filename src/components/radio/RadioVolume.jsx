@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import useInterval from '../hooks/useInterval'
 
-import CATEGORIES from '../../sound/categories'
-
 import InputSlider from '../zhn/InputSlider'
 import BtMinus from '../zhn/BtMinus'
 import BtPlus from '../zhn/BtPlus'
@@ -95,9 +93,7 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
         {..._plusHandlers}
         onClick={onIncrease}
       />
-      <HeaderDrawer
-        categories={CATEGORIES}
-      />
+      <HeaderDrawer />
     </div>
   );
 }

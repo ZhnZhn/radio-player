@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports.setCurrentStation = exports.removeCategory = exports.addCategory = exports.ACTION = void 0;
 
-var _router = _interopRequireDefault(require("../../sound/router"));
+var _utils = _interopRequireDefault(require("../../sound/utils"));
 
 var ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
@@ -13,12 +13,15 @@ var ACTION = {
   SET_CURRENT_STATION: 'SET_CURRENT_STATION'
 };
 exports.ACTION = ACTION;
+var crFilterBy = _utils["default"].crFilterBy,
+    getCategory = _utils["default"].getCategory;
 
-var addCategory = function addCategory(category) {
-  var categories = _router["default"].getCategory(category).map(function (station) {
+var addCategory = function addCategory(category, filter) {
+  var _filterBy = crFilterBy(filter),
+      categories = getCategory(category).map(function (station) {
     station.category = category;
     return station;
-  });
+  }).filter(_filterBy);
 
   return {
     type: ACTION.ADD_CATEGORY,

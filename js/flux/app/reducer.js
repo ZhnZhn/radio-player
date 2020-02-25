@@ -32,6 +32,13 @@ var reducer = function reducer(state, action) {
         isDrawer: !state.isDrawer
       });
 
+    case _actions.ACTION.SET_SRC_FILTER:
+      {
+        return (0, _extends2["default"])({}, state, {
+          filter: action.filter
+        });
+      }
+
     case _actions2.ACTION.SET_CURRENT_STATION:
       {
         var station = action.station;

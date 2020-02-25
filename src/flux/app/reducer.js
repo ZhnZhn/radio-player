@@ -16,6 +16,12 @@ const reducer = function(state=initialState.app, action) {
         ...state,
         isDrawer: !state.isDrawer
       };
+    case ACTION.SET_SRC_FILTER: {
+      return {
+        ...state,        
+        filter: action.filter
+      };
+    }
     case SA.SET_CURRENT_STATION: {
       const { station } = action;
       return {

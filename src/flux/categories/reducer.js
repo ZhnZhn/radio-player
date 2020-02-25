@@ -1,4 +1,5 @@
 import { ACTION as SA } from '../stations/actions'
+import { ACTION as AP } from '../app/actions'
 
 const reducer = function(state={}, action) {
   switch(action.type){
@@ -11,6 +12,9 @@ const reducer = function(state={}, action) {
       const { category } = action
       state[category] = false;
       return { ...state};
+    }
+    case AP.SET_SRC_FILTER: {
+      return {};
     }
     default: return state;
   }

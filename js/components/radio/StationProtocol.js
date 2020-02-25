@@ -7,18 +7,14 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _isHttp = function _isHttp(src) {
-  if (src === void 0) {
-    src = '';
-  }
+var _utils = _interopRequireDefault(require("../../sound/utils"));
 
-  return src.split('://')[0] === 'http';
-};
+var isHttp = _utils["default"].isHttp;
 
 var StationProtocol = function StationProtocol(_ref) {
   var src = _ref.src;
 
-  var _protocol = _isHttp(src) ? '(http)' : '';
+  var _protocol = isHttp(src) ? '(http)' : '';
 
   return _react["default"].createElement("span", null, "\xA0", _protocol);
 };

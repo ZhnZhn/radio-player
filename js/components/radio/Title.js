@@ -18,8 +18,9 @@ var Title = function Title(_ref) {
       title = _ref.title;
 
   var _title = station && station.title || '',
-      _msgErrOrTitle = msgErr ? msgErr + " " + _title : _title || title,
-      _cl = msgErr ? CL.ERR : CL.TITLE;
+      _isErr = msgErr && _title,
+      _msgErrOrTitle = _isErr ? msgErr + " " + _title : _title || title,
+      _cl = _isErr ? CL.ERR : CL.TITLE;
 
   return _react["default"].createElement("div", {
     className: _cl

@@ -13,8 +13,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _useInterval3 = _interopRequireDefault(require("../hooks/useInterval"));
 
-var _categories = _interopRequireDefault(require("../../sound/categories"));
-
 var _InputSlider = _interopRequireDefault(require("../zhn/InputSlider"));
 
 var _BtMinus = _interopRequireDefault(require("../zhn/BtMinus"));
@@ -133,9 +131,7 @@ var RadioVolume = function RadioVolume(_ref) {
     accessKey: "+"
   }, _plusHandlers, {
     onClick: onIncrease
-  })), _react["default"].createElement(_HeaderDrawer["default"], {
-    categories: _categories["default"]
-  }));
+  })), _react["default"].createElement(_HeaderDrawer["default"], null));
 };
 
 var _default = _react["default"].memo(RadioVolume);

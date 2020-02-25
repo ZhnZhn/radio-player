@@ -3,7 +3,9 @@
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _actions = require("./actions");
+var _actions = require("../app/actions");
+
+var _actions2 = require("./actions");
 
 var fByTitle = function fByTitle(title) {
   return function (item) {
@@ -29,11 +31,11 @@ var _findByCategory = function _findByCategory(arr, category) {
 
 var reducer = function reducer(state, action) {
   if (state === void 0) {
-    state = {};
+    state = [];
   }
 
   switch (action.type) {
-    case _actions.ACTION.ADD_CATEGORY:
+    case _actions2.ACTION.ADD_CATEGORY:
       {
         var categories = action.categories,
             category = action.category,
@@ -47,13 +49,13 @@ var reducer = function reducer(state, action) {
         return [].concat(_categories, state);
       }
 
-    case _actions.ACTION.REMOVE_CATEGORY:
+    case _actions2.ACTION.REMOVE_CATEGORY:
       {
         var _category = action.category;
         return state.filter(fByCategory(_category));
       }
 
-    case _actions.ACTION.SET_CURRENT_STATION:
+    case _actions2.ACTION.SET_CURRENT_STATION:
       {
         var station = action.station,
             _currentStation = action.currentStation,
@@ -66,6 +68,11 @@ var reducer = function reducer(state, action) {
         }
 
         return _stations;
+      }
+
+    case _actions.ACTION.SET_SRC_FILTER:
+      {
+        return [];
       }
 
     default:

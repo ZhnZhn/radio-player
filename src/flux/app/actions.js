@@ -2,6 +2,7 @@
 export const ACTION = {
   ADD_CATEGORY: 'ADD_CATEGORY',
   SET_UI_THEME: 'SET_UI_THEME',
+  SET_SRC_FILTER: 'SET_SRC_FILTER',
   OPEN_DRAWER: 'OPEN_DRAWER',
   CLOSE_DRAWER: 'CLOSE_DRAWER',
   TOGGLE_DRAWER: 'TOGGLE_DRAWER'
@@ -29,9 +30,21 @@ export const toggleDrawer = () => ({
   type: ACTION.TOGGLE_DRAWER
 });
 
+const _hmSrcFilter = {
+  '1': 'none',
+  '2': 'https',
+  '3': 'http'
+};
+
+const setSrcFilter = (filterIndex) => ({
+  type: ACTION.SET_SRC_FILTER,
+  filter: _hmSrcFilter[filterIndex]
+});
+
 const actions = {
-  addCategory,
+  //addCategory,
   setUiTheme,
+  setSrcFilter,
   toggleDrawer
 };
 

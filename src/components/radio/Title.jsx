@@ -7,10 +7,11 @@ const CL = {
 
 const Title = ({ station, msgErr, title }) => {
   const _title = station && station.title || ''
-  , _msgErrOrTitle = msgErr
+  , _isErr = msgErr && _title
+  , _msgErrOrTitle = _isErr
        ? `${msgErr} ${_title}`
        : _title || title
-  , _cl = msgErr ? CL.ERR : CL.TITLE;
+  , _cl = _isErr ? CL.ERR : CL.TITLE;
   return (
     <div className={_cl}>
       {_msgErrOrTitle}

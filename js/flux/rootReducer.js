@@ -13,10 +13,13 @@ var _reducer2 = _interopRequireDefault(require("./stations/reducer"));
 
 var _reducer3 = _interopRequireDefault(require("./categories/reducer"));
 
+var _reducer4 = _interopRequireDefault(require("./topics/reducer"));
+
 var rootReducer = (0, _redux.combineReducers)({
   app: _reducer["default"],
   stations: _reducer2["default"],
-  categories: _reducer3["default"]
+  categories: _reducer3["default"],
+  topics: _reducer4["default"]
 });
 var _default = rootReducer;
 exports["default"] = _default;

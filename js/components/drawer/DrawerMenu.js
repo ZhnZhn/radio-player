@@ -25,18 +25,20 @@ var _CategoriesList = _interopRequireDefault(require("./CategoriesList"));
 
 var _style = _interopRequireDefault(require("./style"));
 
-var DrawerMenu = function DrawerMenu(_ref) {
-  var categories = _ref.categories;
-
+var DrawerMenu = function DrawerMenu() {
   var _useContext = (0, _react.useContext)(_AppContext["default"]),
       setUiTheme = _useContext.setUiTheme,
       toggleDrawer = _useContext.toggleDrawer,
+      setSrcFilter = _useContext.setSrcFilter,
       dispatch = (0, _reactRedux.useDispatch)(),
       _setUiTheme = (0, _react.useCallback)(function (uiThemeIndex) {
     return dispatch(setUiTheme(uiThemeIndex));
   }, []),
       _onCloseDrawer = (0, _react.useCallback)(function () {
     return dispatch(toggleDrawer());
+  }, []),
+      _setFilter = (0, _react.useCallback)(function (srcFilterIndex) {
+    return dispatch(setSrcFilter(srcFilterIndex));
   }, []),
       _handlers = (0, _useSwipeGesture["default"])({
     onSwipeGesture: _onCloseDrawer,
@@ -56,9 +58,15 @@ var DrawerMenu = function DrawerMenu(_ref) {
   }), _react["default"].createElement(_SvgClose["default"], {
     className: _style["default"].CL_BT_CLOSE,
     onClick: _onCloseDrawer
-  })), _react["default"].createElement(_CategoriesList["default"], {
-    categories: categories
-  }));
+  })), _react["default"].createElement(_CategoriesList["default"], null), _react["default"].createElement("div", {
+    className: _style["default"].CL_HEADER
+  }, _react["default"].createElement(_BtTriple["default"], {
+    style: _style["default"].BT_TRIPLE,
+    oneC: "ALL",
+    twoC: "HTTPS",
+    threeC: "HTTP",
+    onClick: _setFilter
+  })));
 };
 
 var _default = DrawerMenu;

@@ -18,13 +18,14 @@ var _FlatButton = _interopRequireDefault(require("../zhn-m/FlatButton"));
 var _style = _interopRequireDefault(require("./style"));
 
 var CategoriesList = function CategoriesList(_ref) {
-  var categories = _ref.categories,
+  var filter = _ref.filter,
+      topics = _ref.topics,
       isCategories = _ref.isCategories,
       addCategory = _ref.addCategory,
       removeCategory = _ref.removeCategory;
   return _react["default"].createElement("ul", {
     style: _style["default"].UL
-  }, categories.map(function (category) {
+  }, topics.map(function (category) {
     var _is = isCategories[category];
     return _react["default"].createElement("li", {
       key: category
@@ -34,7 +35,7 @@ var CategoriesList = function CategoriesList(_ref) {
       onClick: _is ? function () {
         return removeCategory(category);
       } : function () {
-        return addCategory(category);
+        return addCategory(category, filter);
       }
     }, _is && _react["default"].createElement(_SvgChecked["default"], null)));
   }));
@@ -42,6 +43,8 @@ var CategoriesList = function CategoriesList(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    filter: state.app.filter,
+    topics: state.topics,
     isCategories: state.categories
   };
 };

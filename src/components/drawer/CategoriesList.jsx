@@ -11,14 +11,15 @@ import FlatButton  from '../zhn-m/FlatButton'
 import S from './style'
 
 const CategoriesList = ({
-  categories,
+  filter,
+  topics,
   isCategories,
   addCategory,
   removeCategory
 }) => (
   <ul style={S.UL}>
     {
-      categories.map(category => {
+      topics.map(category => {
         const _is = isCategories[category];
         return (
           <li key={category}>
@@ -27,7 +28,7 @@ const CategoriesList = ({
               caption={category}
               onClick={_is
                 ? () => removeCategory(category)
-                : () => addCategory(category)
+                : () => addCategory(category, filter)
               }
             >
               { _is && <SvgChecked /> }
@@ -40,6 +41,8 @@ const CategoriesList = ({
 );
 
 const mapStateToProps = state => ({
+  filter: state.app.filter,
+  topics: state.topics,
   isCategories: state.categories
 })
 
