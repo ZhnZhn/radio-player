@@ -1,1 +1,15 @@
-{"version":3,"sources":["../../src/sound/piano.js"],"names":["piano","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,KAAK,GAAG,CACZ;AACEC,EAAAA,KAAK,EAAE,qCADT;AAEEC,EAAAA,GAAG,EAAE,sCAFP;AAGEC,EAAAA,OAAO,EAAE,gCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADY,EAMV;AACAH,EAAAA,KAAK,EAAE,0BADP;AAEAC,EAAAA,GAAG,EAAE,4CAFL;AAGAC,EAAAA,OAAO,EAAE,kCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANU,CAAd;eAceJ,K","sourcesContent":["\r\nconst piano = [\r\n  {\r\n    title: 'USA: Eugene: Whisperings Solo Piano',\r\n    src: 'http://pianosolo.streamguys.net/live',\r\n    siteUrl: 'https://www.solopianoradio.com',\r\n    br: 96\r\n  },{\r\n    title: 'USA: Matt Johnson Radio ',\r\n    src: 'http://us2.internet-radio.com:8046/;stream',\r\n    siteUrl: 'https://www.mattjohnsonmusic.com',\r\n    br: 80\r\n  }\r\n];\r\n\r\nexport default piano\r\n"],"file":"piano.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/piano.js"
+ ],
+ "file": "../../src/sound/piano.js",
+ "names": [
+  "piano",
+  "title",
+  "src",
+  "siteUrl",
+  "br"
+ ],
+ "mappings": ";;;;AACA,IAAMA,KAAK,GAAG,CACZ;AACEC,EAAAA,KAAK,EAAE,6BADT;AAEEC,EAAAA,GAAG,EAAE,sCAFP;AAGEC,EAAAA,OAAO,EAAE,gCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADY,EAMV;AACAH,EAAAA,KAAK,EAAE,yBADP;AAEAC,EAAAA,GAAG,EAAE,4CAFL;AAGAC,EAAAA,OAAO,EAAE,iCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANU,CAAd;eAceJ,K"
+}

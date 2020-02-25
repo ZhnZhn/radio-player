@@ -1,1 +1,15 @@
-{"version":3,"sources":["../../src/sound/lounge.js"],"names":["lounge","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,MAAM,GAAG,CACb;AACEC,EAAAA,KAAK,EAAE,yBADT;AAEEC,EAAAA,GAAG,EAAE,2CAFP;AAGEC,EAAAA,OAAO,EAAE,2BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADa,EAMX;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,sCAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANW,CAAf;eAceJ,M","sourcesContent":["\r\nconst lounge = [\r\n  {\r\n    title: 'France: ABC Lounge Jazz',\r\n    src: 'http://centauri.shoutca.st:8686/stream/1/',\r\n    siteUrl: 'http://www.abc-lounge.com',\r\n    br: 128\r\n  },{\r\n    title: 'Italy: Milano Lounge',\r\n    src: 'http://antares.dribb.com:5080/autodj',\r\n    siteUrl: 'https://www.milanolounge.net',\r\n    br: 128\r\n  }\r\n]\r\n\r\nexport default lounge\r\n"],"file":"lounge.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/lounge.js"
+ ],
+ "file": "../../src/sound/lounge.js",
+ "names": [
+  "lounge",
+  "title",
+  "src",
+  "siteUrl",
+  "br"
+ ],
+ "mappings": ";;;;AACA,IAAMA,MAAM,GAAG,CACb;AACEC,EAAAA,KAAK,EAAE,yBADT;AAEEC,EAAAA,GAAG,EAAE,2CAFP;AAGEC,EAAAA,OAAO,EAAE,2BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADa,EAMX;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,sCAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANW,CAAf;eAceJ,M"
+}

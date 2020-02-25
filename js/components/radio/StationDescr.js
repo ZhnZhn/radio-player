@@ -11,6 +11,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _ShowHide = _interopRequireDefault(require("../zhn/ShowHide"));
 
+var _StationProtocol = _interopRequireDefault(require("./StationProtocol"));
+
 var CL = {
   DESCR: 'station-descr',
   DESCR_BT: 'station-descr__bt',
@@ -82,6 +84,8 @@ var StationDescr = function StationDescr(_ref3) {
     });
   },
       _arrowStyle = isMore ? S.ARROW_OPEN : void 0,
+      title = station.title,
+      src = station.src,
       siteUrl = station.siteUrl,
       category = station.category,
       br = station.br;
@@ -91,7 +95,9 @@ var StationDescr = function StationDescr(_ref3) {
   }, _react["default"].createElement("button", {
     className: CL.DESCR_BT,
     onClick: _onClick
-  }, _react["default"].createElement("span", null, station.title), _react["default"].createElement("span", {
+  }, _react["default"].createElement("span", null, title), _react["default"].createElement(_StationProtocol["default"], {
+    src: src
+  }), _react["default"].createElement("span", {
     className: CL.BT_MORE,
     style: _arrowStyle
   }, ">")), _react["default"].createElement(_ShowHide["default"], {

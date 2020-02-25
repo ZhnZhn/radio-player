@@ -4,13 +4,13 @@ exports.__esModule = true;
 exports["default"] = void 0;
 var country = [{
   title: 'USA: Country Hits',
-  src: 'http://19763.live.streamtheworld.com/977_COUNTRY.mp3',
-  siteUrl: 'http://hitsradio.com',
+  src: 'https://19763.live.streamtheworld.com/977_COUNTRY.mp3',
+  siteUrl: 'https://hitsradio.com',
   br: 128
 }, {
   title: 'USA: NYC Country Live',
-  src: 'http://streaming.radiostreamlive.com/radiocountrylive_devices',
-  siteUrl: 'http://www.radiocountrylive.com',
+  src: 'https://streaming.radiostreamlive.com/radiocountrylive_devices',
+  siteUrl: 'https://www.radiocountrylive.com',
   br: 128
 }, {
   title: "USA: 011.FM - Today's Country",

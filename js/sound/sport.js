@@ -9,8 +9,8 @@ var sport = [{
   br: 48
 }, {
   title: 'UK: talkSPORT',
-  src: 'http://radio.talksport.com/stream?awparams=platform:ts-tunein;lang:en',
-  siteUrl: 'http://talksport.com',
+  src: 'https://radio.talksport.com/stream?awparams=platform:ts-tunein;lang:en',
+  siteUrl: 'https://talksport.com',
   br: 64
 }];
 var _default = sport;

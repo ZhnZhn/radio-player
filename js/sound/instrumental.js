@@ -9,12 +9,12 @@ var instrumental = [{
   br: 128
 }, {
   title: 'USA: GotRadio Guitar Genius',
-  src: 'http://pureplay.cdnstream1.com/6018_128.mp3',
-  siteUrl: 'http://www.gotradio.com',
+  src: 'https://pureplay.cdnstream1.com/6018_128.mp3',
+  siteUrl: 'https://www.gotradio.com',
   br: 128
 }, {
   title: 'USA: Instrumental Hits Radio',
-  src: 'http://149.56.195.94:8453/stream',
+  src: 'http://162.244.80.106:11128/stream2',
   siteUrl: 'http://instrumentalhitsradio.com',
   br: 192
 }, {

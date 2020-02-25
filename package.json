@@ -20,6 +20,10 @@
   ],
   "author": "Yevhenii Molodyi",
   "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZhnZhn/radio-player.git"
+  },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import ShowHide from '../zhn/ShowHide'
+import StationProtocol from './StationProtocol'
 
 const CL = {
   DESCR: 'station-descr',
@@ -68,14 +69,19 @@ const StationDescr = ({ station }) => {
   , _arrowStyle = isMore
        ? S.ARROW_OPEN
        : void 0
-  , { siteUrl, category, br } = station;
+  , {
+    title, src, siteUrl,
+    category, br
+  } = station;
+
   return (
     <div className={CL.DESCR}>
       <button
          className={CL.DESCR_BT}
          onClick={_onClick}
       >
-        <span>{station.title}</span>
+        <span>{title}</span>
+        <StationProtocol src={src} />
         <span className={CL.BT_MORE} style={_arrowStyle}>></span>
       </button>
       <ShowHide className={CL.INFO} isShow={isMore}>

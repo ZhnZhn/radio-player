@@ -1,36 +1,34 @@
 
 const classical = [
   {
-    title: "Canada: Winnipeg Classic 107FM", 
+    title: "Canada: Winnipeg Classic 107FM",
     src: "http://daemondef.ic.llnwd.net/stream/daemondef_ddmp3_74",
-    siteUrl: "https://classic107.com",
+    siteUrl: "http://classic107.com",
     br: 56
   },{
     title: 'Germany: Hamburg Klassik FM 98.1',
-    src: 'http://klassikr.streamabc.net/klassikradio-simulcast-mp3-mq?sABC=5p7684ns%23%233ros3r7q49np68nq09sorn0021437803%23enqvbqr&amsparams=playerid:radiode;skey:1551271087',
+    src: 'https://klassikr.streamabc.net/klassikradio-simulcast-mp3-mq?sABC=5p7684ns%23%233ros3r7q49np68nq09sorn0021437803%23enqvbqr&amsparams=playerid:radiode;skey:1551271087',
     siteUrl: 'https://www.klassikradio.de/',
     br: 192
   },{
     title: 'Italy: Venice Classic',
     src: 'http://109.123.116.202:8020/stream/1/',
-    siteUrl: 'http://www.veniceclassicradio.eu',
+    siteUrl: 'https://www.veniceclassicradio.eu',
     br: 128
   },{
     title: 'Netherland: NPO Radio 4',
-    src: 'http://icecast.omroep.nl/radio4-bb-mp3',
-    siteUrl: 'http://www.radio4.nl',
+    src: 'https://icecast.omroep.nl/radio4-bb-mp3',
+    siteUrl: 'https://www.radio4.nl',
     br: 192
-    //imd: 1,
-    //listUrl: 'https://www.nporadio4.nl/gedraaid'
   },{
     title: 'Swiss: Basel Radio Classic',
-    src: 'http://streaming.swisstxt.ch/m/rsc_de/mp3_128',
-    siteUrl: 'http://www.radioswissclassic.ch',
+    src: 'https://streaming.swisstxt.ch/m/rsc_de/mp3_128',
+    siteUrl: 'https://www.radioswissclassic.ch',
     br: 128
   },{
     title: "Swiss: 1.FM Otto's Opera House",
     src: 'http://strm112.1.fm/opera_mobile_mp3',
-    siteUrl: 'http://1.fm',
+    siteUrl: 'https://1.fm',
     br: 128
   },{
     title: 'Swissradio.ch Classical',
@@ -40,7 +38,8 @@ const classical = [
     src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p',
     br: 128
   },{
-    title: 'UK: Davide of MIMIC Classical', src: 'http://uk3.internet-radio.com:8060/;stream',
+    title: 'UK: Davide of MIMIC Classical',
+    src: 'http://uk3.internet-radio.com:8060/;stream',
     siteUrl: 'http://meetinginmusic.blogspot.com',
     br: 320
   },{

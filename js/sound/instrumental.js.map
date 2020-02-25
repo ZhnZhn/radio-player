@@ -1,1 +1,15 @@
-{"version":3,"sources":["../../src/sound/instrumental.js"],"names":["instrumental","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,YAAY,GAAG,CACnB;AACEC,EAAAA,KAAK,EAAE,oBADT;AAEEC,EAAAA,GAAG,EAAE,qCAFP;AAGEC,EAAAA,OAAO,EAAE,iCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADmB,EAMjB;AACAH,EAAAA,KAAK,EAAE,6BADP;AAEAC,EAAAA,GAAG,EAAE,6CAFL;AAGAC,EAAAA,OAAO,EAAE,yBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANiB,EAWjB;AACAH,EAAAA,KAAK,EAAE,8BADP;AAEAC,EAAAA,GAAG,EAAE,kCAFL;AAGAC,EAAAA,OAAO,EAAE,kCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXiB,EAgBjB;AACAH,EAAAA,KAAK,EAAE,YADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBiB,CAArB;eAwBeJ,Y","sourcesContent":["\r\nconst instrumental = [\r\n  {\r\n    title: 'Instrumental Radio',\r\n    src: 'http://178.32.62.163:8599/;stream/1',\r\n    siteUrl: 'http://www.instrumentalradio.eu',\r\n    br: 128\r\n  },{\r\n    title: 'USA: GotRadio Guitar Genius',\r\n    src: 'http://pureplay.cdnstream1.com/6018_128.mp3',\r\n    siteUrl: 'http://www.gotradio.com',\r\n    br: 128\r\n  },{\r\n    title: 'USA: Instrumental Hits Radio',\r\n    src: 'http://149.56.195.94:8453/stream',\r\n    siteUrl: 'http://instrumentalhitsradio.com',\r\n    br: 192\r\n  },{\r\n    title: 'Music Lake',\r\n    src: 'http://50.7.68.251:7168/;stream/1',\r\n    siteUrl: 'http://musiclake.com',\r\n    br: 64\r\n  }\r\n];\r\n\r\nexport default instrumental\r\n"],"file":"instrumental.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/instrumental.js"
+ ],
+ "file": "../../src/sound/instrumental.js",
+ "names": [
+  "instrumental",
+  "title",
+  "src",
+  "siteUrl",
+  "br"
+ ],
+ "mappings": ";;;;AACA,IAAMA,YAAY,GAAG,CACnB;AACEC,EAAAA,KAAK,EAAE,oBADT;AAEEC,EAAAA,GAAG,EAAE,qCAFP;AAGEC,EAAAA,OAAO,EAAE,iCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADmB,EAMjB;AACAH,EAAAA,KAAK,EAAE,6BADP;AAEAC,EAAAA,GAAG,EAAE,8CAFL;AAGAC,EAAAA,OAAO,EAAE,0BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANiB,EAWjB;AACAH,EAAAA,KAAK,EAAE,8BADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,kCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXiB,EAgBjB;AACAH,EAAAA,KAAK,EAAE,YADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBiB,CAArB;eAwBeJ,Y"
+}

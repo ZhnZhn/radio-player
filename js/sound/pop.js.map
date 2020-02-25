@@ -1,1 +1,15 @@
-{"version":3,"sources":["../../src/sound/pop.js"],"names":["pop","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,GAAG,GAAG,CACV;AACEC,EAAAA,KAAK,EAAE,iBADT;AAEEC,EAAAA,GAAG,EAAE,0DAFP;AAGEC,EAAAA,OAAO,EAAE,8BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADU,EAMR;AACAH,EAAAA,KAAK,EAAE,WADP;AAEAC,EAAAA,GAAG,EAAE,4CAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANQ,EAWR;AACAH,EAAAA,KAAK,EAAE,WADP;AAEAC,EAAAA,GAAG,EAAE,uDAFL;AAGAC,EAAAA,OAAO,EAAE,gCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXQ,EAgBR;AACAH,EAAAA,KAAK,EAAE,iCADP;AAEAC,EAAAA,GAAG,EAAE,sCAFL;AAGAC,EAAAA,OAAO,EAAE,aAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBQ,EAqBR;AACAH,EAAAA,KAAK,EAAE,uBADP;AAEAC,EAAAA,GAAG,EAAE,kDAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CArBQ,CAAZ;eA6BeJ,G","sourcesContent":["\r\nconst pop = [\r\n  {\r\n    title: 'UK: BBC Radio 1',\r\n    src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_q',\r\n    siteUrl: 'https://www.bbc.co.uk/radio1',\r\n    br: 128\r\n  },{\r\n    title: 'UK: Dance',\r\n    src: 'http://uk7.internet-radio.com:8226/;stream',\r\n    siteUrl: 'https://www.danceradiouk.com',\r\n    br: 48\r\n  },{\r\n    title: 'UK: Magic',\r\n    src: 'https://stream-mz.planetradio.co.uk/magicnational.aac',\r\n    siteUrl: 'http://planetradio.co.uk/magic',\r\n    br: 47\r\n  },{\r\n    title: 'Swiss: 1.FM Zug Absolute Top 40',\r\n    src: 'http://strm112.1.fm/top40_mobile_mp3',\r\n    siteUrl: 'http://1.fm',\r\n    br: 128\r\n  },{\r\n    title: 'Seattle: KEXP 90.3 FM',\r\n    src: 'https://kexp-mp3-128.streamguys1.com/kexp128.mp3',\r\n    siteUrl: 'http://kexp.org/',\r\n    br: 128\r\n  }\r\n];\r\n\r\nexport default pop\r\n"],"file":"pop.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/pop.js"
+ ],
+ "file": "../../src/sound/pop.js",
+ "names": [
+  "pop",
+  "title",
+  "src",
+  "siteUrl",
+  "br"
+ ],
+ "mappings": ";;;;AACA,IAAMA,GAAG,GAAG,CACV;AACEC,EAAAA,KAAK,EAAE,iBADT;AAEEC,EAAAA,GAAG,EAAE,0DAFP;AAGEC,EAAAA,OAAO,EAAE,8BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADU,EAMR;AACAH,EAAAA,KAAK,EAAE,WADP;AAEAC,EAAAA,GAAG,EAAE,4CAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANQ,EAWR;AACAH,EAAAA,KAAK,EAAE,WADP;AAEAC,EAAAA,GAAG,EAAE,uDAFL;AAGAC,EAAAA,OAAO,EAAE,iCAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXQ,EAgBR;AACAH,EAAAA,KAAK,EAAE,iCADP;AAEAC,EAAAA,GAAG,EAAE,sCAFL;AAGAC,EAAAA,OAAO,EAAE,aAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBQ,EAqBR;AACAH,EAAAA,KAAK,EAAE,uBADP;AAEAC,EAAAA,GAAG,EAAE,kDAFL;AAGAC,EAAAA,OAAO,EAAE,iBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CArBQ,EA0BR;AACAH,EAAAA,KAAK,EAAE,wBADP;AAEAC,EAAAA,GAAG,EAAE,sDAFL;AAGAC,EAAAA,OAAO,EAAE,uBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CA1BQ,CAAZ;eAkCeJ,G"
+}
