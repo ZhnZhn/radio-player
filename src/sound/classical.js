@@ -1,12 +1,12 @@
 
 const classical = [
   {
-    title: "Canada: Winnipeg Classic 107FM",
+    title: "Canada: Classic 107 FM",
     src: "http://daemondef.ic.llnwd.net/stream/daemondef_ddmp3_74",
     siteUrl: "http://classic107.com",
     br: 56
   },{
-    title: 'Germany: Hamburg Klassik FM 98.1',
+    title: 'Germany: Hamburg Klassik 98.1 FM',
     src: 'https://klassikr.streamabc.net/klassikradio-simulcast-mp3-mq?sABC=5p7684ns%23%233ros3r7q49np68nq09sorn0021437803%23enqvbqr&amsparams=playerid:radiode;skey:1551271087',
     siteUrl: 'https://www.klassikradio.de/',
     br: 192
@@ -26,7 +26,7 @@ const classical = [
     siteUrl: 'https://www.radioswissclassic.ch',
     br: 128
   },{
-    title: "Swiss: 1.FM Otto's Opera House",
+    title: "Swiss: Opera House 1.FM",
     src: 'http://strm112.1.fm/opera_mobile_mp3',
     siteUrl: 'https://1.fm',
     br: 128

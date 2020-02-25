@@ -16,7 +16,7 @@ const pop = [
     siteUrl: 'http://planetradio.co.uk/magic/',
     br: 47
   },{
-    title: 'Swiss: 1.FM Zug Absolute Top 40',
+    title: 'Swiss: Zug Top 40 1.FM',
     src: 'http://strm112.1.fm/top40_mobile_mp3',
     siteUrl: 'http://1.fm',
     br: 128
@@ -26,7 +26,7 @@ const pop = [
     siteUrl: 'http://kexp.org',
     br: 128
   },{
-    title: 'USA: Florida: 977 Hits',
+    title: 'USA: 977 Hits Radio',
     src: 'https://19763.live.streamtheworld.com/977_HITSAAC_SC',
     siteUrl: 'https://hitsradio.com',
     br: 64

@@ -6,12 +6,12 @@ const chillout = [
     siteUrl: 'http://www.costadelmar-radio.com',
     br: 96
   },{
-    title: 'Swiss: 1.FM Chillout Lounge Radio',
+    title: 'Swiss: Chillout Lounge 1.FM',
     src: 'http://strm112.1.fm/chilloutlounge_mobile_mp3',
     siteUrl: 'http://www.1.fm/',
     br: 192
   },{
-    title: 'USA: 181.FM Chilled Out',
+    title: 'USA: Chilled Out 181.FM',
     src: 'http://listen.181fm.com/181-chilled_128k.mp3',
     siteUrl: 'http://www.181.fm/',
     br: 128

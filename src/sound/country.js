@@ -11,7 +11,7 @@ const country = [
     siteUrl: 'https://www.radiocountrylive.com',
     br: 128
   },{
-    title: "USA: 011.FM - Today's Country",
+    title: "USA: Today's Country 011.FM",
     src: 'http://listen.011fm.com:8016/stream09',
     siteUrl: 'http://011fm.com',
     br: 192
