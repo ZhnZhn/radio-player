@@ -1,6 +1,4 @@
-import React, { useReducer, useEffect, useCallback, useContext } from 'react'
-
-import { useSelector } from 'react-redux';
+import React, { useRef, useReducer, useEffect, useCallback, useContext } from 'react'
 
 import HAS from '../has'
 import AppContext from '../AppContext'
@@ -14,7 +12,7 @@ import reducer from './playerReducer'
 
 const A = reducer.A;
 
-const DF_TITLE = 'Radio Player v0.1.0'
+const DF_TITLE = 'Radio Player v0.2.0'
 const MSG_NO_STATION = 'At first, please, choose a radio station.'
 
 const CL = {
@@ -72,6 +70,13 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 };
 */
 
+const _clearTimeout = ref => {
+  clearTimeout(ref.current)
+  ref.current = void 0;
+};
+
+const PAUSE_TIMEOUT_MLS = 1000*60*3;
+
 const initialState = {
   msgErr: '',
   title: DF_TITLE,
@@ -80,9 +85,14 @@ const initialState = {
   volume: sound.INIT_VOLUME
 };
 
-const AudioPlayer = ({ station }) => {
-  const { uiThemeImpl, sApp } = useContext(AppContext)
-  const uiTheme = useSelector(sApp.uiTheme)
+const AudioPlayer = () => {
+  const _refPauseID = useRef()
+  , {
+    uiThemeImpl,
+    sApp, useSelector
+  } = useContext(AppContext)
+  , uiTheme = useSelector(sApp.uiTheme)
+  , station = useSelector(sApp.currentStation)
   , [state, dispatch] = useReducer(reducer, initialState)
   , { isUnloaded, isPlaying,
       volume,
@@ -103,6 +113,7 @@ const AudioPlayer = ({ station }) => {
   }), []);
 
   const play = () => {
+    _clearTimeout(_refPauseID)
     if (!msgErr && sound.play()) {
       dispatch({ type: A.SET_PLAYING })
       _setMediaMetadata(station && station.title || DF_TITLE)
@@ -117,6 +128,10 @@ const AudioPlayer = ({ station }) => {
     sound.stop()
     //_setMediaSessionHandlers(play)
     //_setPlaybackPaused()
+    _refPauseID.current = setTimeout(
+       () => dispatch({ type: A.UNLOAD }),
+       PAUSE_TIMEOUT_MLS
+    )
     dispatch({ type: A.PAUSE })
   };
 
@@ -143,16 +158,6 @@ const AudioPlayer = ({ station }) => {
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])
-
-  /*
-  useEffect( () => {
-    if (HAS.MEDIA_SESSION) {
-      const _mediaSession = navigator.mediaSession;
-      _mediaSession.setActionHandler('play', play)
-      _mediaSession.setActionHandler('pause', pause)
-    }
-  }, [])
-  */
 
   useEffect(()=>{
     if (station && station.src

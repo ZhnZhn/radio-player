@@ -1,1 +1,20 @@
-{"version":3,"sources":["../../src/flux/selectors.js"],"names":["sApp","app","state","isDrawer","currentStation","uiTheme","stations","selectors"],"mappings":";;;;AACO,IAAMA,IAAI,GAAG;AAClBC,EAAAA,GAAG,EAAE,aAAAC,KAAK;AAAA,WAAIA,KAAK,CAACD,GAAN,IAAa,EAAjB;AAAA,GADQ;AAElBE,EAAAA,QAAQ,EAAE,kBAAAD,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBC,QAApB;AAAA,GAFG;AAGlBC,EAAAA,cAAc,EAAE,wBAAAF,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBE,cAApB;AAAA,GAHH;AAIlBC,EAAAA,OAAO,EAAE,iBAAAH,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBG,OAApB;AAAA,GAJI;AAMlBC,EAAAA,QAAQ,EAAE,kBAAAJ,KAAK;AAAA,WAAIA,KAAK,CAACI,QAAN,IAAkB,EAAtB;AAAA;AANG,CAAb;;AASP,IAAMC,SAAS,GAAG;AAChBP,EAAAA,IAAI,EAAJA;AADgB,CAAlB;eAIeO,S","sourcesContent":["\r\nexport const sApp = {\r\n  app: state => state.app || {},\r\n  isDrawer: state => sApp.app(state).isDrawer,\r\n  currentStation: state => sApp.app(state).currentStation,\r\n  uiTheme: state => sApp.app(state).uiTheme,\r\n\r\n  stations: state => state.stations || []\r\n};\r\n\r\nconst selectors = {\r\n  sApp\r\n};\r\n\r\nexport default selectors\r\n"],"file":"selectors.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/flux/selectors.js"
+ ],
+ "file": "../../src/flux/selectors.js",
+ "names": [
+  "sApp",
+  "app",
+  "state",
+  "isDrawer",
+  "currentStation",
+  "uiTheme",
+  "topics",
+  "categories",
+  "stations",
+  "selectors"
+ ],
+ "mappings": ";;;;AACO,IAAMA,IAAI,GAAG;AAClBC,EAAAA,GAAG,EAAE,aAAAC,KAAK;AAAA,WAAIA,KAAK,CAACD,GAAN,IAAa,EAAjB;AAAA,GADQ;AAElBE,EAAAA,QAAQ,EAAE,kBAAAD,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBC,QAApB;AAAA,GAFG;AAGlBC,EAAAA,cAAc,EAAE,wBAAAF,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBE,cAApB;AAAA,GAHH;AAIlBC,EAAAA,OAAO,EAAE,iBAAAH,KAAK;AAAA,WAAIF,IAAI,CAACC,GAAL,CAASC,KAAT,EAAgBG,OAApB;AAAA,GAJI;AAMlBC,EAAAA,MAAM,EAAE,gBAAAJ,KAAK;AAAA,WAAIA,KAAK,CAACI,MAAN,IAAgB,EAApB;AAAA,GANK;AAOlBC,EAAAA,UAAU,EAAE,oBAAAL,KAAK;AAAA,WAAIA,KAAK,CAACK,UAAN,IAAoB,EAAxB;AAAA,GAPC;AAQlBC,EAAAA,QAAQ,EAAE,kBAAAN,KAAK;AAAA,WAAIA,KAAK,CAACM,QAAN,IAAkB,EAAtB;AAAA;AARG,CAAb;;AAWP,IAAMC,SAAS,GAAG;AAChBT,EAAAA,IAAI,EAAJA;AADgB,CAAlB;eAIeS,S"
+}

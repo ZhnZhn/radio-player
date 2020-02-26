@@ -11,8 +11,6 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require("react-redux");
-
 var _has = _interopRequireDefault(require("../has"));
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
@@ -31,19 +29,16 @@ var _calcAccessKey = function _calcAccessKey(index) {
   return index < 5 ? index + 1 : void 0;
 };
 
-var StationList = function StationList(_ref) {
-  var currentStation = _ref.currentStation,
-      radioStations = _ref.radioStations,
-      onClick = _ref.onClick;
-
+var StationList = function StationList() {
   var _useContext = (0, _react.useContext)(_AppContext["default"]),
       toggleDrawer = _useContext.toggleDrawer,
-      dispatch = (0, _reactRedux.useDispatch)(),
-      onSwipeGesture = (0, _react.useCallback)(function () {
-    return dispatch(toggleDrawer());
-  }, []),
+      setCurrentStation = _useContext.setCurrentStation,
+      sApp = _useContext.sApp,
+      useSelector = _useContext.useSelector,
+      currentStation = useSelector(sApp.currentStation),
+      radioStations = useSelector(sApp.stations),
       _handlers = (0, _useSwipeGesture["default"])({
-    onSwipeGesture: onSwipeGesture
+    onSwipeGesture: toggleDrawer
   });
 
   return _react["default"].createElement("div", (0, _extends2["default"])({
@@ -55,7 +50,7 @@ var StationList = function StationList(_ref) {
       key: station.title,
       station: station,
       accessKey: _has["default"].TOUCH ? void 0 : _calcAccessKey(index),
-      onClick: onClick.bind(null, station, index)
+      onClick: setCurrentStation.bind(null, station, index)
     });
   }));
 };

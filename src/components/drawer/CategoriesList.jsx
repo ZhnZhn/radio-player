@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { connect } from 'react-redux'
-import {
-  addCategory,
-  removeCategory
-} from '../../flux/stations/actions'
+import AppContext from '../AppContext'
 
 import SvgChecked from '../zhn/SvgChecked'
 import FlatButton  from '../zhn-m/FlatButton'
 import S from './style'
 
-const CategoriesList = ({
-  filter,
-  topics,
-  isCategories,
-  addCategory,
-  removeCategory
-}) => (
+const CategoriesList = () => {
+  const {
+    sApp,
+    addCategory,
+    removeCategory,
+    useSelector
+  } = useContext(AppContext)
+  , topics = useSelector(sApp.topics)
+  , isCategories = useSelector(sApp.categories);
+  return(
   <ul style={S.UL}>
     {
       topics.map(category => {
@@ -26,9 +25,10 @@ const CategoriesList = ({
             <FlatButton
               className={S.CL_BT}
               caption={category}
+              timeout={0}
               onClick={_is
                 ? () => removeCategory(category)
-                : () => addCategory(category, filter)
+                : () => addCategory(category)
               }
             >
               { _is && <SvgChecked /> }
@@ -38,20 +38,8 @@ const CategoriesList = ({
       })
     }
   </ul>
-);
+  );
+}
 
-const mapStateToProps = state => ({
-  filter: state.app.filter,
-  topics: state.topics,
-  isCategories: state.categories
-})
 
-const mapDispatchToProps = {
-  addCategory,
-  removeCategory
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CategoriesList)
+export default CategoriesList

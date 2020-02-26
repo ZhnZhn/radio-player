@@ -1,1 +1,44 @@
-{"version":3,"sources":["../../../src/components/zhn-m/FlatButton.jsx"],"names":["CL","BT","BT_DIV","BT_SPAN","S","PRIMARY","color","POINTER_EVENTS","FlatButton","_setPointerEvents","value","rootNode","style","_hClick","event","props","timeout","onClick","setTimeout","_refNode","node","render","className","rootStyle","clDiv","clCaption","isPrimary","title","caption","accessKey","children","_style","_className","_clCaption","_title","focus","Component","defaultProps"],"mappings":";;;;;;;;;;;;;;;AAAA;;AAEA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,EAAE,EAAE,SADK;AAETC,EAAAA,MAAM,EAAE,cAFC;AAGTC,EAAAA,OAAO,EAAE;AAHA,CAAX;AAKA,IAAMC,CAAC,GAAG;AACRC,EAAAA,OAAO,EAAE;AACPC,IAAAA,KAAK,EAAE;AADA;AADD,CAAV;AAKA,IAAMC,cAAc,GAAG,gBAAvB;;IAEMC,U;;;;;;;;;;;;;;UAMJC,iB,GAAoB,UAACC,KAAD,EAAkB;AAAA,UAAjBA,KAAiB;AAAjBA,QAAAA,KAAiB,GAAX,MAAW;AAAA;;AACpC,UAAI,kDAAQ,MAAKC,QAAb,IAAyB,MAAKA,QAAL,CAAcC,KAA3C,EAAkD;AAC/C,cAAKD,QAAL,CAAcC,KAAd,CAAoBL,cAApB,IAAsCG,KAAtC;AACF;AACF,K;;UAEDG,O,GAAU,UAACC,KAAD,EAAW;AACnB,YAAKL,iBAAL,CAAuB,MAAvB;;AADmB,wBAEU,MAAKM,KAFf;AAAA,UAEXC,OAFW,eAEXA,OAFW;AAAA,UAEFC,OAFE,eAEFA,OAFE;AAGnBC,MAAAA,UAAU,CAAC,MAAKT,iBAAN,EAAyBO,OAAzB,CAAV;AACAC,MAAAA,OAAO,CAACH,KAAD,CAAP;AACD,K;;UAEDK,Q,GAAW,UAAAC,IAAI;AAAA,aAAI,MAAKT,QAAL,GAAgBS,IAApB;AAAA,K;;;;;;;SAEfC,M,GAAA,kBAAS;AAAA,uBASG,KAAKN,KATR;AAAA,QAEAO,SAFA,gBAEAA,SAFA;AAAA,QAGAC,SAHA,gBAGAA,SAHA;AAAA,0CAIAC,KAJA;AAAA,QAIAA,KAJA,mCAIMxB,EAAE,CAACE,MAJT;AAAA,QAKAuB,SALA,gBAKAA,SALA;AAAA,QAMAC,SANA,gBAMAA,SANA;AAAA,0CAOAC,KAPA;AAAA,QAOAA,KAPA,mCAOM,EAPN;AAAA,QAOUC,OAPV,gBAOUA,OAPV;AAAA,QAOmBC,SAPnB,gBAOmBA,SAPnB;AAAA,QAQAC,QARA,gBAQAA,QARA;AAAA,QAUDC,MAVC,GAUQL,SAAS,iCACTH,SADS,MACKnB,CAAC,CAACC,OADP,IAEbkB,SAZJ;AAAA,QAaDS,UAbC,GAaYV,SAAS,GACdtB,EAAE,CAACC,EADW,SACLqB,SADK,GAEjBtB,EAAE,CAACC,EAfP;AAAA,QAgBDgC,UAhBC,GAgBYR,SAAS,GACbzB,EAAE,CAACG,OADU,SACCsB,SADD,GAEhBzB,EAAE,CAACG,OAlBR;AAAA,QAmBD+B,MAnBC,GAmBQL,SAAS,GACVF,KADU,UACAE,SADA,SAEbF,KArBJ;;AAsBT,WACE;AACE,MAAA,GAAG,EAAI,KAAKR,QADd;AAEE,MAAA,SAAS,EAAEa,UAFb;AAGE,MAAA,KAAK,EAAED,MAHT;AAIE,MAAA,SAAS,EAAEF,SAJb;AAKE,MAAA,QAAQ,EAAE,CALZ;AAME,MAAA,KAAK,EAAEK,MANT;AAOE,MAAA,OAAO,EAAE,KAAKrB;AAPhB,OASE;AAAK,MAAA,SAAS,EAAEW;AAAhB,OACE,gCAAC,wBAAD;AACE,MAAA,SAAS,EAAES,UADb;AAEE,MAAA,OAAO,EAAEL,OAFX;AAGE,MAAA,SAAS,EAAEC;AAHb,MADF,EAMGC,QANH,CATF,CADF;AAoBA,G;;SAEDK,K,GAAA,iBAAO;AACL,SAAKxB,QAAL,CAAcwB,KAAd;AACD,G;;;EAnEuBC,gB;;AAAnB5B,U,CAEG6B,Y,GAAe;AACpBrB,EAAAA,OAAO,EAAE;AADW,C;eAqETR,U","sourcesContent":["import React, { Component } from 'react'\r\n\r\nimport CaptionInput from './CaptionInput'\r\n\r\nconst CL = {\r\n  BT: 'bt-flat',\r\n  BT_DIV: 'bt-flat__div',\r\n  BT_SPAN: 'bt-flat__span'\r\n};\r\nconst S = {\r\n  PRIMARY: {\r\n    color: '#607d8b'\r\n  }\r\n};\r\nconst POINTER_EVENTS = 'pointer-events';\r\n\r\nclass FlatButton extends Component {\r\n\r\n  static defaultProps = {\r\n    timeout: 500\r\n  }\r\n\r\n  _setPointerEvents = (value='auto') => {\r\n    if (this && this.rootNode && this.rootNode.style) {\r\n       this.rootNode.style[POINTER_EVENTS] = value\r\n    }\r\n  }\r\n\r\n  _hClick = (event) => {\r\n    this._setPointerEvents('none')\r\n    const { timeout, onClick } = this.props;\r\n    setTimeout(this._setPointerEvents, timeout)\r\n    onClick(event)\r\n  }\r\n\r\n  _refNode = node => this.rootNode = node\r\n\r\n  render() {\r\n    const {\r\n           className,\r\n           rootStyle,\r\n           clDiv=CL.BT_DIV,\r\n           clCaption,\r\n           isPrimary,\r\n           title='', caption, accessKey,\r\n           children\r\n          } = this.props\r\n        , _style = isPrimary\r\n             ? {...rootStyle, ...S.PRIMARY }\r\n             : rootStyle\r\n        , _className = className\r\n             ? `${CL.BT} ${className}`\r\n             : CL.BT\r\n        , _clCaption = clCaption\r\n              ? `${CL.BT_SPAN} ${clCaption}`\r\n              : CL.BT_SPAN\r\n        , _title = accessKey\r\n             ? `${title} [${accessKey}]`\r\n             : title;\r\n  return (\r\n    <button\r\n      ref = {this._refNode}\r\n      className={_className}\r\n      style={_style}\r\n      accessKey={accessKey}\r\n      tabIndex={0}\r\n      title={_title}\r\n      onClick={this._hClick}\r\n    >\r\n      <div className={clDiv}>\r\n        <CaptionInput\r\n          className={_clCaption}\r\n          caption={caption}\r\n          accessKey={accessKey}\r\n        />\r\n        {children}\r\n      </div>\r\n    </button>\r\n  );\r\n }\r\n\r\n focus(){\r\n   this.rootNode.focus()\r\n }\r\n\r\n}\r\n\r\nexport default FlatButton\r\n"],"file":"FlatButton.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/zhn-m/FlatButton.js"
+ ],
+ "file": "../../../src/components/zhn-m/FlatButton.js",
+ "names": [
+  "CL",
+  "BT",
+  "BT_DIV",
+  "BT_SPAN",
+  "S",
+  "PRIMARY",
+  "color",
+  "POINTER_EVENTS",
+  "FlatButton",
+  "innerRef",
+  "timeout",
+  "className",
+  "rootStyle",
+  "clDiv",
+  "clCaption",
+  "isPrimary",
+  "title",
+  "caption",
+  "accessKey",
+  "onClick",
+  "children",
+  "_refBt",
+  "_setPointerEvents",
+  "value",
+  "current",
+  "style",
+  "_hClick",
+  "event",
+  "setTimeout",
+  "focus",
+  "_style",
+  "_className",
+  "_clCaption",
+  "_title"
+ ],
+ "mappings": "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"
+}

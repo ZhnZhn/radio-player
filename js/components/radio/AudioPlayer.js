@@ -9,8 +9,6 @@ exports["default"] = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require("react-redux");
-
 var _has = _interopRequireDefault(require("../has"));
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
@@ -26,7 +24,7 @@ var _Equalizer = _interopRequireDefault(require("./Equalizer"));
 var _playerReducer = _interopRequireDefault(require("./playerReducer"));
 
 var A = _playerReducer["default"].A;
-var DF_TITLE = 'Radio Player v0.1.0';
+var DF_TITLE = 'Radio Player v0.2.0';
 var MSG_NO_STATION = 'At first, please, choose a radio station.';
 var CL = {
   PLAYER: 'audio-player'
@@ -86,6 +84,12 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 */
 
 
+var _clearTimeout = function _clearTimeout(ref) {
+  clearTimeout(ref.current);
+  ref.current = void 0;
+};
+
+var PAUSE_TIMEOUT_MLS = 1000 * 60 * 3;
 var initialState = {
   msgErr: '',
   title: DF_TITLE,
@@ -94,14 +98,14 @@ var initialState = {
   volume: _sound["default"].INIT_VOLUME
 };
 
-var AudioPlayer = function AudioPlayer(_ref) {
-  var station = _ref.station;
-
-  var _useContext = (0, _react.useContext)(_AppContext["default"]),
+var AudioPlayer = function AudioPlayer() {
+  var _refPauseID = (0, _react.useRef)(),
+      _useContext = (0, _react.useContext)(_AppContext["default"]),
       uiThemeImpl = _useContext.uiThemeImpl,
-      sApp = _useContext.sApp;
-
-  var uiTheme = (0, _reactRedux.useSelector)(sApp.uiTheme),
+      sApp = _useContext.sApp,
+      useSelector = _useContext.useSelector,
+      uiTheme = useSelector(sApp.uiTheme),
+      station = useSelector(sApp.currentStation),
       _useReducer = (0, _react.useReducer)(_playerReducer["default"], initialState),
       state = _useReducer[0],
       dispatch = _useReducer[1],
@@ -133,6 +137,8 @@ var AudioPlayer = function AudioPlayer(_ref) {
   }, []);
 
   var play = function play() {
+    _clearTimeout(_refPauseID);
+
     if (!msgErr && _sound["default"].play()) {
       dispatch({
         type: A.SET_PLAYING
@@ -156,6 +162,11 @@ var AudioPlayer = function AudioPlayer(_ref) {
     //_setPlaybackPaused()
 
 
+    _refPauseID.current = setTimeout(function () {
+      return dispatch({
+        type: A.UNLOAD
+      });
+    }, PAUSE_TIMEOUT_MLS);
     dispatch({
       type: A.PAUSE
     });
@@ -195,16 +206,6 @@ var AudioPlayer = function AudioPlayer(_ref) {
       navigator.mediaSession.setActionHandler('pause', stop);
     }
   }, []);
-  /*
-  useEffect( () => {
-    if (HAS.MEDIA_SESSION) {
-      const _mediaSession = navigator.mediaSession;
-      _mediaSession.setActionHandler('play', play)
-      _mediaSession.setActionHandler('pause', pause)
-    }
-  }, [])
-  */
-
   (0, _react.useEffect)(function () {
     if (station && station.src && _sound["default"].init(station.src, _onError.bind(null, 'Load Error'), _onError.bind(null, 'Play Error'))) {
       dispatch({

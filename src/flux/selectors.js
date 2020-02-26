@@ -5,6 +5,8 @@ export const sApp = {
   currentStation: state => sApp.app(state).currentStation,
   uiTheme: state => sApp.app(state).uiTheme,
 
+  topics: state => state.topics || [],
+  categories: state => state.categories || [],
   stations: state => state.stations || []
 };
 

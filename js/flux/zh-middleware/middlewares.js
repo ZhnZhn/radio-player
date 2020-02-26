@@ -9,7 +9,9 @@ var _appCurrentStation = _interopRequireDefault(require("./appCurrentStation"));
 
 var _appUiTheme = _interopRequireDefault(require("./appUiTheme"));
 
-var middlewares = [_appUiTheme["default"], _appCurrentStation["default"]];
+var _addCategories = _interopRequireDefault(require("./addCategories"));
+
+var middlewares = [_appUiTheme["default"], _appCurrentStation["default"], _addCategories["default"]];
 var _default = middlewares;
 exports["default"] = _default;
 //# sourceMappingURL=middlewares.js.map

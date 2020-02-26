@@ -18,7 +18,7 @@ const reducer = function(state=initialState.app, action) {
       };
     case ACTION.SET_SRC_FILTER: {
       return {
-        ...state,        
+        ...state,
         filter: action.filter
       };
     }

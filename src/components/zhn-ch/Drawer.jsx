@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React, { useContext, useEffect } from 'react'
 
-import { connect } from 'react-redux'
-import { sApp } from '../../flux/selectors'
-import { toggleDrawer } from '../../flux/app/actions'
-
+import AppContext from '../AppContext'
 import uiThemeImpl from '../ui-theme/uiTheme'
-import HAS from '../has'
 
 const CL = {
   DRAWER_BT: 'drawer-bt',
@@ -43,67 +39,38 @@ const S = {
   }
 }
 
-class Drawer extends Component {
+const Drawer = ({
+  btStyle,
+  children
+}) => {
+  const {
+    toggleDrawer,
+    sApp, useSelector
+  } = useContext(AppContext)
+  , isOpen = useSelector(sApp.isDrawer)
+  , uiTheme = useSelector(sApp.uiTheme);
 
-  componentDidMount(){
-    if (HAS.TRANSITION) {
-      this._asideNode.addEventListener('transitionend', this._hTransitionEnd)
-    }
-  }
-  componentWillUnmount(){
-    if (HAS.TRANSITION) {
-      this._asideNode.removeEventListener('transitionend', this._hTransitionEnd)
-    }
-  }
-
-  _hTransitionEnd = () => {
-    if (!this.props.isOpen) {
-      this._wrapperNode.style.display = 'none'
-    }
-  }
-
-  _setBodyOverflowY = () => {
-    const { isOpen } = this.props;
+  useEffect(()=>{
     if (isOpen) {
       document.body.style.overflowY = 'hidden'
     } else {
       document.body.style.overflowY = 'auto'
     }
-  }
+  })
 
-  _setWrapperStyleToBlock = () => {
-    if (this.props.isOpen && this._wrapperNode) {
-      this._wrapperNode.style.display = 'block'
+
+  const _asideStyle = {
+      ...(isOpen ? S.DRAWER_ON : S.DRAWER_OFF),
+      ...uiThemeImpl.toBg(uiTheme)
     }
-  }
-
-  componentDidUpdate(){
-    this._setBodyOverflowY()
-  }
-
-  _refAside = node => this._asideNode = node
-  _refWrapper = node => this._wrapperNode = node
-
-  render(){
-    const {
-       isOpen,
-       uiTheme,
-       btStyle,
-       toggleDrawer,
-       children
-     } = this.props
-    , _asideStyle = {
-        ...(isOpen ? S.DRAWER_ON : S.DRAWER_OFF),
-        ...uiThemeImpl.toBg(uiTheme)
-      }
-    , _drawerModalStyle = isOpen
-         ? S.MODAL_ON
-         : S.MODAL_OFF
-    , _onClickWrapper = isOpen
-         ? toggleDrawer
-         : void 0;
-    this._setWrapperStyleToBlock()
-    return [
+  , _drawerModalStyle = isOpen
+       ? S.MODAL_ON
+       : S.MODAL_OFF
+  , _onClickWrapper = isOpen
+       ? toggleDrawer
+       : void 0;
+  return (
+    [
         <button
           key="bt-drawer"
           className={CL.DRAWER_BT}
@@ -125,35 +92,23 @@ class Drawer extends Component {
         </button>,
         <div
           key="wrapper"
+          role="presentation"
           aria-hidden={!isOpen}
           className={CL.DRAWER_MODAL}
           style={_drawerModalStyle}
           onClick={_onClickWrapper}
         />,
         <aside
-          ref={this._refAside}
           key="aside"
           className={CL.DRAWER}
           style={_asideStyle}
          >
-           <div ref={this._refWrapper}>
+           <div>
              {children}
            </div>
         </aside>
-      ];
-  }
+      ]
+  );
 }
 
-const mapStateToProps = state => ({
-  isOpen: sApp.isDrawer(state),
-  uiTheme: sApp.uiTheme(state)
-});
-
-const mapDispatchToProps = {
-  toggleDrawer
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Drawer)
+export default  Drawer

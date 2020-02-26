@@ -1,1 +1,14 @@
-{"version":3,"sources":["../../../src/flux/zh-middleware/middlewares.js"],"names":["middlewares","appUiTheme","appCurrentStation"],"mappings":";;;;;;;AAAA;;AACA;;AAEA,IAAMA,WAAW,GAAG,CAClBC,sBADkB,EAElBC,6BAFkB,CAApB;eAKeF,W","sourcesContent":["import appCurrentStation from './appCurrentStation'\r\nimport appUiTheme from './appUiTheme'\r\n\r\nconst middlewares = [\r\n  appUiTheme,\r\n  appCurrentStation\r\n];\r\n\r\nexport default middlewares\r\n"],"file":"middlewares.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/zh-middleware/middlewares.js"
+ ],
+ "file": "../../../src/flux/zh-middleware/middlewares.js",
+ "names": [
+  "middlewares",
+  "appUiTheme",
+  "appCurrentStation",
+  "addCategories"
+ ],
+ "mappings": ";;;;;;;AAAA;;AACA;;AACA;;AAEA,IAAMA,WAAW,GAAG,CAClBC,sBADkB,EAElBC,6BAFkB,EAGlBC,yBAHkB,CAApB;eAMeH,W"
+}

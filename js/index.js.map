@@ -1,1 +1,13 @@
-{"version":3,"sources":["../src/index.jsx"],"names":["store","document","getElementById"],"mappings":";;;;AAAA;;AACA;;AAEA;;AAEA;;AACA;;AAEA,sBAEI,gCAAC,oBAAD;AAAU,EAAA,KAAK,EAAEA;AAAjB,GACE,gCAAC,eAAD,OADF,CAFJ,EAMEC,QAAQ,CAACC,cAAT,CAAwB,KAAxB,CANF","sourcesContent":["import React from 'react'\r\nimport { render } from 'react-dom'\r\n\r\nimport { Provider } from 'react-redux'\r\n\r\nimport App from './components/App'\r\nimport store from './flux/store'\r\n\r\nrender(\r\n  (\r\n    <Provider store={store}>\r\n      <App />\r\n    </Provider>\r\n  ),\r\n  document.getElementById(\"app\")\r\n);\r\n"],"file":"index.js"}
+{
+ "version": 3,
+ "sources": [
+  "../src/index.js"
+ ],
+ "file": "../src/index.js",
+ "names": [
+  "store",
+  "document",
+  "getElementById"
+ ],
+ "mappings": ";;;;AAAA;;AACA;;AAEA;;AAEA;;AACA;;AAEA,sBAEI,gCAAC,oBAAD;AAAU,EAAA,KAAK,EAAEA;AAAjB,GACE,gCAAC,eAAD,OADF,CAFJ,EAMEC,QAAQ,CAACC,cAAT,CAAwB,KAAxB,CANF"
+}

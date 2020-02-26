@@ -1,0 +1,28 @@
+{
+ "version": 3,
+ "sources": [
+  "../../../src/flux/zh-middleware/addCategories.js"
+ ],
+ "file": "../../../src/flux/zh-middleware/addCategories.js",
+ "names": [
+  "crFilterBy",
+  "utils",
+  "getCategory",
+  "addCategories",
+  "getState",
+  "next",
+  "action",
+  "type",
+  "ACTION",
+  "ADD_CATEGORY",
+  "state",
+  "category",
+  "_filterBy",
+  "app",
+  "filter",
+  "categories",
+  "map",
+  "station"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;IAEQA,U,GAA4BC,iB,CAA5BD,U;IAAYE,W,GAAgBD,iB,CAAhBC,W;;AAEpB,IAAMC,aAAa,GAAG,SAAhBA,aAAgB;AAAA,MAAGC,QAAH,QAAGA,QAAH;AAAA,SAAkB,UAAAC,IAAI;AAAA,WAAI,UAAAC,MAAM,EAAI;AACxD,UAAIA,MAAM,CAACC,IAAP,KAAgBC,gBAAOC,YAA3B,EAAyC;AACjC,YAAAC,KAAK,GAAGN,QAAQ,EAAhB;AAAA,YACFO,QADE,GACWL,MADX,CACFK,QADE;AAAA,YAEJC,SAFI,GAEQZ,UAAU,CAACU,KAAK,CAACG,GAAN,CAAUC,MAAX,CAFlB;;AAGNR,QAAAA,MAAM,CAACS,UAAP,GAAoBb,WAAW,CAACS,QAAD,CAAX,CACjBK,GADiB,CACb,UAAAC,OAAO,EAAI;AACdA,UAAAA,OAAO,CAACN,QAAR,GAAmBA,QAAnB;AACA,iBAAOM,OAAP;AACD,SAJiB,EAKjBH,MALiB,CAKVF,SALU,CAApB;AAMD;;AACD,aAAOP,IAAI,CAACC,MAAD,CAAX;AACD,KAb2C;AAAA,GAAtB;AAAA,CAAtB;;eAeeH,a"
+}

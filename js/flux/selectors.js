@@ -15,6 +15,12 @@ var sApp = {
   uiTheme: function uiTheme(state) {
     return sApp.app(state).uiTheme;
   },
+  topics: function topics(state) {
+    return state.topics || [];
+  },
+  categories: function categories(state) {
+    return state.categories || [];
+  },
   stations: function stations(state) {
     return state.stations || [];
   }

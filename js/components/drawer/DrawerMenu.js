@@ -11,8 +11,6 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require("react-redux");
-
 var _AppContext = _interopRequireDefault(require("../AppContext"));
 
 var _useSwipeGesture = _interopRequireDefault(require("../hooks/useSwipeGesture"));
@@ -30,18 +28,8 @@ var DrawerMenu = function DrawerMenu() {
       setUiTheme = _useContext.setUiTheme,
       toggleDrawer = _useContext.toggleDrawer,
       setSrcFilter = _useContext.setSrcFilter,
-      dispatch = (0, _reactRedux.useDispatch)(),
-      _setUiTheme = (0, _react.useCallback)(function (uiThemeIndex) {
-    return dispatch(setUiTheme(uiThemeIndex));
-  }, []),
-      _onCloseDrawer = (0, _react.useCallback)(function () {
-    return dispatch(toggleDrawer());
-  }, []),
-      _setFilter = (0, _react.useCallback)(function (srcFilterIndex) {
-    return dispatch(setSrcFilter(srcFilterIndex));
-  }, []),
       _handlers = (0, _useSwipeGesture["default"])({
-    onSwipeGesture: _onCloseDrawer,
+    onSwipeGesture: toggleDrawer,
     dir: 'R'
   });
 
@@ -54,10 +42,10 @@ var DrawerMenu = function DrawerMenu() {
     oneC: "GREY",
     twoC: "LIGHT",
     threeC: "SAND",
-    onClick: _setUiTheme
+    onClick: setUiTheme
   }), _react["default"].createElement(_SvgClose["default"], {
     className: _style["default"].CL_BT_CLOSE,
-    onClick: _onCloseDrawer
+    onClick: toggleDrawer
   })), _react["default"].createElement(_CategoriesList["default"], null), _react["default"].createElement("div", {
     className: _style["default"].CL_HEADER
   }, _react["default"].createElement(_BtTriple["default"], {
@@ -65,7 +53,7 @@ var DrawerMenu = function DrawerMenu() {
     oneC: "ALL",
     twoC: "HTTPS",
     threeC: "HTTP",
-    onClick: _setFilter
+    onClick: setSrcFilter
   })));
 };
 

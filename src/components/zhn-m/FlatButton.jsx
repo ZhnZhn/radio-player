@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useRef, useCallback, useImperativeHandle } from 'react'
 
 import CaptionInput from './CaptionInput'
 
@@ -14,58 +14,61 @@ const S = {
 };
 const POINTER_EVENTS = 'pointer-events';
 
-class FlatButton extends Component {
-
-  static defaultProps = {
-    timeout: 500
-  }
-
-  _setPointerEvents = (value='auto') => {
-    if (this && this.rootNode && this.rootNode.style) {
-       this.rootNode.style[POINTER_EVENTS] = value
+const FlatButton = ({
+  innerRef,
+  timeout=500,
+  className,
+  rootStyle,
+  clDiv=CL.BT_DIV,
+  clCaption,
+  isPrimary,
+  title='', caption, accessKey,
+  onClick,
+  children
+}) => {
+  const _refBt = useRef()
+  , _setPointerEvents = useCallback((value='auto') => {
+    if (_refBt.current) {
+       _refBt.current.style[POINTER_EVENTS] = value
     }
-  }
-
-  _hClick = (event) => {
-    this._setPointerEvents('none')
-    const { timeout, onClick } = this.props;
-    setTimeout(this._setPointerEvents, timeout)
+  }, [])
+  , _hClick = useCallback((event) => {
+    if (timeout !== 0) {
+      _setPointerEvents('none')
+      setTimeout(_setPointerEvents, timeout)
+    }
     onClick(event)
-  }
+  }, [timeout, onClick])
 
-  _refNode = node => this.rootNode = node
+  useImperativeHandle(innerRef, () => ({
+    focus: () => {
+      if (_refBt.current) {
+        _refBt.current.focus()
+      }
+   }
+  }))
 
-  render() {
-    const {
-           className,
-           rootStyle,
-           clDiv=CL.BT_DIV,
-           clCaption,
-           isPrimary,
-           title='', caption, accessKey,
-           children
-          } = this.props
-        , _style = isPrimary
-             ? {...rootStyle, ...S.PRIMARY }
-             : rootStyle
-        , _className = className
-             ? `${CL.BT} ${className}`
-             : CL.BT
-        , _clCaption = clCaption
-              ? `${CL.BT_SPAN} ${clCaption}`
-              : CL.BT_SPAN
-        , _title = accessKey
-             ? `${title} [${accessKey}]`
-             : title;
+  const _style = isPrimary
+       ? {...rootStyle, ...S.PRIMARY }
+       : rootStyle
+  , _className = className
+       ? `${CL.BT} ${className}`
+       : CL.BT
+  , _clCaption = clCaption
+        ? `${CL.BT_SPAN} ${clCaption}`
+        : CL.BT_SPAN
+  , _title = accessKey
+       ? `${title} [${accessKey}]`
+       : title;
   return (
     <button
-      ref = {this._refNode}
+      ref = {_refBt}
       className={_className}
       style={_style}
       accessKey={accessKey}
       tabIndex={0}
       title={_title}
-      onClick={this._hClick}
+      onClick={_hClick}
     >
       <div className={clDiv}>
         <CaptionInput
@@ -77,12 +80,6 @@ class FlatButton extends Component {
       </div>
     </button>
   );
- }
-
- focus(){
-   this.rootNode.focus()
- }
-
 }
 
 export default FlatButton

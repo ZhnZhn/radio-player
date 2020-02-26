@@ -9,10 +9,6 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _CaptionInput = _interopRequireDefault(require("./CaptionInput"));
@@ -29,94 +25,75 @@ var S = {
 };
 var POINTER_EVENTS = 'pointer-events';
 
-var FlatButton =
-/*#__PURE__*/
-function (_Component) {
-  (0, _inheritsLoose2["default"])(FlatButton, _Component);
+var FlatButton = function FlatButton(_ref) {
+  var innerRef = _ref.innerRef,
+      _ref$timeout = _ref.timeout,
+      timeout = _ref$timeout === void 0 ? 500 : _ref$timeout,
+      className = _ref.className,
+      rootStyle = _ref.rootStyle,
+      _ref$clDiv = _ref.clDiv,
+      clDiv = _ref$clDiv === void 0 ? CL.BT_DIV : _ref$clDiv,
+      clCaption = _ref.clCaption,
+      isPrimary = _ref.isPrimary,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? '' : _ref$title,
+      caption = _ref.caption,
+      accessKey = _ref.accessKey,
+      onClick = _ref.onClick,
+      children = _ref.children;
 
-  function FlatButton() {
-    var _this;
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+  var _refBt = (0, _react.useRef)(),
+      _setPointerEvents = (0, _react.useCallback)(function (value) {
+    if (value === void 0) {
+      value = 'auto';
     }
 
-    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    if (_refBt.current) {
+      _refBt.current.style[POINTER_EVENTS] = value;
+    }
+  }, []),
+      _hClick = (0, _react.useCallback)(function (event) {
+    if (timeout !== 0) {
+      _setPointerEvents('none');
 
-    _this._setPointerEvents = function (value) {
-      if (value === void 0) {
-        value = 'auto';
+      setTimeout(_setPointerEvents, timeout);
+    }
+
+    onClick(event);
+  }, [timeout, onClick]);
+
+  (0, _react.useImperativeHandle)(innerRef, function () {
+    return {
+      focus: function focus() {
+        if (_refBt.current) {
+          _refBt.current.focus();
+        }
       }
-
-      if ((0, _assertThisInitialized2["default"])(_this) && _this.rootNode && _this.rootNode.style) {
-        _this.rootNode.style[POINTER_EVENTS] = value;
-      }
     };
+  });
 
-    _this._hClick = function (event) {
-      _this._setPointerEvents('none');
+  var _style = isPrimary ? (0, _extends2["default"])({}, rootStyle, {}, S.PRIMARY) : rootStyle,
+      _className = className ? CL.BT + " " + className : CL.BT,
+      _clCaption = clCaption ? CL.BT_SPAN + " " + clCaption : CL.BT_SPAN,
+      _title = accessKey ? title + " [" + accessKey + "]" : title;
 
-      var _this$props = _this.props,
-          timeout = _this$props.timeout,
-          onClick = _this$props.onClick;
-      setTimeout(_this._setPointerEvents, timeout);
-      onClick(event);
-    };
-
-    _this._refNode = function (node) {
-      return _this.rootNode = node;
-    };
-
-    return _this;
-  }
-
-  var _proto = FlatButton.prototype;
-
-  _proto.render = function render() {
-    var _this$props2 = this.props,
-        className = _this$props2.className,
-        rootStyle = _this$props2.rootStyle,
-        _this$props2$clDiv = _this$props2.clDiv,
-        clDiv = _this$props2$clDiv === void 0 ? CL.BT_DIV : _this$props2$clDiv,
-        clCaption = _this$props2.clCaption,
-        isPrimary = _this$props2.isPrimary,
-        _this$props2$title = _this$props2.title,
-        title = _this$props2$title === void 0 ? '' : _this$props2$title,
-        caption = _this$props2.caption,
-        accessKey = _this$props2.accessKey,
-        children = _this$props2.children,
-        _style = isPrimary ? (0, _extends2["default"])({}, rootStyle, {}, S.PRIMARY) : rootStyle,
-        _className = className ? CL.BT + " " + className : CL.BT,
-        _clCaption = clCaption ? CL.BT_SPAN + " " + clCaption : CL.BT_SPAN,
-        _title = accessKey ? title + " [" + accessKey + "]" : title;
-
-    return _react["default"].createElement("button", {
-      ref: this._refNode,
-      className: _className,
-      style: _style,
-      accessKey: accessKey,
-      tabIndex: 0,
-      title: _title,
-      onClick: this._hClick
-    }, _react["default"].createElement("div", {
-      className: clDiv
-    }, _react["default"].createElement(_CaptionInput["default"], {
-      className: _clCaption,
-      caption: caption,
-      accessKey: accessKey
-    }), children));
-  };
-
-  _proto.focus = function focus() {
-    this.rootNode.focus();
-  };
-
-  return FlatButton;
-}(_react.Component);
-
-FlatButton.defaultProps = {
-  timeout: 500
+  return _react["default"].createElement("button", {
+    ref: _refBt,
+    className: _className,
+    style: _style,
+    accessKey: accessKey,
+    tabIndex: 0,
+    title: _title,
+    onClick: _hClick
+  }, _react["default"].createElement("div", {
+    className: clDiv
+  }, _react["default"].createElement(_CaptionInput["default"], {
+    className: _clCaption,
+    caption: caption,
+    accessKey: accessKey
+  }), children));
 };
+
 var _default = FlatButton;
 exports["default"] = _default;
 //# sourceMappingURL=FlatButton.js.map
