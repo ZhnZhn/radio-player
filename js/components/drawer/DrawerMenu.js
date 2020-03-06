@@ -50,6 +50,7 @@ var DrawerMenu = function DrawerMenu() {
     className: _style["default"].CL_HEADER
   }, _react["default"].createElement(_BtTriple["default"], {
     style: _style["default"].BT_TRIPLE,
+    initialValue: 2,
     oneC: "ALL",
     twoC: "HTTPS",
     threeC: "HTTP",

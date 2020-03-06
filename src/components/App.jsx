@@ -12,11 +12,10 @@ const CL = "app-radio-player";
 const App = () => {
   const dispatch = useDispatch()
   , appContextValue = AppContext.getValue(dispatch)
-  , { addCategory } = appContextValue;
+  , { setSrcFilter } = appContextValue;
 
   useEffect(() => {
-    addCategory('classical')
-    addCategory('piano')
+    setSrcFilter(2)
   }, [])
 
   return (

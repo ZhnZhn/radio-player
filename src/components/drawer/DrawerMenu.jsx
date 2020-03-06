@@ -36,6 +36,7 @@ const DrawerMenu = () => {
       <div className={S.CL_HEADER}>
         <BtTriple
           style={S.BT_TRIPLE}
+          initialValue={2}
           oneC="ALL"
           twoC="HTTPS"
           threeC="HTTP"

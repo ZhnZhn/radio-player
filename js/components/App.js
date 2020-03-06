@@ -22,11 +22,10 @@ var CL = "app-radio-player";
 var App = function App() {
   var dispatch = (0, _reactRedux.useDispatch)(),
       appContextValue = _AppContext["default"].getValue(dispatch),
-      addCategory = appContextValue.addCategory;
+      setSrcFilter = appContextValue.setSrcFilter;
 
   (0, _react.useEffect)(function () {
-    addCategory('classical');
-    addCategory('piano');
+    setSrcFilter(2);
   }, []);
   return _react["default"].createElement(_AppContext["default"].Provider, {
     value: appContextValue
