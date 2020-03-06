@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 
 const CL = {
   BT: 'bt-triple',
@@ -28,10 +28,10 @@ const BtTriple = ({
   , _oneStyle = _crBtStyle(value, 1)
   , _twoStyle = _crBtStyle(value, 2)
   , _threeStyle = _crBtStyle(value, 3)
-  , _onClick = (value) => {
-     onClick(value)
-     setValue(value)
-  };
+  , _onClick = useCallback((value) => {
+      onClick(value)
+      setValue(value)
+    }, []);
 
   return (
   <div className={CL.BT} style={style}>

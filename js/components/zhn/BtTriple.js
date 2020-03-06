@@ -38,10 +38,10 @@ var BtTriple = function BtTriple(_ref) {
       _oneStyle = _crBtStyle(value, 1),
       _twoStyle = _crBtStyle(value, 2),
       _threeStyle = _crBtStyle(value, 3),
-      _onClick = function _onClick(value) {
+      _onClick = (0, _react.useCallback)(function (value) {
     onClick(value);
     setValue(value);
-  };
+  }, []);
 
   return _react["default"].createElement("div", {
     className: CL.BT,
