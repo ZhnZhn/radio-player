@@ -54,8 +54,8 @@
     "dependencies": {
       "@babel/runtime": "npm:@babel/runtime@^7.8.4",
       "howler": "npm:howler@^2.1.3",
-      "react": "npm:react@^16.12.0",
-      "react-dom": "npm:react-dom@^16.12.0",
+      "react": "npm:react@^16.13.0",
+      "react-dom": "npm:react-dom@^16.13.0",
       "react-redux": "npm:react-redux@^7.2.0",
       "redux": "npm:redux@^4.0.5"
     },
@@ -68,8 +68,8 @@
   "dependencies": {
     "@babel/runtime": "^7.8.4",
     "howler": "^2.1.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5"
   }
