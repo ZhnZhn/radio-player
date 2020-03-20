@@ -7,6 +7,7 @@
     },    
     "plugins" : [
           "react",
+          "react-hooks",
           "jsx-a11y" 
     ],
 
@@ -16,7 +17,7 @@
     ],
 
 
-    "rules" : {
+    "rules": {
 
     "no-mixed-spaces-and-tabs" : [2, "smart-tabs"],
     "no-console" : 0,
@@ -54,8 +55,11 @@
     "react/sort-comp": 0,
     "react/jsx-wrap-multilines": [1, {"declaration": false, "assignment": false}],
 
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
 
-      "jsx-a11y/no-access-key": 0 
+
+    "jsx-a11y/no-access-key": 0 
 
     }
 
