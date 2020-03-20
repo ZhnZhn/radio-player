@@ -71,10 +71,6 @@ var SiteUrl = function SiteUrl(_ref2) {
 var StationDescr = function StationDescr(_ref3) {
   var station = _ref3.station;
 
-  if (!station) {
-    return null;
-  }
-
   var _useState = (0, _react.useState)(true),
       isMore = _useState[0],
       setMore = _useState[1],
@@ -84,11 +80,16 @@ var StationDescr = function StationDescr(_ref3) {
     });
   },
       _arrowStyle = isMore ? S.ARROW_OPEN : void 0,
-      title = station.title,
-      src = station.src,
-      siteUrl = station.siteUrl,
-      category = station.category,
-      br = station.br;
+      _ref4 = station || {},
+      title = _ref4.title,
+      src = _ref4.src,
+      siteUrl = _ref4.siteUrl,
+      category = _ref4.category,
+      br = _ref4.br;
+
+  if (!station) {
+    return null;
+  }
 
   return _react["default"].createElement("div", {
     className: CL.DESCR

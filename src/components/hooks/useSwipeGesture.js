@@ -19,9 +19,6 @@ const _isSwipeGesture = (dir, delta, toClientX) => dir === 'L' || dir === 'U'
   : toClientX - _state.fromClientX > delta;
 
 const useSwipeGesture = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
-  if (!HAS.TOUCH) {
-    return void 0;
-  }
 
   const onTouchStart = useCallback(event => {
     _state.fromClientX = _getClientX(event)
@@ -33,6 +30,10 @@ const useSwipeGesture = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
       _state.fromClientX = void 0;
     }
   }, []);
+
+  if (!HAS.TOUCH) {
+    return void 0;
+  }
 
   return {
     onTouchStart,

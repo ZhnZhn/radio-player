@@ -32,11 +32,6 @@ var useSwipeGesture = function useSwipeGesture(_ref2) {
       dir = _ref2$dir === void 0 ? 'L' : _ref2$dir,
       _ref2$delta = _ref2.delta,
       delta = _ref2$delta === void 0 ? DF_DELTA : _ref2$delta;
-
-  if (!_has["default"].TOUCH) {
-    return void 0;
-  }
-
   var onTouchStart = (0, _react.useCallback)(function (event) {
     _state.fromClientX = _getClientX(event);
   }, []),
@@ -46,6 +41,11 @@ var useSwipeGesture = function useSwipeGesture(_ref2) {
       _state.fromClientX = void 0;
     }
   }, []);
+
+  if (!_has["default"].TOUCH) {
+    return void 0;
+  }
+
   return {
     onTouchStart: onTouchStart,
     onTouchEnd: onTouchEnd

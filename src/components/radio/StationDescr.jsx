@@ -62,8 +62,6 @@ const SiteUrl = ({ siteUrl }) => {
 
 
 const StationDescr = ({ station }) => {
-  if (!station) { return null; }
-
   const [isMore, setMore] = useState(true)
   , _onClick = () => setMore(isMore => !isMore)
   , _arrowStyle = isMore
@@ -72,7 +70,9 @@ const StationDescr = ({ station }) => {
   , {
     title, src, siteUrl,
     category, br
-  } = station;
+  } = station || {};
+
+  if (!station) { return null; }
 
   return (
     <div className={CL.DESCR}>
