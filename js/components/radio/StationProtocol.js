@@ -16,7 +16,8 @@ var StationProtocol = function StationProtocol(_ref) {
 
   var _protocol = isHttp(src) ? '(http)' : '';
 
-  return _react["default"].createElement("span", null, "\xA0", _protocol);
+  return (/*#__PURE__*/_react["default"].createElement("span", null, "\xA0", _protocol)
+  );
 };
 
 var _default = StationProtocol;

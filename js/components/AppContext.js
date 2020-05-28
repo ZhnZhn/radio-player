@@ -26,7 +26,7 @@ var AppContext = _react["default"].createContext();
 var _value;
 
 AppContext.getValue = function (dispatch) {
-  return _value || (_value = (0, _extends2["default"])({}, (0, _redux.bindActionCreators)(_actions["default"], dispatch), {}, (0, _redux.bindActionCreators)(_actions2["default"], dispatch), {}, _selectors["default"], {
+  return _value || (_value = (0, _extends2["default"])({}, (0, _redux.bindActionCreators)(_actions["default"], dispatch), (0, _redux.bindActionCreators)(_actions2["default"], dispatch), _selectors["default"], {
     useSelector: _reactRedux.useSelector,
     uiThemeImpl: _uiTheme["default"]
   }));

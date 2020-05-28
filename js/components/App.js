@@ -27,11 +27,12 @@ var App = function App() {
   (0, _react.useEffect)(function () {
     setSrcFilter(2);
   }, []);
-  return _react["default"].createElement(_AppContext["default"].Provider, {
-    value: appContextValue
-  }, _react["default"].createElement("div", {
-    className: CL
-  }, _react["default"].createElement(_AudioPlayer["default"], null), _react["default"].createElement(_Radio["default"].List, null)));
+  return (/*#__PURE__*/_react["default"].createElement(_AppContext["default"].Provider, {
+      value: appContextValue
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      className: CL
+    }, /*#__PURE__*/_react["default"].createElement(_AudioPlayer["default"], null), /*#__PURE__*/_react["default"].createElement(_Radio["default"].List, null)))
+  );
 };
 
 var _default = App;

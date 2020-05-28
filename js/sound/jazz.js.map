@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/jazz.js"
- ],
- "file": "../../src/sound/jazz.js",
- "names": [
-  "jazz",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;AACA,IAAMA,IAAI,GAAG,CACX;AACEC,EAAAA,KAAK,EAAE,0BADT;AAEEC,EAAAA,GAAG,EAAE,4CAFP;AAGEC,EAAAA,OAAO,EAAE,kCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADW,CAAb;eASeJ,I"
-}
+{"version":3,"sources":["../../src/sound/jazz.js"],"names":["jazz","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,IAAI,GAAG,CACX;AACEC,EAAAA,KAAK,EAAE,0BADT;AAEEC,EAAAA,GAAG,EAAE,4CAFP;AAGEC,EAAAA,OAAO,EAAE,kCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADW,CAAb;eASeJ,I","sourcesContent":["\r\nconst jazz = [\r\n  {\r\n    title: 'USA: Florida Smooth Jazz',\r\n    src: 'http://us4.internet-radio.com:8266/;stream',\r\n    siteUrl: 'http://www.SmoothJazzFlorida.com',\r\n    br: 128\r\n  }\r\n];\r\n\r\nexport default jazz\r\n"],"file":"jazz.js"}

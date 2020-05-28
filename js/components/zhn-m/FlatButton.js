@@ -72,26 +72,27 @@ var FlatButton = function FlatButton(_ref) {
     };
   });
 
-  var _style = isPrimary ? (0, _extends2["default"])({}, rootStyle, {}, S.PRIMARY) : rootStyle,
+  var _style = isPrimary ? (0, _extends2["default"])({}, rootStyle, S.PRIMARY) : rootStyle,
       _className = className ? CL.BT + " " + className : CL.BT,
       _clCaption = clCaption ? CL.BT_SPAN + " " + clCaption : CL.BT_SPAN,
       _title = accessKey ? title + " [" + accessKey + "]" : title;
 
-  return _react["default"].createElement("button", {
-    ref: _refBt,
-    className: _className,
-    style: _style,
-    accessKey: accessKey,
-    tabIndex: 0,
-    title: _title,
-    onClick: _hClick
-  }, _react["default"].createElement("div", {
-    className: clDiv
-  }, _react["default"].createElement(_CaptionInput["default"], {
-    className: _clCaption,
-    caption: caption,
-    accessKey: accessKey
-  }), children));
+  return (/*#__PURE__*/_react["default"].createElement("button", {
+      ref: _refBt,
+      className: _className,
+      style: _style,
+      accessKey: accessKey,
+      tabIndex: 0,
+      title: _title,
+      onClick: _hClick
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      className: clDiv
+    }, /*#__PURE__*/_react["default"].createElement(_CaptionInput["default"], {
+      className: _clCaption,
+      caption: caption,
+      accessKey: accessKey
+    }), children))
+  );
 };
 
 var _default = FlatButton;

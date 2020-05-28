@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/talks.js"
- ],
- "file": "../../src/sound/talks.js",
- "names": [
-  "talks",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;AACA,IAAMA,KAAK,GAAG,CACZ;AACEC,EAAAA,KAAK,EAAE,uBADT;AAEEC,EAAAA,GAAG,EAAE,2DAFP;AAGEC,EAAAA,OAAO,EAAE,kCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADY,EAMV;AACAH,EAAAA,KAAK,EAAE,+BADP;AAEAC,EAAAA,GAAG,EAAE,4HAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANU,EAWV;AACAH,EAAAA,KAAK,EAAE,kBADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,qBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXU,EAgBV;AACAH,EAAAA,KAAK,EAAE,gBADP;AAEAC,EAAAA,GAAG,EAAE,0CAFL;AAGAC,EAAAA,OAAO,EAAE,qBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBU,EAqBV;AACAH,EAAAA,KAAK,EAAE,wBADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,iBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CArBU,EA0BV;AACAH,EAAAA,KAAK,EAAE,mBADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CA1BU,CAAd;eAkCeJ,K"
-}
+{"version":3,"sources":["../../src/sound/talks.js"],"names":["talks","title","src","siteUrl","br"],"mappings":";;;;AACA,IAAMA,KAAK,GAAG,CACZ;AACEC,EAAAA,KAAK,EAAE,uBADT;AAEEC,EAAAA,GAAG,EAAE,2DAFP;AAGEC,EAAAA,OAAO,EAAE,kCAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADY,EAMV;AACAH,EAAAA,KAAK,EAAE,+BADP;AAEAC,EAAAA,GAAG,EAAE,4HAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANU,EAWV;AACAH,EAAAA,KAAK,EAAE,kBADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,qBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXU,EAgBV;AACAH,EAAAA,KAAK,EAAE,gBADP;AAEAC,EAAAA,GAAG,EAAE,0CAFL;AAGAC,EAAAA,OAAO,EAAE,qBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAhBU,EAqBV;AACAH,EAAAA,KAAK,EAAE,wBADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,iBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CArBU,EA0BV;AACAH,EAAAA,KAAK,EAAE,mBADP;AAEAC,EAAAA,GAAG,EAAE,mCAFL;AAGAC,EAAAA,OAAO,EAAE,sBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CA1BU,CAAd;eAkCeJ,K","sourcesContent":["\r\nconst talks = [\r\n  {\r\n    title: 'BBC Radio Wales 103.9',\r\n    src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_walesmw_mf_p',\r\n    siteUrl: 'http://www.bbc.co.uk/radiowales/',\r\n    br: 128\r\n  },{\r\n    title: 'USA: California: KCRW 89.9 FM',\r\n    src: 'https://kcrw.streamguys1.com/kcrw_192k_mp3_on_air?listenerid=1a13cb86cbe44b773c014c34bb7bfe43&awparams=companionAds%3Atrue',\r\n    siteUrl: 'https://www.kcrw.com',\r\n    br: 192\r\n  },{\r\n    title: 'USA: KUT 90.5 FM',\r\n    src: 'https://kut.streamguys1.com/kut-web',\r\n    siteUrl: 'https://www.kut.org',\r\n    br: 128\r\n  },{\r\n    title: 'USA: NPR Radio',\r\n    src: 'https://npr-ice.streamguys1.com/live.mp3',\r\n    siteUrl: 'https://www.npr.org',\r\n    br: 128\r\n  },{\r\n    title: 'USA: Portland: XRAY.FM',\r\n    src: 'http://listen.xray.fm:8000/stream',\r\n    siteUrl: 'https://xray.fm',\r\n    br: 128\r\n  },{\r\n    title: 'USA: WABE 90.1 FM',\r\n    src: 'https://pba-ice.wabe.org/wabe.aac',\r\n    siteUrl: 'https://www.wabe.org',\r\n    br: 96\r\n  }\r\n];\r\n\r\nexport default talks\r\n"],"file":"talks.js"}

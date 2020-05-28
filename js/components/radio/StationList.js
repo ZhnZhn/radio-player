@@ -41,18 +41,20 @@ var StationList = function StationList() {
     onSwipeGesture: toggleDrawer
   });
 
-  return _react["default"].createElement("div", (0, _extends2["default"])({
-    className: CL.LIST
-  }, _handlers), _react["default"].createElement(_StationDescr["default"], {
-    station: currentStation
-  }), radioStations.map(function (station, index) {
-    return _react["default"].createElement(_StationItem["default"], {
-      key: station.title,
-      station: station,
-      accessKey: _has["default"].TOUCH ? void 0 : _calcAccessKey(index),
-      onClick: setCurrentStation.bind(null, station, index)
-    });
-  }));
+  return (/*#__PURE__*/_react["default"].createElement("div", (0, _extends2["default"])({
+      className: CL.LIST
+    }, _handlers), /*#__PURE__*/_react["default"].createElement(_StationDescr["default"], {
+      station: currentStation
+    }), radioStations.map(function (station, index) {
+      return (/*#__PURE__*/_react["default"].createElement(_StationItem["default"], {
+          key: station.title,
+          station: station,
+          accessKey: _has["default"].TOUCH ? void 0 : _calcAccessKey(index),
+          onClick: setCurrentStation.bind(null, station, index)
+        })
+      );
+    }))
+  );
 };
 
 var _default = StationList;

@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/alternative.js"
- ],
- "file": "../../src/sound/alternative.js",
- "names": [
-  "alternative",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;AAAA,IAAMA,WAAW,GAAG,CAClB;AACEC,EAAAA,KAAK,EAAE,uBADT;AAEEC,EAAAA,GAAG,EAAE,4DAFP;AAGEC,EAAAA,OAAO,EAAE,8BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADkB,EAMhB;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,yHAFL;AAGAC,EAAAA,OAAO,EAAE,0BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANgB,EAWhB;AACAH,EAAAA,KAAK,EAAE,kCADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXgB,CAApB;eAmBeJ,W"
-}
+{"version":3,"sources":["../../src/sound/alternative.js"],"names":["alternative","title","src","siteUrl","br"],"mappings":";;;;AAAA,IAAMA,WAAW,GAAG,CAClB;AACEC,EAAAA,KAAK,EAAE,uBADT;AAEEC,EAAAA,GAAG,EAAE,4DAFP;AAGEC,EAAAA,OAAO,EAAE,8BAHX;AAIEC,EAAAA,EAAE,EAAE;AAJN,CADkB,EAMhB;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,yHAFL;AAGAC,EAAAA,OAAO,EAAE,0BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CANgB,EAWhB;AACAH,EAAAA,KAAK,EAAE,kCADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAXgB,CAApB;eAmBeJ,W","sourcesContent":["const alternative = [\r\n  {\r\n    title: \"France: Chante France\",\r\n    src: 'https://chantefrance.ice.infomaniak.ch/chantefrance-96.aac',\r\n    siteUrl: 'https://www.chantefrance.com',\r\n    br: 96\r\n  },{\r\n    title: \"France: Nostalgie FM\",\r\n    src: 'https://scdn.nrjaudio.fm/fr/30601/aac_64.mp3?origine=playernostalgie&aw_0_req.userConsent=undefined&cdn_path=audio_lbs8',\r\n    siteUrl: 'https://www.nostalgie.fr',\r\n    br: 128\r\n  },{\r\n    title: 'USA: The Austin Music Experience',\r\n    src: 'https://kut.streamguys1.com/amx-web',\r\n    siteUrl: 'https://kutx.org',\r\n    br: 192\r\n  }\r\n]\r\n\r\nexport default alternative\r\n"],"file":"alternative.js"}

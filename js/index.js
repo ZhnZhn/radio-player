@@ -12,7 +12,7 @@ var _App = _interopRequireDefault(require("./components/App"));
 
 var _store = _interopRequireDefault(require("./flux/store"));
 
-(0, _reactDom.render)(_react["default"].createElement(_reactRedux.Provider, {
+(0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(_reactRedux.Provider, {
   store: _store["default"]
-}, _react["default"].createElement(_App["default"], null)), document.getElementById("app"));
+}, /*#__PURE__*/_react["default"].createElement(_App["default"], null)), document.getElementById("app"));
 //# sourceMappingURL=index.js.map

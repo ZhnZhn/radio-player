@@ -26,23 +26,25 @@ var CategoriesList = function CategoriesList() {
       topics = useSelector(sApp.topics),
       isCategories = useSelector(sApp.categories);
 
-  return _react["default"].createElement("ul", {
-    style: _style["default"].UL
-  }, topics.map(function (category) {
-    var _is = isCategories[category];
-    return _react["default"].createElement("li", {
-      key: category
-    }, _react["default"].createElement(_FlatButton["default"], {
-      className: _style["default"].CL_BT,
-      caption: category,
-      timeout: 0,
-      onClick: _is ? function () {
-        return removeCategory(category);
-      } : function () {
-        return addCategory(category);
-      }
-    }, _is && _react["default"].createElement(_SvgChecked["default"], null)));
-  }));
+  return (/*#__PURE__*/_react["default"].createElement("ul", {
+      style: _style["default"].UL
+    }, topics.map(function (category) {
+      var _is = isCategories[category];
+      return (/*#__PURE__*/_react["default"].createElement("li", {
+          key: category
+        }, /*#__PURE__*/_react["default"].createElement(_FlatButton["default"], {
+          className: _style["default"].CL_BT,
+          caption: category,
+          timeout: 0,
+          onClick: _is ? function () {
+            return removeCategory(category);
+          } : function () {
+            return addCategory(category);
+          }
+        }, _is && /*#__PURE__*/_react["default"].createElement(_SvgChecked["default"], null)))
+      );
+    }))
+  );
 };
 
 var _default = CategoriesList;

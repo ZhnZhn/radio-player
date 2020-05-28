@@ -43,25 +43,26 @@ var BtTriple = function BtTriple(_ref) {
     setValue(value);
   }, []);
 
-  return _react["default"].createElement("div", {
-    className: CL.BT,
-    style: style
-  }, _react["default"].createElement("button", {
-    className: CL.BT_ONE,
-    style: _oneStyle,
-    tabIndex: tabIndex,
-    onClick: _onClick.bind(null, 1)
-  }, oneC), _react["default"].createElement("button", {
-    className: CL.BT_TWO,
-    style: _twoStyle,
-    tabIndex: tabIndex,
-    onClick: _onClick.bind(null, 2)
-  }, twoC), _react["default"].createElement("button", {
-    className: CL.BT_THREE,
-    style: _threeStyle,
-    tabIndex: tabIndex,
-    onClick: _onClick.bind(null, 3)
-  }, threeC));
+  return (/*#__PURE__*/_react["default"].createElement("div", {
+      className: CL.BT,
+      style: style
+    }, /*#__PURE__*/_react["default"].createElement("button", {
+      className: CL.BT_ONE,
+      style: _oneStyle,
+      tabIndex: tabIndex,
+      onClick: _onClick.bind(null, 1)
+    }, oneC), /*#__PURE__*/_react["default"].createElement("button", {
+      className: CL.BT_TWO,
+      style: _twoStyle,
+      tabIndex: tabIndex,
+      onClick: _onClick.bind(null, 2)
+    }, twoC), /*#__PURE__*/_react["default"].createElement("button", {
+      className: CL.BT_THREE,
+      style: _threeStyle,
+      tabIndex: tabIndex,
+      onClick: _onClick.bind(null, 3)
+    }, threeC))
+  );
 };
 
 BtTriple.defaultProps = {

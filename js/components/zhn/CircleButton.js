@@ -30,16 +30,17 @@ var CircleButton = function CircleButton(_ref) {
     onMouseUp: onMouseUp
   };
 
-  return _react["default"].createElement("button", (0, _extends2["default"])({
-    className: CL,
-    accessKey: accessKey
-  }, _handlers, {
-    onClick: onClick
-  }), _react["default"].createElement("svg", {
-    viewBox: "0 0 34 34",
-    width: "100%",
-    height: "100%"
-  }, _react["default"].createElement("g", null, children)));
+  return (/*#__PURE__*/_react["default"].createElement("button", (0, _extends2["default"])({
+      className: CL,
+      accessKey: accessKey
+    }, _handlers, {
+      onClick: onClick
+    }), /*#__PURE__*/_react["default"].createElement("svg", {
+      viewBox: "0 0 34 34",
+      width: "100%",
+      height: "100%"
+    }, /*#__PURE__*/_react["default"].createElement("g", null, children)))
+  );
 };
 
 var _default = CircleButton;

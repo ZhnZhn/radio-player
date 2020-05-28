@@ -13,6 +13,7 @@ var _initialState2 = _interopRequireDefault(require("./initialState"));
 
 var _middlewares2 = _interopRequireDefault(require("./zh-middleware/middlewares"));
 
+//import CONF from './appConf'
 var _middlewares = [].concat(_middlewares2["default"]);
 
 var _composeEnhancer = _redux.compose;

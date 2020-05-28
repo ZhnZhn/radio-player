@@ -20,15 +20,16 @@ var StationItem = function StationItem(_ref) {
       onClick = _ref.onClick;
   var title = station.title,
       src = station.src;
-  return _react["default"].createElement("button", {
-    className: CL.ITEM,
-    accessKey: accessKey,
-    onClick: onClick
-  }, _react["default"].createElement("span", null, title), _react["default"].createElement(_StationProtocol["default"], {
-    src: src
-  }), Boolean(accessKey) && _react["default"].createElement("span", {
-    className: CL.ACCESS_KEY
-  }, accessKey));
+  return (/*#__PURE__*/_react["default"].createElement("button", {
+      className: CL.ITEM,
+      accessKey: accessKey,
+      onClick: onClick
+    }, /*#__PURE__*/_react["default"].createElement("span", null, title), /*#__PURE__*/_react["default"].createElement(_StationProtocol["default"], {
+      src: src
+    }), Boolean(accessKey) && /*#__PURE__*/_react["default"].createElement("span", {
+      className: CL.ACCESS_KEY
+    }, accessKey))
+  );
 };
 
 var _default = StationItem;

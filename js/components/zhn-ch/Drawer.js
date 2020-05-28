@@ -69,40 +69,40 @@ var Drawer = function Drawer(_ref) {
     }
   });
 
-  var _asideStyle = (0, _extends2["default"])({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, {}, _uiTheme["default"].toBg(uiTheme)),
+  var _asideStyle = (0, _extends2["default"])({}, isOpen ? S.DRAWER_ON : S.DRAWER_OFF, _uiTheme["default"].toBg(uiTheme)),
       _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
       _onClickWrapper = isOpen ? toggleDrawer : void 0;
 
-  return [_react["default"].createElement("button", {
+  return [/*#__PURE__*/_react["default"].createElement("button", {
     key: "bt-drawer",
     className: CL.DRAWER_BT,
-    style: (0, _extends2["default"])({}, S.BT_DRAWER, {}, btStyle),
+    style: (0, _extends2["default"])({}, S.BT_DRAWER, btStyle),
     "aria-label": "Open Drawer",
     onClick: toggleDrawer
-  }, _react["default"].createElement("span", {
+  }, /*#__PURE__*/_react["default"].createElement("span", {
     className: CL.DRAWER_SPAN
-  }, _react["default"].createElement("svg", {
+  }, /*#__PURE__*/_react["default"].createElement("svg", {
     className: CL.DRAWER_SVG,
     focusable: "false",
     viewBox: "0 0 24 24",
     "aria-hidden": "true"
-  }, _react["default"].createElement("path", {
+  }, /*#__PURE__*/_react["default"].createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0z"
-  }), _react["default"].createElement("path", {
+  }), /*#__PURE__*/_react["default"].createElement("path", {
     d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-  })))), _react["default"].createElement("div", {
+  })))), /*#__PURE__*/_react["default"].createElement("div", {
     key: "wrapper",
     role: "presentation",
     "aria-hidden": !isOpen,
     className: CL.DRAWER_MODAL,
     style: _drawerModalStyle,
     onClick: _onClickWrapper
-  }), _react["default"].createElement("aside", {
+  }), /*#__PURE__*/_react["default"].createElement("aside", {
     key: "aside",
     className: CL.DRAWER,
     style: _asideStyle
-  }, _react["default"].createElement("div", null, children))];
+  }, /*#__PURE__*/_react["default"].createElement("div", null, children))];
 };
 
 var _default = Drawer;

@@ -149,9 +149,7 @@ var _crLeftStyle = function _crLeftStyle(percent) {
   };
 };
 
-var InputSlider =
-/*#__PURE__*/
-function (_Component) {
+var InputSlider = /*#__PURE__*/function (_Component) {
   (0, _inheritsLoose2["default"])(InputSlider, _Component);
 
   /*
@@ -353,51 +351,52 @@ function (_Component) {
         isHovered = _this$state.isHovered,
         isDragged = _this$state.isDragged,
         value = _this$state.value,
-        _lineAfterStyle = isHovered ? (0, _extends2["default"])({}, S.LINE_AFTER, {}, S.LINE_HOVERED) : S.LINE_AFTER,
+        _lineAfterStyle = isHovered ? (0, _extends2["default"])({}, S.LINE_AFTER, S.LINE_HOVERED) : S.LINE_AFTER,
         _circleStyle = isDragged ? S.CIRCLE_DRAGGED : null,
         _emberStyle = isDragged ? S.EMBER : null,
-        _circleInnerEl = isHovered || isDragged ? _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.CIRCLE_INNER_EL, {}, _emberStyle)
+        _circleInnerEl = isHovered || isDragged ? /*#__PURE__*/_react["default"].createElement("div", {
+      style: (0, _extends2["default"])({}, S.CIRCLE_INNER_EL, _emberStyle)
     }) : null,
         _percent = _toPercent(value, min, max),
         _widthBeforeStyle = _calcWidth(_percent),
         _widthAfterStyle = _calcWidth(100 - _percent),
         _leftStyle = _crLeftStyle(_percent);
 
-    return _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.ROOT, {}, style),
-      role: "slider",
-      "aria-valuemax": max,
-      "aria-valuemin": min,
-      "aria-valuenow": value,
-      tabIndex: "0",
-      onMouseDown: this._hMouseDown,
-      onMouseEnter: this._hMouseEnter,
-      onMouseLeave: this._hMouseLeave
-    }, _react["default"].createElement("div", {
-      ref: this._refTrackComp,
-      tabIndex: "0",
-      role: "button",
-      style: S.ROOT_LINE,
-      onKeyDown: this._hKeyDownTrack,
-      onFocus: this._hFocusTrack,
-      onBlur: this._hBlurTrack
-    }, _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.LINE_BEFORE, {}, _widthBeforeStyle)
-    }), _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, _lineAfterStyle, {}, _widthAfterStyle)
-    }), _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.ROOT_CIRCLE, {}, _circleStyle, {}, _leftStyle)
-    }, _react["default"].createElement("div", {
-      style: (0, _extends2["default"])({}, S.CIRCLE_INNER, {}, _circleStyle)
-    }, _circleInnerEl)), _react["default"].createElement("input", {
-      type: "hidden",
-      step: step,
-      min: min,
-      max: max,
-      value: value,
-      required: true
-    })));
+    return (/*#__PURE__*/_react["default"].createElement("div", {
+        style: (0, _extends2["default"])({}, S.ROOT, style),
+        role: "slider",
+        "aria-valuemax": max,
+        "aria-valuemin": min,
+        "aria-valuenow": value,
+        tabIndex: "0",
+        onMouseDown: this._hMouseDown,
+        onMouseEnter: this._hMouseEnter,
+        onMouseLeave: this._hMouseLeave
+      }, /*#__PURE__*/_react["default"].createElement("div", {
+        ref: this._refTrackComp,
+        tabIndex: "0",
+        role: "button",
+        style: S.ROOT_LINE,
+        onKeyDown: this._hKeyDownTrack,
+        onFocus: this._hFocusTrack,
+        onBlur: this._hBlurTrack
+      }, /*#__PURE__*/_react["default"].createElement("div", {
+        style: (0, _extends2["default"])({}, S.LINE_BEFORE, _widthBeforeStyle)
+      }), /*#__PURE__*/_react["default"].createElement("div", {
+        style: (0, _extends2["default"])({}, _lineAfterStyle, _widthAfterStyle)
+      }), /*#__PURE__*/_react["default"].createElement("div", {
+        style: (0, _extends2["default"])({}, S.ROOT_CIRCLE, _circleStyle, _leftStyle)
+      }, /*#__PURE__*/_react["default"].createElement("div", {
+        style: (0, _extends2["default"])({}, S.CIRCLE_INNER, _circleStyle)
+      }, _circleInnerEl)), /*#__PURE__*/_react["default"].createElement("input", {
+        type: "hidden",
+        step: step,
+        min: min,
+        max: max,
+        value: value,
+        required: true
+      })))
+    );
   };
 
   _proto.setValue = function setValue(value) {

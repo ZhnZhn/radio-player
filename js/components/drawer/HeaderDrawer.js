@@ -12,7 +12,8 @@ var _Drawer = _interopRequireDefault(require("../zhn-ch/Drawer"));
 var _DrawerMenu = _interopRequireDefault(require("./DrawerMenu"));
 
 var HeaderDrawer = function HeaderDrawer(props) {
-  return _react["default"].createElement(_Drawer["default"], null, _react["default"].createElement(_DrawerMenu["default"], props));
+  return (/*#__PURE__*/_react["default"].createElement(_Drawer["default"], null, /*#__PURE__*/_react["default"].createElement(_DrawerMenu["default"], props))
+  );
 };
 
 var _default = HeaderDrawer;

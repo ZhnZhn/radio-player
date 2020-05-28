@@ -220,29 +220,30 @@ var AudioPlayer = function AudioPlayer() {
 
   var _style = uiThemeImpl.toBg(uiTheme);
 
-  return _react["default"].createElement("div", {
-    className: CL.PLAYER,
-    style: _style
-  }, _react["default"].createElement(_Radio["default"].Volume, {
-    volume: volume,
-    setVolume: _setVolume,
-    onIncrease: _increaseVolume,
-    onDecrease: _decreaseVolume
-  }), _react["default"].createElement("div", {
-    style: S.TITLE_CONT
-  }, _react["default"].createElement(_Radio["default"].Command, {
-    isPlaying: isPlaying,
-    onPlay: play,
-    onPause: pause
-  }), _react["default"].createElement(_Title["default"], {
-    station: station,
-    msgErr: msgErr,
-    title: title
-  }), _react["default"].createElement(_Equalizer["default"], {
-    isPlaying: isPlaying,
-    isUnloaded: isUnloaded,
-    unload: _unload
-  })));
+  return (/*#__PURE__*/_react["default"].createElement("div", {
+      className: CL.PLAYER,
+      style: _style
+    }, /*#__PURE__*/_react["default"].createElement(_Radio["default"].Volume, {
+      volume: volume,
+      setVolume: _setVolume,
+      onIncrease: _increaseVolume,
+      onDecrease: _decreaseVolume
+    }), /*#__PURE__*/_react["default"].createElement("div", {
+      style: S.TITLE_CONT
+    }, /*#__PURE__*/_react["default"].createElement(_Radio["default"].Command, {
+      isPlaying: isPlaying,
+      onPlay: play,
+      onPause: pause
+    }), /*#__PURE__*/_react["default"].createElement(_Title["default"], {
+      station: station,
+      msgErr: msgErr,
+      title: title
+    }), /*#__PURE__*/_react["default"].createElement(_Equalizer["default"], {
+      isPlaying: isPlaying,
+      isUnloaded: isUnloaded,
+      unload: _unload
+    })))
+  );
 };
 
 var _default = AudioPlayer;

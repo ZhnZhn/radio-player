@@ -112,26 +112,27 @@ var RadioVolume = function RadioVolume(_ref) {
       stopIncrease();
     }
   });
-  return _react["default"].createElement("div", {
-    id: "volume",
-    style: S.ROW
-  }, _react["default"].createElement("div", {
-    style: S.VOLUME
-  }, _toVolume(volume)), _react["default"].createElement(_InputSlider["default"], {
-    style: S.SLIDER,
-    initValue: volume,
-    onChange: setVolume
-  }), _react["default"].createElement(_BtMinus["default"], (0, _extends2["default"])({
-    accessKey: "-"
-  }, _minusHandlers, {
-    onClick: onDecrease
-  })), _react["default"].createElement("div", {
-    style: S.GAP
-  }), _react["default"].createElement(_BtPlus["default"], (0, _extends2["default"])({
-    accessKey: "+"
-  }, _plusHandlers, {
-    onClick: onIncrease
-  })), _react["default"].createElement(_HeaderDrawer["default"], null));
+  return (/*#__PURE__*/_react["default"].createElement("div", {
+      id: "volume",
+      style: S.ROW
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      style: S.VOLUME
+    }, _toVolume(volume)), /*#__PURE__*/_react["default"].createElement(_InputSlider["default"], {
+      style: S.SLIDER,
+      initValue: volume,
+      onChange: setVolume
+    }), /*#__PURE__*/_react["default"].createElement(_BtMinus["default"], (0, _extends2["default"])({
+      accessKey: "-"
+    }, _minusHandlers, {
+      onClick: onDecrease
+    })), /*#__PURE__*/_react["default"].createElement("div", {
+      style: S.GAP
+    }), /*#__PURE__*/_react["default"].createElement(_BtPlus["default"], (0, _extends2["default"])({
+      accessKey: "+"
+    }, _plusHandlers, {
+      onClick: onIncrease
+    })), /*#__PURE__*/_react["default"].createElement(_HeaderDrawer["default"], null))
+  );
 };
 
 var _default = _react["default"].memo(RadioVolume);

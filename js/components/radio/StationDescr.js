@@ -50,22 +50,24 @@ var Category = function Category(_ref) {
 
   var _kbps = br ? " (" + br + " Kbps)" : '';
 
-  return _react["default"].createElement("div", null, _react["default"].createElement("span", {
-    style: S.TITLE
-  }, "Category:"), "\xA0", _react["default"].createElement("span", {
-    style: S.CATEGORY
-  }, _toFirstUpperCase(category), _kbps));
+  return (/*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("span", {
+      style: S.TITLE
+    }, "Category:"), "\xA0", /*#__PURE__*/_react["default"].createElement("span", {
+      style: S.CATEGORY
+    }, _toFirstUpperCase(category), _kbps))
+  );
 };
 
 var SiteUrl = function SiteUrl(_ref2) {
   var siteUrl = _ref2.siteUrl;
   if (!siteUrl) return null;
-  return _react["default"].createElement("a", {
-    href: siteUrl,
-    style: S.LINK,
-    target: "_blank",
-    rel: "noreferrer noopener"
-  }, siteUrl);
+  return (/*#__PURE__*/_react["default"].createElement("a", {
+      href: siteUrl,
+      style: S.LINK,
+      target: "_blank",
+      rel: "noreferrer noopener"
+    }, siteUrl)
+  );
 };
 
 var StationDescr = function StationDescr(_ref3) {
@@ -91,25 +93,26 @@ var StationDescr = function StationDescr(_ref3) {
     return null;
   }
 
-  return _react["default"].createElement("div", {
-    className: CL.DESCR
-  }, _react["default"].createElement("button", {
-    className: CL.DESCR_BT,
-    onClick: _onClick
-  }, _react["default"].createElement("span", null, title), _react["default"].createElement(_StationProtocol["default"], {
-    src: src
-  }), _react["default"].createElement("span", {
-    className: CL.BT_MORE,
-    style: _arrowStyle
-  }, ">")), _react["default"].createElement(_ShowHide["default"], {
-    className: CL.INFO,
-    isShow: isMore
-  }, _react["default"].createElement("div", null, _react["default"].createElement(Category, {
-    category: category,
-    br: br
-  }), _react["default"].createElement(SiteUrl, {
-    siteUrl: siteUrl
-  }))));
+  return (/*#__PURE__*/_react["default"].createElement("div", {
+      className: CL.DESCR
+    }, /*#__PURE__*/_react["default"].createElement("button", {
+      className: CL.DESCR_BT,
+      onClick: _onClick
+    }, /*#__PURE__*/_react["default"].createElement("span", null, title), /*#__PURE__*/_react["default"].createElement(_StationProtocol["default"], {
+      src: src
+    }), /*#__PURE__*/_react["default"].createElement("span", {
+      className: CL.BT_MORE,
+      style: _arrowStyle
+    }, ">")), /*#__PURE__*/_react["default"].createElement(_ShowHide["default"], {
+      className: CL.INFO,
+      isShow: isMore
+    }, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(Category, {
+      category: category,
+      br: br
+    }), /*#__PURE__*/_react["default"].createElement(SiteUrl, {
+      siteUrl: siteUrl
+    }))))
+  );
 };
 
 var _default = StationDescr;

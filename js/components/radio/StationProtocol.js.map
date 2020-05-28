@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/radio/StationProtocol.js"
- ],
- "file": "../../../src/components/radio/StationProtocol.js",
- "names": [
-  "isHttp",
-  "utils",
-  "StationProtocol",
-  "src",
-  "_protocol"
- ],
- "mappings": ";;;;;;;AAAA;;AAEA;;IAEQA,M,GAAWC,iB,CAAXD,M;;AAER,IAAME,eAAe,GAAG,SAAlBA,eAAkB,OAAa;AAAA,MAAVC,GAAU,QAAVA,GAAU;;AACnC,MAAMC,SAAS,GAAGJ,MAAM,CAACG,GAAD,CAAN,GACd,QADc,GAEd,EAFJ;;AAGA,SACG,sDAAaC,SAAb,CADH;AAGD,CAPD;;eASeF,e"
-}
+{"version":3,"sources":["../../../src/components/radio/StationProtocol.jsx"],"names":["isHttp","utils","StationProtocol","src","_protocol"],"mappings":";;;;;;;AAAA;;AAEA;;IAEQA,M,GAAWC,iB,CAAXD,M;;AAER,IAAME,eAAe,GAAG,SAAlBA,eAAkB,OAAa;AAAA,MAAVC,GAAU,QAAVA,GAAU;;AACnC,MAAMC,SAAS,GAAGJ,MAAM,CAACG,GAAD,CAAN,GACd,QADc,GAEd,EAFJ;;AAGA,uBACG,sDAAaC,SAAb;AADH;AAGD,CAPD;;eASeF,e","sourcesContent":["import React from 'react'\r\n\r\nimport utils from '../../sound/utils'\r\n\r\nconst { isHttp } = utils;\r\n\r\nconst StationProtocol = ({ src }) => {\r\n  const _protocol = isHttp(src)\r\n    ? '(http)'\r\n    : '';\r\n  return (\r\n     <span>&nbsp;{_protocol}</span>\r\n  );\r\n};\r\n\r\nexport default StationProtocol\r\n"],"file":"StationProtocol.js"}

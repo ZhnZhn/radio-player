@@ -13,11 +13,12 @@ var RadioCommand = function RadioCommand(_ref) {
   var isPlaying = _ref.isPlaying,
       onPlay = _ref.onPlay,
       onPause = _ref.onPause;
-  return _react["default"].createElement("div", null, _react["default"].createElement(_BtPlay["default"], {
-    isPlaying: isPlaying,
-    onPlay: onPlay,
-    onStop: onPause
-  }));
+  return (/*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_BtPlay["default"], {
+      isPlaying: isPlaying,
+      onPlay: onPlay,
+      onStop: onPause
+    }))
+  );
 };
 
 var _default = RadioCommand;

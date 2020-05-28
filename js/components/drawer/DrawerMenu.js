@@ -33,29 +33,30 @@ var DrawerMenu = function DrawerMenu() {
     dir: 'R'
   });
 
-  return _react["default"].createElement("div", (0, _extends2["default"])({
-    className: _style["default"].CL_ROOT
-  }, _handlers), _react["default"].createElement("div", {
-    className: _style["default"].CL_HEADER
-  }, _react["default"].createElement(_BtTriple["default"], {
-    style: _style["default"].BT_TRIPLE,
-    oneC: "GREY",
-    twoC: "LIGHT",
-    threeC: "SAND",
-    onClick: setUiTheme
-  }), _react["default"].createElement(_SvgClose["default"], {
-    className: _style["default"].CL_BT_CLOSE,
-    onClick: toggleDrawer
-  })), _react["default"].createElement(_CategoriesList["default"], null), _react["default"].createElement("div", {
-    className: _style["default"].CL_HEADER
-  }, _react["default"].createElement(_BtTriple["default"], {
-    style: _style["default"].BT_TRIPLE,
-    initialValue: 2,
-    oneC: "ALL",
-    twoC: "HTTPS",
-    threeC: "HTTP",
-    onClick: setSrcFilter
-  })));
+  return (/*#__PURE__*/_react["default"].createElement("div", (0, _extends2["default"])({
+      className: _style["default"].CL_ROOT
+    }, _handlers), /*#__PURE__*/_react["default"].createElement("div", {
+      className: _style["default"].CL_HEADER
+    }, /*#__PURE__*/_react["default"].createElement(_BtTriple["default"], {
+      style: _style["default"].BT_TRIPLE,
+      oneC: "GREY",
+      twoC: "LIGHT",
+      threeC: "SAND",
+      onClick: setUiTheme
+    }), /*#__PURE__*/_react["default"].createElement(_SvgClose["default"], {
+      className: _style["default"].CL_BT_CLOSE,
+      onClick: toggleDrawer
+    })), /*#__PURE__*/_react["default"].createElement(_CategoriesList["default"], null), /*#__PURE__*/_react["default"].createElement("div", {
+      className: _style["default"].CL_HEADER
+    }, /*#__PURE__*/_react["default"].createElement(_BtTriple["default"], {
+      style: _style["default"].BT_TRIPLE,
+      initialValue: 2,
+      oneC: "ALL",
+      twoC: "HTTPS",
+      threeC: "HTTP",
+      onClick: setSrcFilter
+    })))
+  );
 };
 
 var _default = DrawerMenu;

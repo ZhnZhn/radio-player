@@ -16,11 +16,11 @@ var Equalizer = function Equalizer(_ref) {
   var isPlaying = _ref.isPlaying,
       isUnloaded = _ref.isUnloaded,
       unload = _ref.unload;
-  return isPlaying ? _react["default"].createElement("div", {
+  return isPlaying ? /*#__PURE__*/_react["default"].createElement("div", {
     className: CL.EQUALIZER
-  }) : isUnloaded ? _react["default"].createElement("div", {
+  }) : isUnloaded ? /*#__PURE__*/_react["default"].createElement("div", {
     className: CL.EQUALIZER_NOT_PLAYING
-  }) : _react["default"].createElement("button", {
+  }) : /*#__PURE__*/_react["default"].createElement("button", {
     className: CL.EQUALIZER_NOT_PLAYING,
     "data-loader": "circle",
     onClick: unload

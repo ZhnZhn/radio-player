@@ -19,21 +19,22 @@ var SvgChecked = function SvgChecked(_ref) {
   var style = _ref.style,
       _ref$color = _ref.color,
       color = _ref$color === void 0 ? '#64e346' : _ref$color;
-  return _react["default"].createElement("span", {
-    style: (0, _extends2["default"])({}, S, {}, style)
-  }, _react["default"].createElement("svg", {
-    viewBox: "0 0 16 16",
-    width: "100%",
-    height: "100%",
-    preserveAspectRatio: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, _react["default"].createElement("path", {
-    d: "M 2,5 L 8,14 14,1",
-    stroke: color,
-    fill: "transparent",
-    strokeWidth: "3",
-    strokeLinecap: "round"
-  })));
+  return (/*#__PURE__*/_react["default"].createElement("span", {
+      style: (0, _extends2["default"])({}, S, style)
+    }, /*#__PURE__*/_react["default"].createElement("svg", {
+      viewBox: "0 0 16 16",
+      width: "100%",
+      height: "100%",
+      preserveAspectRatio: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/_react["default"].createElement("path", {
+      d: "M 2,5 L 8,14 14,1",
+      stroke: color,
+      fill: "transparent",
+      strokeWidth: "3",
+      strokeLinecap: "round"
+    })))
+  );
 };
 
 var _default = SvgChecked;

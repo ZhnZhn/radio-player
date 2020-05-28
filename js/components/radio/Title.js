@@ -22,9 +22,10 @@ var Title = function Title(_ref) {
       _msgErrOrTitle = _isErr ? msgErr + " " + _title : _title || title,
       _cl = _isErr ? CL.ERR : CL.TITLE;
 
-  return _react["default"].createElement("div", {
-    className: _cl
-  }, _msgErrOrTitle);
+  return (/*#__PURE__*/_react["default"].createElement("div", {
+      className: _cl
+    }, _msgErrOrTitle)
+  );
 };
 
 var _default = Title;
