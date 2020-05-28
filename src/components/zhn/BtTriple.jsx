@@ -15,7 +15,7 @@ const S = {
 
 const _crBtStyle = (nowValue, btValue) => nowValue === btValue
   ? S.SELECTED
-  : undefined;
+  : void 0;
 
 const BtTriple = ({
   style,

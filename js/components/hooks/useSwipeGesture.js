@@ -34,13 +34,16 @@ var useSwipeGesture = function useSwipeGesture(_ref2) {
       delta = _ref2$delta === void 0 ? DF_DELTA : _ref2$delta;
   var onTouchStart = (0, _react.useCallback)(function (event) {
     _state.fromClientX = _getClientX(event);
-  }, []),
+  }, [])
+  /*eslint-disable react-hooks/exhaustive-deps */
+  ,
       onTouchEnd = (0, _react.useCallback)(function (event) {
     if (_state.fromClientX && _isSwipeGesture(dir, delta, _getClientX(event))) {
       onSwipeGesture();
       _state.fromClientX = void 0;
     }
   }, []);
+  /*eslint-enable react-hooks/exhaustive-deps */
 
   if (!_has["default"].TOUCH) {
     return void 0;

@@ -7,38 +7,38 @@ import React, { Component } from 'react';
 
 const S = {
   ROOT : {
-    userSelect : 'none',
-    cursor: 'default',
-    height: '18px',
-    width: '100%',
     position: 'relative',
-    marginTop: '8px',
-    marginBottom: '8px'
+    width: '100%',
+    height: 18,
+    marginTop: 8,
+    marginBottom: 8,
+    cursor: 'default',
+    userSelect : 'none'
   },
   ROOT_LINE : {
     position: 'absolute',
-    top: '8px',
-    left: '0px',
+    top: 8,
+    left: 0,
     width: '100%',
-    height: '2px'
+    height: 2
   },
   LINE_BEFORE : {
     position: 'absolute',
+    left: 0,
+    width: 'calc(15%)',
     height: '100%',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-    left: '0px',
+    marginRight: 6,
     backgroundColor: 'rgb(0, 188, 212)',
-    marginRight: '6px',
-    width: 'calc(15%)'
+    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
   },
   LINE_AFTER : {
     position: 'absolute',
+    right: 0,
+    width: 'calc(85%)',
     height: '100%',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-    right: '0px',
+    marginLeft: 6,
     backgroundColor: 'rgb(189, 189, 189)',
-    marginLeft: '6px',
-    width: 'calc(85%)'
+    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
   },
   LINE_HOVERED : {
     backgroundColor: 'rgb(158, 158, 158)',
@@ -46,14 +46,12 @@ const S = {
   ROOT_CIRCLE : {
     boxSizing: 'borderBox',
     position: 'absolute',
-    cursor: 'pointer',
-    pointerEvents: 'inherit',
-    top: '0px',
+    top: 0,
     left: '15%',
-    zIndex: '1',
+    zIndex: 1,
+    width: 12,
+    height: 12,
     margin: '1px 0px 0px',
-    width: '12px',
-    height: '12px',
     backgroundColor: 'rgb(0, 188, 212)',
     backgroundClip: 'padding-box',
     border: '0px solid transparent',
@@ -61,39 +59,43 @@ const S = {
     transform: 'translate(-50%, -50%)',
     overflow: 'visible',
     outline: 'none',
-    transition: 'background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
+    transition: 'background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+    pointerEvents: 'inherit',
+    cursor: 'pointer'
   },
   CIRCLE_DRAGGED : {
-    width: '20px',
-    height: '20px '
+    width: 20,
+    height: 20
   },
   CIRCLE_INNER : {
     position: 'absolute',
-    overflow: 'visible',
-    height: '12px',
-    width: '12px',
-    top: '0px',
-    left: '0px'
+    top: 0,
+    left: 0,
+    width: 12,
+    height: 12,
+    overflow: 'visible'
   },
   CIRCLE_INNER_EL : {
     position: 'absolute',
-    height: '36px',
+    top: -12,
+    left: -12,
     width: '300%',
+    height: 36,
     borderRadius: '50%',
     //opacity: '0.16',
     backgroundColor: 'rgba(0, 188, 212, 0.16)',
-    top: '-12px',
-    left: '-12px',
     transform: 'scale(1)'
   },
   EMBER : {
-    top: '-12px' ,
-    left: '-12px',
-    height: '44px',
+    top: -12,
+    left: -12,
     width: '220%',
+    height: 44,
     border: '1px solid #4caf50'
   }
 }
+
+const _isFn = fn => typeof fn === 'function';
 
 const _round10 = (value, exp) => {
     value = +value;
@@ -146,30 +148,30 @@ class InputSlider extends Component {
   }
 
   constructor(props){
-    super()
-    this.isOnChange = (typeof props.onChange === 'function')
-               ? true : false
-    const arr = (''+props.step).split('.')
+    super(props)
+    const { onChange, step, initValue } = props
+    this.isOnChange = _isFn(onChange)
+    const arr = (''+step).split('.')
     this.stepExp = (arr[1]) ? -1 * arr[1].length : 0
 
     this.state = {
-      hovered: false,
-      dragged: false,
-      value: props.initValue
+      isHovered: false,
+      isDragged: false,
+      value: initValue
     }
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     if (nextProps !== this.props){
       this.setState({ value : nextProps.initValue })
     }
   }
 
   _hMouseEnter = () => {
-    this.setState({ hovered: true })
+    this.setState({ isHovered: true })
   }
   _hMouseLeave = () => {
-    this.setState({ hovered: false })
+    this.setState({ isHovered: false })
   }
   _hMouseDown = (event) => {
     // Cancel text selection
@@ -177,7 +179,7 @@ class InputSlider extends Component {
     document.addEventListener('mousemove', this._hDragMouseMove)
     document.addEventListener('mouseup', this._hDragMouseUp)
     this.setState({
-      dragged: true
+      isDragged: true
     })
   }
 
@@ -188,15 +190,15 @@ class InputSlider extends Component {
      document.removeEventListener('mousemove', this._hDragMouseMove)
      document.removeEventListener('mouseup', this._hDragMouseUp)
      this.setState({
-       dragged: false
+       isDragged: false
      })
   }
 
   _hFocusTrack = () => {
-    this.setState({ hovered: true })
+    this.setState({ isHovered: true })
   }
   _hBlurTrack = () => {
-    this.setState({ hovered: false })
+    this.setState({ isHovered: false })
   }
   _hKeyDownTrack = (event) => {
      switch(event.keyCode){
@@ -274,13 +276,13 @@ class InputSlider extends Component {
 
   render(){
     const { step, min , max, style } = this.props
-    , { hovered, dragged, value } = this.state
-    , _lineAfterStyle = (hovered)
+    , { isHovered, isDragged, value } = this.state
+    , _lineAfterStyle = isHovered
           ? {...S.LINE_AFTER, ...S.LINE_HOVERED}
           : S.LINE_AFTER
-    , _circleStyle = (dragged) ? S.CIRCLE_DRAGGED : null
-    , _emberStyle = (dragged) ? S.EMBER : null
-    , _circleInnerEl = (hovered || dragged)
+    , _circleStyle = isDragged ? S.CIRCLE_DRAGGED : null
+    , _emberStyle = isDragged ? S.EMBER : null
+    , _circleInnerEl = (isHovered || isDragged)
           ? ( <div style={{ ...S.CIRCLE_INNER_EL, ..._emberStyle }}/> )
           : null
     , _percent = _toPercent(value, min, max)

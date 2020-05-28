@@ -19,38 +19,38 @@ var _react = _interopRequireWildcard(require("react"));
 */
 var S = {
   ROOT: {
-    userSelect: 'none',
-    cursor: 'default',
-    height: '18px',
-    width: '100%',
     position: 'relative',
-    marginTop: '8px',
-    marginBottom: '8px'
+    width: '100%',
+    height: 18,
+    marginTop: 8,
+    marginBottom: 8,
+    cursor: 'default',
+    userSelect: 'none'
   },
   ROOT_LINE: {
     position: 'absolute',
-    top: '8px',
-    left: '0px',
+    top: 8,
+    left: 0,
     width: '100%',
-    height: '2px'
+    height: 2
   },
   LINE_BEFORE: {
     position: 'absolute',
+    left: 0,
+    width: 'calc(15%)',
     height: '100%',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-    left: '0px',
+    marginRight: 6,
     backgroundColor: 'rgb(0, 188, 212)',
-    marginRight: '6px',
-    width: 'calc(15%)'
+    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
   },
   LINE_AFTER: {
     position: 'absolute',
+    right: 0,
+    width: 'calc(85%)',
     height: '100%',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-    right: '0px',
+    marginLeft: 6,
     backgroundColor: 'rgb(189, 189, 189)',
-    marginLeft: '6px',
-    width: 'calc(85%)'
+    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
   },
   LINE_HOVERED: {
     backgroundColor: 'rgb(158, 158, 158)'
@@ -58,14 +58,12 @@ var S = {
   ROOT_CIRCLE: {
     boxSizing: 'borderBox',
     position: 'absolute',
-    cursor: 'pointer',
-    pointerEvents: 'inherit',
-    top: '0px',
+    top: 0,
     left: '15%',
-    zIndex: '1',
+    zIndex: 1,
+    width: 12,
+    height: 12,
     margin: '1px 0px 0px',
-    width: '12px',
-    height: '12px',
     backgroundColor: 'rgb(0, 188, 212)',
     backgroundClip: 'padding-box',
     border: '0px solid transparent',
@@ -73,38 +71,44 @@ var S = {
     transform: 'translate(-50%, -50%)',
     overflow: 'visible',
     outline: 'none',
-    transition: 'background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
+    transition: 'background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+    pointerEvents: 'inherit',
+    cursor: 'pointer'
   },
   CIRCLE_DRAGGED: {
-    width: '20px',
-    height: '20px '
+    width: 20,
+    height: 20
   },
   CIRCLE_INNER: {
     position: 'absolute',
-    overflow: 'visible',
-    height: '12px',
-    width: '12px',
-    top: '0px',
-    left: '0px'
+    top: 0,
+    left: 0,
+    width: 12,
+    height: 12,
+    overflow: 'visible'
   },
   CIRCLE_INNER_EL: {
     position: 'absolute',
-    height: '36px',
+    top: -12,
+    left: -12,
     width: '300%',
+    height: 36,
     borderRadius: '50%',
     //opacity: '0.16',
     backgroundColor: 'rgba(0, 188, 212, 0.16)',
-    top: '-12px',
-    left: '-12px',
     transform: 'scale(1)'
   },
   EMBER: {
-    top: '-12px',
-    left: '-12px',
-    height: '44px',
+    top: -12,
+    left: -12,
     width: '220%',
+    height: 44,
     border: '1px solid #4caf50'
   }
+};
+
+var _isFn = function _isFn(fn) {
+  return typeof fn === 'function';
 };
 
 var _round10 = function _round10(value, exp) {
@@ -162,17 +166,17 @@ function (_Component) {
   function InputSlider(props) {
     var _this;
 
-    _this = _Component.call(this) || this;
+    _this = _Component.call(this, props) || this;
 
     _this._hMouseEnter = function () {
       _this.setState({
-        hovered: true
+        isHovered: true
       });
     };
 
     _this._hMouseLeave = function () {
       _this.setState({
-        hovered: false
+        isHovered: false
       });
     };
 
@@ -183,7 +187,7 @@ function (_Component) {
       document.addEventListener('mouseup', _this._hDragMouseUp);
 
       _this.setState({
-        dragged: true
+        isDragged: true
       });
     };
 
@@ -196,19 +200,19 @@ function (_Component) {
       document.removeEventListener('mouseup', _this._hDragMouseUp);
 
       _this.setState({
-        dragged: false
+        isDragged: false
       });
     };
 
     _this._hFocusTrack = function () {
       _this.setState({
-        hovered: true
+        isHovered: true
       });
     };
 
     _this._hBlurTrack = function () {
       _this.setState({
-        hovered: false
+        isHovered: false
       });
     };
 
@@ -234,11 +238,11 @@ function (_Component) {
           {
             var _this$props2 = _this.props,
                 max = _this$props2.max,
-                _step = _this$props2.step,
+                _step2 = _this$props2.step,
                 _value2 = _this.state.value;
 
             if (_value2 < max) {
-              var _value3 = _addStep(_value2, _step, _this.stepExp);
+              var _value3 = _addStep(_value2, _step2, _this.stepExp);
 
               _this._setValue(event, _value3);
             }
@@ -313,20 +317,25 @@ function (_Component) {
       return _this.trackComp = comp;
     };
 
-    _this.isOnChange = typeof props.onChange === 'function' ? true : false;
-    var arr = ('' + props.step).split('.');
+    var onChange = props.onChange,
+        _step = props.step,
+        initValue = props.initValue;
+    _this.isOnChange = _isFn(onChange);
+
+    var arr = ('' + _step).split('.');
+
     _this.stepExp = arr[1] ? -1 * arr[1].length : 0;
     _this.state = {
-      hovered: false,
-      dragged: false,
-      value: props.initValue
+      isHovered: false,
+      isDragged: false,
+      value: initValue
     };
     return _this;
   }
 
   var _proto = InputSlider.prototype;
 
-  _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps !== this.props) {
       this.setState({
         value: nextProps.initValue
@@ -341,13 +350,13 @@ function (_Component) {
         max = _this$props4.max,
         style = _this$props4.style,
         _this$state = this.state,
-        hovered = _this$state.hovered,
-        dragged = _this$state.dragged,
+        isHovered = _this$state.isHovered,
+        isDragged = _this$state.isDragged,
         value = _this$state.value,
-        _lineAfterStyle = hovered ? (0, _extends2["default"])({}, S.LINE_AFTER, {}, S.LINE_HOVERED) : S.LINE_AFTER,
-        _circleStyle = dragged ? S.CIRCLE_DRAGGED : null,
-        _emberStyle = dragged ? S.EMBER : null,
-        _circleInnerEl = hovered || dragged ? _react["default"].createElement("div", {
+        _lineAfterStyle = isHovered ? (0, _extends2["default"])({}, S.LINE_AFTER, {}, S.LINE_HOVERED) : S.LINE_AFTER,
+        _circleStyle = isDragged ? S.CIRCLE_DRAGGED : null,
+        _emberStyle = isDragged ? S.EMBER : null,
+        _circleInnerEl = isHovered || isDragged ? _react["default"].createElement("div", {
       style: (0, _extends2["default"])({}, S.CIRCLE_INNER_EL, {}, _emberStyle)
     }) : null,
         _percent = _toPercent(value, min, max),

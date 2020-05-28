@@ -17,7 +17,8 @@ var S = {
 
 var SvgChecked = function SvgChecked(_ref) {
   var style = _ref.style,
-      color = _ref.color;
+      _ref$color = _ref.color,
+      color = _ref$color === void 0 ? '#64e346' : _ref$color;
   return _react["default"].createElement("span", {
     style: (0, _extends2["default"])({}, S, {}, style)
   }, _react["default"].createElement("svg", {
@@ -35,9 +36,6 @@ var SvgChecked = function SvgChecked(_ref) {
   })));
 };
 
-SvgChecked.defaultProps = {
-  color: '#64e346'
-};
 var _default = SvgChecked;
 exports["default"] = _default;
 //# sourceMappingURL=SvgChecked.js.map

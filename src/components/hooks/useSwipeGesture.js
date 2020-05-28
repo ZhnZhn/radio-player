@@ -23,6 +23,7 @@ const useSwipeGesture = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
   const onTouchStart = useCallback(event => {
     _state.fromClientX = _getClientX(event)
   }, [])
+  /*eslint-disable react-hooks/exhaustive-deps */
   , onTouchEnd = useCallback(event => {
     if (_state.fromClientX
         && _isSwipeGesture(dir, delta, _getClientX(event))) {
@@ -30,6 +31,7 @@ const useSwipeGesture = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
       _state.fromClientX = void 0;
     }
   }, []);
+  /*eslint-enable react-hooks/exhaustive-deps */
 
   if (!HAS.TOUCH) {
     return void 0;

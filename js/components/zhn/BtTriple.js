@@ -20,7 +20,7 @@ var S = {
 };
 
 var _crBtStyle = function _crBtStyle(nowValue, btValue) {
-  return nowValue === btValue ? S.SELECTED : undefined;
+  return nowValue === btValue ? S.SELECTED : void 0;
 };
 
 var BtTriple = function BtTriple(_ref) {
