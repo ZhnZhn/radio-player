@@ -1,1 +1,26 @@
-{"version":3,"sources":["../../src/sound/router.js"],"names":["_hm","classical","country","talks","sport","jazz","chillout","lounge","rock","pop","piano","instrumental","router","getCategory","category"],"mappings":";;;;;;;AAAA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AAEA,IAAMA,GAAG,GAAG;AACVC,EAAAA,SAAS,EAATA,qBADU;AAEVC,EAAAA,OAAO,EAAPA,mBAFU;AAGVC,EAAAA,KAAK,EAALA,iBAHU;AAIVC,EAAAA,KAAK,EAALA,iBAJU;AAKVC,EAAAA,IAAI,EAAJA,gBALU;AAMVC,EAAAA,QAAQ,EAARA,oBANU;AAOVC,EAAAA,MAAM,EAANA,kBAPU;AAQVC,EAAAA,IAAI,EAAJA,gBARU;AASVC,EAAAA,GAAG,EAAHA,eATU;AAUVC,EAAAA,KAAK,EAALA,iBAVU;AAWVC,EAAAA,YAAY,EAAZA;AAXU,CAAZ;AAcA,IAAMC,MAAM,GAAG;AACbC,EAAAA,WAAW,EAAE,qBAACC,QAAD;AAAA,WAAcd,GAAG,CAACc,QAAD,CAAH,IAAiB,EAA/B;AAAA;AADA,CAAf;eAIeF,M","sourcesContent":["import classical from './classical'\r\nimport country from './country'\r\nimport talks from './talks'\r\nimport sport from './sport'\r\nimport jazz from './jazz'\r\nimport chillout from './chillout'\r\nimport lounge from './lounge'\r\nimport rock from './rock'\r\nimport pop from './pop'\r\nimport piano from './piano'\r\nimport instrumental from './instrumental'\r\n\r\nconst _hm = {\r\n  classical,\r\n  country,\r\n  talks,\r\n  sport,\r\n  jazz,\r\n  chillout,\r\n  lounge,\r\n  rock,\r\n  pop,\r\n  piano,\r\n  instrumental\r\n};\r\n\r\nconst router = {\r\n  getCategory: (category) => _hm[category] || []\r\n}\r\n\r\nexport default router\r\n"],"file":"router.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/router.js"
+ ],
+ "file": "../../src/sound/router.js",
+ "names": [
+  "_hm",
+  "alternative",
+  "classical",
+  "country",
+  "talks",
+  "sport",
+  "jazz",
+  "chillout",
+  "lounge",
+  "rock",
+  "pop",
+  "piano",
+  "instrumental",
+  "router",
+  "getCategory",
+  "category"
+ ],
+ "mappings": ";;;;;;;AAAA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AACA;;AAEA,IAAMA,GAAG,GAAG;AACVC,EAAAA,WAAW,EAAXA,uBADU;AAEVC,EAAAA,SAAS,EAATA,qBAFU;AAGVC,EAAAA,OAAO,EAAPA,mBAHU;AAIVC,EAAAA,KAAK,EAALA,iBAJU;AAKVC,EAAAA,KAAK,EAALA,iBALU;AAMVC,EAAAA,IAAI,EAAJA,gBANU;AAOVC,EAAAA,QAAQ,EAARA,oBAPU;AAQVC,EAAAA,MAAM,EAANA,kBARU;AASVC,EAAAA,IAAI,EAAJA,gBATU;AAUVC,EAAAA,GAAG,EAAHA,eAVU;AAWVC,EAAAA,KAAK,EAALA,iBAXU;AAYVC,EAAAA,YAAY,EAAZA;AAZU,CAAZ;AAeA,IAAMC,MAAM,GAAG;AACbC,EAAAA,WAAW,EAAE,qBAACC,QAAD;AAAA,WAAcf,GAAG,CAACe,QAAD,CAAH,IAAiB,EAA/B;AAAA;AADA,CAAf;eAIeF,M"
+}

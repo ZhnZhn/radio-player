@@ -1,1 +1,11 @@
-{"version":3,"sources":["../../src/sound/categories.js"],"names":["CATEGORIES"],"mappings":";;;;AAAA,IAAMA,UAAU,GAAG,CACjB,UADiB,EAEjB,WAFiB,EAGjB,SAHiB,EAIjB,cAJiB,EAKjB,MALiB,EAMjB,QANiB,EAOjB,OAPiB,EAQjB,KARiB,EASjB,MATiB,EAUjB,OAViB,EAWjB,OAXiB,CAAnB;eAceA,U","sourcesContent":["const CATEGORIES = [\r\n  'chillout',\r\n  'classical',\r\n  'country',\r\n  'instrumental',\r\n  'jazz',\r\n  'lounge',\r\n  'piano',\r\n  'pop',\r\n  'rock',\r\n  'sport',\r\n  'talks'\r\n];\r\n\r\nexport default CATEGORIES\r\n"],"file":"categories.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/sound/categories.js"
+ ],
+ "file": "../../src/sound/categories.js",
+ "names": [
+  "CATEGORIES"
+ ],
+ "mappings": ";;;;AAAA,IAAMA,UAAU,GAAG,CACjB,aADiB,EAEjB,UAFiB,EAGjB,WAHiB,EAIjB,SAJiB,EAKjB,cALiB,EAMjB,MANiB,EAOjB,QAPiB,EAQjB,OARiB,EASjB,KATiB,EAUjB,MAViB,EAWjB,OAXiB,EAYjB,OAZiB,CAAnB;eAeeA,U"
+}

@@ -1,4 +1,5 @@
 const CATEGORIES = [
+  'alternative',
   'chillout',
   'classical',
   'country',

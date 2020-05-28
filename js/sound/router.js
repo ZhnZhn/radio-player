@@ -5,6 +5,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
+var _alternative = _interopRequireDefault(require("./alternative"));
+
 var _classical = _interopRequireDefault(require("./classical"));
 
 var _country = _interopRequireDefault(require("./country"));
@@ -28,6 +30,7 @@ var _piano = _interopRequireDefault(require("./piano"));
 var _instrumental = _interopRequireDefault(require("./instrumental"));
 
 var _hm = {
+  alternative: _alternative["default"],
   classical: _classical["default"],
   country: _country["default"],
   talks: _talks["default"],

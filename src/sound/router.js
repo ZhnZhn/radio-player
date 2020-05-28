@@ -1,3 +1,4 @@
+import alternative from './alternative'
 import classical from './classical'
 import country from './country'
 import talks from './talks'
@@ -11,6 +12,7 @@ import piano from './piano'
 import instrumental from './instrumental'
 
 const _hm = {
+  alternative,
   classical,
   country,
   talks,
