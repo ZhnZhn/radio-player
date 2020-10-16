@@ -5,15 +5,18 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var _Drawer = _interopRequireDefault(require("../zhn-ch/Drawer"));
 
 var _DrawerMenu = _interopRequireDefault(require("./DrawerMenu"));
 
 var HeaderDrawer = function HeaderDrawer(props) {
-  return (/*#__PURE__*/_react["default"].createElement(_Drawer["default"], null, /*#__PURE__*/_react["default"].createElement(_DrawerMenu["default"], props))
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_Drawer["default"], {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_DrawerMenu["default"], (0, _extends2["default"])({}, props))
+  });
 };
 
 var _default = HeaderDrawer;

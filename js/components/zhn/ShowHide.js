@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var CL_SHOW_POPUP = 'show-popup';
 var S = {
@@ -29,11 +29,11 @@ var ShowHide = function ShowHide(_ref) {
       _classShow = isShow ? CL_SHOW_POPUP : '',
       _className = className ? className + " " + _classShow : _classShow !== '' ? _classShow : void 0;
 
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      className: _className,
-      style: (0, _extends2["default"])({}, style, _styleShow)
-    }, children)
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    className: _className,
+    style: (0, _extends2["default"])({}, style, _styleShow),
+    children: children
+  });
 };
 
 var _default = ShowHide;

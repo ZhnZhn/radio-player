@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect, memo } from 'react'
 import useInterval from '../hooks/useInterval'
 
 import InputSlider from '../zhn/InputSlider'
@@ -98,4 +98,4 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
   );
 }
 
-export default React.memo(RadioVolume)
+export default memo(RadioVolume)

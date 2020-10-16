@@ -1,9 +1,8 @@
-import React from 'react';
 //import PropTypes from "prop-types";
 
 const CL = "svg-close";
 
-const S = {  
+const S = {
   COLOR: '#f44336',
   SVG: {
     padding: 3,

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import BtPlay from '../zhn/BtPlay'
 
 const RadioCommand = ({ isPlaying, onPlay, onPause }) => (

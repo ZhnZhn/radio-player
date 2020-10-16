@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _has = _interopRequireDefault(require("../has"));
 
@@ -41,20 +41,19 @@ var StationList = function StationList() {
     onSwipeGesture: toggleDrawer
   });
 
-  return (/*#__PURE__*/_react["default"].createElement("div", (0, _extends2["default"])({
-      className: CL.LIST
-    }, _handlers), /*#__PURE__*/_react["default"].createElement(_StationDescr["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", (0, _extends2["default"])({
+    className: CL.LIST
+  }, _handlers, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_StationDescr["default"], {
       station: currentStation
     }), radioStations.map(function (station, index) {
-      return (/*#__PURE__*/_react["default"].createElement(_StationItem["default"], {
-          key: station.title,
-          station: station,
-          accessKey: _has["default"].TOUCH ? void 0 : _calcAccessKey(index),
-          onClick: setCurrentStation.bind(null, station, index)
-        })
-      );
-    }))
-  );
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)(_StationItem["default"], {
+        station: station,
+        accessKey: _has["default"].TOUCH ? void 0 : _calcAccessKey(index),
+        onClick: setCurrentStation.bind(null, station, index)
+      }, station.title);
+    })]
+  }));
 };
 
 var _default = StationList;

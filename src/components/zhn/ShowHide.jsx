@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CL_SHOW_POPUP = 'show-popup';
 const S = {
   SHOW: {

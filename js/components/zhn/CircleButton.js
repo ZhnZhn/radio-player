@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var _has = _interopRequireDefault(require("../has"));
 
@@ -30,17 +30,20 @@ var CircleButton = function CircleButton(_ref) {
     onMouseUp: onMouseUp
   };
 
-  return (/*#__PURE__*/_react["default"].createElement("button", (0, _extends2["default"])({
-      className: CL,
-      accessKey: accessKey
-    }, _handlers, {
-      onClick: onClick
-    }), /*#__PURE__*/_react["default"].createElement("svg", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", (0, _extends2["default"])({
+    className: CL,
+    accessKey: accessKey
+  }, _handlers, {
+    onClick: onClick,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("svg", {
       viewBox: "0 0 34 34",
       width: "100%",
-      height: "100%"
-    }, /*#__PURE__*/_react["default"].createElement("g", null, children)))
-  );
+      height: "100%",
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)("g", {
+        children: children
+      })
+    })
+  }));
 };
 
 var _default = CircleButton;

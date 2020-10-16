@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Drawer from '../zhn-ch/Drawer'
 import DrawerMenu from './DrawerMenu'
 

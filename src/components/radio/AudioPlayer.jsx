@@ -1,4 +1,4 @@
-import React, { useRef, useReducer, useEffect, useCallback, useContext } from 'react'
+import { useRef, useReducer, useEffect, useCallback, useContext } from 'react'
 
 import HAS from '../has'
 import AppContext from '../AppContext'

@@ -1,11 +1,9 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 //import PropTypes from "prop-types";
 var CL = "svg-close";
@@ -23,12 +21,12 @@ var SvgClose = function SvgClose(_ref) {
       _ref$tabIndex = _ref.tabIndex,
       tabIndex = _ref$tabIndex === void 0 ? -1 : _ref$tabIndex,
       onClick = _ref.onClick;
-  return (/*#__PURE__*/_react["default"].createElement("button", {
-      className: className,
-      style: style,
-      tabIndex: tabIndex,
-      onClick: onClick
-    }, /*#__PURE__*/_react["default"].createElement("svg", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+    className: className,
+    style: style,
+    tabIndex: tabIndex,
+    onClick: onClick,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("svg", {
       viewBox: "0 0 12 12",
       width: "100%",
       height: "100%",
@@ -37,13 +35,14 @@ var SvgClose = function SvgClose(_ref) {
       xmlns: "http://www.w3.org/2000/svg",
       strokeWidth: "2",
       stroke: S.COLOR,
-      strokeLinecap: "round"
-    }, /*#__PURE__*/_react["default"].createElement("path", {
-      d: "M 0,0 L 12,12"
-    }), /*#__PURE__*/_react["default"].createElement("path", {
-      d: "M 12,0 L 0,12"
-    })))
-  );
+      strokeLinecap: "round",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+        d: "M 0,0 L 12,12"
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+        d: "M 12,0 L 0,12"
+      })]
+    })
+  });
 };
 /*
 SvgClose.propTypes = {

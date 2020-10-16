@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useImperativeHandle } from 'react'
+import { useRef, useCallback, useImperativeHandle } from 'react'
 
 import CaptionInput from './CaptionInput'
 

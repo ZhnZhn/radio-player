@@ -2,12 +2,12 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _ShowHide = _interopRequireDefault(require("../zhn/ShowHide"));
 
@@ -25,7 +25,12 @@ var S = {
   },
   LINK: {
     color: '#04477b',
-    fontSize: '17px'
+    fontSize: '17px',
+    display: 'inline-block',
+    maxWidth: 340,
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden'
   },
   TITLE: {
     color: 'darkgray'
@@ -50,24 +55,27 @@ var Category = function Category(_ref) {
 
   var _kbps = br ? " (" + br + " Kbps)" : '';
 
-  return (/*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("span", {
-      style: S.TITLE
-    }, "Category:"), "\xA0", /*#__PURE__*/_react["default"].createElement("span", {
-      style: S.CATEGORY
-    }, _toFirstUpperCase(category), _kbps))
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      style: S.TITLE,
+      children: "Category:"
+    }), "\xA0", /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
+      style: S.CATEGORY,
+      children: [_toFirstUpperCase(category), _kbps]
+    })]
+  });
 };
 
 var SiteUrl = function SiteUrl(_ref2) {
   var siteUrl = _ref2.siteUrl;
   if (!siteUrl) return null;
-  return (/*#__PURE__*/_react["default"].createElement("a", {
-      href: siteUrl,
-      style: S.LINK,
-      target: "_blank",
-      rel: "noreferrer noopener"
-    }, siteUrl)
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("a", {
+    href: siteUrl,
+    style: S.LINK,
+    target: "_blank",
+    rel: "noreferrer noopener",
+    children: siteUrl
+  });
 };
 
 var StationDescr = function StationDescr(_ref3) {
@@ -93,26 +101,33 @@ var StationDescr = function StationDescr(_ref3) {
     return null;
   }
 
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      className: CL.DESCR
-    }, /*#__PURE__*/_react["default"].createElement("button", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: CL.DESCR,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("button", {
       className: CL.DESCR_BT,
-      onClick: _onClick
-    }, /*#__PURE__*/_react["default"].createElement("span", null, title), /*#__PURE__*/_react["default"].createElement(_StationProtocol["default"], {
-      src: src
-    }), /*#__PURE__*/_react["default"].createElement("span", {
-      className: CL.BT_MORE,
-      style: _arrowStyle
-    }, ">")), /*#__PURE__*/_react["default"].createElement(_ShowHide["default"], {
+      onClick: _onClick,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+        children: title
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_StationProtocol["default"], {
+        src: src
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+        className: CL.BT_MORE,
+        style: _arrowStyle,
+        children: ">"
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_ShowHide["default"], {
       className: CL.INFO,
-      isShow: isMore
-    }, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(Category, {
-      category: category,
-      br: br
-    }), /*#__PURE__*/_react["default"].createElement(SiteUrl, {
-      siteUrl: siteUrl
-    }))))
-  );
+      isShow: isMore,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(Category, {
+          category: category,
+          br: br
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)(SiteUrl, {
+          siteUrl: siteUrl
+        })]
+      })
+    })]
+  });
 };
 
 var _default = StationDescr;

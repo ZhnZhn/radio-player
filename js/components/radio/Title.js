@@ -1,11 +1,9 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var CL = {
   TITLE: 'audio__title',
@@ -22,10 +20,10 @@ var Title = function Title(_ref) {
       _msgErrOrTitle = _isErr ? msgErr + " " + _title : _title || title,
       _cl = _isErr ? CL.ERR : CL.TITLE;
 
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      className: _cl
-    }, _msgErrOrTitle)
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    className: _cl,
+    children: _msgErrOrTitle
+  });
 };
 
 var _default = Title;

@@ -2,24 +2,25 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _CircleButton = _interopRequireDefault(require("./CircleButton"));
 
-var IconPlay = /*#__PURE__*/_react["default"].createElement("path", {
+var IconPlay = /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
   d: "M12.458 22.667l10-6.5-10-6.5z"
 });
-
-var IconStop = /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("path", {
-  d: "M11.5 10h3v13h-3v-13z"
-}), /*#__PURE__*/_react["default"].createElement("path", {
-  d: "M17.5 10h3v13h-3v-13z"
-}));
+var IconStop = /*#__PURE__*/(0, _jsxRuntime.jsxs)(_react.Fragment, {
+  children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+    d: "M11.5 10h3v13h-3v-13z"
+  }), /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+    d: "M17.5 10h3v13h-3v-13z"
+  })]
+});
 
 var BtPlay = function BtPlay(_ref) {
   var isPlaying = _ref.isPlaying,
@@ -30,11 +31,11 @@ var BtPlay = function BtPlay(_ref) {
       _svgIconEl = isPlaying ? IconStop : IconPlay,
       accessKey = isPlaying ? 's' : 'p';
 
-  return (/*#__PURE__*/_react["default"].createElement(_CircleButton["default"], {
-      accessKey: accessKey,
-      onClick: _onClick
-    }, _svgIconEl)
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(_CircleButton["default"], {
+    accessKey: accessKey,
+    onClick: _onClick,
+    children: _svgIconEl
+  });
 };
 
 var _default = BtPlay;

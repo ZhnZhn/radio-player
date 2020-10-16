@@ -1,1 +1,20 @@
-{"version":3,"sources":["../../../src/components/radio/StationItem.jsx"],"names":["CL","ITEM","ACCESS_KEY","StationItem","station","accessKey","onClick","title","src","Boolean"],"mappings":";;;;;;;AAAA;;AAEA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,IAAI,EAAE,cADG;AAETC,EAAAA,UAAU,EAAE;AAFH,CAAX;;AAKA,IAAMC,WAAW,GAAG,SAAdA,WAAc,OAAqC;AAAA,MAAlCC,OAAkC,QAAlCA,OAAkC;AAAA,MAAzBC,SAAyB,QAAzBA,SAAyB;AAAA,MAAdC,OAAc,QAAdA,OAAc;AAAA,MAC/CC,KAD+C,GAChCH,OADgC,CAC/CG,KAD+C;AAAA,MACxCC,GADwC,GAChCJ,OADgC,CACxCI,GADwC;AAEvD,uBACE;AACE,MAAA,SAAS,EAAER,EAAE,CAACC,IADhB;AAEE,MAAA,SAAS,EAAEI,SAFb;AAGE,MAAA,OAAO,EAAEC;AAHX,oBAKE,8CAAOC,KAAP,CALF,eAME,gCAAC,2BAAD;AAAiB,MAAA,GAAG,EAAEC;AAAtB,MANF,EAQIC,OAAO,CAACJ,SAAD,CAAP,iBAAsB;AACpB,MAAA,SAAS,EAAEL,EAAE,CAACE;AADM,OAEnBG,SAFmB,CAR1B;AADF;AAgBD,CAlBD;;eAoBeF,W","sourcesContent":["import React from 'react'\r\n\r\nimport StationProtocol from './StationProtocol'\r\n\r\nconst CL = {\r\n  ITEM: 'item-station',\r\n  ACCESS_KEY: 'item-station__access'\r\n};\r\n\r\nconst StationItem = ({ station, accessKey, onClick }) => {\r\n  const { title, src } = station;\r\n  return (\r\n    <button\r\n      className={CL.ITEM}\r\n      accessKey={accessKey}\r\n      onClick={onClick}\r\n    >\r\n      <span>{title}</span>\r\n      <StationProtocol src={src} />\r\n      {\r\n        Boolean(accessKey) && <span\r\n          className={CL.ACCESS_KEY}>\r\n          {accessKey}\r\n        </span>\r\n      }\r\n   </button>\r\n );\r\n}\r\n\r\nexport default StationItem\r\n"],"file":"StationItem.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/radio/StationItem.js"
+ ],
+ "file": "../../../src/components/radio/StationItem.js",
+ "names": [
+  "CL",
+  "ITEM",
+  "ACCESS_KEY",
+  "StationItem",
+  "station",
+  "accessKey",
+  "onClick",
+  "title",
+  "src",
+  "Boolean"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,IAAI,EAAE,cADG;AAETC,EAAAA,UAAU,EAAE;AAFH,CAAX;;AAKA,IAAMC,WAAW,GAAG,SAAdA,WAAc,OAAqC;AAAA,MAAlCC,OAAkC,QAAlCA,OAAkC;AAAA,MAAzBC,SAAyB,QAAzBA,SAAyB;AAAA,MAAdC,OAAc,QAAdA,OAAc;AAAA,MAC/CC,KAD+C,GAChCH,OADgC,CAC/CG,KAD+C;AAAA,MACxCC,GADwC,GAChCJ,OADgC,CACxCI,GADwC;AAEvD,sBACE;AACE,IAAA,SAAS,EAAER,EAAE,CAACC,IADhB;AAEE,IAAA,SAAS,EAAEI,SAFb;AAGE,IAAA,OAAO,EAAEC,OAHX;AAAA,4BAKE;AAAA,gBAAOC;AAAP,MALF,eAME,qBAAC,2BAAD;AAAiB,MAAA,GAAG,EAAEC;AAAtB,MANF,EAQIC,OAAO,CAACJ,SAAD,CAAP,iBAAsB;AACpB,MAAA,SAAS,EAAEL,EAAE,CAACE,UADM;AAAA,gBAEnBG;AAFmB,MAR1B;AAAA,IADF;AAgBD,CAlBD;;eAoBeF,W"
+}

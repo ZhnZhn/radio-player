@@ -26,19 +26,19 @@
     "url": "https://github.com/ZhnZhn/radio-player.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.1.0",
     "del": "^5.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint": "^7.11.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
@@ -48,17 +48,17 @@
     "gulp-rev": "^9.0.0",
     "html-webpack-plugin": "^4.4.1",
     "jspm": "^0.16.55",
-    "terser-webpack-plugin": "^4.1.0",
-    "webpack": "^4.44.1",
+    "terser-webpack-plugin": "^5.0.0",
+    "webpack": "^5.1.2",
     "webpack-cli": "^3.3.12"
   },
   "jspm": {
     "dependencies": {
-      "@babel/runtime": "npm:@babel/runtime@7.8.7",
+      "@babel/runtime": "npm:@babel/runtime@^7.12.1",
       "howler": "npm:howler@^2.2.0",
-      "react": "npm:react@^16.13.1",
-      "react-dom": "npm:react-dom@^16.13.1",
-      "react-redux": "npm:react-redux@^7.2.0",
+      "react": "npm:react@^16.14.0",
+      "react-dom": "npm:react-dom@^16.14.0",
+      "react-redux": "npm:react-redux@^7.2.1",
       "redux": "npm:redux@^4.0.5"
     },
     "devDependencies": {
@@ -68,11 +68,11 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.4",
+    "@babel/runtime": "^7.12.1",
     "howler": "^2.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   }
 }

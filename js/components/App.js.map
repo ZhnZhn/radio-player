@@ -1,1 +1,17 @@
-{"version":3,"sources":["../../src/components/App.jsx"],"names":["CL","App","dispatch","appContextValue","AppContext","getValue","setSrcFilter"],"mappings":";;;;;;;;;AAAA;;AAEA;;AAEA;;AAEA;;AACA;;AAEA,IAAMA,EAAE,GAAG,kBAAX;;AAEA,IAAMC,GAAG,GAAG,SAANA,GAAM,GAAM;AACV,MAAAC,QAAQ,GAAG,8BAAX;AAAA,MACJC,eADI,GACcC,uBAAWC,QAAX,CAAoBH,QAApB,CADd;AAAA,MAEFI,YAFE,GAEeH,eAFf,CAEFG,YAFE;;AAIN,wBAAU,YAAM;AACdA,IAAAA,YAAY,CAAC,CAAD,CAAZ;AACD,GAFD,EAEG,EAFH;AAIA,uBACG,gCAAC,sBAAD,CAAY,QAAZ;AAAqB,MAAA,KAAK,EAAEH;AAA5B,oBACG;AAAK,MAAA,SAAS,EAAEH;AAAhB,oBACC,gCAAC,uBAAD,OADD,eAEC,gCAAC,iBAAD,CAAO,IAAP,OAFD,CADH;AADH;AAQD,CAjBD;;eAmBeC,G","sourcesContent":["import React, { useEffect } from 'react'\r\n\r\nimport { useDispatch } from 'react-redux'\r\n\r\nimport AppContext from './AppContext'\r\n\r\nimport Radio from './radio/Radio'\r\nimport AudioPlayer from './radio/AudioPlayer'\r\n\r\nconst CL = \"app-radio-player\";\r\n\r\nconst App = () => {\r\n  const dispatch = useDispatch()\r\n  , appContextValue = AppContext.getValue(dispatch)\r\n  , { setSrcFilter } = appContextValue;\r\n\r\n  useEffect(() => {\r\n    setSrcFilter(2)\r\n  }, [])\r\n\r\n  return (\r\n     <AppContext.Provider value={appContextValue}>\r\n        <div className={CL}>\r\n         <AudioPlayer />\r\n         <Radio.List  />\r\n        </div>\r\n     </AppContext.Provider>\r\n   );\r\n}\r\n\r\nexport default App\r\n"],"file":"App.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../src/components/App.js"
+ ],
+ "file": "../../src/components/App.js",
+ "names": [
+  "CL",
+  "App",
+  "dispatch",
+  "appContextValue",
+  "AppContext",
+  "getValue",
+  "setSrcFilter"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;AAEA;;AAEA;;AAEA;;AACA;;AAEA,IAAMA,EAAE,GAAG,kBAAX;;AAEA,IAAMC,GAAG,GAAG,SAANA,GAAM,GAAM;AACV,MAAAC,QAAQ,GAAG,8BAAX;AAAA,MACJC,eADI,GACcC,uBAAWC,QAAX,CAAoBH,QAApB,CADd;AAAA,MAEFI,YAFE,GAEeH,eAFf,CAEFG,YAFE;;AAIN,wBAAU,YAAM;AACdA,IAAAA,YAAY,CAAC,CAAD,CAAZ;AACD,GAFD,EAEG,EAFH;AAIA,sBACG,qBAAC,sBAAD,CAAY,QAAZ;AAAqB,IAAA,KAAK,EAAEH,eAA5B;AAAA,2BACG;AAAK,MAAA,SAAS,EAAEH,EAAhB;AAAA,8BACC,qBAAC,uBAAD,KADD,eAEC,qBAAC,iBAAD,CAAO,IAAP,KAFD;AAAA;AADH,IADH;AAQD,CAjBD;;eAmBeC,G"
+}

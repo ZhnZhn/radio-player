@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _useInterval3 = _interopRequireDefault(require("../hooks/useInterval"));
 
@@ -112,30 +112,31 @@ var RadioVolume = function RadioVolume(_ref) {
       stopIncrease();
     }
   });
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      id: "volume",
-      style: S.ROW
-    }, /*#__PURE__*/_react["default"].createElement("div", {
-      style: S.VOLUME
-    }, _toVolume(volume)), /*#__PURE__*/_react["default"].createElement(_InputSlider["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    id: "volume",
+    style: S.ROW,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      style: S.VOLUME,
+      children: _toVolume(volume)
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputSlider["default"], {
       style: S.SLIDER,
       initValue: volume,
       onChange: setVolume
-    }), /*#__PURE__*/_react["default"].createElement(_BtMinus["default"], (0, _extends2["default"])({
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_BtMinus["default"], (0, _extends2["default"])({
       accessKey: "-"
     }, _minusHandlers, {
       onClick: onDecrease
-    })), /*#__PURE__*/_react["default"].createElement("div", {
+    })), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       style: S.GAP
-    }), /*#__PURE__*/_react["default"].createElement(_BtPlus["default"], (0, _extends2["default"])({
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_BtPlus["default"], (0, _extends2["default"])({
       accessKey: "+"
     }, _plusHandlers, {
       onClick: onIncrease
-    })), /*#__PURE__*/_react["default"].createElement(_HeaderDrawer["default"], null))
-  );
+    })), /*#__PURE__*/(0, _jsxRuntime.jsx)(_HeaderDrawer["default"], {})]
+  });
 };
 
-var _default = _react["default"].memo(RadioVolume);
+var _default = /*#__PURE__*/(0, _react.memo)(RadioVolume);
 
 exports["default"] = _default;
 //# sourceMappingURL=RadioVolume.js.map

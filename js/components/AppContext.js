@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = require("react");
 
 var _redux = require("redux");
 
@@ -21,7 +21,7 @@ var _selectors = _interopRequireDefault(require("../flux/selectors"));
 
 var _uiTheme = _interopRequireDefault(require("./ui-theme/uiTheme"));
 
-var AppContext = _react["default"].createContext();
+var AppContext = /*#__PURE__*/(0, _react.createContext)();
 
 var _value;
 

@@ -2,12 +2,12 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
 
@@ -26,13 +26,12 @@ var CategoriesList = function CategoriesList() {
       topics = useSelector(sApp.topics),
       isCategories = useSelector(sApp.categories);
 
-  return (/*#__PURE__*/_react["default"].createElement("ul", {
-      style: _style["default"].UL
-    }, topics.map(function (category) {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("ul", {
+    style: _style["default"].UL,
+    children: topics.map(function (category) {
       var _is = isCategories[category];
-      return (/*#__PURE__*/_react["default"].createElement("li", {
-          key: category
-        }, /*#__PURE__*/_react["default"].createElement(_FlatButton["default"], {
+      return /*#__PURE__*/(0, _jsxRuntime.jsx)("li", {
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_FlatButton["default"], {
           className: _style["default"].CL_BT,
           caption: category,
           timeout: 0,
@@ -40,11 +39,12 @@ var CategoriesList = function CategoriesList() {
             return removeCategory(category);
           } : function () {
             return addCategory(category);
-          }
-        }, _is && /*#__PURE__*/_react["default"].createElement(_SvgChecked["default"], null)))
-      );
-    }))
-  );
+          },
+          children: _is && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SvgChecked["default"], {})
+        })
+      }, category);
+    })
+  });
 };
 
 var _default = CategoriesList;

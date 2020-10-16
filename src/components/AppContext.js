@@ -1,4 +1,4 @@
-import React from 'react'
+import { createContext } from 'react'
 import { bindActionCreators } from 'redux'
 import { useSelector } from 'react-redux'
 
@@ -7,7 +7,7 @@ import stationActions from '../flux/stations/actions'
 import selectors from '../flux/selectors'
 import uiThemeImpl from './ui-theme/uiTheme'
 
-const AppContext = React.createContext();
+const AppContext = createContext();
 
 let _value;
 AppContext.getValue = (dispatch) => {

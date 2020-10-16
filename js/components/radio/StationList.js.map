@@ -1,1 +1,31 @@
-{"version":3,"sources":["../../../src/components/radio/StationList.jsx"],"names":["CL","LIST","_calcAccessKey","index","StationList","AppContext","toggleDrawer","setCurrentStation","sApp","useSelector","currentStation","radioStations","stations","_handlers","onSwipeGesture","map","station","title","HAS","TOUCH","bind"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,IAAI,EAAE;AADG,CAAX;;AAIA,IAAMC,cAAc,GAAG,SAAjBA,cAAiB,CAAAC,KAAK;AAAA,SAAIA,KAAK,GAAG,CAAR,GAC5BA,KAAK,GAAG,CADoB,GAE5B,KAAK,CAFmB;AAAA,CAA5B;;AAIA,IAAMC,WAAW,GAAG,SAAdA,WAAc,GAAM;AAAA,oBAIpB,uBAAWC,sBAAX,CAJoB;AAAA,MAEtBC,YAFsB,eAEtBA,YAFsB;AAAA,MAERC,iBAFQ,eAERA,iBAFQ;AAAA,MAGtBC,IAHsB,eAGtBA,IAHsB;AAAA,MAGhBC,WAHgB,eAGhBA,WAHgB;AAAA,MAKtBC,cALsB,GAKLD,WAAW,CAACD,IAAI,CAACE,cAAN,CALN;AAAA,MAMtBC,aANsB,GAMNF,WAAW,CAACD,IAAI,CAACI,QAAN,CANL;AAAA,MAOtBC,SAPsB,GAOV,iCAAgB;AAC1BC,IAAAA,cAAc,EAAER;AADU,GAAhB,CAPU;;AAUxB,uBACE;AAAK,MAAA,SAAS,EAAEN,EAAE,CAACC;AAAnB,OAA6BY,SAA7B,gBACI,gCAAC,wBAAD;AACE,MAAA,OAAO,EAAEH;AADX,MADJ,EAKIC,aAAa,CAACI,GAAd,CAAkB,UAACC,OAAD,EAAUb,KAAV,EAAoB;AACpC,2BACI,gCAAC,uBAAD;AACE,UAAA,GAAG,EAAEa,OAAO,CAACC,KADf;AAEE,UAAA,OAAO,EAAED,OAFX;AAGE,UAAA,SAAS,EAAEE,gBAAIC,KAAJ,GAAY,KAAK,CAAjB,GAAqBjB,cAAc,CAACC,KAAD,CAHhD;AAIE,UAAA,OAAO,EAAEI,iBAAiB,CAACa,IAAlB,CAAuB,IAAvB,EAA6BJ,OAA7B,EAAsCb,KAAtC;AAJX;AADJ;AAQA,KATF,CALJ;AADF;AAmBD,CA7BD;;eA+BeC,W","sourcesContent":["import React, { useContext } from 'react'\r\n\r\nimport HAS from '../has'\r\nimport AppContext from '../AppContext'\r\nimport useSwipeGesture from '../hooks/useSwipeGesture'\r\n\r\nimport StationDescr from './StationDescr'\r\nimport StationItem from './StationItem'\r\n\r\nconst CL = {\r\n  LIST: 'item-list',\r\n};\r\n\r\nconst _calcAccessKey = index => index < 5\r\n  ? index + 1\r\n  : void 0;\r\n\r\nconst StationList = () => {\r\n  const {\r\n    toggleDrawer, setCurrentStation,\r\n    sApp, useSelector\r\n  } = useContext(AppContext)\r\n  , currentStation = useSelector(sApp.currentStation)\r\n  , radioStations = useSelector(sApp.stations)\r\n  , _handlers = useSwipeGesture({\r\n      onSwipeGesture: toggleDrawer\r\n    });\r\n  return (\r\n    <div className={CL.LIST} {..._handlers} >\r\n        <StationDescr\r\n          station={currentStation}\r\n        />\r\n      {\r\n        radioStations.map((station, index) => {\r\n          return (\r\n              <StationItem\r\n                key={station.title}\r\n                station={station}\r\n                accessKey={HAS.TOUCH ? void 0 : _calcAccessKey(index)}\r\n                onClick={setCurrentStation.bind(null, station, index)}\r\n              />\r\n            );\r\n         })\r\n      }\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default StationList\r\n"],"file":"StationList.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/radio/StationList.js"
+ ],
+ "file": "../../../src/components/radio/StationList.js",
+ "names": [
+  "CL",
+  "LIST",
+  "_calcAccessKey",
+  "index",
+  "StationList",
+  "AppContext",
+  "toggleDrawer",
+  "setCurrentStation",
+  "sApp",
+  "useSelector",
+  "currentStation",
+  "radioStations",
+  "stations",
+  "_handlers",
+  "onSwipeGesture",
+  "map",
+  "station",
+  "HAS",
+  "TOUCH",
+  "bind",
+  "title"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AACA;;AACA;;AAEA;;AACA;;AAEA,IAAMA,EAAE,GAAG;AACTC,EAAAA,IAAI,EAAE;AADG,CAAX;;AAIA,IAAMC,cAAc,GAAG,SAAjBA,cAAiB,CAAAC,KAAK;AAAA,SAAIA,KAAK,GAAG,CAAR,GAC5BA,KAAK,GAAG,CADoB,GAE5B,KAAK,CAFmB;AAAA,CAA5B;;AAIA,IAAMC,WAAW,GAAG,SAAdA,WAAc,GAAM;AAAA,oBAIpB,uBAAWC,sBAAX,CAJoB;AAAA,MAEtBC,YAFsB,eAEtBA,YAFsB;AAAA,MAERC,iBAFQ,eAERA,iBAFQ;AAAA,MAGtBC,IAHsB,eAGtBA,IAHsB;AAAA,MAGhBC,WAHgB,eAGhBA,WAHgB;AAAA,MAKtBC,cALsB,GAKLD,WAAW,CAACD,IAAI,CAACE,cAAN,CALN;AAAA,MAMtBC,aANsB,GAMNF,WAAW,CAACD,IAAI,CAACI,QAAN,CANL;AAAA,MAOtBC,SAPsB,GAOV,iCAAgB;AAC1BC,IAAAA,cAAc,EAAER;AADU,GAAhB,CAPU;;AAUxB,sBACE;AAAK,IAAA,SAAS,EAAEN,EAAE,CAACC;AAAnB,KAA6BY,SAA7B;AAAA,4BACI,qBAAC,wBAAD;AACE,MAAA,OAAO,EAAEH;AADX,MADJ,EAKIC,aAAa,CAACI,GAAd,CAAkB,UAACC,OAAD,EAAUb,KAAV,EAAoB;AACpC,0BACI,qBAAC,uBAAD;AAEE,QAAA,OAAO,EAAEa,OAFX;AAGE,QAAA,SAAS,EAAEC,gBAAIC,KAAJ,GAAY,KAAK,CAAjB,GAAqBhB,cAAc,CAACC,KAAD,CAHhD;AAIE,QAAA,OAAO,EAAEI,iBAAiB,CAACY,IAAlB,CAAuB,IAAvB,EAA6BH,OAA7B,EAAsCb,KAAtC;AAJX,SACOa,OAAO,CAACI,KADf,CADJ;AAQA,KATF,CALJ;AAAA,KADF;AAmBD,CA7BD;;eA+BehB,W"
+}

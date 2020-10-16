@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 const CL = {
   BT: 'bt-triple',
@@ -31,7 +31,7 @@ const BtTriple = ({
   , _onClick = useCallback((value) => {
       onClick(value)
       setValue(value)
-    }, []);
+    }, [onClick]);
 
   return (
   <div className={CL.BT} style={style}>

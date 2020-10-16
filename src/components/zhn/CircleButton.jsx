@@ -1,5 +1,3 @@
-import React from 'react'
-
 import HAS from '../has'
 
 const CL = 'bt-circle';

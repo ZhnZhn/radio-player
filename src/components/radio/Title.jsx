@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CL = {
   TITLE: 'audio__title',
   ERR: 'audio__title audio__title--err'

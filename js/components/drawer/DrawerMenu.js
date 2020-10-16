@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
 
@@ -33,30 +33,33 @@ var DrawerMenu = function DrawerMenu() {
     dir: 'R'
   });
 
-  return (/*#__PURE__*/_react["default"].createElement("div", (0, _extends2["default"])({
-      className: _style["default"].CL_ROOT
-    }, _handlers), /*#__PURE__*/_react["default"].createElement("div", {
-      className: _style["default"].CL_HEADER
-    }, /*#__PURE__*/_react["default"].createElement(_BtTriple["default"], {
-      style: _style["default"].BT_TRIPLE,
-      oneC: "GREY",
-      twoC: "LIGHT",
-      threeC: "SAND",
-      onClick: setUiTheme
-    }), /*#__PURE__*/_react["default"].createElement(_SvgClose["default"], {
-      className: _style["default"].CL_BT_CLOSE,
-      onClick: toggleDrawer
-    })), /*#__PURE__*/_react["default"].createElement(_CategoriesList["default"], null), /*#__PURE__*/_react["default"].createElement("div", {
-      className: _style["default"].CL_HEADER
-    }, /*#__PURE__*/_react["default"].createElement(_BtTriple["default"], {
-      style: _style["default"].BT_TRIPLE,
-      initialValue: 2,
-      oneC: "ALL",
-      twoC: "HTTPS",
-      threeC: "HTTP",
-      onClick: setSrcFilter
-    })))
-  );
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", (0, _extends2["default"])({
+    className: _style["default"].CL_ROOT
+  }, _handlers, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: _style["default"].CL_HEADER,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_BtTriple["default"], {
+        style: _style["default"].BT_TRIPLE,
+        oneC: "GREY",
+        twoC: "LIGHT",
+        threeC: "SAND",
+        onClick: setUiTheme
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_SvgClose["default"], {
+        className: _style["default"].CL_BT_CLOSE,
+        onClick: toggleDrawer
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_CategoriesList["default"], {}), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      className: _style["default"].CL_HEADER,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_BtTriple["default"], {
+        style: _style["default"].BT_TRIPLE,
+        initialValue: 2,
+        oneC: "ALL",
+        twoC: "HTTPS",
+        threeC: "HTTP",
+        onClick: setSrcFilter
+      })
+    })]
+  }));
 };
 
 var _default = DrawerMenu;

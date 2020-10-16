@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CL = {
   EQUALIZER: 'equalizer',
   EQUALIZER_NOT_PLAYING: 'equalizer--not-playing'

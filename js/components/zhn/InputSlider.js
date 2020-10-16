@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -11,7 +9,9 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 /*
  Mostly from
@@ -354,7 +354,7 @@ var InputSlider = /*#__PURE__*/function (_Component) {
         _lineAfterStyle = isHovered ? (0, _extends2["default"])({}, S.LINE_AFTER, S.LINE_HOVERED) : S.LINE_AFTER,
         _circleStyle = isDragged ? S.CIRCLE_DRAGGED : null,
         _emberStyle = isDragged ? S.EMBER : null,
-        _circleInnerEl = isHovered || isDragged ? /*#__PURE__*/_react["default"].createElement("div", {
+        _circleInnerEl = isHovered || isDragged ? /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
       style: (0, _extends2["default"])({}, S.CIRCLE_INNER_EL, _emberStyle)
     }) : null,
         _percent = _toPercent(value, min, max),
@@ -362,41 +362,44 @@ var InputSlider = /*#__PURE__*/function (_Component) {
         _widthAfterStyle = _calcWidth(100 - _percent),
         _leftStyle = _crLeftStyle(_percent);
 
-    return (/*#__PURE__*/_react["default"].createElement("div", {
-        style: (0, _extends2["default"])({}, S.ROOT, style),
-        role: "slider",
-        "aria-valuemax": max,
-        "aria-valuemin": min,
-        "aria-valuenow": value,
-        tabIndex: "0",
-        onMouseDown: this._hMouseDown,
-        onMouseEnter: this._hMouseEnter,
-        onMouseLeave: this._hMouseLeave
-      }, /*#__PURE__*/_react["default"].createElement("div", {
+    return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      style: (0, _extends2["default"])({}, S.ROOT, style),
+      role: "slider",
+      "aria-valuemax": max,
+      "aria-valuemin": min,
+      "aria-valuenow": value,
+      tabIndex: "0",
+      onMouseDown: this._hMouseDown,
+      onMouseEnter: this._hMouseEnter,
+      onMouseLeave: this._hMouseLeave,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
         ref: this._refTrackComp,
         tabIndex: "0",
         role: "button",
         style: S.ROOT_LINE,
         onKeyDown: this._hKeyDownTrack,
         onFocus: this._hFocusTrack,
-        onBlur: this._hBlurTrack
-      }, /*#__PURE__*/_react["default"].createElement("div", {
-        style: (0, _extends2["default"])({}, S.LINE_BEFORE, _widthBeforeStyle)
-      }), /*#__PURE__*/_react["default"].createElement("div", {
-        style: (0, _extends2["default"])({}, _lineAfterStyle, _widthAfterStyle)
-      }), /*#__PURE__*/_react["default"].createElement("div", {
-        style: (0, _extends2["default"])({}, S.ROOT_CIRCLE, _circleStyle, _leftStyle)
-      }, /*#__PURE__*/_react["default"].createElement("div", {
-        style: (0, _extends2["default"])({}, S.CIRCLE_INNER, _circleStyle)
-      }, _circleInnerEl)), /*#__PURE__*/_react["default"].createElement("input", {
-        type: "hidden",
-        step: step,
-        min: min,
-        max: max,
-        value: value,
-        required: true
-      })))
-    );
+        onBlur: this._hBlurTrack,
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          style: (0, _extends2["default"])({}, S.LINE_BEFORE, _widthBeforeStyle)
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          style: (0, _extends2["default"])({}, _lineAfterStyle, _widthAfterStyle)
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+          style: (0, _extends2["default"])({}, S.ROOT_CIRCLE, _circleStyle, _leftStyle),
+          children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+            style: (0, _extends2["default"])({}, S.CIRCLE_INNER, _circleStyle),
+            children: _circleInnerEl
+          })
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+          type: "hidden",
+          step: step,
+          min: min,
+          max: max,
+          value: value,
+          required: true
+        })]
+      })
+    });
   };
 
   _proto.setValue = function setValue(value) {

@@ -1,1 +1,19 @@
-{"version":3,"sources":["../../../src/components/zhn/BtPlay.jsx"],"names":["IconPlay","IconStop","BtPlay","isPlaying","onPlay","onStop","_onClick","_svgIconEl","accessKey"],"mappings":";;;;;;;;;AAAA;;AAEA;;AAEA,IAAMA,QAAQ,gBACZ;AAAM,EAAA,CAAC,EAAC;AAAR,EADF;;AAGA,IAAMC,QAAQ,gBACZ,gCAAC,eAAD,qBACE;AAAM,EAAA,CAAC,EAAC;AAAR,EADF,eAEE;AAAM,EAAA,CAAC,EAAC;AAAR,EAFF,CADF;;AAOA,IAAMC,MAAM,GAAG,SAATA,MAAS,OAAmC;AAAA,MAAhCC,SAAgC,QAAhCA,SAAgC;AAAA,MAArBC,MAAqB,QAArBA,MAAqB;AAAA,MAAbC,MAAa,QAAbA,MAAa;;AAChD,MAAMC,QAAQ,GAAGH,SAAS,GAAGE,MAAH,GAAYD,MAAtC;AAAA,MACEG,UAAU,GAAGJ,SAAS,GAAGF,QAAH,GAAcD,QADtC;AAAA,MAEEQ,SAAS,GAAGL,SAAS,GAAG,GAAH,GAAS,GAFhC;;AAGA,uBACE,gCAAC,wBAAD;AAAQ,MAAA,SAAS,EAAEK,SAAnB;AAA8B,MAAA,OAAO,EAAEF;AAAvC,OACGC,UADH;AADF;AAKD,CATD;;eAWeL,M","sourcesContent":["import React, { Fragment } from 'react'\r\n\r\nimport Button from './CircleButton'\r\n\r\nconst IconPlay = (\r\n  <path d=\"M12.458 22.667l10-6.5-10-6.5z\" />\r\n);\r\nconst IconStop = (\r\n  <Fragment>\r\n    <path d=\"M11.5 10h3v13h-3v-13z\" />\r\n    <path d=\"M17.5 10h3v13h-3v-13z\" />\r\n  </Fragment>\r\n)\r\n\r\nconst BtPlay = ({ isPlaying, onPlay, onStop }) => {\r\n  const _onClick = isPlaying ? onStop : onPlay\r\n  , _svgIconEl = isPlaying ? IconStop : IconPlay\r\n  , accessKey = isPlaying ? 's' : 'p';\r\n  return (\r\n    <Button accessKey={accessKey} onClick={_onClick}>\r\n      {_svgIconEl}\r\n    </Button>\r\n  );\r\n}\r\n\r\nexport default BtPlay\r\n"],"file":"BtPlay.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/zhn/BtPlay.js"
+ ],
+ "file": "../../../src/components/zhn/BtPlay.js",
+ "names": [
+  "IconPlay",
+  "IconStop",
+  "BtPlay",
+  "isPlaying",
+  "onPlay",
+  "onStop",
+  "_onClick",
+  "_svgIconEl",
+  "accessKey"
+ ],
+ "mappings": ";;;;;;;;;AAAA;;AAEA;;AAEA,IAAMA,QAAQ,gBACZ;AAAM,EAAA,CAAC,EAAC;AAAR,EADF;AAGA,IAAMC,QAAQ,gBACZ,sBAAC,eAAD;AAAA,0BACE;AAAM,IAAA,CAAC,EAAC;AAAR,IADF,eAEE;AAAM,IAAA,CAAC,EAAC;AAAR,IAFF;AAAA,EADF;;AAOA,IAAMC,MAAM,GAAG,SAATA,MAAS,OAAmC;AAAA,MAAhCC,SAAgC,QAAhCA,SAAgC;AAAA,MAArBC,MAAqB,QAArBA,MAAqB;AAAA,MAAbC,MAAa,QAAbA,MAAa;;AAChD,MAAMC,QAAQ,GAAGH,SAAS,GAAGE,MAAH,GAAYD,MAAtC;AAAA,MACEG,UAAU,GAAGJ,SAAS,GAAGF,QAAH,GAAcD,QADtC;AAAA,MAEEQ,SAAS,GAAGL,SAAS,GAAG,GAAH,GAAS,GAFhC;;AAGA,sBACE,qBAAC,wBAAD;AAAQ,IAAA,SAAS,EAAEK,SAAnB;AAA8B,IAAA,OAAO,EAAEF,QAAvC;AAAA,cACGC;AADH,IADF;AAKD,CATD;;eAWeL,M"
+}

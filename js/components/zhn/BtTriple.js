@@ -1,11 +1,11 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var CL = {
   BT: 'bt-triple',
@@ -41,28 +41,31 @@ var BtTriple = function BtTriple(_ref) {
       _onClick = (0, _react.useCallback)(function (value) {
     onClick(value);
     setValue(value);
-  }, []);
+  }, [onClick]);
 
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      className: CL.BT,
-      style: style
-    }, /*#__PURE__*/_react["default"].createElement("button", {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: CL.BT,
+    style: style,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
       className: CL.BT_ONE,
       style: _oneStyle,
       tabIndex: tabIndex,
-      onClick: _onClick.bind(null, 1)
-    }, oneC), /*#__PURE__*/_react["default"].createElement("button", {
+      onClick: _onClick.bind(null, 1),
+      children: oneC
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
       className: CL.BT_TWO,
       style: _twoStyle,
       tabIndex: tabIndex,
-      onClick: _onClick.bind(null, 2)
-    }, twoC), /*#__PURE__*/_react["default"].createElement("button", {
+      onClick: _onClick.bind(null, 2),
+      children: twoC
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
       className: CL.BT_THREE,
       style: _threeStyle,
       tabIndex: tabIndex,
-      onClick: _onClick.bind(null, 3)
-    }, threeC))
-  );
+      onClick: _onClick.bind(null, 3),
+      children: threeC
+    })]
+  });
 };
 
 BtTriple.defaultProps = {

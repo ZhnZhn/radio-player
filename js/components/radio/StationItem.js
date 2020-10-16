@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var _StationProtocol = _interopRequireDefault(require("./StationProtocol"));
 
@@ -20,16 +20,19 @@ var StationItem = function StationItem(_ref) {
       onClick = _ref.onClick;
   var title = station.title,
       src = station.src;
-  return (/*#__PURE__*/_react["default"].createElement("button", {
-      className: CL.ITEM,
-      accessKey: accessKey,
-      onClick: onClick
-    }, /*#__PURE__*/_react["default"].createElement("span", null, title), /*#__PURE__*/_react["default"].createElement(_StationProtocol["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("button", {
+    className: CL.ITEM,
+    accessKey: accessKey,
+    onClick: onClick,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      children: title
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_StationProtocol["default"], {
       src: src
-    }), Boolean(accessKey) && /*#__PURE__*/_react["default"].createElement("span", {
-      className: CL.ACCESS_KEY
-    }, accessKey))
-  );
+    }), Boolean(accessKey) && /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      className: CL.ACCESS_KEY,
+      children: accessKey
+    })]
+  });
 };
 
 var _default = StationItem;

@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
 
 var _BtPlay = _interopRequireDefault(require("../zhn/BtPlay"));
 
@@ -13,12 +13,13 @@ var RadioCommand = function RadioCommand(_ref) {
   var isPlaying = _ref.isPlaying,
       onPlay = _ref.onPlay,
       onPause = _ref.onPause;
-  return (/*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_BtPlay["default"], {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_BtPlay["default"], {
       isPlaying: isPlaying,
       onPlay: onPlay,
       onStop: onPause
-    }))
-  );
+    })
+  });
 };
 
 var _default = RadioCommand;

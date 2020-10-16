@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import ShowHide from '../zhn/ShowHide'
 import StationProtocol from './StationProtocol'
@@ -16,7 +16,12 @@ const S = {
   },
   LINK: {
     color: '#04477b',
-    fontSize: '17px'
+    fontSize: '17px',
+    display: 'inline-block',
+    maxWidth: 340,
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden'
   },
   TITLE: {
     color: 'darkgray'

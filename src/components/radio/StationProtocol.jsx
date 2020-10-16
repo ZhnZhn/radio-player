@@ -1,5 +1,3 @@
-import React from 'react'
-
 import utils from '../../sound/utils'
 
 const { isHttp } = utils;

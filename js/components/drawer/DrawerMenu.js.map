@@ -1,1 +1,23 @@
-{"version":3,"sources":["../../../src/components/drawer/DrawerMenu.jsx"],"names":["DrawerMenu","AppContext","setUiTheme","toggleDrawer","setSrcFilter","_handlers","onSwipeGesture","dir","S","CL_ROOT","CL_HEADER","BT_TRIPLE","CL_BT_CLOSE"],"mappings":";;;;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,UAAU,GAAG,SAAbA,UAAa,GAAM;AAAA,oBAKnB,uBAAWC,sBAAX,CALmB;AAAA,MAErBC,UAFqB,eAErBA,UAFqB;AAAA,MAGrBC,YAHqB,eAGrBA,YAHqB;AAAA,MAIrBC,YAJqB,eAIrBA,YAJqB;AAAA,MAMrBC,SANqB,GAMT,iCAAgB;AACzBC,IAAAA,cAAc,EAAEH,YADS;AACKI,IAAAA,GAAG,EAAE;AADV,GAAhB,CANS;;AASvB,uBACE;AAAK,MAAA,SAAS,EAAEC,kBAAEC;AAAlB,OAA+BJ,SAA/B,gBACE;AAAK,MAAA,SAAS,EAAEG,kBAAEE;AAAlB,oBACE,gCAAC,oBAAD;AACE,MAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,MAAA,IAAI,EAAC,MAFP;AAGE,MAAA,IAAI,EAAC,OAHP;AAIE,MAAA,MAAM,EAAC,MAJT;AAKE,MAAA,OAAO,EAAET;AALX,MADF,eAQE,gCAAC,oBAAD;AACE,MAAA,SAAS,EAAEM,kBAAEI,WADf;AAEE,MAAA,OAAO,EAAET;AAFX,MARF,CADF,eAcE,gCAAC,0BAAD,OAdF,eAeE;AAAK,MAAA,SAAS,EAAEK,kBAAEE;AAAlB,oBACE,gCAAC,oBAAD;AACE,MAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,MAAA,YAAY,EAAE,CAFhB;AAGE,MAAA,IAAI,EAAC,KAHP;AAIE,MAAA,IAAI,EAAC,OAJP;AAKE,MAAA,MAAM,EAAC,MALT;AAME,MAAA,OAAO,EAAEP;AANX,MADF,CAfF;AADF;AA4BD,CArCD;;eAuCeJ,U","sourcesContent":["import React, { useContext } from 'react'\r\n\r\nimport AppContext from '../AppContext'\r\nimport useSwipeGesture from '../hooks/useSwipeGesture'\r\n\r\nimport SvgClose from '../zhn/SvgClose'\r\nimport BtTriple from '../zhn/BtTriple'\r\nimport CategoriesList from './CategoriesList'\r\nimport S from './style'\r\n\r\nconst DrawerMenu = () => {\r\n  const {\r\n    setUiTheme,\r\n    toggleDrawer,\r\n    setSrcFilter\r\n  } = useContext(AppContext)\r\n  , _handlers = useSwipeGesture({\r\n       onSwipeGesture: toggleDrawer, dir: 'R'\r\n    });\r\n  return (\r\n    <div className={S.CL_ROOT} {..._handlers}>\r\n      <div className={S.CL_HEADER}>\r\n        <BtTriple\r\n          style={S.BT_TRIPLE}\r\n          oneC=\"GREY\"\r\n          twoC=\"LIGHT\"\r\n          threeC=\"SAND\"\r\n          onClick={setUiTheme}\r\n        />\r\n        <SvgClose\r\n          className={S.CL_BT_CLOSE}\r\n          onClick={toggleDrawer}\r\n        />\r\n      </div>\r\n      <CategoriesList />\r\n      <div className={S.CL_HEADER}>\r\n        <BtTriple\r\n          style={S.BT_TRIPLE}\r\n          initialValue={2}\r\n          oneC=\"ALL\"\r\n          twoC=\"HTTPS\"\r\n          threeC=\"HTTP\"\r\n          onClick={setSrcFilter}\r\n        />\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default DrawerMenu\r\n"],"file":"DrawerMenu.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/drawer/DrawerMenu.js"
+ ],
+ "file": "../../../src/components/drawer/DrawerMenu.js",
+ "names": [
+  "DrawerMenu",
+  "AppContext",
+  "setUiTheme",
+  "toggleDrawer",
+  "setSrcFilter",
+  "_handlers",
+  "onSwipeGesture",
+  "dir",
+  "S",
+  "CL_ROOT",
+  "CL_HEADER",
+  "BT_TRIPLE",
+  "CL_BT_CLOSE"
+ ],
+ "mappings": ";;;;;;;;;;;AAAA;;AAEA;;AACA;;AAEA;;AACA;;AACA;;AACA;;AAEA,IAAMA,UAAU,GAAG,SAAbA,UAAa,GAAM;AAAA,oBAKnB,uBAAWC,sBAAX,CALmB;AAAA,MAErBC,UAFqB,eAErBA,UAFqB;AAAA,MAGrBC,YAHqB,eAGrBA,YAHqB;AAAA,MAIrBC,YAJqB,eAIrBA,YAJqB;AAAA,MAMrBC,SANqB,GAMT,iCAAgB;AACzBC,IAAAA,cAAc,EAAEH,YADS;AACKI,IAAAA,GAAG,EAAE;AADV,GAAhB,CANS;;AASvB,sBACE;AAAK,IAAA,SAAS,EAAEC,kBAAEC;AAAlB,KAA+BJ,SAA/B;AAAA,4BACE;AAAK,MAAA,SAAS,EAAEG,kBAAEE,SAAlB;AAAA,8BACE,qBAAC,oBAAD;AACE,QAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,QAAA,IAAI,EAAC,MAFP;AAGE,QAAA,IAAI,EAAC,OAHP;AAIE,QAAA,MAAM,EAAC,MAJT;AAKE,QAAA,OAAO,EAAET;AALX,QADF,eAQE,qBAAC,oBAAD;AACE,QAAA,SAAS,EAAEM,kBAAEI,WADf;AAEE,QAAA,OAAO,EAAET;AAFX,QARF;AAAA,MADF,eAcE,qBAAC,0BAAD,KAdF,eAeE;AAAK,MAAA,SAAS,EAAEK,kBAAEE,SAAlB;AAAA,6BACE,qBAAC,oBAAD;AACE,QAAA,KAAK,EAAEF,kBAAEG,SADX;AAEE,QAAA,YAAY,EAAE,CAFhB;AAGE,QAAA,IAAI,EAAC,KAHP;AAIE,QAAA,IAAI,EAAC,OAJP;AAKE,QAAA,MAAM,EAAC,MALT;AAME,QAAA,OAAO,EAAEP;AANX;AADF,MAfF;AAAA,KADF;AA4BD,CArCD;;eAuCeJ,U"
+}

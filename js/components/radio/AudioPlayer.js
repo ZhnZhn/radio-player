@@ -2,12 +2,12 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _has = _interopRequireDefault(require("../has"));
 
@@ -220,30 +220,31 @@ var AudioPlayer = function AudioPlayer() {
 
   var _style = uiThemeImpl.toBg(uiTheme);
 
-  return (/*#__PURE__*/_react["default"].createElement("div", {
-      className: CL.PLAYER,
-      style: _style
-    }, /*#__PURE__*/_react["default"].createElement(_Radio["default"].Volume, {
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+    className: CL.PLAYER,
+    style: _style,
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Radio["default"].Volume, {
       volume: volume,
       setVolume: _setVolume,
       onIncrease: _increaseVolume,
       onDecrease: _decreaseVolume
-    }), /*#__PURE__*/_react["default"].createElement("div", {
-      style: S.TITLE_CONT
-    }, /*#__PURE__*/_react["default"].createElement(_Radio["default"].Command, {
-      isPlaying: isPlaying,
-      onPlay: play,
-      onPause: pause
-    }), /*#__PURE__*/_react["default"].createElement(_Title["default"], {
-      station: station,
-      msgErr: msgErr,
-      title: title
-    }), /*#__PURE__*/_react["default"].createElement(_Equalizer["default"], {
-      isPlaying: isPlaying,
-      isUnloaded: isUnloaded,
-      unload: _unload
-    })))
-  );
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      style: S.TITLE_CONT,
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Radio["default"].Command, {
+        isPlaying: isPlaying,
+        onPlay: play,
+        onPause: pause
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Title["default"], {
+        station: station,
+        msgErr: msgErr,
+        title: title
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Equalizer["default"], {
+        isPlaying: isPlaying,
+        isUnloaded: isUnloaded,
+        unload: _unload
+      })]
+    })]
+  });
 };
 
 var _default = AudioPlayer;

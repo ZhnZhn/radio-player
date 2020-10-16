@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
@@ -9,7 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _jsxRuntime = require("react/jsx-runtime.js");
+
+var _react = require("react");
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
 
@@ -73,36 +73,39 @@ var Drawer = function Drawer(_ref) {
       _drawerModalStyle = isOpen ? S.MODAL_ON : S.MODAL_OFF,
       _onClickWrapper = isOpen ? toggleDrawer : void 0;
 
-  return [/*#__PURE__*/_react["default"].createElement("button", {
-    key: "bt-drawer",
+  return [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
     className: CL.DRAWER_BT,
     style: (0, _extends2["default"])({}, S.BT_DRAWER, btStyle),
     "aria-label": "Open Drawer",
-    onClick: toggleDrawer
-  }, /*#__PURE__*/_react["default"].createElement("span", {
-    className: CL.DRAWER_SPAN
-  }, /*#__PURE__*/_react["default"].createElement("svg", {
-    className: CL.DRAWER_SVG,
-    focusable: "false",
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/_react["default"].createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/_react["default"].createElement("path", {
-    d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-  })))), /*#__PURE__*/_react["default"].createElement("div", {
-    key: "wrapper",
+    onClick: toggleDrawer,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+      className: CL.DRAWER_SPAN,
+      children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("svg", {
+        className: CL.DRAWER_SVG,
+        focusable: "false",
+        viewBox: "0 0 24 24",
+        "aria-hidden": "true",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+          fill: "none",
+          d: "M0 0h24v24H0z"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+          d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+        })]
+      })
+    })
+  }, "bt-drawer"), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
     role: "presentation",
     "aria-hidden": !isOpen,
     className: CL.DRAWER_MODAL,
     style: _drawerModalStyle,
     onClick: _onClickWrapper
-  }), /*#__PURE__*/_react["default"].createElement("aside", {
-    key: "aside",
+  }, "wrapper"), /*#__PURE__*/(0, _jsxRuntime.jsx)("aside", {
     className: CL.DRAWER,
-    style: _asideStyle
-  }, /*#__PURE__*/_react["default"].createElement("div", null, children))];
+    style: _asideStyle,
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      children: children
+    })
+  }, "aside")];
 };
 
 var _default = Drawer;

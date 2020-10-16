@@ -1,5 +1,3 @@
-import React from 'react'
-
 const S = {
   display: 'inline-block',
   width: 16,
