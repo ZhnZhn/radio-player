@@ -1,5 +1,9 @@
-const alternative = [
-  {
+const alternative = [{
+    title: 'Canada: American Roots',
+    src: 'https://igor.torontocast.com:2275/stream',
+    siteUrl: 'https://www.americanrootsradio.com',
+    br: 64
+  },{
     title: "France: Chante France",
     src: 'https://chantefrance.ice.infomaniak.ch/chantefrance-96.aac',
     siteUrl: 'https://www.chantefrance.com',
