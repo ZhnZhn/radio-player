@@ -4,15 +4,15 @@
   "description": "Web app Radio Player. The web app that gives the ability to listen Internet radio.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack serve --config webpack.dev.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "css:min": "gulp",
     "lint:hooks": "eslint -c .eslintrc-hooks.js ./src > lint-hooks.txt",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
-    "build:dll": "webpack --colors --progress --config webpack.dll.js",
-    "build:dll-jsx": "webpack --colors --progress --config webpack.dll-jsx.js"
+    "build:dll": "webpack --color --progress --config webpack.dll.js",
+    "build:dll-jsx": "webpack --color --progress --config webpack.dll-jsx.js"
   },
   "keywords": [
     "radio-player"
@@ -47,10 +47,10 @@
     "gulp-rev": "^9.0.0",
     "html-webpack-plugin": "^4.5.0",
     "react-refresh": "^0.9.0",
-    "terser-webpack-plugin": "^5.0.3",
-    "webpack": "^5.3.2",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.1",
