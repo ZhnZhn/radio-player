@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
@@ -16,6 +14,8 @@ var _SvgChecked = _interopRequireDefault(require("../zhn/SvgChecked"));
 var _FlatButton = _interopRequireDefault(require("../zhn-m/FlatButton"));
 
 var _style = _interopRequireDefault(require("./style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var CategoriesList = function CategoriesList() {
   var _useContext = (0, _react.useContext)(_AppContext["default"]),

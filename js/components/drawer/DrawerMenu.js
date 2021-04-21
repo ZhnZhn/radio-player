@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _AppContext = _interopRequireDefault(require("../AppContext"));
@@ -22,6 +20,8 @@ var _BtTriple = _interopRequireDefault(require("../zhn/BtTriple"));
 var _CategoriesList = _interopRequireDefault(require("./CategoriesList"));
 
 var _style = _interopRequireDefault(require("./style"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var DrawerMenu = function DrawerMenu() {
   var _useContext = (0, _react.useContext)(_AppContext["default"]),

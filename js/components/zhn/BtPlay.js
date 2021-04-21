@@ -5,11 +5,11 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _CircleButton = _interopRequireDefault(require("./CircleButton"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var IconPlay = /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
   d: "M12.458 22.667l10-6.5-10-6.5z"

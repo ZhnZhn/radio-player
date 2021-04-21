@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _has = _interopRequireDefault(require("../has"));
@@ -22,6 +20,8 @@ var _Title = _interopRequireDefault(require("./Title"));
 var _Equalizer = _interopRequireDefault(require("./Equalizer"));
 
 var _playerReducer = _interopRequireDefault(require("./playerReducer"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var A = _playerReducer["default"].A;
 var DF_TITLE = 'Radio Player v0.2.0';

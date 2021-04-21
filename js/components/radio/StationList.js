@@ -7,8 +7,6 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _has = _interopRequireDefault(require("../has"));
@@ -20,6 +18,8 @@ var _useSwipeGesture = _interopRequireDefault(require("../hooks/useSwipeGesture"
 var _StationDescr = _interopRequireDefault(require("./StationDescr"));
 
 var _StationItem = _interopRequireDefault(require("./StationItem"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var CL = {
   LIST: 'item-list'

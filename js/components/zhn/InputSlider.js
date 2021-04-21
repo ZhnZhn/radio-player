@@ -9,9 +9,9 @@ var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends")
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 /*
  Mostly from

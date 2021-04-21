@@ -1,12 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/zhn/BtPlus.js"
- ],
- "file": "../../../src/components/zhn/BtPlus.js",
- "names": [
-  "BtMinus",
-  "props"
- ],
- "mappings": ";;;;;;;;;;;AAAA;;AAEA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAACC,KAAD;AAAA,sBACd,sBAAC,wBAAD,gCAAYA,KAAZ;AAAA,4BACE;AAAM,MAAA,CAAC,EAAC,WAAR;AAAoB,MAAA,WAAW,EAAC;AAAhC,MADF,eAEE;AAAM,MAAA,CAAC,EAAC,WAAR;AAAoB,MAAA,WAAW,EAAC;AAAhC,MAFF;AAAA,KADc;AAAA,CAAhB;;eAOeD,O"
-}
+{"version":3,"sources":["../../../src/components/zhn/BtPlus.jsx"],"names":["BtMinus","props"],"mappings":";;;;;;;;;AAAA;;;;AAEA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAACC,KAAD;AAAA,sBACd,sBAAC,wBAAD,gCAAYA,KAAZ;AAAA,4BACE;AAAM,MAAA,CAAC,EAAC,WAAR;AAAoB,MAAA,WAAW,EAAC;AAAhC,MADF,eAEE;AAAM,MAAA,CAAC,EAAC,WAAR;AAAoB,MAAA,WAAW,EAAC;AAAhC,MAFF;AAAA,KADc;AAAA,CAAhB;;eAOeD,O","sourcesContent":["import Button from './CircleButton'\r\n\r\nconst BtMinus = (props) => (\r\n  <Button {...props}>\r\n    <path d=\"M8 16 H24\" strokeWidth=\"3\" />\r\n    <path d=\"M16 8 V24\" strokeWidth=\"3\" />\r\n  </Button>\r\n);\r\n\r\nexport default BtMinus\r\n"],"file":"BtPlus.js"}

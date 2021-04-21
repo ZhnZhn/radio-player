@@ -3,9 +3,9 @@
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var CL = {
   BT: 'bt-triple',

@@ -5,9 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _utils = _interopRequireDefault(require("../../sound/utils"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var isHttp = _utils["default"].isHttp;
 

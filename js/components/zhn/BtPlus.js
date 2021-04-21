@@ -7,9 +7,9 @@ exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _CircleButton = _interopRequireDefault(require("./CircleButton"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var BtMinus = function BtMinus(props) {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_CircleButton["default"], (0, _extends2["default"])({}, props, {

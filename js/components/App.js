@@ -5,8 +5,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _jsxRuntime = require("react/jsx-runtime.js");
-
 var _react = require("react");
 
 var _reactRedux = require("react-redux");
@@ -16,6 +14,8 @@ var _AppContext = _interopRequireDefault(require("./AppContext"));
 var _Radio = _interopRequireDefault(require("./radio/Radio"));
 
 var _AudioPlayer = _interopRequireDefault(require("./radio/AudioPlayer"));
+
+var _jsxRuntime = require("react/jsx-runtime");
 
 var CL = "app-radio-player";
 

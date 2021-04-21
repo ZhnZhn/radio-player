@@ -1,15 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../src/sound/alternative.js"
- ],
- "file": "../../src/sound/alternative.js",
- "names": [
-  "alternative",
-  "title",
-  "src",
-  "siteUrl",
-  "br"
- ],
- "mappings": ";;;;AAAA,IAAMA,WAAW,GAAG,CAAC;AACjBC,EAAAA,KAAK,EAAE,wBADU;AAEjBC,EAAAA,GAAG,EAAE,0CAFY;AAGjBC,EAAAA,OAAO,EAAE,oCAHQ;AAIjBC,EAAAA,EAAE,EAAE;AAJa,CAAD,EAKhB;AACAH,EAAAA,KAAK,EAAE,uBADP;AAEAC,EAAAA,GAAG,EAAE,4DAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CALgB,EAUhB;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,yHAFL;AAGAC,EAAAA,OAAO,EAAE,0BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAVgB,EAehB;AACAH,EAAAA,KAAK,EAAE,kCADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAfgB,CAApB;eAuBeJ,W"
-}
+{"version":3,"sources":["../../src/sound/alternative.js"],"names":["alternative","title","src","siteUrl","br"],"mappings":";;;;AAAA,IAAMA,WAAW,GAAG,CAAC;AACjBC,EAAAA,KAAK,EAAE,wBADU;AAEjBC,EAAAA,GAAG,EAAE,0CAFY;AAGjBC,EAAAA,OAAO,EAAE,oCAHQ;AAIjBC,EAAAA,EAAE,EAAE;AAJa,CAAD,EAKhB;AACAH,EAAAA,KAAK,EAAE,uBADP;AAEAC,EAAAA,GAAG,EAAE,4DAFL;AAGAC,EAAAA,OAAO,EAAE,8BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CALgB,EAUhB;AACAH,EAAAA,KAAK,EAAE,sBADP;AAEAC,EAAAA,GAAG,EAAE,yHAFL;AAGAC,EAAAA,OAAO,EAAE,0BAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAVgB,EAehB;AACAH,EAAAA,KAAK,EAAE,kCADP;AAEAC,EAAAA,GAAG,EAAE,qCAFL;AAGAC,EAAAA,OAAO,EAAE,kBAHT;AAIAC,EAAAA,EAAE,EAAE;AAJJ,CAfgB,CAApB;eAuBeJ,W","sourcesContent":["const alternative = [{\r\n    title: 'Canada: American Roots',\r\n    src: 'https://igor.torontocast.com:2275/stream',\r\n    siteUrl: 'https://www.americanrootsradio.com',\r\n    br: 64\r\n  },{\r\n    title: \"France: Chante France\",\r\n    src: 'https://chantefrance.ice.infomaniak.ch/chantefrance-96.aac',\r\n    siteUrl: 'https://www.chantefrance.com',\r\n    br: 96\r\n  },{\r\n    title: \"France: Nostalgie FM\",\r\n    src: 'https://scdn.nrjaudio.fm/fr/30601/aac_64.mp3?origine=playernostalgie&aw_0_req.userConsent=undefined&cdn_path=audio_lbs8',\r\n    siteUrl: 'https://www.nostalgie.fr',\r\n    br: 128\r\n  },{\r\n    title: 'USA: The Austin Music Experience',\r\n    src: 'https://kut.streamguys1.com/amx-web',\r\n    siteUrl: 'https://kutx.org',\r\n    br: 192\r\n  }\r\n]\r\n\r\nexport default alternative\r\n"],"file":"alternative.js"}
