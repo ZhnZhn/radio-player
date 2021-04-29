@@ -13,10 +13,6 @@ var _react = require("react");
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-/*
- Mostly from
- https://github.com/callemall/material-ui/blob/master/src/Slider/Slider.js
-*/
 var S = {
   ROOT: {
     position: 'relative',
@@ -269,12 +265,14 @@ var InputSlider = /*#__PURE__*/function (_Component) {
     };
 
     _this._setValue = function (event, value) {
+      var onChange = _this.props.onChange;
+
       _this.setState({
         value: value
       });
 
-      if (_this.isOnChange) {
-        _this.props.onChange(value);
+      if (_isFn(onChange)) {
+        onChange(value);
       }
     };
 
@@ -315,10 +313,8 @@ var InputSlider = /*#__PURE__*/function (_Component) {
       return _this.trackComp = comp;
     };
 
-    var onChange = props.onChange,
-        _step = props.step,
+    var _step = props.step,
         initValue = props.initValue;
-    _this.isOnChange = _isFn(onChange);
 
     var arr = ('' + _step).split('.');
 
@@ -326,20 +322,21 @@ var InputSlider = /*#__PURE__*/function (_Component) {
     _this.state = {
       isHovered: false,
       isDragged: false,
+      initValue: initValue,
       value: initValue
     };
     return _this;
   }
 
-  var _proto = InputSlider.prototype;
-
-  _proto.UNSAFE_componentWillReceiveProps = function UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props) {
-      this.setState({
-        value: nextProps.initValue
-      });
-    }
+  InputSlider.getDerivedStateFromProps = function getDerivedStateFromProps(props, state) {
+    var initValue = props.initValue;
+    return initValue !== state.initValue ? {
+      initValue: initValue,
+      value: initValue
+    } : null;
   };
+
+  var _proto = InputSlider.prototype;
 
   _proto.render = function render() {
     var _this$props4 = this.props,
@@ -399,12 +396,6 @@ var InputSlider = /*#__PURE__*/function (_Component) {
           required: true
         })]
       })
-    });
-  };
-
-  _proto.setValue = function setValue(value) {
-    this.setState({
-      value: value
     });
   };
 

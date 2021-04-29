@@ -1,10 +1,5 @@
 import { Component } from 'react';
 
-/*
- Mostly from
- https://github.com/callemall/material-ui/blob/master/src/Slider/Slider.js
-*/
-
 const S = {
   ROOT : {
     position: 'relative',
@@ -149,22 +144,24 @@ class InputSlider extends Component {
 
   constructor(props){
     super(props)
-    const { onChange, step, initValue } = props
-    this.isOnChange = _isFn(onChange)
-    const arr = (''+step).split('.')
+    const { step, initValue } = props;
+    const arr = (''+step).split('.');
+
     this.stepExp = (arr[1]) ? -1 * arr[1].length : 0
 
     this.state = {
       isHovered: false,
       isDragged: false,
+      initValue,
       value: initValue
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps){
-    if (nextProps !== this.props){
-      this.setState({ value : nextProps.initValue })
-    }
+  static getDerivedStateFromProps(props, state){
+    const { initValue } = props;
+    return initValue !== state.initValue
+      ? { initValue, value: initValue }
+      : null;
   }
 
   _hMouseEnter = () => {
@@ -237,9 +234,10 @@ class InputSlider extends Component {
   }
 
   _setValue = (event, value) => {
+    const { onChange } = this.props;
     this.setState({ value })
-    if (this.isOnChange){
-      this.props.onChange(value)
+    if (_isFn(onChange)){
+      onChange(value)
     }
   }
 
@@ -288,7 +286,7 @@ class InputSlider extends Component {
     , _percent = _toPercent(value, min, max)
     , _widthBeforeStyle = _calcWidth(_percent)
     , _widthAfterStyle = _calcWidth(100 - _percent)
-    , _leftStyle = _crLeftStyle(_percent)
+    , _leftStyle = _crLeftStyle(_percent);
 
     return (
       <div style={{...S.ROOT, ...style}}
@@ -331,11 +329,6 @@ class InputSlider extends Component {
       </div>
     );
   }
-
-  setValue(value){
-    this.setState({ value })
-  }
-
 }
 
 export default InputSlider
