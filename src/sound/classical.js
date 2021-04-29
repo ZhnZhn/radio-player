@@ -34,6 +34,11 @@ const classical = [
     title: 'Swissradio.ch Classical',
     src: 'http://relay.publicdomainproject.org/classical.mp3'
   },{
+    title: 'UK: Classic FM',
+    src: 'https://media-ssl.musicradio.com/ClassicFM',
+    siteUrl: 'https://www.classicfm.com/',
+    br: 48
+  },{
     title: 'UK: BBC 3 Radio',
     src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p',
     br: 128
