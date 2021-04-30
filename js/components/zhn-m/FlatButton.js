@@ -30,7 +30,7 @@ var FlatButton = function FlatButton(_ref) {
       _ref$timeout = _ref.timeout,
       timeout = _ref$timeout === void 0 ? 500 : _ref$timeout,
       className = _ref.className,
-      rootStyle = _ref.rootStyle,
+      style = _ref.style,
       _ref$clDiv = _ref.clDiv,
       clDiv = _ref$clDiv === void 0 ? CL.BT_DIV : _ref$clDiv,
       clCaption = _ref.clCaption,
@@ -39,6 +39,7 @@ var FlatButton = function FlatButton(_ref) {
       title = _ref$title === void 0 ? '' : _ref$title,
       caption = _ref.caption,
       accessKey = _ref.accessKey,
+      tabIndex = _ref.tabIndex,
       onClick = _ref.onClick,
       children = _ref.children;
 
@@ -72,7 +73,7 @@ var FlatButton = function FlatButton(_ref) {
     };
   });
 
-  var _style = isPrimary ? (0, _extends2["default"])({}, rootStyle, S.PRIMARY) : rootStyle,
+  var _style = isPrimary ? (0, _extends2["default"])({}, style, S.PRIMARY) : style,
       _className = className ? CL.BT + " " + className : CL.BT,
       _clCaption = clCaption ? CL.BT_SPAN + " " + clCaption : CL.BT_SPAN,
       _title = accessKey ? title + " [" + accessKey + "]" : title;
@@ -82,7 +83,7 @@ var FlatButton = function FlatButton(_ref) {
     className: _className,
     style: _style,
     accessKey: accessKey,
-    tabIndex: 0,
+    tabIndex: tabIndex,
     title: _title,
     onClick: _hClick,
     children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {

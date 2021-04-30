@@ -24,7 +24,9 @@ var CategoriesList = function CategoriesList() {
       removeCategory = _useContext.removeCategory,
       useSelector = _useContext.useSelector,
       topics = useSelector(sApp.topics),
-      isCategories = useSelector(sApp.categories);
+      isCategories = useSelector(sApp.categories),
+      isOpen = useSelector(sApp.isDrawer),
+      btTabIndex = isOpen ? 0 : -1;
 
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("ul", {
     style: _style["default"].UL,
@@ -35,6 +37,7 @@ var CategoriesList = function CategoriesList() {
           className: _style["default"].CL_BT,
           caption: category,
           timeout: 0,
+          tabIndex: btTabIndex,
           onClick: _is ? function () {
             return removeCategory(category);
           } : function () {

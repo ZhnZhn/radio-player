@@ -1,1 +1,28 @@
-{"version":3,"sources":["../../../src/components/drawer/CategoriesList.jsx"],"names":["CategoriesList","AppContext","sApp","addCategory","removeCategory","useSelector","topics","isCategories","categories","S","UL","map","category","_is","CL_BT"],"mappings":";;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AACA;;;;AAEA,IAAMA,cAAc,GAAG,SAAjBA,cAAiB,GAAM;AAC3B,oBAKI,uBAAWC,sBAAX,CALJ;AAAA,MACEC,IADF,eACEA,IADF;AAAA,MAEEC,WAFF,eAEEA,WAFF;AAAA,MAGEC,cAHF,eAGEA,cAHF;AAAA,MAIEC,WAJF,eAIEA,WAJF;AAAA,MAMEC,MANF,GAMWD,WAAW,CAACH,IAAI,CAACI,MAAN,CANtB;AAAA,MAOEC,YAPF,GAOiBF,WAAW,CAACH,IAAI,CAACM,UAAN,CAP5B;;AAQA,sBACA;AAAI,IAAA,KAAK,EAAEC,kBAAEC,EAAb;AAAA,cAEIJ,MAAM,CAACK,GAAP,CAAW,UAAAC,QAAQ,EAAI;AACrB,UAAMC,GAAG,GAAGN,YAAY,CAACK,QAAD,CAAxB;AACA,0BACE;AAAA,+BACE,qBAAC,sBAAD;AACE,UAAA,SAAS,EAAEH,kBAAEK,KADf;AAEE,UAAA,OAAO,EAAEF,QAFX;AAGE,UAAA,OAAO,EAAE,CAHX;AAIE,UAAA,OAAO,EAAEC,GAAG,GACR;AAAA,mBAAMT,cAAc,CAACQ,QAAD,CAApB;AAAA,WADQ,GAER;AAAA,mBAAMT,WAAW,CAACS,QAAD,CAAjB;AAAA,WANN;AAAA,oBASIC,GAAG,iBAAI,qBAAC,sBAAD;AATX;AADF,SAASD,QAAT,CADF;AAeD,KAjBD;AAFJ,IADA;AAwBD,CAjCD;;eAoCeZ,c","sourcesContent":["import { useContext } from 'react'\r\n\r\nimport AppContext from '../AppContext'\r\n\r\nimport SvgChecked from '../zhn/SvgChecked'\r\nimport FlatButton  from '../zhn-m/FlatButton'\r\nimport S from './style'\r\n\r\nconst CategoriesList = () => {\r\n  const {\r\n    sApp,\r\n    addCategory,\r\n    removeCategory,\r\n    useSelector\r\n  } = useContext(AppContext)\r\n  , topics = useSelector(sApp.topics)\r\n  , isCategories = useSelector(sApp.categories);\r\n  return(\r\n  <ul style={S.UL}>\r\n    {\r\n      topics.map(category => {\r\n        const _is = isCategories[category];\r\n        return (\r\n          <li key={category}>\r\n            <FlatButton\r\n              className={S.CL_BT}\r\n              caption={category}\r\n              timeout={0}\r\n              onClick={_is\r\n                ? () => removeCategory(category)\r\n                : () => addCategory(category)\r\n              }\r\n            >\r\n              { _is && <SvgChecked /> }\r\n            </FlatButton>\r\n          </li>\r\n        )\r\n      })\r\n    }\r\n  </ul>\r\n  );\r\n}\r\n\r\n\r\nexport default CategoriesList\r\n"],"file":"CategoriesList.js"}
+{
+ "version": 3,
+ "sources": [
+  "../../../src/components/drawer/CategoriesList.js"
+ ],
+ "file": "../../../src/components/drawer/CategoriesList.js",
+ "names": [
+  "CategoriesList",
+  "AppContext",
+  "sApp",
+  "addCategory",
+  "removeCategory",
+  "useSelector",
+  "topics",
+  "isCategories",
+  "categories",
+  "isOpen",
+  "isDrawer",
+  "btTabIndex",
+  "S",
+  "UL",
+  "map",
+  "category",
+  "_is",
+  "CL_BT"
+ ],
+ "mappings": ";;;;;;;AAAA;;AAEA;;AAEA;;AACA;;AACA;;;;AAEA,IAAMA,cAAc,GAAG,SAAjBA,cAAiB,GAAM;AAC3B,oBAKI,uBAAWC,sBAAX,CALJ;AAAA,MACEC,IADF,eACEA,IADF;AAAA,MAEEC,WAFF,eAEEA,WAFF;AAAA,MAGEC,cAHF,eAGEA,cAHF;AAAA,MAIEC,WAJF,eAIEA,WAJF;AAAA,MAMEC,MANF,GAMWD,WAAW,CAACH,IAAI,CAACI,MAAN,CANtB;AAAA,MAOEC,YAPF,GAOiBF,WAAW,CAACH,IAAI,CAACM,UAAN,CAP5B;AAAA,MAQEC,MARF,GAQWJ,WAAW,CAACH,IAAI,CAACQ,QAAN,CARtB;AAAA,MASEC,UATF,GASeF,MAAM,GAAG,CAAH,GAAO,CAAC,CAT7B;;AAUA,sBACA;AAAI,IAAA,KAAK,EAAEG,kBAAEC,EAAb;AAAA,cAEIP,MAAM,CAACQ,GAAP,CAAW,UAAAC,QAAQ,EAAI;AACrB,UAAMC,GAAG,GAAGT,YAAY,CAACQ,QAAD,CAAxB;AACA,0BACE;AAAA,+BACE,qBAAC,sBAAD;AACE,UAAA,SAAS,EAAEH,kBAAEK,KADf;AAEE,UAAA,OAAO,EAAEF,QAFX;AAGE,UAAA,OAAO,EAAE,CAHX;AAIE,UAAA,QAAQ,EAAEJ,UAJZ;AAKE,UAAA,OAAO,EAAEK,GAAG,GACR;AAAA,mBAAMZ,cAAc,CAACW,QAAD,CAApB;AAAA,WADQ,GAER;AAAA,mBAAMZ,WAAW,CAACY,QAAD,CAAjB;AAAA,WAPN;AAAA,oBAUIC,GAAG,iBAAI,qBAAC,sBAAD;AAVX;AADF,SAASD,QAAT,CADF;AAgBD,KAlBD;AAFJ,IADA;AAyBD,CApCD;;eAuCef,c"
+}

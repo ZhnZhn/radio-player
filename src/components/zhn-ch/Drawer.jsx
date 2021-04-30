@@ -18,9 +18,7 @@ const S = {
     right: 18
   },
   DRAWER_OFF: {
-    //transform: 'translateX(-264px)',
-    transform: 'translateX(264px)',
-    pointerEvents: 'none'
+    transform: 'translateX(264px)'
   },
   DRAWER_ON: {
     transform: 'translate(0px, 0px)',

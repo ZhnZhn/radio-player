@@ -14,7 +14,9 @@ const CategoriesList = () => {
     useSelector
   } = useContext(AppContext)
   , topics = useSelector(sApp.topics)
-  , isCategories = useSelector(sApp.categories);
+  , isCategories = useSelector(sApp.categories)
+  , isOpen = useSelector(sApp.isDrawer)
+  , btTabIndex = isOpen ? 0 : -1;
   return(
   <ul style={S.UL}>
     {
@@ -26,6 +28,7 @@ const CategoriesList = () => {
               className={S.CL_BT}
               caption={category}
               timeout={0}
+              tabIndex={btTabIndex}
               onClick={_is
                 ? () => removeCategory(category)
                 : () => addCategory(category)

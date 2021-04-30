@@ -18,11 +18,12 @@ const FlatButton = ({
   innerRef,
   timeout=500,
   className,
-  rootStyle,
+  style,
   clDiv=CL.BT_DIV,
   clCaption,
   isPrimary,
   title='', caption, accessKey,
+  tabIndex,
   onClick,
   children
 }) => {
@@ -49,8 +50,8 @@ const FlatButton = ({
   }))
 
   const _style = isPrimary
-       ? {...rootStyle, ...S.PRIMARY }
-       : rootStyle
+       ? {...style, ...S.PRIMARY }
+       : style
   , _className = className
        ? `${CL.BT} ${className}`
        : CL.BT
@@ -66,7 +67,7 @@ const FlatButton = ({
       className={_className}
       style={_style}
       accessKey={accessKey}
-      tabIndex={0}
+      tabIndex={tabIndex}
       title={_title}
       onClick={_hClick}
     >
