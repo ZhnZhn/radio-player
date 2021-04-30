@@ -121,6 +121,9 @@ var RadioVolume = function RadioVolume(_ref) {
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_InputSlider["default"], {
       style: S.SLIDER,
       initValue: volume,
+      step: 0.05,
+      min: 0,
+      max: 1,
       onChange: setVolume
     }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_BtMinus["default"], (0, _extends2["default"])({
       accessKey: "-"

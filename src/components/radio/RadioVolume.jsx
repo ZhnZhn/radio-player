@@ -80,6 +80,9 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
       <InputSlider
         style={S.SLIDER}
         initValue={volume}
+        step={0.05}
+        min={0}
+        max={1}        
         onChange={setVolume}
       />
       <BtMinus
