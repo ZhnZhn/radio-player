@@ -1,16 +1,1 @@
-{
- "version": 3,
- "sources": [
-  "../../../src/components/hooks/useBool.js"
- ],
- "file": "../../../src/components/hooks/useBool.js",
- "names": [
-  "useBool",
-  "initialValue",
-  "is",
-  "setIs",
-  "setTrue",
-  "setFalse"
- ],
- "mappings": ";;;;;AAAA;;AAGA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAACC,YAAD,EAAkB;AAChC,kBAAoB,qBAAS;AAAA,WAAM,CAAC,CAACA,YAAR;AAAA,GAAT,CAApB;AAAA,MAAOC,EAAP;AAAA,MAAWC,KAAX;AAAA,MAEEC,OAFF,GAEY,wBAAY;AAAA,WAAMD,KAAK,CAAC,IAAD,CAAX;AAAA,GAAZ,EAA+B,EAA/B,CAFZ;AAAA,MAGEE,QAHF,GAGa,wBAAY;AAAA,WAAMF,KAAK,CAAC,KAAD,CAAX;AAAA,GAAZ,EAAgC,EAAhC,CAHb,CADgC,CAKhC;;AACA;;;AACA,SAAO,CAACD,EAAD,EAAKE,OAAL,EAAcC,QAAd,CAAP;AACD,CARD;;eAUeL,O"
-}
+{"version":3,"sources":["../../../src/components/hooks/useBool.js"],"names":["useBool","initialValue","is","setIs","setTrue","setFalse"],"mappings":";;;;;AAAA;;AAGA,IAAMA,OAAO,GAAG,SAAVA,OAAU,CAACC,YAAD,EAAkB;AAChC,kBAAoB,qBAAS;AAAA,WAAM,CAAC,CAACA,YAAR;AAAA,GAAT,CAApB;AAAA,MAAOC,EAAP;AAAA,MAAWC,KAAX;AAAA,MAEEC,OAFF,GAEY,wBAAY;AAAA,WAAMD,KAAK,CAAC,IAAD,CAAX;AAAA,GAAZ,EAA+B,EAA/B,CAFZ;AAAA,MAGEE,QAHF,GAGa,wBAAY;AAAA,WAAMF,KAAK,CAAC,KAAD,CAAX;AAAA,GAAZ,EAAgC,EAAhC,CAHb,CADgC,CAKhC;;AACA;;;AACA,SAAO,CAACD,EAAD,EAAKE,OAAL,EAAcC,QAAd,CAAP;AACD,CARD;;eAUeL,O","sourcesContent":["import { useState, useCallback } from 'react';\r\n\r\n\r\nconst useBool = (initialValue) => {\r\n  const [is, setIs] = useState(() => !!initialValue)\r\n  /*eslint-disable react-hooks/exhaustive-deps */\r\n  , setTrue = useCallback(() => setIs(true), [])\r\n  , setFalse = useCallback(() => setIs(false), []);\r\n  //setIs\r\n  /*eslint-enable react-hooks/exhaustive-deps */\r\n  return [is, setTrue, setFalse];\r\n};\r\n\r\nexport default useBool\r\n"],"file":"useBool.js"}
