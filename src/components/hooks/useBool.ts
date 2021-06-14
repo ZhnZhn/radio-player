@@ -1,7 +1,12 @@
 import { useState, useCallback } from 'react';
 
+type UseBoolType = (value?: boolean) => [
+  is: boolean,
+  setTrue: () => void,
+  setFalse: () => void 
+]
 
-const useBool = (initialValue) => {
+const useBool: UseBoolType = (initialValue) => {
   const [is, setIs] = useState(() => !!initialValue)
   /*eslint-disable react-hooks/exhaustive-deps */
   , setTrue = useCallback(() => setIs(true), [])
