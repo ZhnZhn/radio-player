@@ -1,18 +1,35 @@
-import { useRef, useCallback, useImperativeHandle } from 'react'
+import { CSSProperties, TabIndexType, WithChildren } from '../types';
+import React, { useRef, useCallback, useImperativeHandle } from 'react';
 
-import CaptionInput from './CaptionInput'
+import CaptionInput from './CaptionInput';
+
+type FocusElementType = { focus: () => void }
+
+interface FlatButtonProps {
+  innerRef?: React.Ref<FocusElementType>,
+  timeout?: number,
+  className?: string,
+  style?: CSSProperties,
+  clDiv?: string,
+  clCaption?: string,
+  isPrimary?: boolean,
+  title?: string, 
+  caption?: string, 
+  accessKey?: string,
+  tabIndex?: TabIndexType,
+  onClick: (event: React.MouseEvent) => void,
+}
+
+type FlatButtonType = WithChildren<FlatButtonProps>
 
 const CL = {
   BT: 'bt-flat',
   BT_DIV: 'bt-flat__div',
   BT_SPAN: 'bt-flat__span'
 };
-const S = {
-  PRIMARY: {
-    color: '#607d8b'
-  }
+const S_PRIMARY: CSSProperties = {  
+  color: '#607d8b'  
 };
-const POINTER_EVENTS = 'pointer-events';
 
 const FlatButton = ({
   innerRef,
@@ -26,19 +43,20 @@ const FlatButton = ({
   tabIndex,
   onClick,
   children
-}) => {
-  const _refBt = useRef()
-  , _setPointerEvents = useCallback((value='auto') => {
-    if (_refBt.current) {
-       _refBt.current.style[POINTER_EVENTS] = value
-    }
-  }, [])
-  , _hClick = useCallback((event) => {
+}: FlatButtonType) => {
+  const _refBt = useRef<HTMLButtonElement>(null)
+  , _refTimeStamp = useRef<number>(0)  
+  , _hClick = useCallback((event: React.MouseEvent) => {        
     if (timeout !== 0) {
-      _setPointerEvents('none')
-      setTimeout(_setPointerEvents, timeout)
-    }
-    onClick(event)
+      const _timeStamp = _refTimeStamp.current
+      , { timeStamp } = event;
+      if (_timeStamp && timeStamp - _timeStamp > timeout) {
+        onClick(event)  
+      }
+      _refTimeStamp.current = timeStamp      
+    } else {
+      onClick(event)
+    }  
   }, [timeout, onClick])
 
   useImperativeHandle(innerRef, () => ({
@@ -50,7 +68,7 @@ const FlatButton = ({
   }))
 
   const _style = isPrimary
-       ? {...style, ...S.PRIMARY }
+       ? {...style, ...S_PRIMARY}
        : style
   , _className = className
        ? `${CL.BT} ${className}`
