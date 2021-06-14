@@ -1,12 +1,12 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import AppContext from '../AppContext'
-import useSwipeGesture from '../hooks/useSwipeGesture'
+import AppContext from '../AppContext';
+import useSwipeGesture from '../hooks/useSwipeGesture';
 
-import SvgClose from '../zhn/SvgClose'
-import BtTriple from '../zhn/BtTriple'
-import CategoriesList from './CategoriesList'
-import S from './style'
+import SvgClose from '../zhn/SvgClose';
+import BtTriple from '../zhn/BtTriple';
+import CategoriesList from './CategoriesList';
+import S from './style';
 
 const DrawerMenu = () => {
   const {

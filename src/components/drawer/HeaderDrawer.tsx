@@ -1,9 +1,9 @@
 import Drawer from '../zhn-ch/Drawer'
 import DrawerMenu from './DrawerMenu'
 
-const HeaderDrawer = (props) => (
+const HeaderDrawer = () => (
   <Drawer>
-    <DrawerMenu {...props} />
+    <DrawerMenu />
   </Drawer>
 );
 

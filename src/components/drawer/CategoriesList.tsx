@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import AppContext from '../AppContext'
+import AppContext from '../AppContext';
 
-import SvgChecked from '../zhn/SvgChecked'
-import FlatButton  from '../zhn-m/FlatButton'
-import S from './style'
+import SvgChecked from '../zhn/SvgChecked';
+import FlatButton  from '../zhn-m/FlatButton';
+import S from './style';
 
 const CategoriesList = () => {
   const {
@@ -20,7 +20,7 @@ const CategoriesList = () => {
   return(
   <ul style={S.UL}>
     {
-      topics.map(category => {
+      topics.map((category: string) => {
         const _is = isCategories[category];
         return (
           <li key={category}>
