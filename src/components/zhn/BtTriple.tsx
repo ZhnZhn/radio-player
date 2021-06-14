@@ -1,4 +1,17 @@
-import { useState, useCallback } from 'react'
+import { CSSProperties, TabIndexType } from './types';
+import { useState, useCallback } from 'react';
+
+type BtValueType = 1 | 2 | 3
+
+interface BtTripleProps {
+  style?: CSSProperties,
+  tabIndex?: TabIndexType,
+  initialValue?: BtValueType,
+  oneC?: string, 
+  twoC?: string, 
+  threeC?: string,
+  onClick: (v: BtValueType) => {}
+}
 
 const CL = {
   BT: 'bt-triple',
@@ -7,23 +20,27 @@ const CL = {
   BT_THREE: 'bt-triple__three',
 };
 
-const S = {
-  SELECTED: {
-    backgroundColor: '#1b2836'
-  }
+const S_SELECTED: CSSProperties = { 
+  backgroundColor: '#1b2836'  
 };
 
-const _crBtStyle = (nowValue, btValue) => nowValue === btValue
-  ? S.SELECTED
-  : void 0;
+const _crBtStyle = (
+  nowValue: number, 
+  btValue: number
+  ) => nowValue === btValue
+    ? S_SELECTED
+    : void 0;
+
 
 const BtTriple = ({
   style,
-  tabIndex,
-  initialValue,
-  oneC, twoC, threeC,
+  tabIndex=-1,
+  initialValue=1,
+  oneC='One', 
+  twoC='Two', 
+  threeC='Three',
   onClick
-}) => {
+}: BtTripleProps) => {
   const [value, setValue] = useState(initialValue)
   , _oneStyle = _crBtStyle(value, 1)
   , _twoStyle = _crBtStyle(value, 2)
@@ -62,13 +79,5 @@ const BtTriple = ({
   </div>
  )
 };
-
-BtTriple.defaultProps = {
-  tabIndex: -1,
-  initialValue: 1,
-  oneC: 'One',
-  twoC: 'Two',
-  threeC: 'Three'
-}
 
 export default BtTriple

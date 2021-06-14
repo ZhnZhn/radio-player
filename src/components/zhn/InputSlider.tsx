@@ -1,131 +1,60 @@
-import { useRef, useState, useEffect } from 'react';
+import { CSSProperties } from './types';
+import React, { useRef, useState, useEffect } from 'react';
 
 import useBool from '../hooks/useBool';
 import has from '../has';
+import S from './InputSliderStyle';
 
-//import PropTypes from "prop-types";
+interface InputSliderProps {
+  style?: CSSProperties
+  initValue: number,
+  step: number,
+  min: number,
+  max: number,
+  onChange?: (value: number) => void
+}
 
-const S = {
-  ROOT: {
-    position: 'relative',
-    width: '100%',
-    height: 18,
-    marginTop: 8,
-    marginBottom: 8,
-    userSelect : 'none',
-    cursor: 'default'
-  },
-  ROOT_LINE : {
-    position: 'absolute',
-    top: 8,
-    left: 0,
-    width: '100%',
-    height: 2
-  },
-  LINE_BEFORE : {
-    position: 'absolute',
-    left: 0,
-    width: 'calc(15%)',
-    height: '100%',
-    marginRight: 6,
-    backgroundColor: 'rgb(0, 188, 212)',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-  },
-  LINE_AFTER : {
-    position: 'absolute',
-    right: 0,
-    width: 'calc(85%)',
-    height: '100%',
-    marginLeft: 6,
-    backgroundColor: 'rgb(189, 189, 189)',
-    transition: 'margin 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
-  },
-  LINE_HOVERED : {
-    backgroundColor: 'rgb(158, 158, 158)',
-  },
-  ROOT_CIRCLE : {
-    boxSizing: 'borderBox',
-    zIndex: '1',
-    position: 'absolute',
-    top: 0,
-    left: '15%',
-    width: 12,
-    height: 12,
-    cursor: 'pointer',
-    pointerEvents: 'inherit',
-    margin: '1px 0px 0px',
-    backgroundColor: 'rgb(0, 188, 212)',
-    backgroundClip: 'padding-box',
-    border: '0px solid transparent',
-    borderRadius: '50%',
-    transform: 'translate(-50%, -50%)',
-    overflow: 'visible',
-    outline: 'none',
-    transition: 'background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
-  },
-  CIRCLE_DRAGGED : {
-    width: 20,
-    height: 20
-  },
-  CIRCLE_INNER : {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 12,
-    height: 12,
-    overflow: 'visible'
-  },
-  CIRCLE_INNER_EL : {
-    position: 'absolute',
-    top: -12,
-    left: -12,
-    width: '300%',
-    height: 36,
-    borderRadius: '50%',
-    //opacity: '0.16',
-    backgroundColor: 'rgba(0, 188, 212, 0.16)',
-    transform: 'scale(1)'
-  },
-  EMBER : {
-    top: -12,
-    left: -12,
-    width: '220%',
-    height: 44,
-    border: '1px solid #4caf50'
-  }
-};
+type SetValueFromPositionType = (event: React.MouseEvent) => void
 
 const _isNaN = Number.isNaN
 , _noopFn = () => {}
+, hasTouch = has.TOUCH
 , EVENT_NAME_MOVE = hasTouch ? 'touchmove' : 'mousemove'
 , EVENT_NAME_UP = hasTouch ? 'touchend' : 'mouseup'
-, _checkValueInMinMax = (min, max, value) => value > max
+, _checkValueInMinMax = (
+    min: number, 
+    max: number, 
+    value: number
+  ) => value > max
     ? max
     : value < min ? min : value
-, _toPercent = (value, min, max) => {
+, _toPercent = (value: number, min: number, max: number) => {
     const _percent = (value - min) / (max - min);
     return _isNaN(_percent) ? 0 : Math.round(_percent*100);
 }
-, _crWidthStyle = percent => ({
+, _crWidthStyle = (percent: number): CSSProperties => ({
     width: `calc(${percent}%)`
 })
-, _crLeftStyle = percent => ({
+, _crLeftStyle = (percent: number): CSSProperties => ({
    left: `${percent}%`
 })
-, hasTouch = has.touch
 , _getClienX = hasTouch
   ? evt => (((evt || {}).touches || [])[0] || {}).clientX || 0
   : evt => evt.clientX
-, _isUp = keyCode => keyCode === 39 || keyCode === 38
-, _isDown = keyCode => keyCode === 37 || keyCode === 40
-, _calcNewValueByKeyCode = (value, step, keyCode) => _isUp(keyCode)
+, _isUp = (keyCode: number) => keyCode === 39 || keyCode === 38
+, _isDown = (keyCode: number) => keyCode === 37 || keyCode === 40
+, _calcNewValueByKeyCode = (
+  value: number, 
+  step: number, 
+  keyCode: number
+  ) => _isUp(keyCode)
     ? value + step
     : _isDown(keyCode) ? value - step : void 0;
 
-const _useMouseDown = (setValueFromPosition) => {
+const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   const [dragged, setDraggedTrue, setDraggedFalse] = useBool(false)
   , _refDragRunning = useRef(false)
-  , _hDragMouseMove = (event) => {
+  , _hDragMouseMove = (event: React.MouseEvent) => {
     if (_refDragRunning.current) {
       return;
     }
@@ -140,7 +69,7 @@ const _useMouseDown = (setValueFromPosition) => {
      document.removeEventListener(EVENT_NAME_UP, _hDragMouseUp)
      setDraggedFalse()
   },
-  _hMouseDown = (event) => {
+  _hMouseDown = (event: React.MouseEvent) => {
     // Cancel text selection
     if (!hasTouch) {
       event.preventDefault()
@@ -150,6 +79,13 @@ const _useMouseDown = (setValueFromPosition) => {
     setDraggedTrue()
   };
   return [dragged, _hMouseDown];
+}
+, _calcPositionFromEvent = (
+  event: React.MouseEvent, 
+  trackElement: HTMLDivElement
+) => {
+  const _trackOffset = trackElement.getBoundingClientRect()['left']
+  return _getClienX(event) - _trackOffset;
 };
 
 const InputSlider = ({
@@ -159,43 +95,42 @@ const InputSlider = ({
   min,
   max,
   onChange=_noopFn
-}) => {
-  const _refTrack = useRef()
+}: InputSliderProps) => {
+  const _refTrack = useRef<HTMLDivElement>(null)
   , [hovered, setHoveredTrue, setHoveredFalse] = useBool(false)
   , [value, setValue] = useState(initValue)
 
-  , _updateValue = (newValue) => {
+  , _updateValue = (newValue: number) => {
     const _newValue = _checkValueInMinMax(min, max, newValue);
     setValue(_newValue)
     onChange(_newValue)
   }
-  , _hKeyDown = (evt) => {
+  , _hKeyDown = (evt: React.KeyboardEvent) => {
     const { keyCode } = evt
     , _newValue = _calcNewValueByKeyCode(value, step, keyCode);
     if (_newValue != null) {
       evt.preventDefault()
       _updateValue(_newValue)
     }
-  }
-  , _calcPositionFromEvent = (event) => {
-    const _trackOffset = _refTrack.current.getBoundingClientRect()['left']
-    return _getClienX(event) - _trackOffset;
-  }
-  , _setValueFromPosition = (event) => {
-    const positionMax = _refTrack.current.clientWidth;
-    let position = _calcPositionFromEvent(event);
-    if (position < 0) {
-      position = 0;
-    } else if (position > positionMax) {
-      position = positionMax
+  }  
+  , _setValueFromPosition: SetValueFromPositionType = (event) => {
+    const _trackEl = _refTrack.current
+    if (_trackEl) {
+     const positionMax = _trackEl.clientWidth;
+     let position = _calcPositionFromEvent(event, _trackEl);
+     if (position < 0) {
+       position = 0;
+     } else if (position > positionMax) {
+       position = positionMax
+     }
+ 
+     let v;
+     v = position/positionMax * (max - min)
+     v = Math.round(v / step) * step + min
+     v = parseFloat(v.toFixed(2))
+ 
+     _updateValue(v)
     }
-
-    let v;
-    v = position/positionMax * (max - min)
-    v = Math.round(v / step) * step + min
-    v = parseFloat(v.toFixed(2))
-
-    _updateValue(v)
   }
   , [dragged, _hMouseDown] = _useMouseDown(_setValueFromPosition);
 
@@ -227,7 +162,7 @@ const InputSlider = ({
   return (
     <div
       style={{...S.ROOT, ...style}}
-      {..._sliderHandlers}
+      {..._sliderHandlers}      
     >
       <div
          ref={_refTrack}
@@ -262,16 +197,5 @@ const InputSlider = ({
     </div>
   );
 }
-
-/*
-static propTypes = {
-  style: PropTypes.object,
-  initValue: PropTypes.number.isRequired,
-  step : PropTypes.number.isRequired,
-  min : PropTypes.number.isRequired,
-  max : PropTypes.number.isRequired,
-  onChange : PropTypes.func
-}
-*/
 
 export default InputSlider

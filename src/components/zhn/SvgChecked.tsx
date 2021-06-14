@@ -1,10 +1,20 @@
-const S = {
+import { CSSProperties } from './types';
+
+interface SvgCheckedProps {
+  style?: CSSProperties,
+  color?: string
+}
+
+const S: CSSProperties = {
   display: 'inline-block',
   width: 16,
   height: 16
 };
 
-const SvgChecked = ({ style, color='#64e346' }) => (
+const SvgChecked = ({ 
+  style, 
+  color='#64e346' 
+}: SvgCheckedProps) => (
   <span style={{ ...S, ...style }}>
     <svg
       viewBox="0 0 16 16" width="100%" height="100%"

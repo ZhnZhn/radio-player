@@ -1,4 +1,7 @@
-import HAS from '../has'
+import { WithChildren, CircleButtonProps } from './types';
+import HAS from '../has';
+
+type CircleButtonType = WithChildren<CircleButtonProps>
 
 const CL = 'bt-circle';
 
@@ -8,7 +11,7 @@ const CircleButton = ({
   onTouchStart, onTouchEnd,
   onClick,
   children
-}) => {
+}: CircleButtonType) => {
   const _handlers = HAS.TOUCH && onTouchStart
     ? { onTouchStart, onTouchEnd }
     : { onMouseDown, onMouseUp };
@@ -18,7 +21,7 @@ const CircleButton = ({
       accessKey={accessKey}
       {..._handlers}
       onClick={onClick}
-    >
+    >      
       <svg viewBox="0 0 34 34" width="100%" height="100%">
         <g>
           {children}
