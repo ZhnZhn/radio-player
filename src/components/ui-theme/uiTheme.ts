@@ -1,5 +1,6 @@
+import { UiThemeType, UiThemeHmType } from "./types";
 
-const _hm = {
+const _hm: UiThemeHmType = {
   'grey': 'grey',
   //'light': '#e8e8e8',
   'light': '#f9f9f9',
@@ -8,7 +9,7 @@ const _hm = {
 };
 
 const uiThemeImpl = {
-  toBg: (uiTheme) => ({
+  toBg: (uiTheme: UiThemeType) => ({
     backgroundColor: _hm[uiTheme]
   })
 };
