@@ -6,3 +6,5 @@ export type TabIndexType = -1 | 0
 
 export type WithChildren<T = {}> = 
   T & { children?: React.ReactNode } 
+
+export type StyleSheet<T extends string> = Record<T, CSSProperties> 

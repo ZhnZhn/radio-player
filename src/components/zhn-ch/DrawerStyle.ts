@@ -1,14 +1,12 @@
-import { CSSProperties } from "../types";
+import { StyleSheet } from "../types";
 
-type DrawerStyleType = {
-  BT_DRAWER: CSSProperties,
-  DRAWER_OFF: CSSProperties,
-  DRAWER_ON: CSSProperties,
-  MODAL_OFF: CSSProperties,
-  MODAL_ON: CSSProperties
-}
+type StyleKeys = 'BT_DRAWER' 
+ | 'DRAWER_OFF'
+ | 'DRAWER_ON'
+ | 'MODAL_OFF'
+ | 'MODAL_ON'
 
-const S: DrawerStyleType = {
+const S: StyleSheet<StyleKeys> = {
     BT_DRAWER: {
       position: 'absolute',
       top: 8,

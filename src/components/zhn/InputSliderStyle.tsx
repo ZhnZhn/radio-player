@@ -1,19 +1,17 @@
-import { CSSProperties  } from "./types";
+import { StyleSheet  } from "./types";
 
-type ShapeStyle = {
-  ROOT: CSSProperties,
-  ROOT_LINE: CSSProperties,
-  LINE_BEFORE: CSSProperties,
-  LINE_AFTER: CSSProperties,
-  LINE_HOVERED: CSSProperties,
-  ROOT_CIRCLE: CSSProperties,
-  CIRCLE_DRAGGED: CSSProperties,
-  CIRCLE_INNER: CSSProperties,
-  CIRCLE_INNER_EL: CSSProperties,
-  EMBER: CSSProperties        
-} 
+type StyleKeys = 'ROOT' 
+ | 'ROOT_LINE'
+ | 'LINE_BEFORE'
+ | 'LINE_AFTER'
+ | 'LINE_HOVERED'
+ | 'ROOT_CIRCLE'
+ | 'CIRCLE_DRAGGED'
+ | 'CIRCLE_INNER'
+ | 'CIRCLE_INNER_EL'
+ | 'EMBER'
 
-const S: ShapeStyle = {
+const S: StyleSheet<StyleKeys> = {
     ROOT: {
       position: 'relative',
       width: '100%',
