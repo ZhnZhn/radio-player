@@ -1,5 +1,6 @@
+import { StationType } from "./types";
 
-const jazz = [
+const jazz: StationType[] = [
   {
     title: 'USA: Florida Smooth Jazz',
     src: 'http://us4.internet-radio.com:8266/;stream',

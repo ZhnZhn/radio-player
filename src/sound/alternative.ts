@@ -1,4 +1,6 @@
-const alternative = [{
+import { StationType } from "./types";
+
+const alternative: StationType[] = [{
     title: 'Canada: American Roots',
     src: 'https://igor.torontocast.com:2275/stream',
     siteUrl: 'https://www.americanrootsradio.com',

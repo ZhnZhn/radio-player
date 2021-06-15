@@ -1,5 +1,6 @@
+import { StationType } from "./types";
 
-const lounge = [
+const lounge: StationType[] = [
   {
     title: 'France: ABC Lounge Jazz',
     src: 'http://centauri.shoutca.st:8686/stream/1/',

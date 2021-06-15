@@ -1,6 +1,6 @@
+import { StationType } from "./types";
 
-const piano = [
-  {
+const piano: StationType[] = [{
     title: 'USA: Whisperings Solo Piano',
     src: 'http://pianosolo.streamguys.net/live',
     siteUrl: 'https://www.solopianoradio.com',

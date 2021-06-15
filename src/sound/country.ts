@@ -1,6 +1,6 @@
+import { StationType } from "./types";
 
-const country = [
-  {
+const country: StationType[] = [{
     title: 'USA: Country Hits',
     src: 'https://19763.live.streamtheworld.com/977_COUNTRY.mp3',
     siteUrl: 'https://hitsradio.com',

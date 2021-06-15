@@ -1,5 +1,6 @@
+import { StationType } from "./types";
 
-const talks = [
+const talks: StationType[] = [
   {
     title: 'BBC Radio Wales 103.9',
     src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_walesmw_mf_p',

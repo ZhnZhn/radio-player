@@ -1,4 +1,6 @@
-const CATEGORIES = [
+import { CategoriesType } from "./types";
+
+const CATEGORIES: CategoriesType[] = [
   'alternative',
   'chillout',
   'classical',

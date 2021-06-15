@@ -1,5 +1,6 @@
+import { StationType } from "./types";
 
-const classical = [
+const classical: StationType[] = [
   {
     title: "Canada: Classic 107 FM",
     src: "http://daemondef.ic.llnwd.net/stream/daemondef_ddmp3_74",

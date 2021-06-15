@@ -1,5 +1,6 @@
+import { StationType } from "./types";
 
-const instrumental = [
+const instrumental: StationType[] = [
   /*
   {
     title: 'Instrumental Radio',

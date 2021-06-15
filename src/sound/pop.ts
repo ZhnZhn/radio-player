@@ -1,6 +1,6 @@
+import { StationType  } from "./types";
 
-const pop = [
-  {
+const pop: StationType[] = [{
     title: 'UK: BBC Radio 1',
     src: 'http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_q',
     siteUrl: 'https://www.bbc.co.uk/radio1',
