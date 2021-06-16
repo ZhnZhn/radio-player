@@ -1,37 +1,19 @@
-import { useEffect, memo } from 'react'
-import useInterval from '../hooks/useInterval'
+import { FnVoidType } from './types';
 
-import InputSlider from '../zhn/InputSlider'
-import BtMinus from '../zhn/BtMinus'
-import BtPlus from '../zhn/BtPlus'
-import HeaderDrawer from '../drawer/HeaderDrawer'
+import { useEffect, memo } from 'react';
+import useInterval from '../hooks/useInterval';
 
-const S = {
-  ROW: {
-    height: 35,
-    transition: 'height 0.3s ease-out'
-  },
-  SLIDER: {
-    display: 'inline-block',
-    width: 200,
-    maxWidth: 'calc(100vw - 210px)',
-    marginRight: 16
-  },
+import InputSlider from '../zhn/InputSlider';
+import BtMinus from '../zhn/BtMinus';
+import BtPlus from '../zhn/BtPlus';
+import HeaderDrawer from '../drawer/HeaderDrawer';
+import S from './RadioVolumeStyle';
 
-  VOLUME: {
-    position: 'relative',
-    top: -10,
-    display: 'inline-block',
-    color: '#00bcd4',
-    width: 46,
-    paddingLeft: 5,
-    fontSize: 22,
-    fontWeight: 400
-  },
-  GAP: {
-    display: 'inline-block',
-    width: 12
-  }
+export interface RadioVolumeProps {
+  volume: number,
+  setVolume: (volume: number) => void,
+  onIncrease: FnVoidType, 
+  onDecrease: FnVoidType
 }
 
 const C = {
@@ -39,25 +21,26 @@ const C = {
   NEAR_MIN: 0.2
 };
 
-const _isNumber = n => typeof n === 'number'
+const _isNumber = (n: any) => typeof n === 'number'
  && Number.isFinite(n);
 
-const _toVolume = v => _isNumber(v)
+const _toVolume = (v: any) => _isNumber(v)
  ? Math.round(v*100)
  : '';
 
-const _crBtHandlers = ( run, stop ) => ({
+const _crBtHandlers = (run: FnVoidType, stop: FnVoidType) => ({
   onMouseDown: run,
   onMouseUp: stop,
   onTouchStart: run,
   onTouchEnd: stop
 });
 
-const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }) => {
-  const _isNearMax = v  => v > C.NEAR_MAX;
-  const _isNearMin = v => v < C.NEAR_MIN;
-  const [ runIncrease, stopIncrease ] = useInterval(onIncrease, _isNearMax, volume)
-  const [ runDecrease, stopDecrease ] = useInterval(onDecrease, _isNearMin, volume)
+const _isNearMax = (v: number)  => v > C.NEAR_MAX;
+const _isNearMin = (v: number) => v < C.NEAR_MIN;
+
+const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }: RadioVolumeProps) => {  
+  const [runIncrease, stopIncrease] = useInterval(onIncrease, _isNearMax, volume)
+  const [runDecrease, stopDecrease] = useInterval(onDecrease, _isNearMin, volume)
   , _runDecrease = () => {
     if (volume !== 0) { runDecrease() }
   }

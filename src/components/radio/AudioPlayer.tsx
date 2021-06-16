@@ -1,28 +1,30 @@
-import { useRef, useReducer, useEffect, useCallback, useContext } from 'react'
+import { AudioPlayerStateType, TimeoutIdType } from './types';
 
-import HAS from '../has'
-import AppContext from '../AppContext'
+import React, { useRef, useReducer, useEffect, useCallback, useContext } from 'react';
 
-import sound from '../../sound/sound'
-import Radio from './Radio'
-import Title from './Title'
-import Equalizer from './Equalizer'
+import HAS from '../has';
+import AppContext from '../AppContext';
 
-import reducer from './playerReducer'
+import sound from '../../sound/sound';
+import Radio from './Radio';
+import Title from './Title';
+import Equalizer from './Equalizer';
+
+import reducer from './playerReducer';
 
 const A = reducer.A;
 
 const DF_TITLE = 'Radio Player v0.2.0'
 const MSG_NO_STATION = 'At first, please, choose a radio station.'
 
-const CL = {
-  PLAYER: 'audio-player'
-};
+const CL_AUDIO_PLAYER = 'audio-player';
+
 
 const S = {
   TITLE_CONT: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom: 4
   }
 };
 
@@ -46,7 +48,11 @@ const _setMediaMetadata = (artist='') => {
       _setPlaybackPlaying()
     }
     */
-    /*eslint-disable no-undef*/
+
+    /*eslint-disable no-undef*/  
+    // @ts-expect-error
+    // 1) Property mediaSession does not exist on type Navigator  
+    // 2) Cannot find name MediaMetadata
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
@@ -70,14 +76,14 @@ const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
 };
 */
 
-const _clearTimeout = ref => {
-  clearTimeout(ref.current)
-  ref.current = void 0;
+const _clearTimeout = (ref: React.MutableRefObject<TimeoutIdType>) => {
+  clearTimeout((ref.current as unknown) as number)
+  ref.current = null;
 };
 
-const PAUSE_TIMEOUT_MLS = 1000*60*3;
+const PAUSE_TIMEOUT_MLS = 1000*60;
 
-const initialState = {
+const initialState: AudioPlayerStateType = {
   msgErr: '',
   title: DF_TITLE,
   isUnloaded: true,
@@ -86,7 +92,7 @@ const initialState = {
 };
 
 const AudioPlayer = () => {
-  const _refPauseID = useRef()
+  const _refPauseID = useRef<TimeoutIdType>(null)
   , {
     uiThemeImpl,
     sApp, useSelector
@@ -148,13 +154,15 @@ const AudioPlayer = () => {
     dispatch({ type: A.STOP })
   }, [])
 
-  const _onError = (msg) => {
+  const _onError = (msg: string) => {
     dispatch({ type: A.SET_ERROR, msgErr: msg })
     _setMediaMetadata()
   };
 
   useEffect( () => {
     if (HAS.MEDIA_SESSION) {
+      // @ts-expect-error
+      // Property mediaSession does not exist on type Navigator
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])
@@ -173,7 +181,7 @@ const AudioPlayer = () => {
   const _style = uiThemeImpl.toBg(uiTheme);
 
   return (
-    <div className={CL.PLAYER} style={_style}>
+    <div className={CL_AUDIO_PLAYER} style={_style}>
       <Radio.Volume
         volume={volume}
         setVolume={_setVolume}
@@ -184,7 +192,7 @@ const AudioPlayer = () => {
         <Radio.Command
           isPlaying={isPlaying}
           onPlay={play}
-          onPause={pause}
+          onStop={pause}
         />
         <Title
           station={station}

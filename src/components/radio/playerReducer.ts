@@ -1,5 +1,10 @@
+import { 
+  AudioPlayerHmActionType, 
+  AudioPlayerStateType,
+  AudioPlayerReducerActionType 
+} from "./types";
 
-const A = {
+const A: AudioPlayerHmActionType = {
   SET_LOADING: 'SET_LOADING',
   SET_PLAYING: 'SET_PLAYING',
   PAUSE: 'PAUSE',
@@ -10,7 +15,7 @@ const A = {
   SET_ERROR: 'SET_ERROR'
 };
 
-const reducer = (state, action) => {
+const reducer = (state: AudioPlayerStateType, action: AudioPlayerReducerActionType): AudioPlayerStateType => {
   switch(action.type){
     case A.SET_LOADING:
       return { ...state, isUnloaded: false, isPlaying: false, msgErr: ''};
@@ -23,11 +28,20 @@ const reducer = (state, action) => {
     case A.STOP:
       return { ...state, isPlaying: false, isUnloaded: true };
     case A.SET_VOLUME:
-      return { ...state, volume: action.volume };
+      const { volume } = action;
+      return typeof volume === 'number' && volume - volume === 0
+        ? { ...state, volume }
+        : state
     case A.SET_TITLE:
-      return { ...state, title: action.title };
+      const { title } = action
+      return typeof title === 'string'
+        ? { ...state, title }
+        : state;
     case A.SET_ERROR:
-        return { ...state, msgErr: action.msgErr, isPlaying: false, isUnloaded: true };
+        const { msgErr } = action;
+        return typeof msgErr === 'string'
+          ? { ...state, msgErr, isPlaying: false, isUnloaded: true }
+          : state
     default: throw new Error('Unsupported action type: ' + action.type);
   }
 };

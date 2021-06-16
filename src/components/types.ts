@@ -8,3 +8,7 @@ export type WithChildren<T = {}> =
   T & { children?: React.ReactNode } 
 
 export type StyleSheet<T extends string> = Record<T, CSSProperties> 
+
+export type FnVoidType = () => void
+
+export type TimeoutIdType = NodeJS.Timeout | null

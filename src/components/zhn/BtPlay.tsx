@@ -1,6 +1,6 @@
 import CircleButton from './CircleButton';
 
-interface BtPlayProps {
+export interface BtPlayProps {
   isPlaying: boolean,
   onPlay: () => void,
   onStop: () => void 

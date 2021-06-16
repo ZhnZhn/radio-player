@@ -1,11 +1,19 @@
-import StationProtocol from './StationProtocol'
+import { StationType } from '../../sound/types';
+
+import StationProtocol from './StationProtocol';
+
+interface StationItemProps {
+  station: StationType,
+  accessKey?: string,
+  onClick: () => void
+}
 
 const CL = {
   ITEM: 'item-station',
   ACCESS_KEY: 'item-station__access'
 };
 
-const StationItem = ({ station, accessKey, onClick }) => {
+const StationItem = ({ station, accessKey, onClick }: StationItemProps) => {
   const { title, src } = station;
   return (
     <button

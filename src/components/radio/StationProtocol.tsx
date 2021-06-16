@@ -1,8 +1,12 @@
-import utils from '../../sound/utils'
+import utils from '../../sound/utils';
+
+interface StationProtocolProps {
+  src?: string
+}
 
 const { isHttp } = utils;
 
-const StationProtocol = ({ src }) => {
+const StationProtocol = ({ src }: StationProtocolProps) => {
   const _protocol = isHttp(src)
     ? '(http)'
     : '';

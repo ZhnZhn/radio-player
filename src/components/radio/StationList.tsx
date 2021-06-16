@@ -1,18 +1,20 @@
-import { useContext } from 'react'
+import { StationType } from '../../sound/types';
 
-import HAS from '../has'
-import AppContext from '../AppContext'
-import useSwipeGesture from '../hooks/useSwipeGesture'
+import { useContext } from 'react';
 
-import StationDescr from './StationDescr'
-import StationItem from './StationItem'
+import HAS from '../has';
+import AppContext from '../AppContext';
+import useSwipeGesture from '../hooks/useSwipeGesture';
+
+import StationDescr from './StationDescr';
+import StationItem from './StationItem';
 
 const CL = {
   LIST: 'item-list',
 };
 
-const _calcAccessKey = index => index < 5
-  ? index + 1
+const _calcAccessKey = (index: number) => index < 5
+  ? '' + (index + 1)
   : void 0;
 
 const StationList = () => {
@@ -31,7 +33,7 @@ const StationList = () => {
           station={currentStation}
         />
       {
-        radioStations.map((station, index) => {
+        radioStations.map((station: StationType, index: number) => {
           return (
               <StationItem
                 key={station.title}
@@ -44,6 +46,6 @@ const StationList = () => {
       }
     </div>
   );
-}
+};
 
 export default StationList
