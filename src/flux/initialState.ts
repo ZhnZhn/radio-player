@@ -1,6 +1,8 @@
-import categories from '../sound/categories'
+import { StateRoot } from './types';
 
-const initialState = {
+import categories from '../sound/categories';
+
+const initialState: StateRoot = {
   app: {
     isDrawer: false,
     filter: 'none',

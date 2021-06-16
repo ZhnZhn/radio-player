@@ -1,13 +1,16 @@
+import { CategoriesType, StationType } from '../../sound/types';
+import { ActionType } from '../types';
+
+import initialState from '../initialState';
 import { ACTION as AP } from '../app/actions'
-import { ACTION } from './actions'
+import { ACTION } from './actions';
 
+const fByTitle = (title='') =>
+  (item: StationType) => item.title !== title;
+const fByCategory = (category?: CategoriesType) =>
+  (item: StationType) => item.category !== category;
 
-const fByTitle = title =>
-  item => item.title !== title;
-const fByCategory = category =>
-  item => item.category !== category;
-
-const _findByCategory = (arr, category) => {
+const _findByCategory = (arr: StationType[], category?: CategoriesType) => {
   const _max = arr.length;
   for (let i=0; i<_max; i++) {
     if (arr[i].category === category) {
@@ -16,16 +19,16 @@ const _findByCategory = (arr, category) => {
   }
 };
 
-const reducer = function(state=[], action){
+const reducer = function(state=initialState.stations, action: ActionType){
   switch(action.type){
     case ACTION.ADD_CATEGORY: {
       const { categories, category, currentStation } = action
       , { title } = currentStation || {}
-      , _stationsWithoutCurrent = categories.filter(fByTitle(title))
+      , _stationsWithoutCurrent = (categories || []).filter(fByTitle(title))
       , _station = _findByCategory(state, category)
       , _categories = _station
            ? _stationsWithoutCurrent.filter(fByTitle(_station.title))
-           : _stationsWithoutCurrent;
+           : _stationsWithoutCurrent;      
       return [ ..._categories, ...state ];
     }
     case ACTION.REMOVE_CATEGORY: {
