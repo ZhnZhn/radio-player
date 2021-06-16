@@ -1,3 +1,5 @@
+import { ActionHmType } from '../../flux/types';
+
 export * from '../types';
 
 type AudioPlayerActionType = 'SET_LOADING'
@@ -9,9 +11,7 @@ type AudioPlayerActionType = 'SET_LOADING'
  | 'SET_TITLE'
  | 'SET_ERROR'
 
-export type AudioPlayerHmActionType = {
-  [Key in AudioPlayerActionType] : Key
-}
+export type AudioPlayerHmActionType = ActionHmType<AudioPlayerActionType>
 
 export type AudioPlayerStateType = Readonly<{
   msgErr: string,

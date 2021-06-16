@@ -11,11 +11,14 @@ import Title from './Title';
 import Equalizer from './Equalizer';
 
 import reducer from './playerReducer';
+import { 
+  DF_TITLE, 
+  DF_VOLUME, 
+  MSG_NO_STATION, 
+  PAUSE_TIMEOUT_MLS 
+} from './AudioPlayerDf';
 
 const A = reducer.A;
-
-const DF_TITLE = 'Radio Player v0.2.0'
-const MSG_NO_STATION = 'At first, please, choose a radio station.'
 
 const CL_AUDIO_PLAYER = 'audio-player';
 
@@ -81,14 +84,14 @@ const _clearTimeout = (ref: React.MutableRefObject<TimeoutIdType>) => {
   ref.current = null;
 };
 
-const PAUSE_TIMEOUT_MLS = 1000*60;
+//const PAUSE_TIMEOUT_MLS = 1000*60;
 
 const initialState: AudioPlayerStateType = {
   msgErr: '',
   title: DF_TITLE,
   isUnloaded: true,
   isPlaying: false,
-  volume: sound.INIT_VOLUME
+  volume: DF_VOLUME
 };
 
 const AudioPlayer = () => {

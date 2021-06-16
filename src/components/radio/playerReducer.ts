@@ -4,6 +4,8 @@ import {
   AudioPlayerReducerActionType 
 } from "./types";
 
+import { DF_TITLE, DF_VOLUME } from "./AudioPlayerDf";
+
 const A: AudioPlayerHmActionType = {
   SET_LOADING: 'SET_LOADING',
   SET_PLAYING: 'SET_PLAYING',
@@ -28,20 +30,14 @@ const reducer = (state: AudioPlayerStateType, action: AudioPlayerReducerActionTy
     case A.STOP:
       return { ...state, isPlaying: false, isUnloaded: true };
     case A.SET_VOLUME:
-      const { volume } = action;
-      return typeof volume === 'number' && volume - volume === 0
-        ? { ...state, volume }
-        : state
+      const { volume=DF_VOLUME } = action;
+      return { ...state, volume };        
     case A.SET_TITLE:
-      const { title } = action
-      return typeof title === 'string'
-        ? { ...state, title }
-        : state;
+      const { title=DF_TITLE } = action
+      return { ...state, title };        
     case A.SET_ERROR:
-        const { msgErr } = action;
-        return typeof msgErr === 'string'
-          ? { ...state, msgErr, isPlaying: false, isUnloaded: true }
-          : state
+        const { msgErr='' } = action;
+        return { ...state, msgErr, isPlaying: false, isUnloaded: true };          
     default: throw new Error('Unsupported action type: ' + action.type);
   }
 };
