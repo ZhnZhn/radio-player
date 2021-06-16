@@ -24,5 +24,5 @@ export type CategoriesType = 'alternative'
 
 export type CategoriesRouterType = Record<CategoriesType, StationType[]>
 
-export type ProtocolType = 'http' | 'https'
+
 

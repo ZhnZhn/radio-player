@@ -1,4 +1,4 @@
-import { StationFilterType, ProtocolType } from './types';
+import { StationFilterType } from './types';
 
 import categories from './categories';
 import router from './router';
@@ -15,7 +15,7 @@ const utils = {
   crCategories: () => [...categories],
   getCategory: router.getCategory,
 
-  crFilterBy: (filter: ProtocolType): StationFilterType => {
+  crFilterBy: (filter: string): StationFilterType => {
     switch(filter){
       case 'http': return station => utils.isHttp(station.src);
       case 'https': return station => !utils.isHttp(station.src);
