@@ -1,8 +1,10 @@
+import { HowlErrorCallback } from 'howler';
+
 import { Howl, Howler } from 'howler'
 
-const _roundTo2 = n => parseFloat(n.toFixed(2))
+const _roundTo2 = (n: number) => parseFloat(n.toFixed(2))
 
-let _sound;
+let _sound: Howl | null = null;
 
 const INITIAL_CONFIF = {
     volume: 0.25,
@@ -43,7 +45,7 @@ const sound = {
     }
   },
 
-  init: (src, onloaderror, onplayerror) => {
+  init: (src: string, onloaderror: HowlErrorCallback, onplayerror: HowlErrorCallback) => {
     try {
       sound.checkInitVolume()
       const volume = Howler.volume();
@@ -115,7 +117,7 @@ const sound = {
       _sound.stop()
     }
   },
-  setVolume: (volume) => {
+  setVolume: (volume: number) => {
     Howler.volume(_roundTo2(volume));
     return volume;
   },
