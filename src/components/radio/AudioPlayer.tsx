@@ -17,41 +17,20 @@ import {
   MSG_NO_STATION, 
   PAUSE_TIMEOUT_MLS 
 } from './AudioPlayerDf';
+import { CSSProperties } from '../types';
 
 const A = reducer.A;
 
 const CL_AUDIO_PLAYER = 'audio-player';
 
-
-const S = {
-  TITLE_CONT: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingBottom: 4
-  }
+const S_TITLE_CONT: CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  paddingBottom: 4
 };
 
-/*
-const _setPlaybackState = (state) => {
-  if (HAS.MEDIA_SESSION) {
-    navigator.mediaSession.playbackState = state
-  }
-}
-const _setPlaybackPlaying = _setPlaybackState.bind(null, 'playing')
-const _setPlaybackPaused = _setPlaybackState.bind(null, 'paused')
-const _setPlaybackNone = _setPlaybackState.bind(null, 'none')
-*/
-
 const _setMediaMetadata = (artist='') => {
-  if (HAS.MEDIA_SESSION) {
-    /*
-    if (!artist || artist === DF_TITLE) {
-      _setPlaybackNone()
-    } else {
-      _setPlaybackPlaying()
-    }
-    */
-
+  if (HAS.MEDIA_SESSION) {    
     /*eslint-disable no-undef*/  
     // @ts-expect-error
     // 1) Property mediaSession does not exist on type Navigator  
@@ -64,27 +43,10 @@ const _setMediaMetadata = (artist='') => {
   }
 };
 
-/*
-const _setMediaSessionHandlers = (onPlay=null, onPause=null) => {
-  const _mediaSession = navigator.mediaSession;
-  _mediaSession.setActionHandler('play', onPlay)
-  _mediaSession.setActionHandler('pause', onPause)
-  if (onPlay) {
-    _mediaSession.playbackState ='paused'
-  } else if (onPause) {
-    _mediaSession.playbackState = 'playing'
-  } else {
-    _mediaSession.playbackState = 'none'
-  }
-};
-*/
-
 const _clearTimeout = (ref: React.MutableRefObject<TimeoutIdType>) => {
   clearTimeout((ref.current as unknown) as number)
   ref.current = null;
 };
-
-//const PAUSE_TIMEOUT_MLS = 1000*60;
 
 const initialState: AudioPlayerStateType = {
   msgErr: '',
@@ -125,18 +87,14 @@ const AudioPlayer = () => {
     _clearTimeout(_refPauseID)
     if (!msgErr && sound.play()) {
       dispatch({ type: A.SET_PLAYING })
-      _setMediaMetadata(station && station.title || DF_TITLE)
-      //_setMediaSessionHandlers(null, pause)
+      _setMediaMetadata(station && station.title || DF_TITLE)      
     } else {
       dispatch({ type: A.SET_TITLE, title: MSG_NO_STATION })
-      _setMediaMetadata()
-      //_setMediaSessionHandlers()
+      _setMediaMetadata()      
     }
   };
   const pause = () => {
-    sound.stop()
-    //_setMediaSessionHandlers(play)
-    //_setPlaybackPaused()
+    sound.stop()    
     _refPauseID.current = setTimeout(
        () => dispatch({ type: A.UNLOAD }),
        PAUSE_TIMEOUT_MLS
@@ -147,7 +105,6 @@ const AudioPlayer = () => {
   const _unload = () => {
     sound.unload()
     dispatch({ type: A.UNLOAD })
-    //_setMediaSessionHandlers()
     _setMediaMetadata()
   };
 
@@ -191,7 +148,7 @@ const AudioPlayer = () => {
         onIncrease={_increaseVolume}
         onDecrease={_decreaseVolume}
       />
-      <div style={S.TITLE_CONT}>
+      <div style={S_TITLE_CONT}>
         <Radio.Command
           isPlaying={isPlaying}
           onPlay={play}

@@ -1,5 +1,3 @@
-import { StationType } from '../../sound/types';
-
 import { useContext } from 'react';
 
 import HAS from '../has';
@@ -9,11 +7,9 @@ import useSwipeGesture from '../hooks/useSwipeGesture';
 import StationDescr from './StationDescr';
 import StationItem from './StationItem';
 
-const CL = {
-  LIST: 'item-list',
-};
+const CL_STATION_LIST = 'item-list';
 
-const _calcAccessKey = (index: number) => index < 5
+const _crAccessKey = (index: number) => index < 5
   ? '' + (index + 1)
   : void 0;
 
@@ -28,21 +24,17 @@ const StationList = () => {
       onSwipeGesture: toggleDrawer
     });
   return (
-    <div className={CL.LIST} {..._handlers} >
-        <StationDescr
-          station={currentStation}
-        />
+    <div className={CL_STATION_LIST} {..._handlers} >
+        <StationDescr station={currentStation} />
       {
-        radioStations.map((station: StationType, index: number) => {
-          return (
-              <StationItem
-                key={station.title}
-                station={station}
-                accessKey={HAS.TOUCH ? void 0 : _calcAccessKey(index)}
-                onClick={setCurrentStation.bind(null, station, index)}
-              />
-            );
-         })
+        radioStations.map((station, index) => (
+           <StationItem
+             key={station.title}
+             station={station}
+             accessKey={HAS.TOUCH ? void 0 : _crAccessKey(index)}
+             onClick={setCurrentStation.bind(null, station, index)}
+           />
+        ))         
       }
     </div>
   );
