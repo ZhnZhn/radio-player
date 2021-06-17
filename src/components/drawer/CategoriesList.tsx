@@ -1,13 +1,18 @@
+import { CSSProperties } from "../types";
 import { useContext } from 'react';
 
 import AppContext from '../AppContext';
 
 import SvgChecked from '../zhn/SvgChecked';
 import FlatButton  from '../zhn-m/FlatButton';
-import S from './style';
+import CL from './style';
+
+const S_UL: CSSProperties = {
+  listStyleType: 'none'
+};
 
 const CategoriesList = () => {
-  const {
+  const {    
     sApp,
     addCategory,
     removeCategory,
@@ -18,14 +23,14 @@ const CategoriesList = () => {
   , isOpen = useSelector(sApp.isDrawer)
   , btTabIndex = isOpen ? 0 : -1;
   return(
-  <ul style={S.UL}>
+  <ul style={S_UL}>
     {
-      topics.map((category: string) => {
+      topics.map(category => {
         const _is = isCategories[category];
         return (
           <li key={category}>
             <FlatButton
-              className={S.CL_BT}
+              className={CL.BT}
               caption={category}
               timeout={0}
               tabIndex={btTabIndex}

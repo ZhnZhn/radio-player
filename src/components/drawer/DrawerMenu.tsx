@@ -1,3 +1,4 @@
+import { CSSProperties } from "../types";
 import { useContext } from 'react';
 
 import AppContext from '../AppContext';
@@ -6,7 +7,11 @@ import useSwipeGesture from '../hooks/useSwipeGesture';
 import SvgClose from '../zhn/SvgClose';
 import BtTriple from '../zhn/BtTriple';
 import CategoriesList from './CategoriesList';
-import S from './style';
+import CL from './style';
+
+const S_BT_TRIPLE: CSSProperties = {
+  marginRight: 8
+};
 
 const DrawerMenu = () => {
   const {
@@ -16,27 +21,27 @@ const DrawerMenu = () => {
   } = useContext(AppContext)
   , _handlers = useSwipeGesture({
        onSwipeGesture: toggleDrawer, dir: 'R'
-    });
+    });    
   return (
-    <div className={S.CL_ROOT} {..._handlers}>
-      <div className={S.CL_HEADER}>
+    <div className={CL.ROOT} {..._handlers}>
+      <div className={CL.HEADER}>
         <BtTriple
-          style={S.BT_TRIPLE}
+          style={S_BT_TRIPLE}
           oneC="GREY"
           twoC="LIGHT"
           threeC="SAND"
           onClick={setUiTheme}
         />
         <SvgClose
-          className={S.CL_BT_CLOSE}
+          className={CL.BT_CLOSE}
           onClick={toggleDrawer}
         />
       </div>
       <CategoriesList />
-      <div className={S.CL_HEADER}>
+      <div className={CL.HEADER}>
         <BtTriple
-          style={S.BT_TRIPLE}
-          initialValue={2}
+          style={S_BT_TRIPLE}
+          initialValue="2"
           oneC="ALL"
           twoC="HTTPS"
           threeC="HTTP"
