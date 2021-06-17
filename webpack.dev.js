@@ -11,7 +11,7 @@ module.exports = {
   mode: "development",
   cache: true,
   entry: {
-    app: path.resolve('src', 'index.jsx')
+    app: path.resolve('src', 'index.tsx')
   },
   devtool: 'inline-source-map',
   devServer: {

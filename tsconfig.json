@@ -26,6 +26,7 @@
     "noFallthroughCasesInSwitch": true,
 
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "noEmitOnError": true,
 
     "outDir": "./dist" 

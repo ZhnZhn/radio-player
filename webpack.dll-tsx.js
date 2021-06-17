@@ -12,7 +12,7 @@ module.exports = {
   mode: "production",
   cache: true,
   entry: {
-    app: path.resolve('src', 'index.jsx')
+    app: path.resolve('src', 'index.tsx')
   },
   output: {
       path: path.resolve('app'),
