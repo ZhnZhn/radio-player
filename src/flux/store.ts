@@ -1,9 +1,8 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux';
 
-//import CONF from './appConf'
-import rootReducer from './rootReducer'
-import initialState from './initialState'
-import middlewares from './zh-middleware/middlewares'
+import rootReducer from './rootReducer';
+import initialState from './initialState';
+import middlewares from './zh-middleware/middlewares';
 
 const _middlewares = [
   ...middlewares
@@ -12,9 +11,12 @@ const _middlewares = [
 let _composeEnhancer = compose;
 /*eslint-disable no-undef, no-console*/
 if (process.env.NODE_ENV === 'development'){
+    // @ts-expect-error
+    // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     _composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
        || compose
-
+    // @ts-expect-error
+    // store => next => action
     const logger = store => next => action => {
       let result;
       try {
@@ -33,26 +35,9 @@ if (process.env.NODE_ENV === 'development'){
  }
  /*eslint-enable no-undef, no-console*/
 
-
-const _getInitialState = () => {
-  let _initialState;
-  /*
-  try {
-    const _str = window.localStorage
-      .getItem(CONF.STORAGE_KEY);
-    if (_str) {
-      _initialState = JSON.parse(_str)
-    }
-  } catch(e) {
-     console.log(e.msg)
-  }
-  */
-  return _initialState || initialState;
-}
-
 const store = createStore(
   rootReducer,
-  _getInitialState(),
+  initialState,
   _composeEnhancer(
     applyMiddleware(..._middlewares)
   )
