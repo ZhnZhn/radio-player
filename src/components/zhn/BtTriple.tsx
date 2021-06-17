@@ -1,7 +1,7 @@
 import { CSSProperties, TabIndexType } from './types';
 import { useState, useCallback } from 'react';
 
-type BtValueType = 1 | 2 | 3
+type BtValueType = '1' | '2' | '3'
 
 interface BtTripleProps {
   style?: CSSProperties,
@@ -13,20 +13,18 @@ interface BtTripleProps {
   onClick: (v: BtValueType) => {}
 }
 
-const CL = {
-  BT: 'bt-triple',
-  BT_ONE: 'bt-triple__one',
-  BT_TWO: 'bt-triple__two',
-  BT_THREE: 'bt-triple__three',
-};
+const CL_BT = 'bt-triple'
+, CL_BT_ONE = 'bt-triple__one'
+, CL_BT_TWO = 'bt-triple__two'
+, CL_BT_THREE = 'bt-triple__three';
 
 const S_SELECTED: CSSProperties = { 
   backgroundColor: '#1b2836'  
 };
 
 const _crBtStyle = (
-  nowValue: number, 
-  btValue: number
+  nowValue: BtValueType, 
+  btValue: BtValueType
   ) => nowValue === btValue
     ? S_SELECTED
     : void 0;
@@ -35,44 +33,44 @@ const _crBtStyle = (
 const BtTriple = ({
   style,
   tabIndex=-1,
-  initialValue=1,
+  initialValue='1',
   oneC='One', 
   twoC='Two', 
   threeC='Three',
   onClick
 }: BtTripleProps) => {
   const [value, setValue] = useState(initialValue)
-  , _oneStyle = _crBtStyle(value, 1)
-  , _twoStyle = _crBtStyle(value, 2)
-  , _threeStyle = _crBtStyle(value, 3)
+  , _oneStyle = _crBtStyle(value, '1')
+  , _twoStyle = _crBtStyle(value, '2')
+  , _threeStyle = _crBtStyle(value, '3')
   , _onClick = useCallback((value) => {
       onClick(value)
       setValue(value)
     }, [onClick]);
 
   return (
-  <div className={CL.BT} style={style}>
+  <div className={CL_BT} style={style}>
     <button
-      className={CL.BT_ONE}
+      className={CL_BT_ONE}
       style={_oneStyle}
       tabIndex={tabIndex}
-      onClick={_onClick.bind(null, 1)}
+      onClick={_onClick.bind(null, '1')}
     >
       {oneC}
     </button>
     <button
-      className={CL.BT_TWO}
+      className={CL_BT_TWO}
       style={_twoStyle}
       tabIndex={tabIndex}
-      onClick={_onClick.bind(null, 2)}
+      onClick={_onClick.bind(null, '2')}
     >
       {twoC}
     </button>
     <button
-      className={CL.BT_THREE}
+      className={CL_BT_THREE}
       style={_threeStyle}
       tabIndex={tabIndex}
-      onClick={_onClick.bind(null, 3)}
+      onClick={_onClick.bind(null, '3')}
     >
       {threeC}
     </button>
