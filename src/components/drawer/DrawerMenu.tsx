@@ -1,5 +1,4 @@
-import { CSSProperties } from "../types";
-import { useContext } from 'react';
+import { useContext } from '../uiApi';
 
 import AppContext from '../AppContext';
 import useSwipeGesture from '../hooks/useSwipeGesture';
@@ -8,10 +7,6 @@ import SvgClose from '../zhn/SvgClose';
 import BtTriple from '../zhn/BtTriple';
 import CategoriesList from './CategoriesList';
 import CL from './style';
-
-const S_BT_TRIPLE: CSSProperties = {
-  marginRight: 8
-};
 
 const DrawerMenu = () => {
   const {
@@ -26,7 +21,7 @@ const DrawerMenu = () => {
     <div className={CL.ROOT} {..._handlers}>
       <div className={CL.HEADER}>
         <BtTriple
-          style={S_BT_TRIPLE}
+          className={CL.BT_TRIPLE}
           oneC="GREY"
           twoC="LIGHT"
           threeC="SAND"
@@ -40,7 +35,7 @@ const DrawerMenu = () => {
       <CategoriesList />
       <div className={CL.HEADER}>
         <BtTriple
-          style={S_BT_TRIPLE}
+          className={CL.BT_TRIPLE}
           initialValue="2"
           oneC="ALL"
           twoC="HTTPS"

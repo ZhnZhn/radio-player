@@ -1,4 +1,4 @@
-import { StationType } from "../../sound/types";
+import type { StationType } from "../../sound/types";
 
 interface TitleProps {
   station?: StationType

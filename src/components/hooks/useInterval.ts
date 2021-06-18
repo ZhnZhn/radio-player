@@ -1,14 +1,14 @@
-import { FnVoidType, TimeoutIdType } from '../types';
+import { TimeoutIdType } from '../types';
 
-import { useRef } from 'react';
+import { useRef } from '../uiApi';
 
 type UseInterval = (
-  fn: FnVoidType,
+  fn: () => void,
   check: (v: number) => boolean,
   volume: number
 ) => [
-  runInInterval: FnVoidType,
-  stopInInterval: FnVoidType
+  runInInterval: () => void,
+  stopInInterval: () => void
 ]
 
 const D_L1 = 150, D_L2 = 500; 

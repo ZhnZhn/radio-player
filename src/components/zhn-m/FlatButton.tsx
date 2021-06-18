@@ -1,12 +1,14 @@
-import { CSSProperties, TabIndexType, WithChildren } from '../types';
-import React, { useRef, useCallback, useImperativeHandle } from 'react';
+import type { CSSProperties, TabIndexType, WithChildren } from '../types';
+import type { Ref, MouseEvent } from '../uiApi';
 
+import { useRef, useCallback, useImperativeHandle } from '../uiApi';
+import crCn from '../crCn';
 import CaptionInput from './CaptionInput';
 
 type FocusElementType = { focus: () => void }
 
 interface FlatButtonProps {
-  innerRef?: React.Ref<FocusElementType>,
+  innerRef?: Ref<FocusElementType>,
   timeout?: number,
   className?: string,
   style?: CSSProperties,
@@ -17,7 +19,7 @@ interface FlatButtonProps {
   caption?: string, 
   accessKey?: string,
   tabIndex?: TabIndexType,
-  onClick: (event: React.MouseEvent) => void,
+  onClick: (event: MouseEvent) => void,
 }
 
 type FlatButtonType = WithChildren<FlatButtonProps>
@@ -46,7 +48,7 @@ const FlatButton = ({
 }: FlatButtonType) => {
   const _refBt = useRef<HTMLButtonElement>(null)
   , _refTimeStamp = useRef<number>(0)  
-  , _hClick = useCallback((event: React.MouseEvent) => {        
+  , _hClick = useCallback((event: MouseEvent) => {        
     if (timeout !== 0) {
       const _timeStamp = _refTimeStamp.current
       , { timeStamp } = event;
@@ -70,12 +72,8 @@ const FlatButton = ({
   const _style = isPrimary
        ? {...style, ...S_PRIMARY}
        : style
-  , _className = className
-       ? `${CL.BT} ${className}`
-       : CL.BT
-  , _clCaption = clCaption
-        ? `${CL.BT_SPAN} ${clCaption}`
-        : CL.BT_SPAN
+  , _className = crCn(CL.BT, className) 
+  , _clCaption = crCn(CL.BT_SPAN, clCaption) 
   , _title = accessKey
        ? `${title} [${accessKey}]`
        : title;

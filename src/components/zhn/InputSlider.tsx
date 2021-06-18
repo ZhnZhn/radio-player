@@ -1,5 +1,7 @@
-import { CSSProperties } from './types';
-import React, { useRef, useState, useEffect } from 'react';
+import type { CSSProperties } from './types';
+import type { MouseEvent, KeyboardEvent } from '../uiApi';
+
+import { useRef, useState, useEffect } from '../uiApi';
 
 import useBool from '../hooks/useBool';
 import has from '../has';
@@ -14,7 +16,7 @@ interface InputSliderProps {
   onChange?: (value: number) => void
 }
 
-type SetValueFromPositionType = (event: React.MouseEvent) => void
+type SetValueFromPositionType = (event: MouseEvent) => void
 
 const _isNaN = Number.isNaN
 , _noopFn = () => {}
@@ -54,7 +56,7 @@ const _isNaN = Number.isNaN
 const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   const [dragged, setDraggedTrue, setDraggedFalse] = useBool(false)
   , _refDragRunning = useRef(false)
-  , _hDragMouseMove = (event: React.MouseEvent) => {
+  , _hDragMouseMove = (event: MouseEvent) => {
     if (_refDragRunning.current) {
       return;
     }
@@ -69,7 +71,7 @@ const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
      document.removeEventListener(EVENT_NAME_UP, _hDragMouseUp)
      setDraggedFalse()
   },
-  _hMouseDown = (event: React.MouseEvent) => {
+  _hMouseDown = (event: MouseEvent) => {
     // Cancel text selection
     if (!hasTouch) {
       event.preventDefault()
@@ -81,7 +83,7 @@ const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   return [dragged, _hMouseDown];
 }
 , _calcPositionFromEvent = (
-  event: React.MouseEvent, 
+  event: MouseEvent, 
   trackElement: HTMLDivElement
 ) => {
   const _trackOffset = trackElement.getBoundingClientRect()['left']
@@ -105,7 +107,7 @@ const InputSlider = ({
     setValue(_newValue)
     onChange(_newValue)
   }
-  , _hKeyDown = (evt: React.KeyboardEvent) => {
+  , _hKeyDown = (evt: KeyboardEvent) => {
     const { keyCode } = evt
     , _newValue = _calcNewValueByKeyCode(value, step, keyCode);
     if (_newValue != null) {

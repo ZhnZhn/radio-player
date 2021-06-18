@@ -1,6 +1,10 @@
-import { AudioPlayerStateType, TimeoutIdType } from './types';
+import type { AudioPlayerStateType, TimeoutIdType } from './types';
+import type { MutableRefObject } from '../uiApi';
 
-import React, { useRef, useReducer, useEffect, useCallback, useContext } from 'react';
+import { 
+  useRef, useReducer, useCallback,
+  useEffect, useContext   
+} from '../uiApi';
 
 import HAS from '../has';
 import AppContext from '../AppContext';
@@ -32,7 +36,7 @@ const S_TITLE_CONT: CSSProperties = {
 const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {    
     /*eslint-disable no-undef*/  
-    // @ts-expect-error
+    // @ts-expect-error : 1) 2)
     // 1) Property mediaSession does not exist on type Navigator  
     // 2) Cannot find name MediaMetadata
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -43,7 +47,7 @@ const _setMediaMetadata = (artist='') => {
   }
 };
 
-const _clearTimeout = (ref: React.MutableRefObject<TimeoutIdType>) => {
+const _clearTimeout = (ref: MutableRefObject<TimeoutIdType>) => {
   clearTimeout((ref.current as unknown) as number)
   ref.current = null;
 };
@@ -119,13 +123,16 @@ const AudioPlayer = () => {
     _setMediaMetadata()
   };
 
+  /*eslint-disable react-hooks/exhaustive-deps */ 
   useEffect( () => {
     if (HAS.MEDIA_SESSION) {
-      // @ts-expect-error
-      // Property mediaSession does not exist on type Navigator
+      // @ts-expect-error : 1)
+      // 1) Property mediaSession does not exist on type Navigator
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])
+  // stop
+  /*eslint-enable react-hooks/exhaustive-deps */
 
   useEffect(()=>{
     if (station && station.src

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext } from '../uiApi';
 
 import HAS from '../has';
 import AppContext from '../AppContext';

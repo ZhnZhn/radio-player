@@ -1,15 +1,10 @@
-import { CSSProperties } from "../types";
-import { useContext } from 'react';
+import { useContext } from '../uiApi';
 
 import AppContext from '../AppContext';
 
 import SvgChecked from '../zhn/SvgChecked';
 import FlatButton  from '../zhn-m/FlatButton';
 import CL from './style';
-
-const S_UL: CSSProperties = {
-  listStyleType: 'none'
-};
 
 const CategoriesList = () => {
   const {    
@@ -23,7 +18,7 @@ const CategoriesList = () => {
   , isOpen = useSelector(sApp.isDrawer)
   , btTabIndex = isOpen ? 0 : -1;
   return(
-  <ul style={S_UL}>
+  <ul>
     {
       topics.map(category => {
         const _is = isCategories[category];

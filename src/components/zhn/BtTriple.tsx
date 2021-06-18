@@ -1,16 +1,19 @@
 import { CSSProperties, TabIndexType } from './types';
-import { useState, useCallback } from 'react';
+
+import { useState, useCallback } from '../uiApi';
+import crCn from '../crCn';
 
 type BtValueType = '1' | '2' | '3'
 
 interface BtTripleProps {
   style?: CSSProperties,
+  className?: string, 
   tabIndex?: TabIndexType,
   initialValue?: BtValueType,
   oneC?: string, 
   twoC?: string, 
   threeC?: string,
-  onClick: (v: BtValueType) => {}
+  onClick: (v: BtValueType) => void
 }
 
 const CL_BT = 'bt-triple'
@@ -32,6 +35,7 @@ const _crBtStyle = (
 
 const BtTriple = ({
   style,
+  className,
   tabIndex=-1,
   initialValue='1',
   oneC='One', 
@@ -40,6 +44,7 @@ const BtTriple = ({
   onClick
 }: BtTripleProps) => {
   const [value, setValue] = useState(initialValue)
+  , _cn = crCn(CL_BT, className)
   , _oneStyle = _crBtStyle(value, '1')
   , _twoStyle = _crBtStyle(value, '2')
   , _threeStyle = _crBtStyle(value, '3')
@@ -49,7 +54,7 @@ const BtTriple = ({
     }, [onClick]);
 
   return (
-  <div className={CL_BT} style={style}>
+  <div className={_cn} style={style}>
     <button
       className={CL_BT_ONE}
       style={_oneStyle}

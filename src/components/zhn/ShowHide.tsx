@@ -1,4 +1,4 @@
-import { WithChildren, CSSProperties } from './types';
+import type { WithChildren, CSSProperties } from './types';
 
 interface ShowHideProps {
   isShow?: boolean, 

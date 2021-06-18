@@ -1,4 +1,4 @@
-import { CSSProperties, WithChildren } from "../types";
+import type { CSSProperties, WithChildren } from "../types";
 
 const S_KEY: CSSProperties = {  
   textDecoration: 'underline'  

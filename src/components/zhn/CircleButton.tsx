@@ -1,4 +1,4 @@
-import { WithChildren, CircleButtonProps } from './types';
+import type { WithChildren, CircleButtonProps } from './types';
 import HAS from '../has';
 
 type CircleButtonType = WithChildren<CircleButtonProps>

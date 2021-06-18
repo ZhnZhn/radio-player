@@ -1,4 +1,4 @@
-import { CategoriesType } from '../../sound/types';
+import type { CategoriesType } from '../../sound/types';
 
 import S from './StationDescrStyle';
 

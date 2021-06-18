@@ -1,5 +1,5 @@
-import { CSSProperties, WithChildren } from '../types';
-import { useContext, useEffect } from 'react';
+import type { CSSProperties, WithChildren } from '../types';
+import { useContext, useEffect } from '../uiApi';
 
 import AppContext from '../AppContext';
 import uiThemeImpl from '../ui-theme/uiTheme';

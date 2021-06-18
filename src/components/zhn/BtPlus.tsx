@@ -1,4 +1,4 @@
-import { CircleButtonProps } from './types';
+import type { CircleButtonProps } from './types';
 import CircleButton from './CircleButton';
 
 const BtMinus = (props: CircleButtonProps) => (

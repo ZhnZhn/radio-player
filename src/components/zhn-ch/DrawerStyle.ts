@@ -1,4 +1,4 @@
-import { StyleSheet } from "../types";
+import type { StyleSheet } from "../types";
 
 type StyleKeys = 'BT_DRAWER' 
  | 'DRAWER_OFF'

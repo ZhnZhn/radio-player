@@ -1,4 +1,4 @@
-import { StyleSheet } from "./types";
+import type { StyleSheet } from "./types";
 
 type StyleKeys = 'ARROW_OPEN'
  | 'LINK'

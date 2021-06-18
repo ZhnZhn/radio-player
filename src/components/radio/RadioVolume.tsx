@@ -1,6 +1,4 @@
-import { FnVoidType } from './types';
-
-import { useEffect, memo } from 'react';
+import { memo, useEffect } from '../uiApi';
 import useInterval from '../hooks/useInterval';
 
 import InputSlider from '../zhn/InputSlider';
@@ -12,8 +10,8 @@ import S from './RadioVolumeStyle';
 export interface RadioVolumeProps {
   volume: number,
   setVolume: (volume: number) => void,
-  onIncrease: FnVoidType, 
-  onDecrease: FnVoidType
+  onIncrease: () => void, 
+  onDecrease: () => void
 }
 
 const C = {
@@ -21,14 +19,17 @@ const C = {
   NEAR_MIN: 0.2
 };
 
-const _isNumber = (n: any) => typeof n === 'number'
- && Number.isFinite(n);
+const _isNumber = (n: unknown): n is number => typeof n === 'number'
+ && n-n === 0;
 
-const _toVolume = (v: any) => _isNumber(v)
+const _toVolume = (v: unknown) => _isNumber(v)
  ? Math.round(v*100)
  : '';
 
-const _crBtHandlers = (run: FnVoidType, stop: FnVoidType) => ({
+const _crBtHandlers = (
+  run: () => void, 
+  stop: () => void
+) => ({
   onMouseDown: run,
   onMouseUp: stop,
   onTouchStart: run,

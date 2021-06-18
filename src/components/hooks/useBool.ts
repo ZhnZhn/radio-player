@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from '../uiApi';
 
 type UseBoolType = (value?: boolean) => [
   is: boolean,

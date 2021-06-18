@@ -1,17 +1,16 @@
-import { FnVoidType } from '../types';
+import { useCallback, TouchEvent } from '../uiApi';
 
-import React, { useCallback } from 'react';
 import HAS from '../has';
 
 type DirType = 'L' | 'U' | 'R'
 interface UseSwipeGestureProps {
-  onSwipeGesture: FnVoidType, 
+  onSwipeGesture: () => void, 
   dir?: DirType, 
   delta?: number
 }
 type UseSwipeGestureType = (props: UseSwipeGestureProps) => {
-  onTouchStart: (event: React.TouchEvent) => void,
-  onTouchEnd: (event: React.TouchEvent) => void
+  onTouchStart: (event: TouchEvent) => void,
+  onTouchEnd: (event: TouchEvent) => void
  } | void 
 
 type StateType = {
@@ -23,14 +22,14 @@ const _state: StateType = {
   fromClientX: void 0
 };
 
-const _getClientX = (event?: React.TouchEvent) => {
+const _getClientX = (event?: TouchEvent) => {
   const { changedTouches=[] } = event || {};
   return changedTouches[0]
     ? changedTouches[0].clientX
     : void 0;
 };
 
-const _isNumber = (n: any): n is number => 
+const _isNumber = (n: unknown): n is number => 
    typeof n === 'number' && n-n === 0;
 
 const _isSwipeGesture = (
