@@ -1,4 +1,5 @@
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
+import { render } from 'preact';
 import { Provider } from 'react-redux';
 
 import store from './flux/store';

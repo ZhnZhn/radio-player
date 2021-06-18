@@ -42,7 +42,7 @@ const _setMediaMetadata = (artist='') => {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
-    });
+    });    
     /*eslint-enable no-undef*/
   }
 };
@@ -74,7 +74,7 @@ const AudioPlayer = () => {
       title, msgErr
     } = state;
 
-  const _setVolume = useCallback(newVolume => dispatch({
+  const _setVolume = useCallback((newVolume: number) => dispatch({
     type: A.SET_VOLUME,
     volume: sound.setVolume(newVolume)
   }), []);

@@ -8,8 +8,8 @@ const path = require('path')
 module.exports = {
   mode: "production",
   entry: {
-     lib: [
-            "react", "react-dom",            
+     lib: [            
+            "preact", "preact/compat", "preact/hooks",
             "redux", "react-redux",
             "howler"            
           ]
@@ -20,7 +20,12 @@ module.exports = {
       library: '[name]_vendor'
   },
   resolve: {
-    modules: ['local_modules','node_modules']
+    modules: ['local_modules','node_modules'],
+    "alias": { 
+      "react": "preact/compat",      
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",     
+    }
   },
   plugins: [    
     

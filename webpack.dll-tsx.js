@@ -42,7 +42,12 @@ module.exports = {
   },
   resolve: {
     modules: ['local_modules','node_modules'],
-    extensions: ['.tsx', '.ts', '.js', '.jsx']
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    "alias": { 
+      "react": "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",     
+    }    
   },
   plugins : [    
     new webpack.DllReferencePlugin({

@@ -48,7 +48,7 @@ const FlatButton = ({
 }: FlatButtonType) => {
   const _refBt = useRef<HTMLButtonElement>(null)
   , _refTimeStamp = useRef<number>(0)  
-  , _hClick = useCallback((event: MouseEvent) => {        
+  , _hClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {        
     if (timeout !== 0) {
       const _timeStamp = _refTimeStamp.current
       , { timeStamp } = event;
