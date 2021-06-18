@@ -29,7 +29,8 @@ const _hm: CategoriesRouterType = {
 };
 
 const router = {
-  getCategory: (category: CategoriesType): StationType[] => _hm[category] || []
+  getCategory: (category?: CategoriesType): StationType[] => 
+     category && _hm[category] || []
 };
 
 export default router
