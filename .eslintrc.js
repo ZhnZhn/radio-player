@@ -24,7 +24,9 @@ module.exports = {
     "browser": true
   },
   "rules": { 
-    "react/prop-types": 0,
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+
 
     //set react-hooks rules
     "react-hooks/rules-of-hooks": "error",
