@@ -1,12 +1,11 @@
-import React from 'react';
+import type { CSSProperties as CSSProps, ReactNode } from 'react';
 
-export type CSSProperties = React.CSSProperties
+export type CSSProperties = CSSProps
+export type StyleSheet<T extends string> = Record<T, CSSProperties> 
 
 export type TabIndexType = -1 | 0
 
 export type WithChildren<T> = 
-  T & { children?: React.ReactNode } 
-
-export type StyleSheet<T extends string> = Record<T, CSSProperties> 
+  T & { children?: ReactNode } 
 
 export type TimeoutIdType = NodeJS.Timeout | null
