@@ -1,6 +1,6 @@
 {
   "name": "radio-player",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Web app Radio Player. The web app that gives the ability to listen Internet radio.",
   "main": "index.js",
   "scripts": {
