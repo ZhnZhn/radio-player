@@ -62,10 +62,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.14.5",
-    "howler": "^2.2.1",
-    "preact": "^10.5.13",
+    "@babel/runtime": "^7.15.3",
+    "howler": "^2.2.3",
+    "preact": "^10.5.14",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0"
+    "redux": "^4.1.1"
   }
 }
