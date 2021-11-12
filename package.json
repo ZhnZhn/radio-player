@@ -24,12 +24,12 @@
     "url": "https://github.com/ZhnZhn/radio-player.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
@@ -39,7 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "del": "^6.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -62,7 +62,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.15.3",
+    "@babel/runtime": "^7.16.3",
     "howler": "^2.2.3",
     "preact": "^10.5.14",
     "react-redux": "^7.2.4",
