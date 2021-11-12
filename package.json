@@ -64,7 +64,7 @@
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "howler": "^2.2.3",
-    "preact": "^10.5.14",
+    "preact": "^10.5.15",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2"
   }
