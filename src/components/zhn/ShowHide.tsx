@@ -1,4 +1,5 @@
 import type { WithChildren, CSSProperties } from './types';
+import crCn from '../crCn';
 
 interface ShowHideProps {
   isShow?: boolean, 
@@ -18,17 +19,13 @@ const ShowHide = ({
   style, 
   children 
 }: ShowHideType) => {
-    const _styleShow = isShow ? S_SHOW : S_HIDE
-    , _classShow = isShow ? CL_SHOW_POPUP : ''
-    , _className = className
-          ? `${className} ${_classShow}`
-          : (_classShow !== '')
-               ? _classShow
-               : void 0;
+    const _styleShow = isShow ? S_SHOW : S_HIDE    
+    , _className = crCn(className, [isShow, CL_SHOW_POPUP]);
+    
     return (
       <div
         className={_className}
-        style={{ ...style, ..._styleShow }}
+        style={{...style, ..._styleShow}}
       >
         {children}
       </div>
