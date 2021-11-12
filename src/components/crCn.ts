@@ -1,7 +1,7 @@
 const _isArr = Array.isArray;
 
 type CnType = string | undefined
-type CnTupleType = [boolean, CnType]
+type CnTupleType = [boolean | undefined, CnType]
 type ItemCnType = CnTupleType | CnType
 
 const _getCn = (arrOrStr: ItemCnType): CnType => _isArr(arrOrStr)
