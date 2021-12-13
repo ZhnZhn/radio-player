@@ -1,7 +1,8 @@
 import type { CSSProperties, TabIndexType, WithChildren } from '../types';
 import type { Ref, MouseEvent } from '../uiApi';
 
-import { useRef, useCallback, useImperativeHandle } from '../uiApi';
+import { useRef, useImperativeHandle } from '../uiApi';
+import useThrottleClick from '../hooks/useThrottleClick';
 import crCn from '../crCn';
 import CaptionInput from './CaptionInput';
 
@@ -24,12 +25,11 @@ interface FlatButtonProps {
 
 type FlatButtonType = WithChildren<FlatButtonProps>
 
-const CL = {
-  BT: 'bt-flat',
-  BT_DIV: 'bt-flat__div',
-  BT_SPAN: 'bt-flat__span'
-};
-const S_PRIMARY: CSSProperties = {  
+const CL_BT_FLAT = 'bt-flat'
+, CL_BT_FLAT_DIV = 'bt-flat__div'
+, CL_BT_FLAT_SPAN = 'bt-flat__span'
+
+, S_PRIMARY: CSSProperties = {  
   color: '#607d8b'  
 };
 
@@ -38,7 +38,7 @@ const FlatButton = ({
   timeout=500,
   className,
   style,
-  clDiv=CL.BT_DIV,
+  clDiv=CL_BT_FLAT_DIV,
   clCaption,
   isPrimary,
   title='', caption, accessKey,
@@ -46,21 +46,9 @@ const FlatButton = ({
   onClick,
   children
 }: FlatButtonType) => {
-  const _refBt = useRef<HTMLButtonElement>(null)
-  , _refTimeStamp = useRef<number>(0)  
-  , _hClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {        
-    if (timeout !== 0) {
-      const _timeStamp = _refTimeStamp.current
-      , { timeStamp } = event;
-      if (_timeStamp && timeStamp - _timeStamp > timeout) {
-        onClick(event)  
-      }
-      _refTimeStamp.current = timeStamp      
-    } else {
-      onClick(event)
-    }  
-  }, [timeout, onClick])
-
+  const _refBt = useRef<HTMLButtonElement>(null)  
+  , _hClick = useThrottleClick(timeout, onClick);
+  
   useImperativeHandle(innerRef, () => ({
     focus: () => {
       if (_refBt.current) {
@@ -72,8 +60,8 @@ const FlatButton = ({
   const _style = isPrimary
        ? {...style, ...S_PRIMARY}
        : style
-  , _className = crCn(CL.BT, className) 
-  , _clCaption = crCn(CL.BT_SPAN, clCaption) 
+  , _className = crCn(CL_BT_FLAT, className) 
+  , _clCaption = crCn(CL_BT_FLAT_SPAN, clCaption) 
   , _title = accessKey
        ? `${title} [${accessKey}]`
        : title;
@@ -97,6 +85,6 @@ const FlatButton = ({
       </div>
     </button>
   );
-}
+};
 
 export default FlatButton
