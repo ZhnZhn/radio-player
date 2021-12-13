@@ -1,7 +1,6 @@
 'use strict'
 
 const path = require('path')
-, webpack = require('webpack')
 , babelDevConfig = require('./babel.dev.config')
 , ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 , HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,6 +11,14 @@ module.exports = {
   cache: true,
   entry: {
     app: path.resolve('src', 'index.tsx')
+  },
+  devServer: {        
+    hot: true,
+    static: {
+      directory: path.resolve(__dirname, 'dev')
+    },        
+    allowedHosts: ['localhost','client.webSocketURL.hostname'],
+    port: 8080
   },
     
   output: {
@@ -40,6 +47,7 @@ module.exports = {
     ]
   },
   resolve: {
+    symlinks: false,
     modules: ['local_modules','node_modules'],
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     "alias": { 
@@ -49,11 +57,10 @@ module.exports = {
     },
   },
   plugins : [
-    new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
         filename: path.resolve('dev', 'index.html'),
-        template: path.resolve('template', 'index.ejs'),
+        template: path.resolve('template', 'index-dev.ejs'),
         inject: false
     }),
     new HtmlProcessingWebpackPlugin()
