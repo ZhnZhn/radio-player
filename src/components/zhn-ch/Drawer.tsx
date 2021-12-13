@@ -3,19 +3,40 @@ import { useContext, useEffect } from '../uiApi';
 
 import AppContext from '../AppContext';
 import uiThemeImpl from '../ui-theme/uiTheme';
-import S from './DrawerStyle';
 
 interface DrawerProps {
   btStyle?: CSSProperties
 }
 type DrawerType = WithChildren<DrawerProps>
 
-const CL = {
-  DRAWER_BT: 'drawer-bt',
-  DRAWER_SPAN: 'drawer-span',
-  DRAWER_SVG: 'drawer-svg',
-  DRAWER: 'drawer',
-  DRAWER_MODAL: 'drawer-modal',
+const CL_DRAWER_BT = 'drawer-bt'
+, CL_DRAWER_SPAN = 'drawer-span'
+, CL_DRAWER_SVG = 'drawer-svg'
+, CL_DRAWER = 'drawer'
+, CL_DRAWER_MODAL = 'drawer-modal'
+
+, S_BT_DRAWER: CSSProperties = {
+  position: 'absolute',
+  top: 8,
+  right: 18
+}
+, S_DRAWER_OFF: CSSProperties = {
+  transform: 'translateX(264px)'  
+}
+, S_DRAWER_ON: CSSProperties = {
+  transform: 'translate(0px, 0px)'
+}
+, S_MODAL_OFF: CSSProperties = {
+  display: 'none',
+  opacity: 0,
+  zIndex: -1,
+  transition: 'opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+}
+, S_MODAL_ON: CSSProperties = {
+  display: 'block',
+  opacity: 1,
+  zIndex: 1000,
+  transition: 'opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
 };
 
 const Drawer = ({
@@ -39,26 +60,26 @@ const Drawer = ({
 
 
   const _asideStyle = {
-      ...(isOpen ? S.DRAWER_ON : S.DRAWER_OFF),
+      ...(isOpen ? S_DRAWER_ON : S_DRAWER_OFF),
       ...uiThemeImpl.toBg(uiTheme)
     }
   , _drawerModalStyle = isOpen
-       ? S.MODAL_ON
-       : S.MODAL_OFF
+       ? S_MODAL_ON
+       : S_MODAL_OFF
   , _onClickWrapper = isOpen
        ? toggleDrawer
        : void 0;
   return (
     <>
       <button          
-        className={CL.DRAWER_BT}
-        style={{ ...S.BT_DRAWER, ...btStyle }}
+        className={CL_DRAWER_BT}
+        style={{...S_BT_DRAWER, ...btStyle}}
         aria-label="Open Drawer"
         onClick={toggleDrawer}
       >
-        <span className={CL.DRAWER_SPAN}>
+        <span className={CL_DRAWER_SPAN}>
           <svg
-             className={CL.DRAWER_SVG}
+             className={CL_DRAWER_SVG}
              focusable="false"
              viewBox="0 0 24 24"
              aria-hidden="true"
@@ -71,12 +92,12 @@ const Drawer = ({
       <div
         role="presentation"
         aria-hidden={!isOpen}
-        className={CL.DRAWER_MODAL}
+        className={CL_DRAWER_MODAL}
         style={_drawerModalStyle}
         onClick={_onClickWrapper}
       />
       <aside          
-        className={CL.DRAWER}
+        className={CL_DRAWER}
         style={_asideStyle}
        >
          <div>
@@ -85,6 +106,6 @@ const Drawer = ({
       </aside>
     </>
   );
-}
+};
 
 export default  Drawer
