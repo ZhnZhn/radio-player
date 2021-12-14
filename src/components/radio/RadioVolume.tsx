@@ -1,4 +1,4 @@
-import { memo, useEffect } from '../uiApi';
+import { useEffect } from '../uiApi';
 import useInterval from '../hooks/useInterval';
 
 import InputSlider from '../zhn/InputSlider';
@@ -14,10 +14,9 @@ export interface RadioVolumeProps {
   onDecrease: () => void
 }
 
-const C = {
-  NEAR_MAX: 0.8,
-  NEAR_MIN: 0.2
-};
+const NEAR_MAX = 0.8
+, NEAR_MIN = 0.2;
+
 
 const _isNumber = (n: unknown): n is number => typeof n === 'number'
  && n-n === 0;
@@ -36,10 +35,15 @@ const _crBtHandlers = (
   onTouchEnd: stop
 });
 
-const _isNearMax = (v: number)  => v > C.NEAR_MAX;
-const _isNearMin = (v: number) => v < C.NEAR_MIN;
+const _isNearMax = (v: number)  => v > NEAR_MAX;
+const _isNearMin = (v: number) => v < NEAR_MIN;
 
-const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }: RadioVolumeProps) => {  
+const RadioVolume = ({ 
+  volume, 
+  setVolume, 
+  onIncrease, 
+  onDecrease 
+}: RadioVolumeProps) => {  
   const [runIncrease, stopIncrease] = useInterval(onIncrease, _isNearMax, volume)
   const [runDecrease, stopDecrease] = useInterval(onDecrease, _isNearMin, volume)
   , _runDecrease = () => {
@@ -85,4 +89,4 @@ const RadioVolume = ({ volume, setVolume, onIncrease, onDecrease }: RadioVolumeP
   );
 }
 
-export default memo(RadioVolume)
+export default RadioVolume

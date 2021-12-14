@@ -35,10 +35,7 @@ const S_TITLE_CONT: CSSProperties = {
 
 const _setMediaMetadata = (artist='') => {
   if (HAS.MEDIA_SESSION) {    
-    /*eslint-disable no-undef*/  
-    // @ts-expect-error : 1) 2)
-    // 1) Property mediaSession does not exist on type Navigator  
-    // 2) Cannot find name MediaMetadata
+    /*eslint-disable no-undef*/      
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
@@ -125,15 +122,13 @@ const AudioPlayer = () => {
 
   /*eslint-disable react-hooks/exhaustive-deps */ 
   useEffect( () => {
-    if (HAS.MEDIA_SESSION) {
-      // @ts-expect-error : 1)
-      // 1) Property mediaSession does not exist on type Navigator
+    if (HAS.MEDIA_SESSION) {            
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])
   // stop
   /*eslint-enable react-hooks/exhaustive-deps */
-
+ 
   useEffect(()=>{
     if (station && station.src
       && sound.init(station.src,
