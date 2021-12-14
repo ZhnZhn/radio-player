@@ -3,8 +3,6 @@
 const path = require('path')
     , webpack = require('webpack')
     , HtmlWebpackPlugin = require('html-webpack-plugin')
-    , postProcessing = require('./plugins/post-processing')
-    , HtmlProcessingWebpackPlugin = require('./plugins/html-processing-webpack-plugin')
     , babelConfig = require('./babel.config')
     , TerserPlugin = require('terser-webpack-plugin');
 
@@ -12,7 +10,16 @@ module.exports = {
   mode: "production",
   cache: true,
   entry: {
-    app: path.resolve('src', 'index.tsx')
+    lib: [            
+            "preact",             
+            "preact/hooks",
+            "redux", "react-redux",
+            "howler"            
+         ],
+    app: {
+      import: path.resolve('src', 'index.tsx'),
+      dependOn: 'lib'
+    }    
   },
   output: {
       path: path.resolve('app'),
@@ -41,29 +48,24 @@ module.exports = {
     ]
   },
   resolve: {
+    symlinks: false,
     modules: ['local_modules','node_modules'],
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
-    "alias": { 
-      "react": "preact/compat",
-      "react-dom/test-utils": "preact/test-utils",
-      "react-dom": "preact/compat",     
+    "alias": {       
+      "react": "preact/compat",      
+      "react-dom/test-utils": "preact/test-utils",      
+      "react-dom": "preact/compat"     
     }    
   },
-  plugins : [    
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./dll/lib-manifest.json')
-    }),    
+  plugins : [        
     new HtmlWebpackPlugin({
         minify: false, 
         filename: path.resolve('index.html'),
         template: path.resolve('template', 'index.ejs'),
-        inject: false,
-        postProcessing: postProcessing
-    }),
-    new HtmlProcessingWebpackPlugin()
-  ],
-  optimization: {
+        inject: false        
+    })    
+  ],  
+  optimization: {    
     minimize: true,
     minimizer: [new TerserPlugin()]
   }

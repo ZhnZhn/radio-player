@@ -3,8 +3,7 @@
 const path = require('path')
 , babelDevConfig = require('./babel.dev.config')
 , ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-, HtmlWebpackPlugin = require('html-webpack-plugin')
-, HtmlProcessingWebpackPlugin = require('./plugins/html-processing-webpack-plugin');
+, HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -62,7 +61,6 @@ module.exports = {
         filename: path.resolve('dev', 'index.html'),
         template: path.resolve('template', 'index-dev.ejs'),
         inject: false
-    }),
-    new HtmlProcessingWebpackPlugin()
+    })
   ]
 }

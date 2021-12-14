@@ -11,8 +11,7 @@
     "lint:hooks": "eslint -c .eslintrc-hooks.js ./src --ext .ts,.tsx > lint-hooks.txt",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
-    "build:dll": "webpack --color --progress --config webpack.dll.js",
-    "build:dll-tsx": "webpack --color --progress --config webpack.dll-tsx.js"
+    "build:prod": "webpack --color --progress --config webpack.prod.js"    
   },
   "keywords": [
     "radio-player"

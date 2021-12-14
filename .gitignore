@@ -5,6 +5,5 @@ _start_server.bat
 npm-debug.log
 lib-dev
 dev
-_codemods
 .vscode
 
