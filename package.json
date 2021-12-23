@@ -11,7 +11,7 @@
     "lint:hooks": "eslint -c .eslintrc-hooks.js ./src --ext .ts,.tsx > lint-hooks.txt",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
-    "build:prod": "webpack --color --progress --config webpack.prod.js"    
+    "build:prod": "webpack --color --progress --config webpack.prod.js"
   },
   "keywords": [
     "radio-player"
@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@babel/plugin-transform-runtime": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/preset-typescript": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.5",
+    "@babel/plugin-transform-react-jsx": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@types/howler": "^2.2.4",
     "@types/react": "^17.0.37",
@@ -60,7 +60,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.3",
+    "@babel/runtime": "^7.16.5",
     "howler": "^2.2.3",
     "preact": "^10.6.4",
     "react-redux": "^7.2.6",
