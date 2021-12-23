@@ -9,6 +9,7 @@ const CL = 'bt-circle';
 
 const CircleButton = ({  
   hotKey,
+  ariaLabel,
   onMouseDown, 
   onMouseUp,
   onTouchStart, 
@@ -21,9 +22,10 @@ const CircleButton = ({
     : { onMouseDown, onMouseUp }  
   , _refBt = useHotKey(hotKey, onClick);
   return (
-    <button
+    <button    
       ref={_refBt as LegacyRef<HTMLButtonElement>}      
       className={CL}      
+      aria-label={ariaLabel}
       {..._handlers}
       onClick={onClick}
     >      
