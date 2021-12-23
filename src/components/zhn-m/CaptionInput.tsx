@@ -6,43 +6,47 @@ const S_KEY: CSSProperties = {
 
 interface CaptionInputProps {
   className?: string, 
-  rootStyle?: CSSProperties, 
+  style?: CSSProperties, 
   caption?: string, 
-  accessKey?: string, 
+  hotKey?: string, 
 }
 
 type CaptionInputType = WithChildren<CaptionInputProps>
 
-const CaptionInput = ({ 
-  className, 
-  rootStyle, 
-  caption='', 
-  accessKey, 
-  children 
-}: CaptionInputType) => {  
-  const _index = accessKey 
-    ? caption.toLowerCase().indexOf(accessKey)
+const _crCaption = (
+  caption: string,
+  hotKey?: string  
+) => {
+  const _index = hotKey
+    ? caption.toLowerCase().indexOf(hotKey)
     : -1;
   if (_index !== -1) {
     const _before = caption.substring(0, _index)
         , _key = caption.substring(_index, _index+1)
         , _after = caption.substring(_index+1);
     return (
-      <span className={className} style={rootStyle}>
-         <span>{_before}</span>
-         <span style={S_KEY}>{_key}</span>
-         <span>{_after}</span>
-         {children}
-      </span>
-    );
-  } else {
-    return (
-      <span className={className} style={rootStyle}>
-        {caption}
-        {children}
-      </span>
-    );
+      <>
+       <span>{_before}</span>
+       <span style={S_KEY}>{_key}</span>
+       <span>{_after}</span>
+      </>
+    )    
   }
+  return caption;      
 };
+
+const CaptionInput = ({ 
+  className, 
+  style, 
+  caption='', 
+  hotKey, 
+  children 
+}: CaptionInputType) => (
+  <span className={className} style={style}>
+     {_crCaption(caption, hotKey)}
+     {children}
+  </span>
+);
+
 
 export default CaptionInput
