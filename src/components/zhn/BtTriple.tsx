@@ -48,7 +48,7 @@ const BtTriple = ({
   , _oneStyle = _crBtStyle(value, '1')
   , _twoStyle = _crBtStyle(value, '2')
   , _threeStyle = _crBtStyle(value, '3')
-  , _onClick = useCallback((value) => {
+  , _onClick = useCallback((value : BtValueType) => {
       onClick(value)
       setValue(value)
     }, [onClick]);

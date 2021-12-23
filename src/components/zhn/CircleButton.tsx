@@ -1,24 +1,29 @@
 import type { WithChildren, CircleButtonProps } from './types';
 import HAS from '../has';
+import useHotKey from '../hotkeys/useHotKey';
+import { LegacyRef } from 'react';
 
 type CircleButtonType = WithChildren<CircleButtonProps>
 
 const CL = 'bt-circle';
 
-const CircleButton = ({
-  accessKey,
-  onMouseDown, onMouseUp,
-  onTouchStart, onTouchEnd,
+const CircleButton = ({  
+  hotKey,
+  onMouseDown, 
+  onMouseUp,
+  onTouchStart, 
+  onTouchEnd,
   onClick,
   children
 }: CircleButtonType) => {
   const _handlers = HAS.TOUCH && onTouchStart
     ? { onTouchStart, onTouchEnd }
-    : { onMouseDown, onMouseUp };
+    : { onMouseDown, onMouseUp }  
+  , _refBt = useHotKey(hotKey, onClick);
   return (
     <button
-      className={CL}
-      accessKey={accessKey}
+      ref={_refBt as LegacyRef<HTMLButtonElement>}      
+      className={CL}      
       {..._handlers}
       onClick={onClick}
     >      

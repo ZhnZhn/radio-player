@@ -74,13 +74,13 @@ const RadioVolume = ({
         onChange={setVolume}
       />
       <BtMinus
-        accessKey="-"
+        hotKey="-"
         {..._minusHandlers}
         onClick={onDecrease}
       />
       <div style={S.GAP} />
       <BtPlus
-        accessKey="+"
+        hotKey="+"
         {..._plusHandlers}
         onClick={onIncrease}
       />

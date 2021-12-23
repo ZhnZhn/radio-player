@@ -1,8 +1,10 @@
 import type { CSSProperties, WithChildren } from '../types';
 import { useContext, useEffect } from '../uiApi';
 
+import useHotKey from '../hotkeys/useHotKey';
 import AppContext from '../AppContext';
 import uiThemeImpl from '../ui-theme/uiTheme';
+import { LegacyRef } from 'react';
 
 interface DrawerProps {
   btStyle?: CSSProperties
@@ -48,7 +50,8 @@ const Drawer = ({
     sApp, useSelector
   } = useContext(AppContext)
   , isOpen = useSelector(sApp.isDrawer)
-  , uiTheme = useSelector(sApp.uiTheme);
+  , uiTheme = useSelector(sApp.uiTheme)
+  , _refBt = useHotKey('m', toggleDrawer);
 
   useEffect(()=>{
     if (isOpen) {
@@ -72,6 +75,7 @@ const Drawer = ({
   return (
     <>
       <button          
+        ref={_refBt as LegacyRef<HTMLButtonElement>}
         className={CL_DRAWER_BT}
         style={{...S_BT_DRAWER, ...btStyle}}
         aria-label="Open Drawer"

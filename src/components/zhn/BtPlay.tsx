@@ -19,9 +19,9 @@ const IconStop = (
 const BtPlay = ({ isPlaying, onPlay, onStop }: BtPlayProps) => {
   const _onClick = isPlaying ? onStop : onPlay
   , _svgIconEl = isPlaying ? IconStop : IconPlay
-  , accessKey = isPlaying ? 's' : 'p';
+  , _hotKey = isPlaying ? 's' : 'p';
   return (
-    <CircleButton accessKey={accessKey} onClick={_onClick}>
+    <CircleButton hotKey={_hotKey} onClick={_onClick}>
       {_svgIconEl}
     </CircleButton>
   );
