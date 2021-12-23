@@ -1,6 +1,8 @@
 import { useEffect } from '../uiApi';
 import useInterval from '../hooks/useInterval';
 
+import { HK_INCREASE_VOLUME, HK_DECREASE_VOLUME } from '../hotkeys/hotkeys';
+
 import InputSlider from '../zhn/InputSlider';
 import BtMinus from '../zhn/BtMinus';
 import BtPlus from '../zhn/BtPlus';
@@ -74,13 +76,15 @@ const RadioVolume = ({
         onChange={setVolume}
       />
       <BtMinus
-        hotKey="-"
+        hotKey={HK_DECREASE_VOLUME}
+        ariaLabel="Increase Volume"
         {..._minusHandlers}
         onClick={onDecrease}
       />
       <div style={S.GAP} />
       <BtPlus
-        hotKey="+"
+        hotKey={HK_INCREASE_VOLUME}
+        ariaLabel="Decrease Volume"
         {..._plusHandlers}
         onClick={onIncrease}
       />

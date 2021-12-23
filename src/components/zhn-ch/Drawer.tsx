@@ -1,6 +1,7 @@
 import type { CSSProperties, WithChildren } from '../types';
 import { useContext, useEffect } from '../uiApi';
 
+import { HK_OPEN_DRAWER } from '../hotkeys/hotkeys';
 import useHotKey from '../hotkeys/useHotKey';
 import AppContext from '../AppContext';
 import uiThemeImpl from '../ui-theme/uiTheme';
@@ -51,7 +52,7 @@ const Drawer = ({
   } = useContext(AppContext)
   , isOpen = useSelector(sApp.isDrawer)
   , uiTheme = useSelector(sApp.uiTheme)
-  , _refBt = useHotKey('m', toggleDrawer);
+  , _refBt = useHotKey(HK_OPEN_DRAWER, toggleDrawer);
 
   useEffect(()=>{
     if (isOpen) {
