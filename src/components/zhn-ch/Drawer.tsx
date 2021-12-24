@@ -1,11 +1,13 @@
 import type { CSSProperties, WithChildren } from '../types';
+import type { LegacyRef } from 'react';
+
 import { useContext, useEffect } from '../uiApi';
 
 import { HK_OPEN_DRAWER } from '../hotkeys/hotkeys';
 import useHotKey from '../hotkeys/useHotKey';
+import useKeyEscape from '../hooks/useKeyEscape';
 import AppContext from '../AppContext';
 import uiThemeImpl from '../ui-theme/uiTheme';
-import { LegacyRef } from 'react';
 
 interface DrawerProps {
   btStyle?: CSSProperties
@@ -51,12 +53,16 @@ const Drawer = ({
     sApp, useSelector
   } = useContext(AppContext)
   , isOpen = useSelector(sApp.isDrawer)
-  , uiTheme = useSelector(sApp.uiTheme)
-  , _refBt = useHotKey(HK_OPEN_DRAWER, toggleDrawer);
+  , uiTheme = useSelector(sApp.uiTheme)    
+  , _refBt = useHotKey(HK_OPEN_DRAWER, toggleDrawer)
+  , _onClickWrapper = isOpen
+      ? toggleDrawer
+      : void 0
+  , _onKeyDownAside = useKeyEscape(_onClickWrapper, [_onClickWrapper])
 
   useEffect(()=>{
     if (isOpen) {
-      document.body.style.overflowY = 'hidden'
+      document.body.style.overflowY = 'hidden'      
     } else {
       document.body.style.overflowY = 'auto'
     }
@@ -69,10 +75,8 @@ const Drawer = ({
     }
   , _drawerModalStyle = isOpen
        ? S_MODAL_ON
-       : S_MODAL_OFF
-  , _onClickWrapper = isOpen
-       ? toggleDrawer
-       : void 0;
+       : S_MODAL_OFF;
+  
   return (
     <>
       <button          
@@ -80,7 +84,7 @@ const Drawer = ({
         className={CL_DRAWER_BT}
         style={{...S_BT_DRAWER, ...btStyle}}
         aria-label="Open Drawer"
-        onClick={toggleDrawer}
+        onClick={toggleDrawer}        
       >
         <span className={CL_DRAWER_SPAN}>
           <svg
@@ -99,11 +103,13 @@ const Drawer = ({
         aria-hidden={!isOpen}
         className={CL_DRAWER_MODAL}
         style={_drawerModalStyle}
-        onClick={_onClickWrapper}
+        onClick={_onClickWrapper}        
       />
-      <aside          
+      <aside                  
+        role="presentation"
         className={CL_DRAWER}
         style={_asideStyle}
+        onKeyDown={_onKeyDownAside}
        >
          <div>
            {children}
