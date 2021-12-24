@@ -1,10 +1,7 @@
 
-const CL = {
-  HEADER: 'drawer__title',
-  ROOT: 'drawer__list',
-  BT: 'drawer__list-bt',
-  BT_CLOSE: 'drawer__bt-close',  
-  BT_TRIPLE: 'mr-8'  
-};
+export const CL_HEADER = 'drawer__title'
+export const CL_ROOT = 'drawer__list'
+export const CL_BT = 'drawer__list-bt'
+export const CL_BT_CLOSE = 'drawer__bt-close'
+export const CL_BT_TRIPLE = 'mr-8'  
 
-export default CL

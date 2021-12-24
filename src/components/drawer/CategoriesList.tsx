@@ -4,7 +4,7 @@ import AppContext from '../AppContext';
 
 import SvgChecked from '../zhn/SvgChecked';
 import FlatButton  from '../zhn-m/FlatButton';
-import CL from './style';
+import { CL_BT } from './style';
 
 const CategoriesList = () => {
   const {    
@@ -25,7 +25,7 @@ const CategoriesList = () => {
         return (
           <li key={category}>
             <FlatButton
-              className={CL.BT}
+              className={CL_BT}
               caption={category}
               timeout={0}
               tabIndex={btTabIndex}

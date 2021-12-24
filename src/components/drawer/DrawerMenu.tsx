@@ -6,7 +6,12 @@ import useSwipeGesture from '../hooks/useSwipeGesture';
 import SvgClose from '../zhn/SvgClose';
 import BtTriple from '../zhn/BtTriple';
 import CategoriesList from './CategoriesList';
-import CL from './style';
+import { 
+  CL_ROOT, 
+  CL_HEADER, 
+  CL_BT_TRIPLE, 
+  CL_BT_CLOSE 
+} from './style';
 
 const DrawerMenu = () => {
   const {
@@ -18,24 +23,24 @@ const DrawerMenu = () => {
        onSwipeGesture: toggleDrawer, dir: 'R'
     });    
   return (
-    <div className={CL.ROOT} {..._handlers}>
-      <div className={CL.HEADER}>
+    <div className={CL_ROOT} {..._handlers}>
+      <div className={CL_HEADER}>
         <BtTriple
-          className={CL.BT_TRIPLE}
+          className={CL_BT_TRIPLE}
           oneC="GREY"
           twoC="LIGHT"
           threeC="SAND"
           onClick={setUiTheme}
         />
         <SvgClose
-          className={CL.BT_CLOSE}
+          className={CL_BT_CLOSE}
           onClick={toggleDrawer}
         />
       </div>
       <CategoriesList />
-      <div className={CL.HEADER}>
+      <div className={CL_HEADER}>
         <BtTriple
-          className={CL.BT_TRIPLE}
+          className={CL_BT_TRIPLE}
           initialValue="2"
           oneC="ALL"
           twoC="HTTPS"
