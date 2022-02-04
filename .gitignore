@@ -5,6 +5,7 @@ _start_server.bat
 npm-debug.log
 lib-dev
 dev
+webpack.dev.js
 .vscode
 min-css.js
 
