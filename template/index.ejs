@@ -53,10 +53,7 @@
       }
     })()
   </script>
-
-  
-  <link rel="stylesheet" href="/css/app-f3c82e8eea.min.css">
-  
+  <link rel="stylesheet" href="css/app-f40134ca03.min.css">  
 
 </head>
 <body>
@@ -78,12 +75,14 @@
       </div>
    </noscript>
    <!--googleon: snippet-->
-   
+ 
+  <!--script src="app/lib"></script-->
+
   <%
  for (var index in htmlWebpackPlugin.files.js ) {
     var fileName = htmlWebpackPlugin.files.js[index];
-    if (fileName.indexOf('lib_') !== -1){ %>
-      <script src="<%=fileName %>" defer></script>
+    if (fileName.indexOf('manifest_') !== -1){ %>
+      <script src="<%=fileName %>"></script>
     <% } else if (fileName.indexOf('app_') !== -1) { %>
       <script src="<%=fileName %>" defer></script>
     <% }
