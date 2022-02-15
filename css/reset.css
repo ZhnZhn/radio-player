@@ -23,6 +23,7 @@ button {
   border: none;
   background-color: transparent;
   font-size: inherit;
+  font-family: inherit;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -36,5 +37,5 @@ button::-moz-focus-inner {
 }
 
 ul {
- list-style-type: none; 
+ list-style-type: none;
 }
