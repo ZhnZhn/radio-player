@@ -69,7 +69,7 @@ const RadioVolume = ({
       </div>
       <InputSlider
         style={S.SLIDER}
-        initValue={volume}
+        initialValue={volume}
         step={0.05}
         min={0}
         max={1}        

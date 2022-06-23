@@ -9,3 +9,5 @@ export type WithChildren<T> =
   T & { children?: ReactNode } 
 
 export type TimeoutIdType = NodeJS.Timeout | null
+
+export type { StateUpdater } from 'preact/hooks';

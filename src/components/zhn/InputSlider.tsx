@@ -1,15 +1,16 @@
 import type { CSSProperties } from './types';
 import type { MouseEvent, KeyboardEvent } from '../uiApi';
 
-import { useRef, useState, useEffect } from '../uiApi';
+import { useRef } from '../uiApi';
 
 import useBool from '../hooks/useBool';
+import useInitialValue from '../hooks/useInitialValue';
 import has from '../has';
 import S from './InputSliderStyle';
 
 interface InputSliderProps {
   style?: CSSProperties
-  initValue: number,
+  initialValue: number,
   step: number,
   min: number,
   max: number,
@@ -92,7 +93,7 @@ const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
 
 const InputSlider = ({
   style,
-  initValue,
+  initialValue,
   step,
   min,
   max,
@@ -100,7 +101,7 @@ const InputSlider = ({
 }: InputSliderProps) => {
   const _refTrack = useRef<HTMLDivElement>(null)
   , [hovered, setHoveredTrue, setHoveredFalse] = useBool(false)
-  , [value, setValue] = useState(initValue)
+  , [value, setValue] = useInitialValue(initialValue)
 
   , _updateValue = (newValue: number) => {
     const _newValue = _checkValueInMinMax(min, max, newValue);
@@ -135,9 +136,7 @@ const InputSlider = ({
     }
   }
   , [dragged, _hMouseDown] = _useMouseDown(_setValueFromPosition);
-
-  useEffect(() => setValue(initValue), [initValue])
-
+  
   const _sliderHandlers = hasTouch ? {
      onTouchStart: _hMouseDown
   } : {
