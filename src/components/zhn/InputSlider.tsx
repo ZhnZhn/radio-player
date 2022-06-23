@@ -1,4 +1,7 @@
-import type { CSSProperties } from './types';
+import type { 
+  CSSProperties,
+  MouseOrTouchEvent 
+} from './types';
 import type { MouseEvent, KeyboardEvent } from '../uiApi';
 
 import { useRef } from '../uiApi';
@@ -6,7 +9,18 @@ import { useRef } from '../uiApi';
 import useBool from '../hooks/useBool';
 import useInitialValue from '../hooks/useInitialValue';
 import has from '../has';
-import S from './InputSliderStyle';
+import {
+  S_ROOT,
+  S_ROOT_CIRCLE,
+  S_CIRCLE_DRAGGED,
+  S_CIRCLE_INNER,
+  S_CIRCLE_INNER_EL,
+  S_ROOT_LINE,
+  S_LINE_HOVERED,
+  S_LINE_AFTER,
+  S_LINE_BEFORE,
+  S_EMBER
+} from './InputSliderStyle';
 
 interface InputSliderProps {
   style?: CSSProperties
@@ -20,7 +34,8 @@ interface InputSliderProps {
 type SetValueFromPositionType = (event: MouseEvent) => void
 
 const _isNaN = Number.isNaN
-, _noopFn = () => {}
+// eslint-disable-next-line
+, _noopFn = (n: number) => {}
 , hasTouch = has.TOUCH
 , EVENT_NAME_MOVE = hasTouch ? 'touchmove' : 'mousemove'
 , EVENT_NAME_UP = hasTouch ? 'touchend' : 'mouseup'
@@ -42,8 +57,8 @@ const _isNaN = Number.isNaN
    left: `${percent}%`
 })
 , _getClienX = hasTouch
-  ? evt => (((evt || {}).touches || [])[0] || {}).clientX || 0
-  : evt => evt.clientX
+  ? (evt: MouseOrTouchEvent) => (((evt as unknown as TouchEvent || {}).touches || [])[0] || {}).clientX || 0
+  : (evt: MouseOrTouchEvent) => (evt as unknown as MouseEvent).clientX
 , _isUp = (keyCode: number) => keyCode === 39 || keyCode === 38
 , _isDown = (keyCode: number) => keyCode === 37 || keyCode === 40
 , _calcNewValueByKeyCode = (
@@ -84,7 +99,7 @@ const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   return [dragged, _hMouseDown];
 }
 , _calcPositionFromEvent = (
-  event: MouseEvent, 
+  event: MouseOrTouchEvent, 
   trackElement: HTMLDivElement
 ) => {
   const _trackOffset = trackElement.getBoundingClientRect()['left']
@@ -148,12 +163,12 @@ const InputSlider = ({
       onKeyDown: _hKeyDown,
       onBlur: setHoveredFalse
   }, _lineAfterStyle = hovered
-        ? {...S.LINE_AFTER, ...S.LINE_HOVERED}
-        : S.LINE_AFTER
-  , _circleStyle = dragged ? S.CIRCLE_DRAGGED : null
-  , _emberStyle = dragged ? S.EMBER : null
+        ? {...S_LINE_AFTER, ...S_LINE_HOVERED}
+        : S_LINE_AFTER
+  , _circleStyle = dragged ? S_CIRCLE_DRAGGED : null
+  , _emberStyle = dragged ? S_EMBER : null
   , _circleInnerEl = (hovered || dragged)
-        ? <div style={{ ...S.CIRCLE_INNER_EL, ..._emberStyle }} />
+        ? <div style={{ ...S_CIRCLE_INNER_EL, ..._emberStyle }} />
         : null
   , _percent = _toPercent(value, min, max)
   , _widthBeforeStyle = _crWidthStyle(_percent)
@@ -162,14 +177,14 @@ const InputSlider = ({
 
   return (
     <div
-      style={{...S.ROOT, ...style}}
+      style={{...S_ROOT, ...style}}
       {..._sliderHandlers}      
     >
       <div
          ref={_refTrack}
-         style={S.ROOT_LINE}
+         style={S_ROOT_LINE}
       >
-        <div style={{...S.LINE_BEFORE, ..._widthBeforeStyle }} />
+        <div style={{...S_LINE_BEFORE, ..._widthBeforeStyle }} />
         <div style={{..._lineAfterStyle, ..._widthAfterStyle }} />
         <input
           type="hidden"
@@ -187,10 +202,10 @@ const InputSlider = ({
            aria-valuemax={max}
            aria-orientation="horizontal"
            aria-labelledby="discrete-slider-custom"
-           style={{...S.ROOT_CIRCLE, ..._circleStyle, ..._leftStyle }}
+           style={{...S_ROOT_CIRCLE, ..._circleStyle, ..._leftStyle }}
            {..._btHandlers}
         >
-          <div style={{ ...S.CIRCLE_INNER, ..._circleStyle}} >
+          <div style={{ ...S_CIRCLE_INNER, ..._circleStyle}} >
             {_circleInnerEl}
           </div>
         </div>
