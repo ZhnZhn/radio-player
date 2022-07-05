@@ -1,14 +1,16 @@
-import S from './StationDescrStyle';
+import {
+  S_LINK
+} from './StationDescrStyle';
 
 interface SiteUrlProps {
-    siteUrl?: string;
-  }
+  siteUrl?: string;
+}
 
 const SiteUrl = ({ siteUrl }: SiteUrlProps) => {
   if (!siteUrl) return null;
   return (
     <a href={siteUrl}
-       style={S.LINK}
+       style={S_LINK}
        target="_blank"
        rel="noreferrer noopener"
     >

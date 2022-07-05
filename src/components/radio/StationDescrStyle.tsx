@@ -1,29 +1,20 @@
-import type { StyleSheet } from "./types";
+import { CSSProperties } from "./types";
 
-type StyleKeys = 'ARROW_OPEN'
- | 'LINK'
- | 'TITLE'
- | 'CATEGORY'
-
-const S: StyleSheet<StyleKeys> = {
-    ARROW_OPEN: {
-      transform: 'rotate(90deg) scale(1.3, 1.3) translate(14px, -10px)'
-    },
-    LINK: {
-      color: '#04477b',
-      fontSize: '17px',
-      display: 'inline-block',
-      maxWidth: 340,
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-      overflow: 'hidden'
-    },
-    TITLE: {
-      color: 'darkgray'
-    },
-    CATEGORY: {
-      color: '#1b2836'
-    }
-  };
-
-  export default S
+export const S_ARROW_OPEN: CSSProperties = {
+  transform: 'rotate(90deg) scale(1.3, 1.3) translate(14px, -10px)'
+}
+export const S_LINK: CSSProperties = {
+  color: '#04477b',
+  fontSize: '17px',
+  display: 'inline-block',
+  maxWidth: 340,
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden'
+}
+export const S_TITLE: CSSProperties = {
+  color: 'darkgray'
+}
+export const S_CATEGORY: CSSProperties = {
+  color: '#1b2836'
+}  

@@ -1,6 +1,9 @@
 import type { CategoriesType } from '../../sound/types';
 
-import S from './StationDescrStyle';
+import {
+  S_TITLE,
+  S_CATEGORY
+} from './StationDescrStyle';
 
 interface CategoryProps {
   category?: CategoriesType;
@@ -12,15 +15,18 @@ const _isStrNotEmpty = (str?: string) => str
 const _toFirstUpperCase = (str: string) => str[0].toUpperCase()
   + str.substring(1);
 
-const Category = ({ category, br }: CategoryProps) => {
+const Category = ({ 
+  category, 
+  br 
+}: CategoryProps) => {
    if (!_isStrNotEmpty(category)) return null;
    const _kbps = br ? ` (${br} Kbps)` : '';
    return (
      <div>
-       <span style={S.TITLE}>
+       <span style={S_TITLE}>
          Category:
        </span>&nbsp;
-       <span style={S.CATEGORY}>
+       <span style={S_CATEGORY}>
         {_toFirstUpperCase(category as string)}{_kbps}
        </span>
      </div>

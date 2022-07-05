@@ -1,13 +1,21 @@
 import { useEffect } from '../uiApi';
 import useInterval from '../hooks/useInterval';
 
-import { HK_INCREASE_VOLUME, HK_DECREASE_VOLUME } from '../hotkeys/hotkeys';
+import { 
+  HK_INCREASE_VOLUME, 
+  HK_DECREASE_VOLUME 
+} from '../hotkeys/hotkeys';
 
 import InputSlider from '../zhn/InputSlider';
 import BtMinus from '../zhn/BtMinus';
 import BtPlus from '../zhn/BtPlus';
 import HeaderDrawer from '../drawer/HeaderDrawer';
-import S from './RadioVolumeStyle';
+import {
+  S_ROW,
+  S_VOLUME,
+  S_SLIDER,
+  S_GAP,
+} from './RadioVolumeStyle';
 
 export interface RadioVolumeProps {
   volume: number,
@@ -18,7 +26,6 @@ export interface RadioVolumeProps {
 
 const NEAR_MAX = 0.8
 , NEAR_MIN = 0.2;
-
 
 const _isNumber = (n: unknown): n is number => typeof n === 'number'
  && n-n === 0;
@@ -63,12 +70,12 @@ const RadioVolume = ({
   })
 
   return (
-    <div id="volume" style={S.ROW} >
-      <div style={S.VOLUME}>
+    <div id="volume" style={S_ROW} >
+      <div style={S_VOLUME}>
         {_toVolume(volume)}
       </div>
       <InputSlider
-        style={S.SLIDER}
+        style={S_SLIDER}
         initialValue={volume}
         step={0.05}
         min={0}
@@ -81,7 +88,7 @@ const RadioVolume = ({
         {..._minusHandlers}
         onClick={onDecrease}
       />
-      <div style={S.GAP} />
+      <div style={S_GAP} />
       <BtPlus
         hotKey={HK_INCREASE_VOLUME}
         ariaLabel="Decrease Volume"
