@@ -14,17 +14,23 @@ const _crHotKey = (index: number) => index < 5
 
 const StationList = () => {
   const {
-    toggleDrawer, setCurrentStation,
-    sApp, useSelector
+    toggleDrawer, 
+    setCurrentStation,
+    sApp, 
+    useSelector
   } = useContext(AppContext)
+  , isHttp = useSelector(sApp.isHttp)
   , currentStation = useSelector(sApp.currentStation)
-  , radioStations = useSelector(sApp.stations)
+  , radioStations = useSelector(sApp.stations)  
   , _handlers = useSwipeGesture({
       onSwipeGesture: toggleDrawer
     });
   return (
     <div className={CL_STATION_LIST} {..._handlers} >
-        <StationDescr station={currentStation} />
+        <StationDescr 
+          isHttp={isHttp}
+          station={currentStation} 
+        />
       {
         radioStations.map((station, index) => (
            <StationItem

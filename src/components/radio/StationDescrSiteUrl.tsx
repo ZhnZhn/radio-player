@@ -1,20 +1,26 @@
+import toLink from '../zhn/toLink';
 import {
   S_LINK
 } from './StationDescrStyle';
 
 interface SiteUrlProps {
+  isHttp: boolean;
   siteUrl?: string;
 }
 
-const SiteUrl = ({ siteUrl }: SiteUrlProps) => {
-  if (!siteUrl) return null;
+const SiteUrl = ({ 
+  isHttp,
+  siteUrl 
+}: SiteUrlProps) => {
+  const _href = toLink(siteUrl, isHttp);
+  if (!_href) return null;
   return (
-    <a href={siteUrl}
+    <a href={_href}
        style={S_LINK}
        target="_blank"
        rel="noreferrer noopener"
     >
-      {siteUrl}
+      {_href}
     </a>
   );
 }

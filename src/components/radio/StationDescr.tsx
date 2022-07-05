@@ -11,6 +11,7 @@ import {
 } from './StationDescrStyle';
 
 interface StationDescrProps {
+  isHttp: boolean;
   station?: StationType;
 }
 
@@ -19,15 +20,21 @@ const CL_DESCR = 'station-descr'
 , CL_BT_MORE = 'item-descr__bt-more'
 , CL_INFO = `${CL_DESCR}__info`;
 
-const StationDescr = ({ station }: StationDescrProps) => {
+const StationDescr = ({ 
+  isHttp,
+  station 
+}: StationDescrProps) => {
   const [isMore, setMore] = useState(true)
   , _onClick = () => setMore(isMore => !isMore)
   , _arrowStyle = isMore
        ? S_ARROW_OPEN
        : void 0
   , {
-    title, src, siteUrl,
-    category, br
+    title, 
+    src, 
+    siteUrl,
+    category, 
+    br
   } = station || {};
 
   if (!station) { return null; }
@@ -45,7 +52,7 @@ const StationDescr = ({ station }: StationDescrProps) => {
       <ShowHide className={CL_INFO} isShow={isMore}>
         <div>
           <Category category={category} br={br} />
-          <SiteUrl siteUrl={siteUrl} />
+          <SiteUrl isHttp={isHttp} siteUrl={siteUrl} />
         </div>
       </ShowHide>
     </div>
