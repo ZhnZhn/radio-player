@@ -3,12 +3,12 @@
   "version": "0.3.0",
   "description": "Web app Radio Player. The web app that gives the ability to listen Internet radio.",
   "main": "index.js",
-  "scripts": {
-    "core": "tsc _core/AxisZoomCapture.tsx --target esnext",
+  "scripts": {    
     "dev": "webpack serve --config webpack.dev.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "css:min": "node min-css.js",
+    "lint:build": "eslint -c .eslintrc-build.js ./src --ext .ts,.tsx,.js,.jsx > lint-build.txt",
     "lint:hooks": "eslint -c .eslintrc-hooks.js ./src --ext .ts,.tsx > lint-hooks.txt",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
