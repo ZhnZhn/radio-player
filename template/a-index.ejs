@@ -28,32 +28,7 @@
 
   <link rel="icon" href="/css/favicon.png" sizes="32x32" type="image/png">
   <base target="_blank">
-
-  <script>
-    'use strict';
-    ;(function(){
-      var polyfill = {
-        add : function(path){
-          var js = document.createElement('script');
-          js.src = path;
-          document.head.appendChild(js);
-          return polyfill;
-        }
-      };
-      if (!Object.assign){
-        polyfill.add('lib/es6-shim.min.js')
-                .add('lib/es6-promise.min.js')                ;
-      }
-      if (!window.fetch){
-        polyfill.add('lib/fetch.min.js')
-      }
-      if (!Array.isArray) {
-        Array.isArray = function(arg) {
-           return Object.prototype.toString.call(arg) === '[object Array]';
-        };
-      }
-    })()
-  </script>
+  
   <!-- REPLACE_BY_CSS_MIN_LINK -->
 
 </head>
