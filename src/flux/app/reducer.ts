@@ -5,8 +5,7 @@ import { ACTION } from './actions';
 import { ACTION as SA } from '../stations/actions';
 
 const { 
-  uiTheme: DF_UI_THEME, 
-  filter: DF_FILTER
+  uiTheme: DF_UI_THEME
 } = initialState.app;
 
 const reducer = function(state=initialState.app, action: ActionType): StateAppSlice {
@@ -21,11 +20,7 @@ const reducer = function(state=initialState.app, action: ActionType): StateAppSl
       return {
         ...state,
         isDrawer: !state.isDrawer
-      };
-    case ACTION.SET_SRC_FILTER: {
-      const { filter=DF_FILTER } = action
-      return {...state, filter};
-    }
+      };    
     case SA.SET_CURRENT_STATION: {
       const { station } = action;
       return {

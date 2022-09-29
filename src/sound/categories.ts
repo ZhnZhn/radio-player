@@ -6,11 +6,8 @@ const CATEGORIES: CategoriesType[] = [
   'classical',
   'country',
   'instrumental',
-  'jazz',
-  'lounge',
   'piano',
   'pop',
-  'rock',
   'sport',
   'talks'
 ];

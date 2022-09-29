@@ -12,8 +12,8 @@ const country: StationType[] = [{
     br: 128
   },{
     title: "USA: Today's Country 011.FM",
-    src: 'http://listen.011fm.com:8016/stream09',
-    siteUrl: 'http://011fm.com',
+    src: 'https://listen.011fm.com/stream01',
+    siteUrl: 'https://011fm.com',
     br: 192
   },{
     title: "USA: 650 AM WSM",

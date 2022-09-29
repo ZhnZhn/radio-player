@@ -1,10 +1,12 @@
 import { ActionType } from '../types';
 
 import initialState from '../initialState';
-import { ACTION as SA } from '../stations/actions'
-import { ACTION as AP } from '../app/actions'
+import { ACTION as SA } from '../stations/actions';
 
-const reducer = function(state=initialState.categories, action: ActionType) {
+const reducer = (
+  state=initialState.categories, 
+  action: ActionType
+) => {
   switch(action.type){
     case SA.ADD_CATEGORY: {
       const { category } = action;
@@ -19,10 +21,7 @@ const reducer = function(state=initialState.categories, action: ActionType) {
         state[category] = false;
       }
       return { ...state};
-    }
-    case AP.SET_SRC_FILTER: {
-      return {};
-    }
+    }    
     default: return state;
   }
 }

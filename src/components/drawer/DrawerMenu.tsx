@@ -16,8 +16,7 @@ import {
 const DrawerMenu = () => {
   const {
     setUiTheme,
-    toggleDrawer,
-    setSrcFilter
+    toggleDrawer
   } = useContext(AppContext)
   , _handlers = useSwipeGesture({
        onSwipeGesture: toggleDrawer, dir: 'R'
@@ -37,19 +36,11 @@ const DrawerMenu = () => {
           onClick={toggleDrawer}
         />
       </div>
-      <CategoriesList />
-      <div className={CL_HEADER}>
-        <BtTriple
-          className={CL_BT_TRIPLE}
-          initialValue="2"
-          oneC="ALL"
-          twoC="HTTPS"
-          threeC="HTTP"
-          onClick={setSrcFilter}
-        />
-      </div>
+      <CategoriesList />      
     </div>
   );
 }
+
+//setSrcFilter
 
 export default DrawerMenu

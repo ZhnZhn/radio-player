@@ -1,8 +1,9 @@
+type HttpsUrlType = `https://${string}`
 
 export type StationType = {  
-  title: string,
-  src: string,
-  siteUrl?: string
+  title: string
+  src: HttpsUrlType
+  siteUrl?: HttpsUrlType
   br?: number
   category?: CategoriesType
 } 
@@ -14,11 +15,8 @@ export type CategoriesType = 'alternative'
  | 'classical'
  | 'country'
  | 'instrumental'
- | 'jazz'
- | 'lounge'
  | 'piano'
  | 'pop'
- | 'rock'
  | 'sport'
  | 'talks'
 
