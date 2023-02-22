@@ -11,7 +11,7 @@ module.exports = {
   cache: true,
   entry: {
     lib: [            
-            "preact",             
+            "preact/compat",             
             "preact/hooks",
             "redux", "react-redux",
             "howler"            
