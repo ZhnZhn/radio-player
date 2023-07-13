@@ -8,4 +8,5 @@ dev
 webpack.dev.js
 .vscode
 min-css.js
+template/index-dev.ejs
 
