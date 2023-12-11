@@ -1,11 +1,7 @@
-export { MiddlewareAPI, Dispatch, AnyAction } from 'redux';
+export { Middleware, MiddlewareAPI, Dispatch } from 'redux';
 
-import { AnyAction, Dispatch, MiddlewareAPI } from 'redux';
 import { UiThemeType } from '../components/ui-theme/types';
 import { CategoriesType, StationType } from '../sound/types';
-
-export type MiddlewareNextType = Dispatch<AnyAction>
-export type MiddlewareApiType = MiddlewareAPI<MiddlewareNextType, StateRoot>
 
 export type StateAppSlice = {
   isDrawer: boolean,

@@ -1,4 +1,4 @@
-import { MiddlewareApiType, MiddlewareNextType, ActionType } from '../types'
+import { Middleware } from '../types'
 
 import { ACTION } from '../app/actions'
 
@@ -8,9 +8,9 @@ const _hm = {
   'sand': '#e8e0cb'
 };
 
-const appUiTheme = (_: MiddlewareApiType) => 
-  (next: MiddlewareNextType) => 
-  (action: ActionType) => {
+const appUiTheme: Middleware = (
+  _
+) => (next) => (action) => {
   if (action.type === ACTION.SET_UI_THEME) {
     const { uiTheme } = action
     , _bgColor = _hm[uiTheme!];
