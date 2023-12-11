@@ -1,14 +1,14 @@
-import { ACTION } from '../stations/actions'
+import { isAddCategortyAction } from '../stations/actions';
 
-import { MiddlewareApiType, ActionType, MiddlewareNextType } from '../types';
-import utils from '../../sound/utils'
+import { Middleware } from '../types';
+import utils from '../../sound/utils';
 
 const { crFilterBy, getCategory } = utils;
 
-const addCategories = ({ getState }: MiddlewareApiType) => 
-  (next: MiddlewareNextType) => 
-  (action: ActionType) => {
-  if (action.type === ACTION.ADD_CATEGORY) {
+const addCategories: Middleware = (
+  { getState }
+) => (next) => (action) => {
+  if (isAddCategortyAction(action)) {
     const state = getState()
     , { category } = action
     , _filterBy = crFilterBy(state.app.filter);
