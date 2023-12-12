@@ -27,9 +27,8 @@ const toggleDrawer = () => ({
   type: TOGGLE_DRAWER
 });
 
-const actions = {
+export const appActions = {
   setUiTheme,
   toggleDrawer
 };
 
-export default actions

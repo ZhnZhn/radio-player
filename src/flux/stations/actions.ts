@@ -47,10 +47,10 @@ const setCurrentStation = (station: StationType) => ({
   station
 })
 
-const actions = {
+export const stationActions = {
   addCategory,
   removeCategory,
   setCurrentStation
 };
 
-export default actions
+
