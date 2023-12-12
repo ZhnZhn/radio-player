@@ -5,7 +5,7 @@ const _hm = {
   'grey': 'grey',
   'light': '#e1e1e1',
   'sand': '#e8e0cb'
-};
+} as const;
 
 const appUiTheme: Middleware = () => (next) => (action) => {
   if (isSetUiThemeAction(action)) {

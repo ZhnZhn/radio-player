@@ -7,9 +7,9 @@ const _hmUiTheme = {
   '1': 'grey',
   '2': 'light',
   '3': 'sand'
-};
+} as const;
 type UiThemeIndexType = keyof typeof _hmUiTheme
-type UiThemeType = 'grey' | 'light' | 'sand'
+type UiThemeType = (typeof _hmUiTheme)[UiThemeIndexType]
 
 const setUiTheme = (uiThemeIndex: UiThemeIndexType) => ({
   type: SET_UI_THEME,
