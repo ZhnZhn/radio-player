@@ -1,6 +1,5 @@
-import { Middleware } from '../types'
-
-import { ACTION } from '../app/actions'
+import type { Middleware } from '../types';
+import { isSetUiThemeAction } from '../app/actions';
 
 const _hm = {
   'grey': 'grey',
@@ -8,12 +7,10 @@ const _hm = {
   'sand': '#e8e0cb'
 };
 
-const appUiTheme: Middleware = (
-  _
-) => (next) => (action) => {
-  if (action.type === ACTION.SET_UI_THEME) {
+const appUiTheme: Middleware = () => (next) => (action) => {
+  if (isSetUiThemeAction(action)) {
     const { uiTheme } = action
-    , _bgColor = _hm[uiTheme!];
+    , _bgColor = uiTheme && _hm[uiTheme];
     if (_bgColor) {
       document.body.style.backgroundColor = _bgColor
     }  

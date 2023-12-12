@@ -1,7 +1,10 @@
 import { ActionType, StateAppSlice } from '../types';
 
 import initialState from '../initialState';
-import { ACTION } from './actions';
+import { 
+  SET_UI_THEME,
+  TOGGLE_DRAWER 
+} from './actions';
 import { SET_CURRENT_STATION } from '../stations/actions';
 
 const { 
@@ -10,13 +13,13 @@ const {
 
 const reducer = function(state=initialState.app, action: ActionType): StateAppSlice {
   switch(action.type){
-    case ACTION.SET_UI_THEME: {
+    case SET_UI_THEME: {
       const { uiTheme=DF_UI_THEME } = action;
       return state.uiTheme !== uiTheme ? {
          ...state, uiTheme
       } : state;
     }
-    case ACTION.TOGGLE_DRAWER:
+    case TOGGLE_DRAWER:
       return {
         ...state,
         isDrawer: !state.isDrawer
