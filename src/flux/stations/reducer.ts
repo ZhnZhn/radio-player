@@ -2,7 +2,11 @@ import { CategoriesType, StationType } from '../../sound/types';
 import { ActionType } from '../types';
 
 import initialState from '../initialState';
-import { ACTION } from './actions';
+import { 
+  ADD_CATEGORY,
+  REMOVE_CATEGORY,
+  SET_CURRENT_STATION
+} from './actions';
 
 const fByTitle = (title='') =>
   (item: StationType) => item.title !== title;
@@ -26,7 +30,7 @@ const reducer = (
   action: ActionType
 ) => {
   switch(action.type){
-    case ACTION.ADD_CATEGORY: {
+    case ADD_CATEGORY: {
       const { 
         categories, 
         category, 
@@ -40,13 +44,13 @@ const reducer = (
            : _stationsWithoutCurrent;      
       return [..._categories, ...state];
     }
-    case ACTION.REMOVE_CATEGORY: {
+    case REMOVE_CATEGORY: {
       const { 
         category 
       } = action;
       return state.filter(fByCategory(category));
     }
-    case ACTION.SET_CURRENT_STATION: {
+    case SET_CURRENT_STATION: {
       const { 
         station, 
         currentStation 

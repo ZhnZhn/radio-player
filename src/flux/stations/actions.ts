@@ -1,44 +1,49 @@
-import { CategoriesType, StationType } from "../../sound/types";
-import { ActionHmType } from "../types";
+import { isAction  } from "redux";
 
-const ADD_CATEGORY = 'ADD_CATEGORY'
+import { 
+  CategoriesType, 
+  StationType 
+} from "../../sound/types";
+
+export const ADD_CATEGORY = 'ADD_CATEGORY'
 type ADD_CATEGORY_TYPE = typeof ADD_CATEGORY
 
-type StationActionType = ADD_CATEGORY_TYPE
- | 'REMOVE_CATEGORY'
- | 'SET_CURRENT_STATION'
+export const REMOVE_CATEGORY = 'REMOVE_CATEGORY'
 
-export const ACTION: ActionHmType<StationActionType> = {
-  ADD_CATEGORY: ADD_CATEGORY,
-  REMOVE_CATEGORY: 'REMOVE_CATEGORY',
-  SET_CURRENT_STATION: 'SET_CURRENT_STATION'
-};
+export const SET_CURRENT_STATION = 'SET_CURRENT_STATION'
+type SET_CURRENT_STATION_TYPE = typeof SET_CURRENT_STATION
+
 
 const addCategory = (category: CategoriesType) => ({
-  type: ACTION.ADD_CATEGORY,
+  type: ADD_CATEGORY,
   category
 })
 
-type ADD_CATEGORY_ACTION = object & { 
+type ADD_CATEGORY_ACTION_TYPE = object & { 
   type: ADD_CATEGORY_TYPE
   category: CategoriesType
   categories: void | StationType[] 
 }
 
-export const isAddCategortyAction = (action: unknown): action is ADD_CATEGORY_ACTION => action !== null
-  && typeof action === "object"
-  && 'type' in action
+export const isAddCategortyAction = (action: unknown): action is ADD_CATEGORY_ACTION_TYPE => isAction(action)  
   && action.type === ADD_CATEGORY
   && 'category' in action
   
+type SET_CURRENT_STATION_ACTIONS_TYPE = object & {
+  type: ADD_CATEGORY_TYPE | SET_CURRENT_STATION_TYPE
+  currentStation: void | StationType
+}
+
+export const isSetCurrentStationActions = (action: unknown): action is SET_CURRENT_STATION_ACTIONS_TYPE => isAction(action)
+  && (action.type === ADD_CATEGORY || action.type === SET_CURRENT_STATION)
 
 const removeCategory = (category: CategoriesType) => ({
-  type: ACTION.REMOVE_CATEGORY,
+  type: REMOVE_CATEGORY,
   category
 })
 
 const setCurrentStation = (station: StationType) => ({
-  type: ACTION.SET_CURRENT_STATION,
+  type: SET_CURRENT_STATION,
   station
 })
 

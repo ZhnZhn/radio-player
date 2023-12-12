@@ -2,7 +2,7 @@ import { ActionType, StateAppSlice } from '../types';
 
 import initialState from '../initialState';
 import { ACTION } from './actions';
-import { ACTION as SA } from '../stations/actions';
+import { SET_CURRENT_STATION } from '../stations/actions';
 
 const { 
   uiTheme: DF_UI_THEME
@@ -21,7 +21,7 @@ const reducer = function(state=initialState.app, action: ActionType): StateAppSl
         ...state,
         isDrawer: !state.isDrawer
       };    
-    case SA.SET_CURRENT_STATION: {
+    case SET_CURRENT_STATION: {
       const { station } = action;
       return {
         ...state,

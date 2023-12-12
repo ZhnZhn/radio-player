@@ -1,21 +1,24 @@
 import { ActionType } from '../types';
 
 import initialState from '../initialState';
-import { ACTION as SA } from '../stations/actions';
+import { 
+  ADD_CATEGORY,
+  REMOVE_CATEGORY 
+} from '../stations/actions';
 
 const reducer = (
   state=initialState.categories, 
   action: ActionType
 ) => {
   switch(action.type){
-    case SA.ADD_CATEGORY: {
+    case ADD_CATEGORY: {
       const { category } = action;
       if (category) {
         state[category] = true
       }
       return { ...state};
     }
-    case SA.REMOVE_CATEGORY: {
+    case REMOVE_CATEGORY: {
       const { category } = action;
       if (category){
         state[category] = false;
