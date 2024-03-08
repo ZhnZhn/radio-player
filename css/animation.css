@@ -30,18 +30,24 @@
 
 .show-popup {
   transform-origin: 50% 0;
-  animation: showing-popup 400ms ease-out;
+  animation: showing-popup 300ms ease-in;
 }
+
 @keyframes showing-popup {
-  from {
+  0% {
     opacity: 0;
     transform: scaleY(0);
   }
-  to {
+  20% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+  100% {
     opacity: 1;
     transform: scaleY(1);
   }
 }
+
 
 .check-in {
   stroke-dasharray: 26;
