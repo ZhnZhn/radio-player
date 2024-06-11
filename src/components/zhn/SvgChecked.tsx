@@ -1,11 +1,13 @@
 import type { CSSProperties } from './types';
+import Svg from './Svg';
 
 interface SvgCheckedProps {
   style?: CSSProperties,
   color?: string
 }
 
-const CL_CHECK_IN = "check-in";
+const CL_CHECK_IN = "check-in"
+, DF_COLOR = '#64e346';
 
 const S_SPAN: CSSProperties = {
   display: 'inline-block',
@@ -15,14 +17,10 @@ const S_SPAN: CSSProperties = {
 
 const SvgChecked = ({ 
   style, 
-  color='#64e346' 
+  color=DF_COLOR
 }: SvgCheckedProps) => (
   <span style={{ ...S_SPAN, ...style }}>
-    <svg
-      viewBox="0 0 16 16" 
-      preserveAspectRatio="none" 
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <Svg w="16">
       <path
         className={CL_CHECK_IN}
         d="M 2,5 L 8,14 14,1"
@@ -31,7 +29,7 @@ const SvgChecked = ({
         strokeWidth="3"
         strokeLinecap="round"
       />
-    </svg>
+    </Svg>
   </span>
 );
 
