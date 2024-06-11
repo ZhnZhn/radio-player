@@ -8,7 +8,7 @@ import { useRef } from '../uiApi';
 
 import useBool from '../hooks/useBool';
 import useInitialValue from '../hooks/useInitialValue';
-import has from '../has';
+import { HAS_TOUCH_EVENT } from '../has';
 import {
   S_ROOT,
   S_ROOT_CIRCLE,
@@ -36,9 +36,8 @@ type SetValueFromPositionType = (event: MouseEvent) => void
 const _isNaN = Number.isNaN
 // eslint-disable-next-line
 , _noopFn = (n: number) => {}
-, hasTouch = has.TOUCH
-, EVENT_NAME_MOVE = hasTouch ? 'touchmove' : 'mousemove'
-, EVENT_NAME_UP = hasTouch ? 'touchend' : 'mouseup'
+, EVENT_NAME_MOVE =  HAS_TOUCH_EVENT ? 'touchmove' : 'mousemove'
+, EVENT_NAME_UP = HAS_TOUCH_EVENT ? 'touchend' : 'mouseup'
 , _checkValueInMinMax = (
     min: number, 
     max: number, 
@@ -56,7 +55,7 @@ const _isNaN = Number.isNaN
 , _crLeftStyle = (percent: number): CSSProperties => ({
    left: `${percent}%`
 })
-, _getClienX = hasTouch
+, _getClienX = HAS_TOUCH_EVENT
   ? (evt: MouseOrTouchEvent) => (((evt as unknown as TouchEvent || {}).touches || [])[0] || {}).clientX || 0
   : (evt: MouseOrTouchEvent) => (evt as unknown as MouseEvent).clientX
 , _isUp = (keyCode: number) => keyCode === 39 || keyCode === 38
@@ -89,7 +88,7 @@ const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   },
   _hMouseDown = (event: MouseEvent) => {
     // Cancel text selection
-    if (!hasTouch) {
+    if (!HAS_TOUCH_EVENT) {
       event.preventDefault()
     }
     document.addEventListener(EVENT_NAME_MOVE, _hDragMouseMove)
@@ -152,13 +151,13 @@ const InputSlider = ({
   }
   , [dragged, _hMouseDown] = _useMouseDown(_setValueFromPosition);
   
-  const _sliderHandlers = hasTouch ? {
+  const _sliderHandlers = HAS_TOUCH_EVENT ? {
      onTouchStart: _hMouseDown
   } : {
     onMouseDown: _hMouseDown,
     onMouseEnter: setHoveredTrue,
     onMouseLeave: setHoveredFalse
-  }, _btHandlers = hasTouch ? void 0 : {
+  }, _btHandlers = HAS_TOUCH_EVENT ? void 0 : {
       onFocus: setHoveredTrue,
       onKeyDown: _hKeyDown,
       onBlur: setHoveredFalse

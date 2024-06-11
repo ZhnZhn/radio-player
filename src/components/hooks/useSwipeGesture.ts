@@ -1,6 +1,6 @@
 import { useCallback, TouchEvent } from '../uiApi';
 
-import HAS from '../has';
+import { HAS_TOUCH_EVENT } from '../has';
 
 type DirType = 'L' | 'U' | 'R'
 interface UseSwipeGestureProps {
@@ -48,11 +48,11 @@ const _isSwipeGesture = (
 
 const useSwipeGesture: UseSwipeGestureType = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
 
-  const onTouchStart = useCallback(event => {
+  const onTouchStart = useCallback((event: TouchEvent) => {
     _state.fromClientX = _getClientX(event)
   }, [])
   /*eslint-disable react-hooks/exhaustive-deps */
-  , onTouchEnd = useCallback(event => {
+  , onTouchEnd = useCallback((event: TouchEvent) => {
     if (_isSwipeGesture(dir, delta, _getClientX(event))) {
       onSwipeGesture()
       _state.fromClientX = void 0;
@@ -60,7 +60,7 @@ const useSwipeGesture: UseSwipeGestureType = ({ onSwipeGesture, dir='L', delta =
   }, []);
   /*eslint-enable react-hooks/exhaustive-deps */
 
-  if (!HAS.TOUCH) {
+  if (!HAS_TOUCH_EVENT) {
     return void 0;
   }
 

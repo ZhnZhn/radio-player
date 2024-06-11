@@ -6,7 +6,7 @@ import {
   useEffect, useContext   
 } from '../uiApi';
 
-import HAS from '../has';
+import { HAS_MEDIA_SESSION } from '../has';
 import AppContext from '../AppContext';
 
 import sound from '../../sound/sound';
@@ -34,7 +34,7 @@ const S_TITLE_CONT: CSSProperties = {
 };
 
 const _setMediaMetadata = (artist='') => {
-  if (HAS.MEDIA_SESSION) {    
+  if (HAS_MEDIA_SESSION) {    
     /*eslint-disable no-undef*/      
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
@@ -122,7 +122,7 @@ const AudioPlayer = () => {
 
   /*eslint-disable react-hooks/exhaustive-deps */ 
   useEffect( () => {
-    if (HAS.MEDIA_SESSION) {            
+    if (HAS_MEDIA_SESSION) {            
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])

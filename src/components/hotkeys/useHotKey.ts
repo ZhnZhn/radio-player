@@ -1,8 +1,12 @@
 
 import type { Ref } from '../uiApi';
 
-import { useContext, useRef, useEffect } from '../uiApi';
-import HAS from '../has';
+import { 
+  useContext, 
+  useRef, 
+  useEffect 
+} from '../uiApi';
+import { HAS_TOUCH_EVENT } from '../has';
 
 import HotKeysContext from './HotKeysContext';
 
@@ -17,7 +21,7 @@ const useHotKey: UseHotKeyType = (hotKey, onKeyDown) => {
   
   /*eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    if (!HAS.TOUCH && hotKey) {  
+    if (!HAS_TOUCH_EVENT && hotKey) {  
       hmHotKeys[hotKey] = [ref, onKeyDown] 
       return () => hmHotKeys[hotKey] = void 0
     }  
