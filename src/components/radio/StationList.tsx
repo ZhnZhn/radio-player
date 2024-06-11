@@ -1,4 +1,5 @@
 import { useContext } from '../uiApi';
+import { HAS_KEYBOARD_FOCUS  } from '../has';
 
 import AppContext from '../AppContext';
 import useSwipeGesture from '../hooks/useSwipeGesture';
@@ -36,7 +37,7 @@ const StationList = () => {
            <StationItem
              key={station.title}
              station={station}
-             hotKey={_crHotKey(index)}
+             hotKey={HAS_KEYBOARD_FOCUS ? _crHotKey(index): void 0}
              onClick={setCurrentStation.bind(null, station, index)}
            />
         ))         
