@@ -1,6 +1,7 @@
 export {  
   useState, 
   useCallback, 
+  useMemo,
   useRef, 
   useReducer,
   useEffect,
