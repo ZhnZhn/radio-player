@@ -26,21 +26,16 @@
 .station-descr__bt {
   position: relative;
   width: 100%;
-  padding-left: 12px;
-  padding-right: 32px;
+  padding: 0 32px 0 12px;  
   line-height: 2.5;
   text-align: left;
-  border-bottom: 1px solid darkgrey;
-  font-family: Roboto, Arial, Lato, sans-serif;
-  font-weight: 600;
-  cursor: pointer;
+  border-bottom: 1px solid darkgrey;  
+  font-weight: 600;  
 }
 
 .station-descr__info {
-  width: 100%;
-  padding-left: 12px;
-  padding-right: 32px;
-  padding-bottom: 4px;
+  width: 100%;  
+  padding: 6px 32px 0 12px;
   line-height: 1.9;
   text-align: left;
   font-weight: 600;
@@ -51,22 +46,18 @@
   /*overflow: hidden;*/
   position: relative;
   width: 100%;
-  padding-left: 12px;
-  padding-right: 32px;
-  margin-bottom: 4px;
   line-height: 2.5;
-  text-align: left;
-  font-family:  Roboto, Arial, Lato, sans-serif;
+  padding: 0 32px 0 12px;  
+  margin-bottom: 4px; 
+  text-align: left;  
   font-weight: 600;
   border-radius: 2px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);  
 }
 .station-descr__bt:hover,
 .station-descr__bt:focus,
 .item-station:hover,
 .item-station:focus {
-  outline: 0;
   background-color: rgba(0, 0, 0, 0.2);
 }
 

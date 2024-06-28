@@ -1,32 +1,16 @@
 
-[data-loader='circle']
-  {
-    width: 2.5em;
-    height: 2.5em;
-   -webkit-animation: circle infinite 1.25s linear;
-      -moz-animation: circle infinite 0.75s linear;
-        -o-animation: circle infinite 1.25s linear;
-           animation: circle infinite 1.25s linear;
+[data-loader='circle'] {
+   width: 2.5em;
+   height: 2.5em;
+   border-radius: 100%;   
    border: 3px solid #64e346;
-   border-top-color: transparent;
-   border-radius: 100%;
- }
+   border-top-color: transparent;   
+   animation: circle infinite 1.25s linear;   
+}
 
- @-webkit-keyframes circle
-{ 100% {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-} }
-@-moz-keyframes circle
-{ 100% { transform: rotate(360deg);}}
-@-o-keyframes circle
-{ 100% {
-  -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-} }
-@keyframes circle
-{ 100% {transform: rotate(360deg);}}
-
+@keyframes circle { 
+  100% { transform: rotate(360deg); }
+}
 
 .show-popup {
   transform-origin: 50% 0;
@@ -48,16 +32,22 @@
   }
 }
 
-
 .check-in {
   stroke-dasharray: 26;
-  stroke-dashoffset: 26;
-  /*animation: checking 0.2s linear forwards;*/
-  animation: checking 0.2s ease-in forwards;
-  
+  stroke-dashoffset: 26;  
+  animation: checking 0.2s ease-in forwards;  
 }
+
 @keyframes checking {
   from { stroke-offset: 26; }
   to { stroke-dashoffset: 0 }
 }
 
+@media screen and (max-width: 540px) {
+  .show-popup {    
+    animation: showing-popup 150ms ease-in;
+  } 
+  .check-in {    
+    animation: checking 0.1s ease-in forwards;  
+  }
+}

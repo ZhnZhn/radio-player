@@ -1,9 +1,6 @@
 
 .app-radio-player {
   width: 380px;
-  max-width: calc(100vw - 32px);
-  margin-top: 84px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 12px
+  margin: 84px auto 12px auto;
+  max-width: calc(100vw - 32px);  
 }
