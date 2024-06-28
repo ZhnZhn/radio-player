@@ -1,0 +1,37 @@
+.noscript__root {  
+  width: 570px;
+  height: 120px;
+  padding: 10px;
+  margin: 30px auto 0 auto;  
+  border-radius: 10px; 
+  background-color: #4d4d4d;  
+  border: 2px solid #232f3b;
+}
+
+.noscript__header {
+  background-color: #232f3b;
+  height: 28px;
+  padding: 4px 10px 0 10px;  
+  margin-bottom: 10px;
+  border-radius: 0 0 10px 10px;  
+}
+
+.noscript__caption {
+  color: #80c040;
+  font-size: 16px;
+  font-weight: bold; 
+}
+
+.noscript__msg {
+  color: black;
+  background-color: #ffc100;
+  padding: 5px 10px 10px 10px;   
+  border-radius: 10px 10px 0 0;  
+  font-weight: bold; 
+}
+
+.noscript__link {
+  color: black;
+  border-bottom: 1px solid #1b75bb;
+  text-decoration: none; 
+}
