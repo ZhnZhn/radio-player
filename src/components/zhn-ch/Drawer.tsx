@@ -1,7 +1,13 @@
-import type { CSSProperties, WithChildren } from '../types';
-import type { LegacyRef } from 'react';
+import type { 
+  LegacyRef,
+  CSSProperties, 
+  WithChildren 
+} from '../types';
 
-import { useContext, useEffect } from '../uiApi';
+import { 
+  useContext, 
+  useEffect 
+} from '../uiApi';
 
 import { HK_OPEN_DRAWER } from '../hotkeys/hotkeys';
 import useHotKey from '../hotkeys/useHotKey';
@@ -14,11 +20,11 @@ interface DrawerProps {
 }
 type DrawerType = WithChildren<DrawerProps>
 
-const CL_DRAWER_BT = 'drawer-bt'
-, CL_DRAWER_SPAN = 'drawer-span'
-, CL_DRAWER_SVG = 'drawer-svg'
-, CL_DRAWER = 'drawer'
-, CL_DRAWER_MODAL = 'drawer-modal'
+const CL_DRAWER = 'drawer'
+, CL_DRAWER_BT = `${CL_DRAWER}-bt`
+, CL_DRAWER_SPAN = `${CL_DRAWER}-span`
+, CL_DRAWER_SVG = `${CL_DRAWER}-svg`
+, CL_DRAWER_MODAL = `${CL_DRAWER}-modal`
 
 , S_BT_DRAWER: CSSProperties = {
   position: 'absolute',
@@ -50,7 +56,8 @@ const Drawer = ({
 }: DrawerType) => {
   const {
     toggleDrawer,
-    sApp, useSelector
+    sApp, 
+    useSelector
   } = useContext(AppContext)
   , isOpen = useSelector(sApp.isDrawer)
   , uiTheme = useSelector(sApp.uiTheme)    
@@ -60,14 +67,11 @@ const Drawer = ({
       : void 0
   , _onKeyDownAside = useKeyEscape(_onClickWrapper, [_onClickWrapper])
 
-  useEffect(()=>{
-    if (isOpen) {
-      document.body.style.overflowY = 'hidden'      
-    } else {
-      document.body.style.overflowY = 'auto'
-    }
+  useEffect(()=>{    
+    document.body.style.overflowY = isOpen 
+      ? 'hidden' 
+      : 'auto';         
   })
-
 
   const _asideStyle = {
       ...(isOpen ? S_DRAWER_ON : S_DRAWER_OFF),
