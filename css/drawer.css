@@ -59,13 +59,10 @@ $bgNotification, $cNotification
   left: auto;
   right: 0;
   top: 0;
-  display: flex;
-  /*flex: 1 0 auto;*/
+  display: flex;  
   flex-direction: column;
   width: 260px;
-  height: 100vh;  
-  background-color: grey;
-  border-left: 1px solid #64e346;
+  height: 100vh;      
   overflow-y: auto;
   overflow-x: hidden;
   transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
@@ -139,8 +136,11 @@ $bgNotification, $cNotification
   font-weight: 600; }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {   
   .drawer__bt-close {
     left: 8px;
+  }
+  .drawer {  
+    transition: transform 120ms easy-in 0ms;  
   }
 }

@@ -4,7 +4,7 @@
   max-width: calc(100vw - 32px);
 }
 
-.item-descr__bt-more {
+.item-descr__more {
   display: inline-block;
   position: absolute;
   right: 6px;
