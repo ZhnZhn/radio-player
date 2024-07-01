@@ -1,23 +1,28 @@
-import type { MouseEvent } from '../uiApi';
-import { useRef, useCallback } from '../uiApi';
+import type { MouseEvent } from '../types';
+import { 
+  useRef, 
+  useCallback 
+} from '../uiApi';
 
 type UseThrottleClick = (
   timemout: number,
-  onClick: (event: MouseEvent) => void  
-) => (event: MouseEvent<HTMLButtonElement>) => void
+  onClick: (evt: MouseEvent) => void  
+) => (evt: MouseEvent<HTMLButtonElement>) => void
 
-const useThrottleClick: UseThrottleClick = (timeout, onClick) => {
+const useThrottleClick: UseThrottleClick = (
+  timeout, 
+  onClick
+) => {
   const _refTimeStamp = useRef<number>(0);
-  return useCallback((event: MouseEvent<HTMLButtonElement>) => {        
-    if (timeout !== 0) {
-      const _timeStamp = _refTimeStamp.current
-      , { timeStamp } = event;
-      if (timeStamp - _timeStamp > timeout) {
-        onClick(event)  
+  return useCallback((evt: MouseEvent<HTMLButtonElement>) => {        
+    if (timeout !== 0) {      
+      const { timeStamp } = evt;
+      if (timeStamp - _refTimeStamp.current > timeout) {
+        onClick(evt)  
       }
       _refTimeStamp.current = timeStamp      
     } else {
-      onClick(event)
+      onClick(evt)
     }  
   }, [timeout, onClick]);
 };

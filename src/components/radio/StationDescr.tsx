@@ -7,7 +7,7 @@ import StationProtocol from './StationProtocol';
 import Category from './StationDescrCategory';
 import SiteUrl from './StationDescrSiteUrl';
 import {
-  S_ARROW_OPEN,  
+  S_ARROW_OPEN,
 } from './StationDescrStyle';
 
 interface StationDescrProps {
@@ -16,30 +16,31 @@ interface StationDescrProps {
 }
 
 const CL_DESCR = 'station-descr'
-, CL_DESCR_BT = `${CL_DESCR}__bt`
-, CL_BT_MORE = 'item-descr__bt-more'
+, CL_DESCR_BT = `${CL_DESCR}__bt black`
+, CL_ITEM_DESCR_MORE = 'item-descr__more'
 , CL_INFO = `${CL_DESCR}__info`;
 
-const StationDescr = ({ 
+const StationDescr = ({
   isHttp,
-  station 
+  station
 }: StationDescrProps) => {
-  const [isMore, setMore] = useState(true)
+  const [
+    isMore, 
+    setMore
+  ] = useState(true)
   , _onClick = () => setMore(isMore => !isMore)
   , _arrowStyle = isMore
        ? S_ARROW_OPEN
        : void 0
   , {
-    title, 
-    src, 
+    title,
+    src,
     siteUrl,
-    category, 
+    category,
     br
   } = station || {};
-
-  if (!station) { return null; }
-
-  return (
+  
+  return station ? (
     <div className={CL_DESCR}>
       <button
          className={CL_DESCR_BT}
@@ -47,7 +48,7 @@ const StationDescr = ({
       >
         <span>{title}</span>
         <StationProtocol src={src} />
-        <span className={CL_BT_MORE} style={_arrowStyle}>{'>'}</span>
+        <span className={CL_ITEM_DESCR_MORE} style={_arrowStyle}>{'>'}</span>
       </button>
       <ShowHide className={CL_INFO} isShow={isMore}>
         <div>
@@ -56,7 +57,7 @@ const StationDescr = ({
         </div>
       </ShowHide>
     </div>
-  );
+  ) : null;
 };
 
 export default StationDescr

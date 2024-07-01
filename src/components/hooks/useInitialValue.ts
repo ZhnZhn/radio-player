@@ -1,11 +1,15 @@
-import type { StateUpdater } from '../types';
+import type { 
+  Dispatch,
+  StateUpdater 
+} from '../types';
+
 import { useState } from '../uiApi';
 
 const useInitialValue = <T>(
   initialValue: T
 ): [
   value: T, 
-  setValue: StateUpdater<T>
+  setValue: Dispatch<StateUpdater<T>>
 ] => {
     const [
         value,

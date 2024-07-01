@@ -18,8 +18,3 @@ export {
  } from 'preact/hooks';
 
 export { createContext } from 'preact';
-
-export type { Ref } from 'preact';
-import { RefObject } from 'preact';
-export type MutableRefObject<T> = RefObject<T>
-

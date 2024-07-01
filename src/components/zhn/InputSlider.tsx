@@ -1,8 +1,9 @@
 import type { 
   CSSProperties,
+  MouseEvent, 
+  KeyboardEvent,
   MouseOrTouchEvent 
 } from './types';
-import type { MouseEvent, KeyboardEvent } from '../uiApi';
 
 import { useRef } from '../uiApi';
 

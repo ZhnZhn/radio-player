@@ -3,7 +3,8 @@ export type {
   MouseEvent,   
   TouchEvent, 
   KeyboardEventHandler, 
-  KeyboardEvent 
+  KeyboardEvent,
+  LegacyRef 
 } from 'react';
 import type { ReactNode } from 'react';
 
@@ -20,3 +21,7 @@ export type {
   Dispatch,
   StateUpdater 
 } from 'preact/hooks';
+
+export type { Ref } from 'preact';
+import { RefObject } from 'preact';
+export type MutableRefObject<T> = RefObject<T>

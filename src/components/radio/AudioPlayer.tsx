@@ -1,9 +1,18 @@
-import type { AudioPlayerStateType, TimeoutIdType } from './types';
-import type { MutableRefObject } from '../uiApi';
+import type { 
+  MutableRefObject 
+} from '../types';
+import type { 
+  AudioPlayerStateType, 
+  TimeoutIdType 
+} from './types';
+
 
 import { 
-  useRef, useReducer, useCallback,
-  useEffect, useContext   
+  useRef, 
+  useReducer, 
+  useCallback,
+  useEffect, 
+  useContext   
 } from '../uiApi';
 
 import { HAS_MEDIA_SESSION } from '../has';
@@ -33,14 +42,14 @@ const S_TITLE_CONT: CSSProperties = {
   paddingBottom: 4
 };
 
-const _setMediaMetadata = (artist='') => {
-  if (HAS_MEDIA_SESSION) {    
-    /*eslint-disable no-undef*/      
+const _setMediaMetadata = (
+  artist=''
+) => {
+  if (HAS_MEDIA_SESSION) {        
     navigator.mediaSession.metadata = new MediaMetadata({
       title: DF_TITLE,
       artist
-    });    
-    /*eslint-enable no-undef*/
+    });        
   }
 };
 
@@ -60,15 +69,20 @@ const initialState: AudioPlayerStateType = {
 const AudioPlayer = () => {
   const _refPauseID = useRef<TimeoutIdType>(null)
   , {
-    uiThemeImpl,
-    sApp, useSelector
-  } = useContext(AppContext)
-  , uiTheme = useSelector(sApp.uiTheme)
+    sApp, 
+    useSelector
+  } = useContext(AppContext)  
   , station = useSelector(sApp.currentStation)
-  , [state, dispatch] = useReducer(reducer, initialState)
-  , { isUnloaded, isPlaying,
+  , [
+    state, 
+    dispatch
+  ] = useReducer(reducer, initialState)
+  , { 
+      isUnloaded, 
+      isPlaying,
       volume,
-      title, msgErr
+      title, 
+      msgErr
     } = state;
 
   const _setVolume = useCallback((newVolume: number) => dispatch({
@@ -119,15 +133,12 @@ const AudioPlayer = () => {
     dispatch({ type: A.SET_ERROR, msgErr: msg })
     _setMediaMetadata()
   };
-
-  /*eslint-disable react-hooks/exhaustive-deps */ 
+  
   useEffect( () => {
     if (HAS_MEDIA_SESSION) {            
       navigator.mediaSession.setActionHandler('pause', stop)
     }
-  }, [])
-  // stop
-  /*eslint-enable react-hooks/exhaustive-deps */
+  }, [])    
  
   useEffect(()=>{
     if (station && station.src
@@ -139,11 +150,9 @@ const AudioPlayer = () => {
     }
     return () => { sound.unload() };
   }, [station])
-
-  const _style = uiThemeImpl.toBg(uiTheme);
-
+  
   return (
-    <div className={CL_AUDIO_PLAYER} style={_style}>
+    <div className={CL_AUDIO_PLAYER}>
       <Radio.Volume
         volume={volume}
         setVolume={_setVolume}
