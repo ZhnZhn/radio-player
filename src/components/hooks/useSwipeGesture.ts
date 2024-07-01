@@ -1,4 +1,8 @@
-import { useCallback, TouchEvent } from '../uiApi';
+import type { TouchEvent } from '../types';
+import { 
+  isNumber,
+  useCallback,   
+} from '../uiApi';
 
 import { HAS_TOUCH_EVENT } from '../has';
 
@@ -29,16 +33,13 @@ const _getClientX = (event?: TouchEvent) => {
     : void 0;
 };
 
-const _isNumber = (n: unknown): n is number => 
-   typeof n === 'number' && n-n === 0;
-
 const _isSwipeGesture = (
   dir: string, 
   delta: number, 
   toClientX?: number
 ) => {
   const { fromClientX } = _state;
-  if (!_isNumber(fromClientX) || !_isNumber(toClientX)) {
+  if (!isNumber(fromClientX) || !isNumber(toClientX)) {
     return false;
   }
   return dir === 'L' || dir === 'U'
@@ -46,7 +47,11 @@ const _isSwipeGesture = (
     : toClientX - fromClientX > delta;
 }  
 
-const useSwipeGesture: UseSwipeGestureType = ({ onSwipeGesture, dir='L', delta = DF_DELTA }) => {
+const useSwipeGesture: UseSwipeGestureType = ({ 
+  onSwipeGesture, 
+  dir='L', 
+  delta = DF_DELTA 
+}) => {
 
   const onTouchStart = useCallback((event: TouchEvent) => {
     _state.fromClientX = _getClientX(event)
