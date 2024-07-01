@@ -1,25 +1,30 @@
-
-import type { KeyboardEventHandler, KeyboardEvent } from 'react';
-import { useCallback } from '../uiApi';
+import type { 
+  KeyboardEventHandler, 
+  KeyboardEvent 
+} from '../types';
+import { 
+  isFn,
+  useCallback 
+} from '../uiApi';
 
 type UseKeyEscapeType = (
    handler?: () => void,
    deps?: Array<unknown>
 ) => KeyboardEventHandler<HTMLElement>  
-//) => (event: KeyboardEvent) => void
 
-
-const _isKeyEscape = (evt: KeyboardEvent) => 
-  evt.keyCode === 27 || evt.key === 'Escape';
-
+const _isKeyEscape = (
+  evt: KeyboardEvent
+  ) => evt.keyCode === 27 || evt.key === 'Escape';
 
 
 /*eslint-disable react-hooks/exhaustive-deps */
-const useKeyEscape: UseKeyEscapeType = 
- (handler, deps) => useCallback((event: KeyboardEvent<HTMLElement>) => {
-     if (typeof handler === 'function' && _isKeyEscape(event)) {
-       event.preventDefault()
-       event.stopPropagation()
+const useKeyEscape: UseKeyEscapeType = (
+  handler, 
+  deps
+  ) => useCallback((evt: KeyboardEvent<HTMLElement>) => {
+     if (isFn(handler) && _isKeyEscape(evt)) {
+       evt.preventDefault()
+       evt.stopPropagation()
        handler() 
      }
   }, deps || [])         
