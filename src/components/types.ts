@@ -1,4 +1,10 @@
-export type { CSSProperties } from 'react';
+export type { 
+  CSSProperties,
+  MouseEvent,   
+  TouchEvent, 
+  KeyboardEventHandler, 
+  KeyboardEvent 
+} from 'react';
 import type { ReactNode } from 'react';
 
 export type MouseOrTouchEvent = MouseEvent | TouchEvent
@@ -10,4 +16,7 @@ export type WithChildren<T> =
 
 export type TimeoutIdType = NodeJS.Timeout | null
 
-export type { StateUpdater } from 'preact/hooks';
+export type { 
+  Dispatch,
+  StateUpdater 
+} from 'preact/hooks';
