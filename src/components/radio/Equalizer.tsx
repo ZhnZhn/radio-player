@@ -1,23 +1,24 @@
+import SvgMelody from "../zhn/SvgMelody";
+
 interface EqualizerProps {
   isPlaying: boolean
   isUnloaded: boolean
   unload: () => void
 }
 
-const CL_EQUALIZER = 'equalizer'
-, CL_EQUALIZER_NOT_PLAYING = 'equalizer--not-playing';
+const CL_MELODY = 'melody';
 
 const Equalizer = ({
   isPlaying,
   isUnloaded,
   unload
-}: EqualizerProps) => isPlaying
-  ? <div className={CL_EQUALIZER} />
+}: EqualizerProps) => isPlaying  
+  ? <div className={CL_MELODY}><SvgMelody /></div>  
   : isUnloaded
-     ? <div className={CL_EQUALIZER_NOT_PLAYING} />
-     : <button className={CL_EQUALIZER_NOT_PLAYING}
-         data-loader="circle"
-         onClick={unload}
+     ? <div className={CL_MELODY} />
+     : <button className={CL_MELODY}
+          data-loader="circle"
+          onClick={unload}
        />
-
+              
 export default Equalizer
