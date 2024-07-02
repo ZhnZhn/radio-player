@@ -6,8 +6,7 @@ interface SvgCheckedProps {
   color?: string
 }
 
-const CL_CHECK_IN = "check-in"
-, DF_COLOR = '#64e346';
+const CL_CHECK_IN = "check-in";
 
 const S_SPAN: CSSProperties = {
   display: 'inline-block',
@@ -17,7 +16,7 @@ const S_SPAN: CSSProperties = {
 
 const SvgChecked = ({ 
   style, 
-  color=DF_COLOR
+  color
 }: SvgCheckedProps) => (
   <span style={{ ...S_SPAN, ...style }}>
     <Svg w="16">

@@ -6,6 +6,8 @@ import SvgChecked from '../zhn/SvgChecked';
 import FlatButton  from '../zhn-m/FlatButton';
 import { CL_BT } from './style';
 
+const SVG_CHECKED_COLOR = '#00bcd4';
+
 const CategoriesList = () => {
   const {    
     sApp,
@@ -34,7 +36,7 @@ const CategoriesList = () => {
                 : () => addCategory(category)
               }
             >
-              { _is && <SvgChecked /> }
+              { _is && <SvgChecked color={SVG_CHECKED_COLOR} /> }
             </FlatButton>
           </li>
         )
