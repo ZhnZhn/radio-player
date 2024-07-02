@@ -11,8 +11,7 @@
   top: 0;
   width: 18px;
   height: 18px;
-  color: black;
-  /*transform-origin: 0 18px;*/
+  color: black;  
   transition: transform 400ms ease-out;
 }
 

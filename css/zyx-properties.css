@@ -5,3 +5,10 @@
 .mr-8 {
   margin-right: 8px;
 }
+
+.text-ellipsis {
+  display: inline-block;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
