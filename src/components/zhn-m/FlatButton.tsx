@@ -1,5 +1,9 @@
-import type { CSSProperties, TabIndexType, WithChildren } from '../types';
-import type { MouseEvent } from '../uiApi';
+import type { 
+  CSSProperties, 
+  TabIndexType, 
+  WithChildren, 
+  MouseEvent 
+} from '../types';
 
 import useThrottleClick from '../hooks/useThrottleClick';
 import crCn from '../crCn';
@@ -49,6 +53,7 @@ const FlatButton = ({
   
   return (
     <button      
+      type="button"
       className={_className}
       style={_style}      
       tabIndex={tabIndex}      

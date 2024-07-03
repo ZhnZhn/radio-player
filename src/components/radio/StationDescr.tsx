@@ -43,6 +43,7 @@ const StationDescr = ({
   return station ? (
     <div className={CL_DESCR}>
       <button
+         type="button"
          className={CL_DESCR_BT}
          onClick={_onClick}
       >

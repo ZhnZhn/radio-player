@@ -11,7 +11,7 @@ interface StationItemProps {
 }
 
 const CL_ITEM = 'item-station'
-, CL_HOT_KEY = 'item-station__access';
+, CL_HOT_KEY = `${CL_ITEM}__access`;
 
 const StationItem = ({ 
   station, 
@@ -22,6 +22,7 @@ const StationItem = ({
   , _refBt = useHotKey(hotKey);
   return (
     <button
+      type="button"
       ref={_refBt as LegacyRef<HTMLButtonElement>}
       className={CL_ITEM}      
       onClick={onClick}

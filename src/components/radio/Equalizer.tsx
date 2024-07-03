@@ -13,10 +13,12 @@ const Equalizer = ({
   isUnloaded,
   unload
 }: EqualizerProps) => isPlaying  
-  ? <div className={CL_MELODY}><SvgMelody /></div>  
+  ? <div className={CL_MELODY}><SvgMelody /></div>     
   : isUnloaded
      ? <div className={CL_MELODY} />
-     : <button className={CL_MELODY}
+     : <button 
+          type="button"
+          className={CL_MELODY}         
           data-loader="circle"
           onClick={unload}
        />

@@ -84,6 +84,7 @@ const Drawer = ({
   return (
     <>
       <button          
+        type="button"
         ref={_refBt as LegacyRef<HTMLButtonElement>}
         className={CL_DRAWER_BT}
         style={{...S_BT_DRAWER, ...btStyle}}

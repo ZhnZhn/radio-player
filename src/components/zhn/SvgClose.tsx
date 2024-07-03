@@ -25,6 +25,7 @@ const SvgClose = ({
   onClick 
 }: SvgCloseProps) => (
    <button
+      type="button"
       className={className}
       style={style}
       tabIndex={tabIndex}
