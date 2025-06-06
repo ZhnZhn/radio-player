@@ -1,4 +1,7 @@
-import type { CSSProperties, WithChildren } from "../types";
+import type { 
+  CSSProperties, 
+  PropsWithChildren
+} from "../types";
 
 const S_KEY: CSSProperties = {  
   textDecoration: 'underline'  
@@ -10,8 +13,6 @@ interface CaptionInputProps {
   caption?: string, 
   hotKey?: string, 
 }
-
-type CaptionInputType = WithChildren<CaptionInputProps>
 
 const _crCaption = (
   caption: string,
@@ -41,12 +42,11 @@ const CaptionInput = ({
   caption='', 
   hotKey, 
   children 
-}: CaptionInputType) => (
+}: PropsWithChildren<CaptionInputProps>) => (
   <span className={className} style={style}>
      {_crCaption(caption, hotKey)}
      {children}
   </span>
 );
-
 
 export default CaptionInput

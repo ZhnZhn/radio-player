@@ -1,11 +1,12 @@
-import type { WithChildren, CircleButtonProps } from './types';
+import type { 
+  PropsWithChildren, 
+  CircleButtonProps 
+} from './types';
 import type { LegacyRef } from 'react';
 
 import { HAS_TOUCH_EVENT } from '../has';
 import useHotKey from '../hotkeys/useHotKey';
 import Svg from './Svg';
-
-type CircleButtonType = WithChildren<CircleButtonProps>
 
 const CL = 'bt-circle';
 
@@ -18,7 +19,7 @@ const CircleButton = ({
   onTouchEnd,
   onClick,
   children
-}: CircleButtonType) => {
+}: PropsWithChildren<CircleButtonProps>) => {
   const _handlers = HAS_TOUCH_EVENT && onTouchStart
     ? { onTouchStart, onTouchEnd }
     : { onMouseDown, onMouseUp }  

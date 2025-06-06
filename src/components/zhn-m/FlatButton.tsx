@@ -1,7 +1,7 @@
-import type { 
+import type {
+  PropsWithChildren, 
   CSSProperties, 
   TabIndexType, 
-  WithChildren, 
   MouseEvent 
 } from '../types';
 
@@ -20,8 +20,6 @@ interface FlatButtonProps {
   tabIndex?: TabIndexType,
   onClick: (event: MouseEvent) => void,
 }
-
-type FlatButtonType = WithChildren<FlatButtonProps>
 
 const CL_BT_FLAT = 'bt-flat'
 , CL_BT_FLAT_DIV = 'bt-flat__div'
@@ -42,12 +40,11 @@ const FlatButton = ({
   tabIndex,
   onClick,
   children
-}: FlatButtonType) => {  
-  const _hClick = useThrottleClick(timeout, onClick);
-    
-  const _style = isPrimary
-       ? {...style, ...S_PRIMARY}
-       : style
+}: PropsWithChildren<FlatButtonProps>) => {  
+  const _hClick = useThrottleClick(timeout, onClick)    
+  , _style = isPrimary
+      ? {...style, ...S_PRIMARY}
+      : style
   , _className = crCn(CL_BT_FLAT, className) 
   , _clCaption = crCn(CL_BT_FLAT_SPAN, clCaption); 
   

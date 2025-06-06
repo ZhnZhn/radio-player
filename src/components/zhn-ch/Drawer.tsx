@@ -1,7 +1,7 @@
 import type { 
+  PropsWithChildren,
   LegacyRef,
-  CSSProperties, 
-  WithChildren 
+  CSSProperties  
 } from '../types';
 
 import { 
@@ -18,7 +18,6 @@ import uiThemeImpl from '../ui-theme/uiTheme';
 interface DrawerProps {
   btStyle?: CSSProperties
 }
-type DrawerType = WithChildren<DrawerProps>
 
 const CL_DRAWER = 'drawer'
 , CL_DRAWER_BT = `${CL_DRAWER}-bt`
@@ -53,7 +52,7 @@ const CL_DRAWER = 'drawer'
 const Drawer = ({
   btStyle,
   children
-}: DrawerType) => {
+}: PropsWithChildren<DrawerProps>) => {
   const {
     toggleDrawer,
     sApp, 
