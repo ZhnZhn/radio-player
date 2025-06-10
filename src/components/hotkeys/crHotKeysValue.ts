@@ -2,7 +2,7 @@ import type { RefObject } from '../types';
 
 type HmHotKeysType = Record<
   string, 
-  [ref: RefObject<HTMLElement>, onKeyDown?: ()=> void] | undefined
+  [ref: RefObject<HTMLButtonElement>, onKeyDown?: ()=> void] | undefined
 >
 
 type CrHotKeysValueType = () => HmHotKeysType

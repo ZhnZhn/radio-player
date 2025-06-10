@@ -1,7 +1,4 @@
 import type { 
-  RefObject 
-} from '../types';
-import type { 
   PropsWithChildren, 
   CircleButtonProps 
 } from './types';
@@ -29,7 +26,7 @@ const CircleButton = ({
   return (
     <button    
       type="button"
-      ref={_refBt as RefObject<HTMLButtonElement>}      
+      ref={_refBt}      
       className={CL}      
       aria-label={ariaLabel}
       {..._handlers}

@@ -10,14 +10,12 @@ import { HAS_TOUCH_EVENT } from '../has';
 
 import HotKeysContext from './HotKeysContext';
 
-type UseHotKeyType = (  
-  hotKey?: string,
+const useHotKey= (
+  hotKey?: string, 
   onKeyDown?: () => void  
-) => RefObject<HTMLElement>
-
-const useHotKey: UseHotKeyType = (hotKey, onKeyDown) => {
+) : RefObject<HTMLButtonElement> => {
   const hmHotKeys = useContext(HotKeysContext)
-  , ref = useRef<HTMLElement>(null);  
+  , ref = useRef<HTMLButtonElement>(null);  
   
   /*eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {

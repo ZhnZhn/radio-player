@@ -1,6 +1,5 @@
 import type { 
   PropsWithChildren,
-  RefObject,
   CSSProperties  
 } from '../types';
 
@@ -84,7 +83,7 @@ const Drawer = ({
     <>
       <button          
         type="button"
-        ref={_refBt as RefObject<HTMLButtonElement>}
+        ref={_refBt}
         className={CL_DRAWER_BT}
         style={{...S_BT_DRAWER, ...btStyle}}
         aria-label="Open Drawer"
