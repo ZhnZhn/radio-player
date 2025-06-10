@@ -1,4 +1,9 @@
-import { useContext, useCallback, useEffect } from '../uiApi';
+import { 
+  useContext, 
+  useCallback, 
+  useEffect 
+} from '../uiApi';
+
 import HotKeysContext from './HotKeysContext';
 
 type UseHotKeysHandlerType = (

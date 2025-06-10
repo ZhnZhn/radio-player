@@ -1,7 +1,4 @@
-import type { 
-  Dispatch,
-  StateUpdater 
-} from '../types';
+import type { DispatchSetStateAction } from '../types';
 
 import { useState } from '../uiApi';
 
@@ -9,7 +6,7 @@ const useInitialValue = <T>(
   initialValue: T
 ): [
   value: T, 
-  setValue: Dispatch<StateUpdater<T>>
+  setValue: DispatchSetStateAction<T>
 ] => {
     const [
         value,

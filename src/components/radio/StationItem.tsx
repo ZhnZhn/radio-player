@@ -1,4 +1,4 @@
-import { LegacyRef } from 'react';
+import type { RefObject } from 'react';
 import type { StationType } from '../../sound/types';
 
 import useHotKey from '../hotkeys/useHotKey';
@@ -23,7 +23,7 @@ const StationItem = ({
   return (
     <button
       type="button"
-      ref={_refBt as LegacyRef<HTMLButtonElement>}
+      ref={_refBt as RefObject<HTMLButtonElement>}      
       className={CL_ITEM}      
       onClick={onClick}
     >

@@ -4,7 +4,8 @@ export type {
   TouchEvent, 
   KeyboardEventHandler, 
   KeyboardEvent,
-  LegacyRef,
+  RefObject,  
+  MutableRefObject,
   PropsWithChildren 
 } from 'react';
 
@@ -12,11 +13,9 @@ export type MouseOrTouchEvent = MouseEvent | TouchEvent
 export type TabIndexType = -1 | 0
 export type TimeoutIdType = NodeJS.Timeout | null
 
-export type { 
+import {
   Dispatch,
-  StateUpdater 
-} from 'preact/hooks';
+  SetStateAction
+} from 'react';
 
-export type { Ref } from 'preact';
-import { RefObject } from 'preact';
-export type MutableRefObject<T> = RefObject<T>
+export type DispatchSetStateAction<T> = Dispatch<SetStateAction<T>>

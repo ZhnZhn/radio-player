@@ -1,8 +1,10 @@
 import type { 
+  RefObject 
+} from '../types';
+import type { 
   PropsWithChildren, 
   CircleButtonProps 
 } from './types';
-import type { LegacyRef } from 'react';
 
 import { HAS_TOUCH_EVENT } from '../has';
 import useHotKey from '../hotkeys/useHotKey';
@@ -27,7 +29,7 @@ const CircleButton = ({
   return (
     <button    
       type="button"
-      ref={_refBt as LegacyRef<HTMLButtonElement>}      
+      ref={_refBt as RefObject<HTMLButtonElement>}      
       className={CL}      
       aria-label={ariaLabel}
       {..._handlers}

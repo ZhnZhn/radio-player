@@ -1,5 +1,5 @@
 
-import type { Ref } from '../uiApi';
+import type { RefObject } from '../types';
 
 import { 
   useContext, 
@@ -13,7 +13,7 @@ import HotKeysContext from './HotKeysContext';
 type UseHotKeyType = (  
   hotKey?: string,
   onKeyDown?: () => void  
-) => Ref<HTMLElement | undefined>
+) => RefObject<HTMLElement>
 
 const useHotKey: UseHotKeyType = (hotKey, onKeyDown) => {
   const hmHotKeys = useContext(HotKeysContext)

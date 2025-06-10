@@ -1,11 +1,10 @@
 import type { 
-  MutableRefObject 
+  MutableRefObject
 } from '../types';
 import type { 
   AudioPlayerStateType, 
   TimeoutIdType 
 } from './types';
-
 
 import { 
   useRef, 

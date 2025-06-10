@@ -1,4 +1,4 @@
-import { TimeoutIdType } from '../types';
+import type { TimeoutIdType } from '../types';
 
 import { useRef } from '../uiApi';
 
@@ -17,7 +17,7 @@ const useInterval: UseInterval = (fn, check, volume) => {
   const ID = useRef<TimeoutIdType>(null)
   , refVolume = useRef(volume);
   refVolume.current = volume
-  const stopInInterval = () => clearInterval((ID.current as unknown) as number)
+  const stopInInterval = () => clearInterval((ID.current as unknown) as number)  
   , runInInterval = () => {
     ID.current = setInterval( () => {
        if (check(refVolume.current)) {

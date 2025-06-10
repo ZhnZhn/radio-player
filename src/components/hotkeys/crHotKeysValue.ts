@@ -1,8 +1,8 @@
-import { Ref } from 'react';
+import type { RefObject } from '../types';
 
 type HmHotKeysType = Record<
   string, 
-  [ref: Ref<HTMLElement>, onKeyDown?: ()=> void] | undefined
+  [ref: RefObject<HTMLElement>, onKeyDown?: ()=> void] | undefined
 >
 
 type CrHotKeysValueType = () => HmHotKeysType
