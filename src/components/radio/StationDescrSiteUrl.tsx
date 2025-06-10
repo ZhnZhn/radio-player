@@ -1,7 +1,5 @@
 import toLink from '../zhn/toLink';
-import {
-  S_LINK
-} from './StationDescrStyle';
+import { S_LINK } from './StationDescrStyle';
 
 interface SiteUrlProps {
   isHttp: boolean;
@@ -12,9 +10,8 @@ const SiteUrl = ({
   isHttp,
   siteUrl 
 }: SiteUrlProps) => {
-  const _href = toLink(siteUrl, isHttp);
-  if (!_href) return null;
-  return (
+  const _href = toLink(siteUrl, isHttp);  
+  return _href ? (
     <a href={_href}
        style={S_LINK}
        target="_blank"
@@ -22,7 +19,7 @@ const SiteUrl = ({
     >
       {_href}
     </a>
-  );
+  ) : null;
 }
 
 export default SiteUrl
