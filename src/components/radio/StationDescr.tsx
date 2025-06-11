@@ -10,7 +10,6 @@ import {
 } from './StationDescrStyle';
 
 interface StationDescrProps {
-  isHttp: boolean;
   station?: StationType;
 }
 
@@ -20,7 +19,6 @@ const CL_DESCR = 'station-descr'
 , CL_INFO = `${CL_DESCR}__info`;
 
 const StationDescr = ({
-  isHttp,
   station
 }: StationDescrProps) => {
   const [
@@ -51,7 +49,7 @@ const StationDescr = ({
       <ShowHide className={CL_INFO} isShow={isMore}>
         <div>
           <Category category={category} br={br} />
-          <SiteUrl isHttp={isHttp} siteUrl={siteUrl} />
+          <SiteUrl siteUrl={siteUrl} />
         </div>
       </ShowHide>
     </div>

@@ -1,12 +1,9 @@
 
 const toLink = (
-    href: string | void | null,
-    isHttp?: boolean
+    href: string | undefined | null
 ): string | void => {
-  const protocol = (href || '')
-    .split('://')[0];
+  const protocol = (href || '').split('://')[0];
   return protocol === 'https'
-     || (isHttp && protocol === 'http')
    ? href as string
    : void 0;
 } 

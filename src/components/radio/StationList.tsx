@@ -20,7 +20,6 @@ const StationList = () => {
     sApp, 
     useSelector
   } = useContext(AppContext)
-  , isHttp = useSelector(sApp.isHttp)
   , currentStation = useSelector(sApp.currentStation)
   , radioStations = useSelector(sApp.stations)  
   , _handlers = useSwipeGesture({
@@ -28,8 +27,7 @@ const StationList = () => {
     });
   return (
     <div className={CL_STATION_LIST} {..._handlers} >
-        <StationDescr 
-          isHttp={isHttp}
+        <StationDescr     
           station={currentStation} 
         />
       {

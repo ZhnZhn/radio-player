@@ -2,8 +2,7 @@ import { StateRoot } from "./types";
 
 export const sApp = {
   app: (state: StateRoot) => state.app || {},
-  isDrawer: (state: StateRoot) => sApp.app(state).isDrawer,
-  isHttp: (state: StateRoot) => sApp.app(state).filter !== 'https',
+  isDrawer: (state: StateRoot) => sApp.app(state).isDrawer,  
   currentStation: (state: StateRoot) => sApp.app(state).currentStation,
   uiTheme: (state: StateRoot) => sApp.app(state).uiTheme,
 
