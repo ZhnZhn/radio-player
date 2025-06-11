@@ -1,23 +1,19 @@
 import { isAddCategortyAction } from '../stations/actions';
 
 import { Middleware } from '../types';
-import utils from '../../sound/utils';
+import { getCategory } from '../../sound/utils';
 
-const { crFilterBy, getCategory } = utils;
 
 const addCategories: Middleware = (
-  { getState }
+  //{ getState }
 ) => (next) => (action) => {
-  if (isAddCategortyAction(action)) {
-    const state = getState()
-    , { category } = action
-    , _filterBy = crFilterBy(state.app.filter);
+  if (isAddCategortyAction(action)) {    
+    const { category } = action;    
     action.categories = getCategory(category)    
       .map(station => {
         station.category = category
         return station;
-      })
-      .filter(_filterBy);
+      })      
   }
   return next(action);
 }

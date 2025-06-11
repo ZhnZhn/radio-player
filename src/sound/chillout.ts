@@ -1,8 +1,7 @@
 import { StationType } from "./types";
 
 const chillout: StationType[] = [{
-    title: 'Spain: Costa Del Mar - Chillout',
-    //src: 'http://stream.cdm-chillout.com:8020/stream-mp3-Chill',
+    title: 'Spain: Costa Del Mar - Chillout',    
     src: 'https://radio4.cdm-radio.com:18020/stream-mp3-Chill',
     siteUrl: 'https://www.costadelmar-radio.com',
     br: 96
