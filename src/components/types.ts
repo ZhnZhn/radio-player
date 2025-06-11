@@ -6,7 +6,8 @@ export type {
   KeyboardEvent,
   RefObject,  
   MutableRefObject,
-  PropsWithChildren 
+  PropsWithChildren,
+  ComponentPropsWithoutRef 
 } from 'react';
 
 export type MouseOrTouchEvent = MouseEvent | TouchEvent
