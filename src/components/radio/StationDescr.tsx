@@ -3,7 +3,6 @@ import { StationType } from '../../sound/types';
 import { useState } from '../uiApi';
 
 import ShowHide from '../zhn/ShowHide';
-import StationProtocol from './StationProtocol';
 import Category from './StationDescrCategory';
 import SiteUrl from './StationDescrSiteUrl';
 import {
@@ -27,14 +26,13 @@ const StationDescr = ({
   const [
     isMore, 
     setMore
-  ] = useState(true)
+  ] = useState(!0)
   , _onClick = () => setMore(isMore => !isMore)
   , _arrowStyle = isMore
        ? S_ARROW_OPEN
        : void 0
   , {
     title,
-    src,
     siteUrl,
     category,
     br
@@ -47,8 +45,7 @@ const StationDescr = ({
          className={CL_DESCR_BT}
          onClick={_onClick}
       >
-        <span>{title}</span>
-        <StationProtocol src={src} />
+        <span>{title}</span>        
         <span className={CL_ITEM_DESCR_MORE} style={_arrowStyle}>{'>'}</span>
       </button>
       <ShowHide className={CL_INFO} isShow={isMore}>

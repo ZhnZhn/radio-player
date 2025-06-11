@@ -1,7 +1,6 @@
 import type { StationType } from '../../sound/types';
 
 import useHotKey from '../hotkeys/useHotKey';
-import StationProtocol from './StationProtocol';
 
 interface StationItemProps {
   station: StationType,
@@ -17,7 +16,7 @@ const StationItem = ({
   hotKey, 
   onClick 
 }: StationItemProps) => {
-  const { title, src } = station
+  const { title } = station
   , _refBt = useHotKey(hotKey);
   return (
     <button
@@ -26,8 +25,7 @@ const StationItem = ({
       className={CL_ITEM}      
       onClick={onClick}
     >
-      <span>{title}</span>
-      <StationProtocol src={src} />
+      <span>{title}</span>      
       {
         Boolean(hotKey) && <span className={CL_HOT_KEY}>
           {hotKey}
