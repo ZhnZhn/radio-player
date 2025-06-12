@@ -2,6 +2,7 @@ import crAppContextValue from './crAppContextValue';
 
 import { createContext } from './uiApi';
 
-const AppContext = createContext<ReturnType<typeof crAppContextValue>>({} as any)
+type AppContextType = ReturnType<typeof crAppContextValue>
+const AppContext = createContext<AppContextType>({} as AppContextType)
 
 export default AppContext
