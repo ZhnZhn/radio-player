@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "howler": "^2.2.4",
-    "preact": "^10.27.1",
+    "preact": "^10.27.2",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1"
   },
