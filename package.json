@@ -24,6 +24,7 @@
     "url": "https://github.com/ZhnZhn/radio-player.git"
   },
   "dependencies": {
+    "@babel/runtime": "^7.28.4",
     "howler": "^2.2.4",
     "preact": "^10.27.2",
     "react-redux": "^9.2.0",
@@ -38,7 +39,6 @@
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
-    "@babel/runtime": "^7.28.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.1",
     "@types/howler": "^2.2.12",
     "@types/react": "^18.3.26",
@@ -61,6 +61,7 @@
     "webpack-dev-server": "^5.2.2"
   },
   "overrides": {
-    "js-yaml": "~4.1.1"
+    "js-yaml": "~4.1.1",
+    "glob": "~11.1.0"
   }
 }
