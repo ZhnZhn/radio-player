@@ -1,9 +1,12 @@
 import type { 
   CSSProperties,
   MouseEvent, 
+  TouchEvent,  
   KeyboardEvent,
-  MouseOrTouchEvent 
-} from './types';
+  MouseOrTouchEvent,
+  MouseEventHandler,
+  TouchEventHandler
+} from '../types';
 
 import { useRef } from '../uiApi';
 
@@ -32,11 +35,10 @@ interface InputSliderProps {
   onChange?: (value: number) => void
 }
 
-type SetValueFromPositionType = (event: MouseEvent) => void
+type SetValueFromPositionType = (evt: MouseOrTouchEvent) => void
 
 const _isNaN = Number.isNaN
-// eslint-disable-next-line
-, _noopFn = (n: number) => {}
+, _noopFn = () => {}
 , EVENT_NAME_MOVE =  HAS_TOUCH_EVENT ? 'touchmove' : 'mousemove'
 , EVENT_NAME_UP = HAS_TOUCH_EVENT ? 'touchend' : 'mouseup'
 , _checkValueInMinMax = (
@@ -69,17 +71,17 @@ const _isNaN = Number.isNaN
     ? value + step
     : _isDown(keyCode) ? value - step : void 0;
 
-const _useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
+const useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   const [dragged, setDraggedTrue, setDraggedFalse] = useBool(false)
   , _refDragRunning = useRef(false)
-  , _hDragMouseMove = (event: MouseEvent) => {
+  , _hDragMouseMove = (evt: MouseOrTouchEvent) => {
     if (_refDragRunning.current) {
       return;
     }
     _refDragRunning.current = true;
     requestAnimationFrame(() => {
       _refDragRunning.current = false;
-      setValueFromPosition(event)
+      setValueFromPosition(evt)
     })
   }
   , _hDragMouseUp = () => {
@@ -131,11 +133,11 @@ const InputSlider = ({
       _updateValue(_newValue)
     }
   }  
-  , _setValueFromPosition: SetValueFromPositionType = (event) => {
+  , _setValueFromPosition: SetValueFromPositionType = (evt) => {
     const _trackEl = _refTrack.current
     if (_trackEl) {
      const positionMax = _trackEl.clientWidth;
-     let position = _calcPositionFromEvent(event, _trackEl);
+     let position = _calcPositionFromEvent(evt, _trackEl);
      if (position < 0) {
        position = 0;
      } else if (position > positionMax) {
@@ -150,12 +152,12 @@ const InputSlider = ({
      _updateValue(v)
     }
   }
-  , [dragged, _hMouseDown] = _useMouseDown(_setValueFromPosition);
+  , [dragged, _hMouseDown] = useMouseDown(_setValueFromPosition);
   
   const _sliderHandlers = HAS_TOUCH_EVENT ? {
-     onTouchStart: _hMouseDown
+     onTouchStart: _hMouseDown as unknown as TouchEventHandler<HTMLDivElement>
   } : {
-    onMouseDown: _hMouseDown,
+    onMouseDown: _hMouseDown as unknown as MouseEventHandler<HTMLDivElement>,
     onMouseEnter: setHoveredTrue,
     onMouseLeave: setHoveredFalse
   }, _btHandlers = HAS_TOUCH_EVENT ? void 0 : {

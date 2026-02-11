@@ -9,10 +9,12 @@ export type StateAppSlice = {
   currentStation?: StationType,
   uiTheme: UiThemeType
 }
-  
+ 
+
 export type CategoriesSlice = {
-  [Key in CategoriesType]?: boolean
+  [PropName in CategoriesType]?: boolean  
 }
+
   
 export type StateRoot = {
   app: StateAppSlice

@@ -36,7 +36,7 @@ const StationList = () => {
              key={station.title}
              station={station}
              hotKey={HAS_KEYBOARD_FOCUS ? _crHotKey(index): void 0}
-             onClick={setCurrentStation.bind(null, station, index)}
+             onClick={() => setCurrentStation(station)}
            />
         ))         
       }

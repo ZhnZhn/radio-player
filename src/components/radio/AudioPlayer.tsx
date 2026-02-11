@@ -133,12 +133,15 @@ const AudioPlayer = () => {
     _setMediaMetadata()
   };
   
+  /*eslint-disable react-hooks/exhaustive-deps */
   useEffect( () => {
     if (HAS_MEDIA_SESSION) {            
       navigator.mediaSession.setActionHandler('pause', stop)
     }
   }, [])    
- 
+  //stop
+  /*eslint-enable react-hooks/exhaustive-deps */
+
   useEffect(()=>{
     if (station && station.src
       && sound.init(station.src,

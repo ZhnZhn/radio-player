@@ -101,7 +101,10 @@ const sound = {
      return true;
    } catch(err) {
      _sound = null;
-     console.log(err.message)
+     const _errMsg = err instanceof Error
+       ? err.message
+       : err;     
+     console.log(_errMsg);     
      return false;
    }
   },

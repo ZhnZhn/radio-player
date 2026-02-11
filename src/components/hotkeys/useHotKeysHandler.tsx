@@ -14,9 +14,9 @@ const _fnNoop = () => void 0
 
 const HotKeysHandler: UseHotKeysHandlerType = (is) => {
   const hmHotKeys = useContext(HotKeysContext)
-  , _hKeyDown = useCallback((event:KeyboardEvent) => {
-     if (event.altKey || event.metaKey) {
-       const _handlerOption = hmHotKeys[event.key]
+  , _hKeyDown = useCallback((evt:KeyboardEvent) => {
+     if (evt.altKey || evt.metaKey) {
+       const _handlerOption = hmHotKeys[evt.key]
        if (_handlerOption) {
           const [ref, onKeyDown=_fnNoop] = _handlerOption
           , _el = (ref || {}).current;
