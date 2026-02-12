@@ -1,4 +1,4 @@
-import { StationType  } from "./types";
+import type { StationType  } from "./types";
 
 const pop: StationType[] = [{
     title: 'UK: Dance UK',

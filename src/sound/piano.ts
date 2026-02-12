@@ -1,4 +1,4 @@
-import { StationType } from "./types";
+import type { StationType } from "./types";
 
 const piano: StationType[] = [{
     title: 'USA: Whisperings Solo Piano',

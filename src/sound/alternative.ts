@@ -1,4 +1,4 @@
-import { StationType } from "./types";
+import type { StationType } from "./types";
 
 const alternative: StationType[] = [{
     title: 'Canada: American Roots',

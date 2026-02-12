@@ -1,4 +1,4 @@
-import { 
+import type { 
   CategoriesRouterType, 
   CategoriesType, 
   StationType 
@@ -26,9 +26,7 @@ const _hm: CategoriesRouterType = {
   instrumental
 };
 
-const router = {
-  getCategory: (category?: CategoriesType): StationType[] => 
-     category && _hm[category] || []
-};
+export const getByCategory = (
+  category?: CategoriesType
+): StationType[] => category && _hm[category] || []
 
-export default router

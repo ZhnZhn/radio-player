@@ -1,4 +1,4 @@
-import { StationType } from "./types";
+import type { StationType } from "./types";
 
 const country: StationType[] = [{
     title: 'USA: Country Hits',

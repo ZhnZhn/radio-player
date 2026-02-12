@@ -1,4 +1,4 @@
-import { CategoriesType } from "./types";
+import type { CategoriesType } from "./types";
 
 const CATEGORIES: CategoriesType[] = [
   'alternative',

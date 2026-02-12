@@ -1,4 +1,4 @@
-import { StationType } from "./types";
+import type { StationType } from "./types";
 
 const chillout: StationType[] = [{
     title: 'Spain: Costa Del Mar - Chillout',    

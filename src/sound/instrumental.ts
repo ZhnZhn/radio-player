@@ -1,4 +1,4 @@
-import { StationType } from "./types";
+import type { StationType } from "./types";
 
 const instrumental: StationType[] = [{
     title: "EU: Instrumental Radio",

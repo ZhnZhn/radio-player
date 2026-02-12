@@ -1,5 +1,4 @@
-import { HowlErrorCallback } from 'howler';
-
+import type { HowlErrorCallback } from 'howler';
 import { Howl, Howler } from 'howler'
 
 const _roundTo2 = (n: number) => parseFloat(n.toFixed(2))
@@ -22,6 +21,12 @@ const INITIAL_CONFIF = {
     */
 };
 
+const _logError = (err: unknown) => {
+  const _errMsg = err instanceof Error
+    ? err.message
+    : err;     
+  console.log(_errMsg);     
+};
 
 let _isFirtsInit = true;
 
@@ -101,10 +106,7 @@ const sound = {
      return true;
    } catch(err) {
      _sound = null;
-     const _errMsg = err instanceof Error
-       ? err.message
-       : err;     
-     console.log(_errMsg);     
+     _logError(err)     
      return false;
    }
   },
