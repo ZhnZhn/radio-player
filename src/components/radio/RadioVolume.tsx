@@ -1,3 +1,5 @@
+import { isNumber } from '../../utils/isTypeFn';
+
 import { useEffect } from '../uiApi';
 import useInterval from '../hooks/useInterval';
 
@@ -27,12 +29,9 @@ export interface RadioVolumeProps {
 const NEAR_MAX = 0.8
 , NEAR_MIN = 0.2;
 
-const _isNumber = (n: unknown): n is number => typeof n === 'number'
- && n-n === 0;
-
-const _toVolume = (v: unknown) => _isNumber(v)
- ? Math.round(v*100)
- : '';
+const _toVolume = (v: unknown) => isNumber(v)
+ ? "" + Math.round(v*100)
+ : "";
 
 const _crBtHandlers = (
   run: () => void, 
@@ -53,8 +52,14 @@ const RadioVolume = ({
   onIncrease, 
   onDecrease 
 }: RadioVolumeProps) => {  
-  const [runIncrease, stopIncrease] = useInterval(onIncrease, _isNearMax, volume)
-  const [runDecrease, stopDecrease] = useInterval(onDecrease, _isNearMin, volume)
+  const [
+    runIncrease, 
+    stopIncrease
+  ] = useInterval(onIncrease, _isNearMax, volume)
+  , [
+    runDecrease, 
+    stopDecrease
+  ] = useInterval(onDecrease, _isNearMin, volume)
   , _runDecrease = () => {
     if (volume !== 0) { runDecrease() }
   }
