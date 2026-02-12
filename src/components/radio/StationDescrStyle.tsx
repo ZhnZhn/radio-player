@@ -1,4 +1,4 @@
-import { CSSProperties } from "./types";
+import type { CSSProperties } from "../types";
 
 export const S_ARROW_OPEN: CSSProperties = {
   transform: 'rotate(90deg) scale(1.3, 1.3) translate(14px, -10px)'

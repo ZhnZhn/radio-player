@@ -1,11 +1,15 @@
-import type { CategoriesType } from '../../sound/types';
+import type { 
+  CategoriesType 
+} from '../../sound/types';
 
 import {
   isNotEmptyStr,
   toFirstUpperCase
 } from '../uiApi';
 
-import { S_CATEGORY } from './StationDescrStyle';
+import { 
+  S_CATEGORY 
+} from './StationDescrStyle';
 
 interface CategoryProps {
   category?: CategoriesType;

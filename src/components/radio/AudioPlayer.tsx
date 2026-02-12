@@ -1,9 +1,10 @@
 import type { 
-  MutableRefObject
+  CSSProperties,
+  MutableRefObject,
+  TimeoutIdType 
 } from '../types';
 import type { 
-  AudioPlayerStateType, 
-  TimeoutIdType 
+  AudioPlayerStateType
 } from './types';
 
 import { 
@@ -29,7 +30,6 @@ import {
   MSG_NO_STATION, 
   PAUSE_TIMEOUT_MLS 
 } from './AudioPlayerDf';
-import { CSSProperties } from '../types';
 
 const A = reducer.A;
 

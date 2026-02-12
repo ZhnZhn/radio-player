@@ -1,4 +1,4 @@
-import type { CSSProperties } from "./types";
+import type { CSSProperties } from "../types";
 
 export const S_ROW: CSSProperties = {
   height: 35,

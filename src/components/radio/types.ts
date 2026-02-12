@@ -1,6 +1,4 @@
-import { ActionHmType } from '../../flux/types';
-
-export * from '../types';
+import type { ActionHmType } from '../../flux/types';
 
 type AudioPlayerActionType = 'SET_LOADING'
  | 'SET_PLAYING'

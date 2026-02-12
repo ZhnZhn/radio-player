@@ -1,13 +1,11 @@
-import { StationType } from '../../sound/types';
+import type { StationType } from '../../sound/types';
 
 import { useState } from '../uiApi';
 
 import ShowHide from '../zhn/ShowHide';
 import Category from './StationDescrCategory';
 import SiteUrl from './StationDescrSiteUrl';
-import {
-  S_ARROW_OPEN,
-} from './StationDescrStyle';
+import { S_ARROW_OPEN } from './StationDescrStyle';
 
 interface StationDescrProps {
   station?: StationType;
