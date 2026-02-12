@@ -1,9 +1,8 @@
 import type { TouchEvent } from '../types';
-import { 
-  isNumber,
-  useCallback,   
-} from '../uiApi';
 
+import { isNumber } from '../../utils/isTypeFn';
+
+import { useCallback } from '../uiApi';
 import { HAS_TOUCH_EVENT } from '../has';
 
 type DirType = 'L' | 'U' | 'R'

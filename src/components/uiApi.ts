@@ -1,17 +1,11 @@
-export { 
-  isFn,
-  isNumber,
-  isNotEmptyStr 
-} from '../utils/isTypeFn';
-
 export {  
+  useRef, 
   useState, 
+  useReducer,
   useCallback, 
   useMemo,
-  useRef, 
-  useReducer,
   useEffect,
   useContext
- } from 'preact/hooks';
+} from 'preact/hooks';
 
 export { createContext } from 'preact';
