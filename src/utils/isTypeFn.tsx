@@ -1,14 +1,14 @@
 
 /*eslint-disable @typescript-eslint/no-unsafe-function-type */
-export const isFn = (v: unknown): v is Function => 
-  typeof v === 'function'
+export const isFn = (fn: unknown): fn is Function => 
+  typeof fn === 'function'
 /*eslint-enable @typescript-eslint/no-unsafe-function-type */
 
 export const isNumber = (n: unknown): n is number => 
   typeof n === 'number' && n-n === 0
 
-export const isStr = (v: unknown): v is string => 
-  typeof v === 'string'
+export const isStr = (str: unknown): str is string => 
+  typeof str === 'string'
 
-export const isNotEmptyStr = (str?: string) => str
-  && isStr(str)
+export const isNotEmptyStr = (str: unknown): str is string => isStr(str)
+  && !!str
