@@ -1,7 +1,5 @@
-import type { 
-  PropsWithChildren, 
-  CircleButtonProps 
-} from './types';
+import type { PropsWithChildren } from '../types';
+import type { CircleButtonProps } from './types';
 
 import { HAS_TOUCH_EVENT } from '../has';
 import useHotKey from '../hotkeys/useHotKey';

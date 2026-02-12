@@ -1,7 +1,7 @@
 import type { 
   CSSProperties, 
   TabIndexType 
-} from "./types";
+} from "../types";
 
 import Svg from './Svg';
 

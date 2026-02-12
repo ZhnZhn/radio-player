@@ -1,7 +1,8 @@
 import type { 
   PropsWithChildren, 
   CSSProperties 
-} from './types';
+} from '../types';
+
 import crCn from '../crCn';
 
 interface ShowHideProps {

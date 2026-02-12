@@ -1,5 +1,3 @@
-export * from '../types';
-
 export interface CircleButtonProps  {  
   hotKey?: string,
   ariaLabel?: string,

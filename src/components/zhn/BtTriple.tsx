@@ -1,4 +1,7 @@
-import { CSSProperties, TabIndexType } from './types';
+import type { 
+  CSSProperties, 
+  TabIndexType 
+} from '../types';
 
 import { 
   useState, 

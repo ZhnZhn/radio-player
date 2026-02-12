@@ -1,4 +1,5 @@
 import type { JSX } from '../types';
+
 import { HK_PLAY, HK_MUTE } from '../hotkeys/hotkeys';
 import CircleButton from './CircleButton';
 

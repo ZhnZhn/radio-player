@@ -1,4 +1,4 @@
-import type { CSSProperties } from './types';
+import type { CSSProperties } from '../types';
 import Svg from './Svg';
 
 interface SvgCheckedProps {
