@@ -3,9 +3,6 @@ export {
   isNumber,
   isNotEmptyStr 
 } from '../utils/isTypeFn';
-export { 
-  toFirstUpperCase 
-} from '../utils/strFn';
 
 export {  
   useState, 

@@ -1,15 +1,9 @@
-import type { 
-  CategoriesType 
-} from '../../sound/types';
+import type { CategoriesType } from '../../sound/types';
 
-import {
-  isNotEmptyStr,
-  toFirstUpperCase
-} from '../uiApi';
+import { isNotEmptyStr } from '../../utils/isTypeFn';
+import { toFirstUpperCase } from '../../utils/strFn';
 
-import { 
-  S_CATEGORY 
-} from './StationDescrStyle';
+import { S_CATEGORY } from './StationDescrStyle';
 
 interface CategoryProps {
   category?: CategoriesType;
