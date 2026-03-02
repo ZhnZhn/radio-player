@@ -55,12 +55,12 @@
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1",
-    "webpack": "^5.105.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
   },
   "overrides": {
     "js-yaml": "~4.1.1",
-    "glob": "~11.1.0"
+    "glob": "~11.1.0",
+    "serialize-javascript": "~7.0.3"
   }
 }
