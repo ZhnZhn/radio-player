@@ -14,7 +14,7 @@ interface UseSwipeGestureProps {
 type UseSwipeGestureType = (props: UseSwipeGestureProps) => {
   onTouchStart: (event: TouchEvent) => void,
   onTouchEnd: (event: TouchEvent) => void
- } | void 
+ } | undefined
 
 type StateType = {
   fromClientX?: number

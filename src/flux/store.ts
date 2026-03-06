@@ -13,7 +13,7 @@ const _middlewares = [
 ];
 
 let _composeEnhancer = compose;
-/*eslint-disable no-undef, no-console*/
+/*eslint-disable no-undef*/
 if (process.env.NODE_ENV === 'development'){
     // @ts-expect-error window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     _composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'development'){
     }
     _middlewares.push(logger)
  }
- /*eslint-enable no-undef, no-console*/
+ /*eslint-enable no-undef*/
 
 const store = createStore(
   rootReducer,

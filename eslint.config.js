@@ -3,17 +3,12 @@ const js = require("@eslint/js");
 
 const tseslint = require("typescript-eslint");
 
-//const tseslint = require("@typescript-eslint/eslint-plugin");
-//const tseslintParser = require("@typescript-eslint/parser");
-
 const react = require("eslint-plugin-react");
 const reactHooks = require("eslint-plugin-react-hooks");
 const jsxA11y = require("eslint-plugin-jsx-a11y");
 
-
-module.exports = defineConfig([
-  tseslint.configs.recommended,  
-  //tseslint.configs["flat/recommended"], 
+module.exports = defineConfig([ 
+  tseslint.configs.strict,  
   jsxA11y.flatConfigs.recommended, {
   ignores: [
     "js/*",
@@ -31,10 +26,12 @@ module.exports = defineConfig([
       clearInterval: true,
       requestAnimationFrame: true,
       MediaMetadata: true,
-
+     
       HTMLElement: true,
       HTMLButtonElement: true,     
-      HTMLDivElement: true
+      HTMLDivElement: true,
+      Event: true,
+      KeyboardEvent: true
       
     },   
     parser: tseslint.parser,
@@ -57,7 +54,7 @@ module.exports = defineConfig([
      
   rules: {
     //edit eslint rules
-    "for-direction": 0,
+    //"for-direction": 0,
 
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
     "no-console": 0,
@@ -69,37 +66,17 @@ module.exports = defineConfig([
     "no-unused-vars": [1, {"args": "none"}],
     "no-use-before-define": ["error", { "variables": false }],
    
-    //set react rules
-    "react/display-name": 0,
-    "react/jsx-boolean-value": [1, "always"],
-    "react/jsx-no-undef": 0,
-
-    "react/jsx-sort-prop-types": 0,
-    "react/jsx-sort-props": 0,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
-
-    "react/no-did-mount-set-state": 0,
-    "react/no-did-update-set-state": 0,
-
-    "react/no-multi-comp": 0,
-    "react/no-unknown-property": 0,
-
-    "react/prop-types": 0,
-    "react/react-in-jsx-scope": 1,
+    //set react rules    
+    "react/jsx-boolean-value": [1, "always"],        
+    "react/jsx-uses-vars": 1,            
     "react/self-closing-comp": 1,
-
-    "react/sort-comp": 0,
+    
     "react/jsx-wrap-multilines": ["error", {
        "declaration": true,
        "assignment": true,
        "return": true,
        "arrow": true
-    }],
-
-    //jsx-transform
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
+    }],    
 
     //set react-hooks rules
     "react-hooks/rules-of-hooks": "error",
@@ -110,14 +87,7 @@ module.exports = defineConfig([
     "jsx-a11y/label-has-for": 0    
   }
  },{
-    languageOptions: {
-      globals: {
-        /*
-        describe: true,
-        test: true,                   
-        expect: true                         
-        */
-      },      
+    languageOptions: {      
       parser: tseslint.parser,
       parserOptions: {
         ecmaFeatures: {

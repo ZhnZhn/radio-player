@@ -13,25 +13,24 @@ export const REMOVE_CATEGORY = 'REMOVE_CATEGORY'
 export const SET_CURRENT_STATION = 'SET_CURRENT_STATION'
 type SET_CURRENT_STATION_TYPE = typeof SET_CURRENT_STATION
 
-
 const addCategory = (category: CategoriesType) => ({
   type: ADD_CATEGORY,
   category
 })
 
-type ADD_CATEGORY_ACTION_TYPE = object & { 
-  type: ADD_CATEGORY_TYPE
-  category: CategoriesType
-  categories: void | StationType[] 
+type ADD_CATEGORY_ACTION_TYPE = { 
+  type: ADD_CATEGORY_TYPE;
+  category: CategoriesType;
+  categories: undefined | StationType[];
 }
 
 export const isAddCategortyAction = (action: unknown): action is ADD_CATEGORY_ACTION_TYPE => isAction(action)  
   && action.type === ADD_CATEGORY
   && 'category' in action
   
-type SET_CURRENT_STATION_ACTIONS_TYPE = object & {
-  type: ADD_CATEGORY_TYPE | SET_CURRENT_STATION_TYPE
-  currentStation: void | StationType
+type SET_CURRENT_STATION_ACTIONS_TYPE = {
+  type: ADD_CATEGORY_TYPE | SET_CURRENT_STATION_TYPE;
+  currentStation: undefined | StationType;
 }
 
 export const isSetCurrentStationActions = (action: unknown): action is SET_CURRENT_STATION_ACTIONS_TYPE => isAction(action)
@@ -51,6 +50,4 @@ export const stationActions = {
   addCategory,
   removeCategory,
   setCurrentStation
-};
-
-
+}

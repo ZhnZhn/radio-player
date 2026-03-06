@@ -25,7 +25,9 @@ const _logError = (err: unknown) => {
   const _errMsg = err instanceof Error
     ? err.message
     : err;     
+  /*eslint-disable no-undef*/  
   console.log(_errMsg);     
+  /*eslint-enable no-undef*/  
 };
 
 let _isFirtsInit = true;

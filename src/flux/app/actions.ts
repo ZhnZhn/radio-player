@@ -16,8 +16,8 @@ const setUiTheme = (uiThemeIndex: UiThemeIndexType) => ({
   uiTheme: _hmUiTheme[uiThemeIndex]
 });
 
-type SET_UI_THEME_ACTION_TYPE = object & {
-  uiTheme: void | UiThemeType
+type SET_UI_THEME_ACTION_TYPE = {
+  uiTheme: undefined | UiThemeType;
 }
 
 export const isSetUiThemeAction = (action: unknown): action is SET_UI_THEME_ACTION_TYPE => isAction(action)

@@ -74,14 +74,14 @@ const _isNaN = Number.isNaN
 const useMouseDown = (setValueFromPosition: SetValueFromPositionType) => {
   const [dragged, setDraggedTrue, setDraggedFalse] = useBool(false)
   , _refDragRunning = useRef(false)
-  , _hDragMouseMove = (evt: MouseOrTouchEvent) => {
+  , _hDragMouseMove = (evt: Event /*MouseOrTouchEvent*/) => {
     if (_refDragRunning.current) {
       return;
     }
     _refDragRunning.current = true;
     requestAnimationFrame(() => {
       _refDragRunning.current = false;
-      setValueFromPosition(evt)
+      setValueFromPosition(evt as unknown as MouseOrTouchEvent)
     })
   }
   , _hDragMouseUp = () => {

@@ -1,40 +1,39 @@
-export { Middleware, MiddlewareAPI, Dispatch } from 'redux';
+export type { 
+  Middleware, 
+  MiddlewareAPI, 
+  Dispatch 
+} from 'redux';
 
 import { UiThemeType } from '../components/ui-theme/types';
 import { CategoriesType, StationType } from '../sound/types';
 
 export type StateAppSlice = {
-  isDrawer: boolean,
-  filter: string,
-  currentStation?: StationType,
-  uiTheme: UiThemeType
-}
- 
-
-export type CategoriesSlice = {
-  [PropName in CategoriesType]?: boolean  
+  isDrawer: boolean;
+  filter: string;
+  currentStation?: StationType;
+  uiTheme: UiThemeType;
 }
 
-  
+export type CategoriesSlice = Partial<Record<CategoriesType, boolean>>
+
 export type StateRoot = {
-  app: StateAppSlice
-  topics: CategoriesType[],
-  categories: CategoriesSlice,
-  stations: StationType[]
+  app: StateAppSlice;
+  topics: CategoriesType[];
+  categories: CategoriesSlice;
+  stations: StationType[];
 }
-
 
 export type ActionHmType<T extends string> = {
-  [Key in T] : Key
+  [Key in T]: Key;
 }
 
 export type ActionType = {
-  type: string,
-  uiTheme?: UiThemeType,
-  filter?: string,
-  station?: StationType,
+  type: string;
+  uiTheme?: UiThemeType;
+  filter?: string;
+  station?: StationType;
 
-  currentStation?: StationType,
-  category?: CategoriesType,  
-  categories?: StationType[]
+  currentStation?: StationType;
+  category?: CategoriesType;
+  categories?: StationType[];
 }
