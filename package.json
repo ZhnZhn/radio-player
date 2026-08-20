@@ -40,7 +40,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
-    "@biomejs/biome": "^2.5.8",
+    "@biomejs/biome": "^2.5.9",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@types/howler": "^2.2.13",
     "@types/react": "^18.3.31",
