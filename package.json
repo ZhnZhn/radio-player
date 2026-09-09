@@ -13,7 +13,8 @@
     "tsc:check": "tsc --noEmit",
     "transpile": "babel ./src --out-dir ./js --source-maps --ignore test.js",
     "transpile:all": "babel ./src --out-dir ./js --source-maps",
-    "build:prod": "webpack --color --progress --config webpack.prod.js"
+    "build:prod": "webpack --color --progress --config webpack.prod.js",
+    "build:rspack:prod": "rspack build --config rspack.prod.js"
   },
   "keywords": [
     "radio-player"
@@ -42,6 +43,8 @@
     "@babel/preset-typescript": "^7.29.7",
     "@biomejs/biome": "^2.5.12",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+    "@rspack/cli": "^2.2.2",
+    "@rspack/core": "^2.2.2",
     "@types/howler": "^2.2.13",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
