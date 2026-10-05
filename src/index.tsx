@@ -1,4 +1,4 @@
-import { render } from 'preact';
+import { render } from 'preact/compat';
 import { Provider } from 'react-redux';
 
 import store from './flux/store';
