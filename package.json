@@ -27,9 +27,9 @@
     "url": "https://github.com/ZhnZhn/radio-player.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.29.7",
+    "@babel/runtime": "^7.29.10",
     "howler": "^2.2.4",
-    "preact": "^11.0.0",
+    "preact": "^11.0.1",
     "react-redux": "^9.3.0",
     "redux": "^5.0.1"
   },
