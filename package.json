@@ -29,7 +29,7 @@
   "dependencies": {
     "@babel/runtime": "^7.29.10",
     "howler": "^2.2.4",
-    "preact": "^11.0.1",
+    "preact": "^11.0.2",
     "react-redux": "^9.3.0",
     "redux": "^5.0.1"
   },
@@ -69,10 +69,6 @@
   },
   "overrides": {
     "glob": "~13.0.6",
-    "uuid": "~14.0.0",
-    "js-yaml": "~4.3.0",
-    "http-proxy-middleware": "~4.1.1",
-    "qs": "~6.16.0",
-    "body-parser": "~1.20.6"
+    "uuid": "~14.0.0"
   }
 }
