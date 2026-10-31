@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
-    "@biomejs/biome": "^2.5.15",
+    "@biomejs/biome": "^2.6.4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.3",
     "@prefresh/core": "^1.5.11",
     "@prefresh/utils": "^1.2.1",
@@ -68,7 +68,7 @@
     "webpack-cli": "^7.2.3"
   },
   "overrides": {
-    "glob": "~13.0.6",
-    "uuid": "~14.0.0"
+    "glob": "~14.0.3",
+    "minimatch": "~11.0.3"
   }
 }
